@@ -22,24 +22,8 @@
   </a>
   
   <!-- Links -->
-  <ul class="navbar-nav">
-<<<<<<< HEAD
-    <li class="nav-item">
-      <a class="nav-link" href="<c:url value='/login'/>">로그인</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="<c:url value='/signup'/>">회원가입</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">둘러보기</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">예매하기</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">마이페이지</a>
-    </li>
-=======
+  <div class="collapse navbar-collapse justify-content-between">
+  	<ul class="navbar-nav">
 	  <c:if test="${user==null }">
 	    <li class="nav-item">
 	      <a class="nav-link" href="<c:url value='/member/login'/>">로그인</a>
@@ -49,21 +33,27 @@
 	    </li>
 	  </c:if>
 	  <c:if test="${user!=null }">
+	  
 	    <li class="nav-item">
 	      <a class="nav-link" href="#">둘러보기</a>
 	    </li>
 	    <li class="nav-item">
 	      <a class="nav-link" href="#">예매하기</a>
 	    </li>
+	 </ul>
+	 <ul class="navbar-nav">  
 	    <li class="nav-item">
-	      <a class="nav-link" href="#">마이페이지</a>
+	      <a class="nav-link" href="#">${user.me_id }님 환영합니다</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="<c:url value='/member/mypage'/>">마이페이지</a>
 	    </li>
 	     <li class="nav-item">
 	      <a class="nav-link" href="<c:url value='/member/logout'/>">로그아웃</a>
 	    </li>
+	    </div>
 	  </c:if>
->>>>>>> chldbwls
-  </ul>
+ 	  </ul>
 </nav>
 
 </body>

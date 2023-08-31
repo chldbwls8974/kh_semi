@@ -41,7 +41,7 @@
 </div>
 	<script>
 	   <% 
-       Boolean result = (Boolean)request.getAttribute("signupOk");
+       Boolean result = (Boolean)request.getAttribute("Ok");
 	   if(result != null && result){
     %>
        alert('회원가입 성공');

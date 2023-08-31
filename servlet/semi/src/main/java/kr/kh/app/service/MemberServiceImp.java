@@ -44,34 +44,20 @@ public class MemberServiceImp implements MemberService {
 	}
 
 	@Override
-<<<<<<< HEAD
-	public boolean login(MemberVO member) {
-		if(member.getMe_id() == null || member.getMe_pw()==null) {
-			return false;
-=======
 	public MemberVO login(MemberVO member) {
 		if(member.getMe_id() == null || member.getMe_pw()==null) {
 			return null;
->>>>>>> chldbwls
 		}
 		
 		MemberVO dbMember = memberDao.selectMember(member.getMe_id());
 		if(dbMember == null) {
-<<<<<<< HEAD
-			return false;
-		}
-		if(member.getMe_pw().equals(dbMember.getMe_pw())) {
-			return true;
-		}
-		return false;
-=======
 			return null;
 		}
+	
 		if(member.getMe_pw().equals(dbMember.getMe_pw())) {
 			return dbMember;
 		}
 		return null;
->>>>>>> chldbwls
 	}
 	
 
