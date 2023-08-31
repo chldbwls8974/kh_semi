@@ -55,6 +55,8 @@
 	  </c:if>
  	  </ul>
 </nav>
-
+<div class="container">
+	  <h1>첫 화면이 보일 container</h1>
+</div>
 </body>
 </html>
