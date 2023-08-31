@@ -22,7 +22,11 @@ public class Signup extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+<<<<<<< HEAD
 		request.getRequestDispatcher("WEB-INF/views/signup.jsp").forward(request,response);
+=======
+		request.getRequestDispatcher("/WEB-INF/views/member/signup.jsp").forward(request,response);
+>>>>>>> chldbwls
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -40,7 +44,10 @@ public class Signup extends HttpServlet {
 		}
 		request.setAttribute("Ok", Ok);
 		doGet(request, response);
+<<<<<<< HEAD
 		request.getRequestDispatcher("index.jsp").forward(request, response);
+=======
+>>>>>>> chldbwls
 	}
 
 }

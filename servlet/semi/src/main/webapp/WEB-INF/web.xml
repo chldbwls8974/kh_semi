@@ -27,6 +27,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Signup</servlet-name>
+<<<<<<< HEAD
     <url-pattern>/signup</url-pattern>
   </servlet-mapping>
   <servlet>
@@ -88,6 +89,9 @@
   <servlet-mapping>
     <servlet-name>BoardUpdate</servlet-name>
     <url-pattern>/board/update</url-pattern>
+=======
+    <url-pattern>/member/signup</url-pattern>
+>>>>>>> chldbwls
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -97,6 +101,20 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>LogIn</servlet-name>
+<<<<<<< HEAD
     <url-pattern>/login</url-pattern>
+=======
+    <url-pattern>/member/login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Logout</display-name>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>kr.kh.app.controller.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/member/logout</url-pattern>
+>>>>>>> chldbwls
   </servlet-mapping>
 </web-app>

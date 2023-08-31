@@ -6,6 +6,10 @@ public interface MemberService {
 
 	boolean signup(MemberVO member);
 
+<<<<<<< HEAD
 	boolean login(MemberVO member);
+=======
+	MemberVO login(MemberVO member);
+>>>>>>> chldbwls
 
 }
