@@ -1,10 +1,12 @@
 package kr.kh.app.controller;
 
+import java.io.IOException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import kr.kh.app.vo.MemberVO;
 
 public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -19,9 +21,13 @@ public class Logout extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setAttribute("Ok", true);
-		request.getSession().setAttribute("user",null);
+		MemberVO user =(MemberVO)request.getSession().getAttribute("user");
+		boolean Ok = false;
+		if(user != null) {
+			Ok = true;
+			request.getSession().removeAttribute("user");
+		}
+		request.setAttribute("Ok", Ok);
 		doGet(request, response);
 	}
 
