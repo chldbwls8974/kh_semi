@@ -19,11 +19,10 @@ public class Branch extends HttpServlet {
         super();
     }
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<BranchVO> list = branchService.getBranchList();
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("/WEB-INF/views/member/branch.jsp").forward(request, response);	
+		request.getRequestDispatcher("/WEB-INF/views/list.jsp").forward(request, response);	
 	}
 
 
@@ -41,3 +40,4 @@ public class Branch extends HttpServlet {
 	}
 
 }
+
