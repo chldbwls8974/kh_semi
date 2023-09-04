@@ -66,7 +66,7 @@
     <display-name>DogInsert</display-name>
     <servlet-name>DogInsert</servlet-name>
     <servlet-class>kr.kh.app.controller.DogInsert</servlet-class>
-  </servlet>
+  </servlet> 
   <servlet-mapping>
     <servlet-name>DogInsert</servlet-name>
     <url-pattern>/dog/insert</url-pattern>

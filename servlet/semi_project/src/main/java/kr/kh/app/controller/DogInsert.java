@@ -6,17 +6,20 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kr.kh.app.service.DogService;
+import kr.kh.app.service.DogServiceImp;
 import kr.kh.app.vo.DogVO;
 
 public class DogInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    DogService dogService = new DogServiceImp();  
+    
     public DogInsert() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/dog/insertdog.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/dog/insert.jsp").forward(request, response);
 		
 	}
 
@@ -30,7 +33,6 @@ public class DogInsert extends HttpServlet {
 		String detail = request.getParameter("d_detail");
 		String id = request.getParameter("d_me_id");
 		String siName = request.getParameter("d_si_name");
-		
 		DogVO dog = new DogVO(num,name,age,gen,kg,detail,id,siName);
 		
 		boolean ok = false;
