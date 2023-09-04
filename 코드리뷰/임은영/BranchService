@@ -6,8 +6,9 @@ import kr.kh.app.vo.BranchVO;
 
 public interface BranchService {
 
-	boolean insertBranch(BranchVO branch);
-
 	ArrayList<BranchVO> getBranchList();
 
+	boolean insertBranch(BranchVO branch);
+
 }
+
