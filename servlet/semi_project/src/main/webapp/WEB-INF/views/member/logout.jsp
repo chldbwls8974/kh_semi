@@ -12,6 +12,6 @@
 </body>
 <script>
        alert('로그아웃 성공');
-       location.href="/pj";
+       location.href="/semi_project/";
 </script>
 </html>

@@ -51,11 +51,12 @@
 	     <li class="nav-item">
 	      <a class="nav-link" href="<c:url value='/member/logout'/>">로그아웃</a>
 	    </li>
+	     <li class="nav-item">
+	      <a class="nav-link" href="<c:url value='/dog/main'/>">나의 반려견</a>
+	    </li>
 	    </div>
 	  </c:if>
- 	  </ul>
-<!--  	  테스트코드 -->
- 	  <a href="<c:url value='/dog/insert'/>">반려견 등록</a>
+	  
 </nav>
 <div class="container">
 	  <h1>첫 화면이 보일 container</h1>
