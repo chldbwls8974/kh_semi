@@ -1,6 +1,3 @@
-package kr.kh.app.service;
-
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
@@ -10,7 +7,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kr.kh.app.dao.BranchDAO;
+import kr.kh.app.dao.MemberDAO;
 import kr.kh.app.vo.BranchVO;
+import kr.kh.app.vo.MemberVO;
 
 public class BranchServiceImp implements BranchService {
 private BranchDAO branchDao;
@@ -34,18 +33,19 @@ private MemberDAO memberDao;
 		if(branch == null || branch.getBr_name() == null || branch.getBr_phone() == null) {
 			return false;
 		}
-		//작성자가 관리자가 맞는지 확인 
-		BranchVO admin = branchDao.selectBranch(branch.get????());
-		if(branch == null) {
+		//작성자가 관리인이 맞는지 확인 
+		MemberVO member = memberDao.selectMember(branch.getBr_name());
+		if(member == null) {
 			return false;
 		}
-		branchDao.insertBranch(branch);
+		branchDao.insertBoard(branch);
 		return true;
 	}
 
 	@Override
 	public ArrayList<BranchVO> getBranchList() {
-
-		return null;
+		return branchDao.selectBranchList();
 	}
+
 }
+
