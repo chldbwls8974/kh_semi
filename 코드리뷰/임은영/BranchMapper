@@ -6,7 +6,7 @@
 	<insert id="insertBranch">
 		insert into branch(br_name, br_phone) values(#{branch.br_name},#{branch.br_phone})
 	</insert>
-<select id="selectBranchList" resultType="kr.kh.app.vo.BranchVO">
-	select * from branch order by br_num desc
-</select>
+	<select id="selectBranchList" resultType="kr.kh.app.vo.BranchVO">
+		select * from branch order by br_num desc
+	</select>
 </mapper>
