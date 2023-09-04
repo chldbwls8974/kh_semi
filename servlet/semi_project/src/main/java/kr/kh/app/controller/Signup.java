@@ -33,7 +33,7 @@ public class Signup extends HttpServlet {
 		String name = request.getParameter("me_name");
 		String address = request.getParameter("me_address"); 
 		String phone = request.getParameter("me_phone");
-		MemberVO member = new MemberVO(id,pw,name,address,phone,0);
+		MemberVO member = new MemberVO(id,pw,name,address,phone,0,0,null);
 		boolean Ok = false;
 		if(memberService.signup(member)) {
 			Ok = true;

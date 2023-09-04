@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="5.0">
-  <display-name>pj1</display-name>
+  <display-name>semi_project</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
@@ -60,5 +60,25 @@
     <servlet-name>MyPage</servlet-name>
     <url-pattern>/MyPage</url-pattern>
     <url-pattern>/member/mypage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Branch</display-name>
+    <servlet-name>Branch</servlet-name>
+    <servlet-class>kr.kh.app.controller.Branch</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Branch</servlet-name>
+    <url-pattern>/branch/list</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BranchInsert</display-name>
+    <servlet-name>BranchInsert</servlet-name>
+    <servlet-class>kr.kh.app.controller.BranchInsert</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BranchInsert</servlet-name>
+    <url-pattern>/branch/insert</url-pattern>
   </servlet-mapping>
 </web-app>

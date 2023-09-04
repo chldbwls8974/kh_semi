@@ -32,6 +32,7 @@
 	      <a class="nav-link" href="<c:url value='/member/signup'/>">회원가입</a>
 	    </li>
 	  </c:if>
+
 	  <c:if test="${user!=null }">
 	  
 	    <li class="nav-item">
@@ -40,20 +41,31 @@
 	    <li class="nav-item">
 	      <a class="nav-link" href="#">예매하기</a>
 	    </li>
+	    </c:if>
 	 </ul>
-	 <ul class="navbar-nav">  
-	    <li class="nav-item">
-	      <a class="nav-link" href="#">${user.me_id }님 환영합니다</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="<c:url value='/member/mypage'/>">마이페이지</a>
-	    </li>
-	     <li class="nav-item">
-	      <a class="nav-link" href="<c:url value='/member/logout'/>">로그아웃</a>
-	    </li>
-	    </div>
-	  </c:if>
- 	  </ul>
+	 	<ul class="navbar-nav">  
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">${user.me_id }님 환영합니다</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="<c:url value='/member/mypage'/>">마이페이지</a>
+		    </li>
+		     <li class="nav-item">
+		      <a class="nav-link" href="<c:url value='/member/logout'/>">로그아웃</a>
+		    </li>
+		    </div>
+	
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">관리자 권한</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="<c:url value='/branch/list'/>">지점조회</a>
+		    </li>
+		     <li class="nav-item">
+		      <a class="nav-link" href="<c:url value='/member/logout'/>">로그아웃</a>
+		    </li>
+		    </div>
+ 	 </ul>
 </nav>
 <div class="container">
 	  <h1>첫 화면이 보일 container</h1>
