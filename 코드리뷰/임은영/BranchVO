@@ -11,6 +11,6 @@ public class BranchVO {
 	public BranchVO(int num, String name, String phone) {
 		this.br_num = num;
 		this.br_name = name;
-		this.br_phone = name;
+		this.br_phone = phone;
 	}
 }
