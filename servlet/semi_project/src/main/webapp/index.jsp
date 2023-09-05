@@ -57,6 +57,9 @@
 	    <li class="nav-item">
 	      <a class="nav-link" href="<c:url value='/level/update'/>">등급혜택 변경</a>
 	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="<c:url value='/size/update'/>">크기구분 변경</a>
+	    </li>
 	    </div>
 	  </c:if>
 	  

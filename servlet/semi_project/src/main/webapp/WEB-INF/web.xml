@@ -101,4 +101,14 @@
     <servlet-name>LevelUpdate</servlet-name>
     <url-pattern>/level/update</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SizeUpdate</display-name>
+    <servlet-name>SizeUpdate</servlet-name>
+    <servlet-class>kr.kh.app.controller.SizeUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SizeUpdate</servlet-name>
+    <url-pattern>/size/update</url-pattern>
+  </servlet-mapping>
 </web-app>
