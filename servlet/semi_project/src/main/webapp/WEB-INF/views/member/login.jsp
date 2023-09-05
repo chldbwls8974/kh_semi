@@ -36,7 +36,7 @@
 	   if(result != null && result){
     %>
        alert('로그인 성공');
-       location.href="/pj";
+       location.href="/semi_project";
     <% 
        }else if(result != null && !result){ %>
        alert('로그인 실패')

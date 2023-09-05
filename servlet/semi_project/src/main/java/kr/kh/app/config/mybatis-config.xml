@@ -21,5 +21,6 @@
   <mappers>
     <mapper resource="kr/kh/app/dao/MemberMapper.xml"/>
     <mapper resource="kr/kh/app/dao/BranchMapper.xml"/>
+    <mapper resource="kr/kh/app/dao/DogMapper.xml"/>
   </mappers>
 </configuration>
