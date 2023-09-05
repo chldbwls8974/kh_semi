@@ -8,8 +8,7 @@ public class BranchVO {
 	private String br_name;
 	private String br_phone;
 
-	public BranchVO(int num, String name, String phone) {
-		this.br_num = num;
+	public BranchVO(String name, String phone) {
 		this.br_name = name;
 		this.br_phone = phone;
 	}
