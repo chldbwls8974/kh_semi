@@ -10,7 +10,7 @@ public interface BranchDAO {
 
 	ArrayList<BranchVO> selectBranchList();
 
-	void insertBoard(@Param("branch")BranchVO branch);
-		
+	void insertBranch(@Param("branch")BranchVO branch);
+
 
 }
