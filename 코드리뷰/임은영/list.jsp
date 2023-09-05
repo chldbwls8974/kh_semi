@@ -13,7 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class="container mt-5">
+	<div class="container mt-5">
 		<h1>지점 조회</h1>
 		<c:choose>
 			<c:when test="${pm.totalCount != 0}">
@@ -29,7 +29,7 @@
 				    	<c:forEach items="${list}" var="branch">
 					      <tr>
 					        <td>${branch.br_num}</td>
-					        <td><a href="<c:url value='${branch.branchNameUrl}'/>">${branch.br_name}</a></td>
+					        <td>${branch.br_name}</td>
 					        <td>${branch.br_phone}</td>
 					      </tr>
 					    </c:forEach>
@@ -40,7 +40,7 @@
 				<h2>등록된 지점이 없습니다.</h2>
 			</c:otherwise>
 		</c:choose>	
-		<a href="" class="btn btn-outline-success">지점 등록</a>
+		<a href="<%=request.getContextPath()%>/views/insert" class="btn btn-outline-success">지점 등록</a>
 		<a href="" class="btn btn-outline-success">메인으로</a>
 	</div>
 </body>
