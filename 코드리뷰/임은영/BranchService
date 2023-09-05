@@ -3,6 +3,7 @@ package kr.kh.app.service;
 import java.util.ArrayList;
 
 import kr.kh.app.vo.BranchVO;
+import kr.kh.app.vo.MemberVO;
 
 public interface BranchService {
 
@@ -10,5 +11,6 @@ public interface BranchService {
 
 	boolean insertBranch(BranchVO branch);
 
-}
 
+
+}
