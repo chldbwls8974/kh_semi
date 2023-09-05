@@ -35,7 +35,6 @@ public class DogInsert extends HttpServlet {
 		System.out.println(list.size());
 		int myDogCount = list.size() + 1;
 		
-		
 		String name = request.getParameter("d_name");
 		String age = request.getParameter("d_age");
 		String gen = request.getParameter("d_gen");
@@ -46,12 +45,15 @@ public class DogInsert extends HttpServlet {
 		
 		// 강아지는 소 : 8kg 이하 / 중 : 9kg 이상 20kg미만 / 대 : 20kg 이상으로 구분된다.
 		String siName = request.getParameter("d_si_name"); 
+//		dogService.selectSiName(); 메서드 추가???
 		if (kg <= 8) { siName = "s"; }
 		else if(kg <= 20) {	siName ="m"; }
 		else { siName ="l"; }
 		
-		// 반려동물번호 생성 // user + (s/m/l) + 1(증가) 
-		String num = id  + siName + myDogCount; 
+		// 관리자 - 수정, 삭제
+		
+		// 반려동물번호 생성 // user + 00 + 1(증가) //최대 3마리
+		String num = id  + siName + myDogCount;
 		
 		DogVO dog = new DogVO(num, name, age, gen, kg, detail, id, siName);
 		System.out.println(dog);
