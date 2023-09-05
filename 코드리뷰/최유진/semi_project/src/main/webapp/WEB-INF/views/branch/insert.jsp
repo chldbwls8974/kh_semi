@@ -1,4 +1,3 @@
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -57,13 +56,12 @@
 	    %>
 	       alert('지점등록 성공!');
 	       location.href="/semi_project";
-	    <% 
+	    <% 	
 	       }else if(result != null && !result){ %>
 	       alert('지점등록 실패!'')
 	    <%
 	       }
 	    %>
 	</script>
->>>>>>> 4132233da10b8b8ba13ce6a046097bb301f69900:코드리뷰/임은영/insert.jsp
 </body>
 </html>

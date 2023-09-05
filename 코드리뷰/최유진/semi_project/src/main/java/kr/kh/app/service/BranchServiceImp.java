@@ -35,14 +35,11 @@ private MemberDAO memberDao;
 		if(branch == null || branch.getBr_name() == null || branch.getBr_phone() == null) {
 			return false;
 		}
-<<<<<<< HEAD:코드리뷰/최유진/semi_project/src/main/java/kr/kh/app/service/BranchServiceImp.java
 		//작성자가 관리자가 맞는지 확인 
 		//BranchVO admin = branchDao.selectBranch(branch.get);
 		/*
 		 * if(branch == null) { return false; }
 		 */
-=======
->>>>>>> 4132233da10b8b8ba13ce6a046097bb301f69900:코드리뷰/임은영/BranchServiceImp
 		branchDao.insertBranch(branch);
 		return true;
 	}
@@ -51,10 +48,6 @@ private MemberDAO memberDao;
 	public ArrayList<BranchVO> getBranchList() {
 		return branchDao.selectBranchList();
 	}
-<<<<<<< HEAD:코드리뷰/최유진/semi_project/src/main/java/kr/kh/app/service/BranchServiceImp.java
 }
-=======
 
 
-}
->>>>>>> 4132233da10b8b8ba13ce6a046097bb301f69900:코드리뷰/임은영/BranchServiceImp

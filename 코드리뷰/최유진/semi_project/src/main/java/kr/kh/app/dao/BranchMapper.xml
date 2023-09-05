@@ -6,14 +6,7 @@
 	<insert id="insertBranch">
 		insert into branch(br_name, br_phone) values(#{branch.br_name},#{branch.br_phone})
 	</insert>
-<<<<<<< HEAD:코드리뷰/최유진/semi_project/src/main/java/kr/kh/app/dao/BranchMapper.xml
 <select id="selectBranchList" resultType="kr.kh.app.vo.BranchVO">
 	select * from branch
 </select>
 </mapper>
-=======
-	<select id="selectBranchList" resultType="kr.kh.app.vo.BranchVO">
-		select * from branch order by br_num desc
-	</select>
-</mapper>
->>>>>>> 4132233da10b8b8ba13ce6a046097bb301f69900:코드리뷰/임은영/BranchMapper
