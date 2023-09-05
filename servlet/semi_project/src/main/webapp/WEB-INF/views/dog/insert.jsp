@@ -22,19 +22,19 @@
  		</div>
  		<div class = "form-group">
  			<label>반려견 이름</label>
- 			<input type="text" class="form-control" name="d_name">
+ 			<input type="text" class="form-control" name="d_name" required>
  		</div>
  		<div class = "form-group">
  			<label>나이</label>
- 			<input type="text" class="form-control" name="d_age">
+ 			<input type="text" class="form-control" name="d_age" required>
  		</div>
  		<div class = "form-group">
  			<label>성별</label>
- 			<input type="text" class="form-control" name="d_gen" placeholder="M or F">
+ 			<input type="text" class="form-control" name="d_gen" placeholder="M or F" required>
  		</div>
  		<div class = "form-group">
  			<label>무게</label>
- 			<input type="text" class="form-control" name="d_kg" placeholder="kg 제외하고 입력">
+ 			<input type="text" class="form-control" name="d_kg" placeholder="kg 제외하고 입력" required>
  		</div>
  		<div class = "form-group">
  			<label>특이사항</label>
@@ -52,7 +52,7 @@
        location.href="/semi_project/dog/main";
     <% 
        }else if(result != null && !result){ %>
-       alert('반려견 등록 실패')
+       alert('반려견 등록 실패');
     <%
        }
     %>

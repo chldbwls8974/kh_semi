@@ -53,7 +53,7 @@ public class DogInsert extends HttpServlet {
 		// 관리자 - 수정, 삭제
 		
 		// 반려동물번호 생성 // user + 00 + 1(증가) //최대 3마리
-		String num = id  + siName + myDogCount;
+		String num = id  + "00" + myDogCount;
 		
 		DogVO dog = new DogVO(num, name, age, gen, kg, detail, id, siName);
 		System.out.println(dog);

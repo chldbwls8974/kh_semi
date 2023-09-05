@@ -54,6 +54,9 @@
 	     <li class="nav-item">
 	      <a class="nav-link" href="<c:url value='/dog/main'/>">나의 반려견</a>
 	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="<c:url value='/level/update'/>">등급혜택 변경</a>
+	    </li>
 	    </div>
 	  </c:if>
 	  
