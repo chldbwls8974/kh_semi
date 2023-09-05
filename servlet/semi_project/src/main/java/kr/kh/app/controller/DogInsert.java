@@ -1,6 +1,7 @@
 package kr.kh.app.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -16,13 +17,19 @@ public class DogInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     DogService dogService = new DogServiceImp(); 
     
-    private int count = 0;
+    private int count ;
     
     public DogInsert() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//추가코드 4줄
+//		HttpSession session = request.getSession();
+//		MemberVO user = (MemberVO)session.getAttribute("user"); 
+//		ArrayList<DogVO> list = dogService.getMyDogList(user);
+//		count = list.size();
+		
 		request.getRequestDispatcher("/WEB-INF/views/dog/insert.jsp").forward(request, response);
 		
 	}
