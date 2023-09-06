@@ -111,7 +111,7 @@
     <servlet-name>DogMain</servlet-name>
     <url-pattern>/dog/main</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>Room</display-name>
     <servlet-name>Room</servlet-name>
@@ -121,7 +121,7 @@
     <servlet-name>Room</servlet-name>
     <url-pattern>/room/roommain</url-pattern>
   </servlet-mapping>
-     <servlet>
+  <servlet>
     <description></description>
     <display-name>RoomDetail</display-name>
     <servlet-name>RoomDetail</servlet-name>
@@ -131,7 +131,7 @@
     <servlet-name>RoomDetail</servlet-name>
     <url-pattern>/room/plus/roomdetail</url-pattern>
   </servlet-mapping>
-     <servlet>
+  <servlet>
     <description></description>
     <display-name>RoomInsert</display-name>
     <servlet-name>RoomInsert</servlet-name>
@@ -140,5 +140,25 @@
   <servlet-mapping>
     <servlet-name>RoomInsert</servlet-name>
     <url-pattern>/room/plus/roominsert</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PointMain</display-name>
+    <servlet-name>PointMain</servlet-name>
+    <servlet-class>kr.kh.app.controller.PointMain</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PointMain</servlet-name>
+    <url-pattern>/point/main</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PointInsert</display-name>
+    <servlet-name>PointInsert</servlet-name>
+    <servlet-class>kr.kh.app.controller.PointInsert</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PointInsert</servlet-name>
+    <url-pattern>/point/insert</url-pattern>
   </servlet-mapping>
 </web-app>

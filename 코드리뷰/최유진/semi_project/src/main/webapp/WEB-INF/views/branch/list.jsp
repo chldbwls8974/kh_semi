@@ -14,10 +14,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<<<<<<< HEAD:코드리뷰/최유진/semi_project/src/main/webapp/WEB-INF/views/branch/list.jsp
 	<h1>지점 조회</h1>
 	<a href="<c:url value='branch/insert'/>">지점 등록</a>
-=======
 	<div class="container mt-5">
 		<h1>지점 조회</h1>
 		<c:choose>
@@ -48,6 +46,5 @@
 		<a href="<%=request.getContextPath()%>/views/insert" class="btn btn-outline-success">지점 등록</a>
 		<a href="" class="btn btn-outline-success">메인으로</a>
 	</div>
->>>>>>> 4132233da10b8b8ba13ce6a046097bb301f69900:코드리뷰/임은영/list.jsp
 </body>
 </html>

@@ -37,12 +37,6 @@
  		<li class="nav-item">
 	      <a class="nav-link" href="#">${user.me_id }님 환영합니다</a>
 	    </li>
- 		<li class="nav-item">
-   		   <a class="nav-link" href="#">둘러보기</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="#">예매하기</a>
-	    </li>
 	     <li class="nav-item">
 	      <a class="nav-link" href="<c:url value='/dog/main'/>">동물등록하기</a>
 	    </li>
@@ -66,10 +60,7 @@
 	      <a class="nav-link" href="#">회원관리</a>
 	    </li>
 	    <li class="nav-item">
-	      <a class="nav-link" href="<c:url value='/dog/main'/>">동물관리</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="#">포인트관리</a>
+	      <a class="nav-link" href="<c:url value='/point/main'/>">포인트관리</a>
 	    </li>
 	     <li class="nav-item">
 	      <a class="nav-link" href="<c:url value='/member/logout'/>">로그아웃</a>
