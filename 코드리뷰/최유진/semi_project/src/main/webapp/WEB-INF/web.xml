@@ -111,4 +111,34 @@
     <servlet-name>DogMain</servlet-name>
     <url-pattern>/dog/main</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>Room</display-name>
+    <servlet-name>Room</servlet-name>
+    <servlet-class>kr.kh.app.controller.Room</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Room</servlet-name>
+    <url-pattern>/room/roommain</url-pattern>
+  </servlet-mapping>
+     <servlet>
+    <description></description>
+    <display-name>RoomDetail</display-name>
+    <servlet-name>RoomDetail</servlet-name>
+    <servlet-class>kr.kh.app.controller.RoomDetail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RoomDetail</servlet-name>
+    <url-pattern>/room/plus/roomdetail</url-pattern>
+  </servlet-mapping>
+     <servlet>
+    <description></description>
+    <display-name>RoomInsert</display-name>
+    <servlet-name>RoomInsert</servlet-name>
+    <servlet-class>kr.kh.app.controller.RoomInsert</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RoomInsert</servlet-name>
+    <url-pattern>/room/plus/roominsert</url-pattern>
+  </servlet-mapping>
 </web-app>
