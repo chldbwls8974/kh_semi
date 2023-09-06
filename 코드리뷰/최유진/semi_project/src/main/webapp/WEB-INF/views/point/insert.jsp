@@ -13,6 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<h3>포인트 적립내용 추가</h3>
 	<form action="" method="post">
 			<input type="text" name="po_point" placeholder="포인트"> <br>

@@ -13,6 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <div class="container">
 	<h1>회원가입</h1>
  	<form action="<c:url value='/member/signup'/>" method="post">

@@ -14,6 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<h1>지점 조회</h1>
 	<a href="<c:url value='branch/insert'/>">지점 등록</a>
 	<div class="container mt-5">

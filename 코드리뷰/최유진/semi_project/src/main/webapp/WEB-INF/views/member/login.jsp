@@ -13,6 +13,7 @@
 <title>로그인</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <div class="container">
 	<h1>로그인</h1>
  	<form action="<c:url value='/member/login'/>" method="post">

@@ -12,6 +12,7 @@
 <title>Room 1</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	
 	<h3>방 상세정보</h3>
 	
