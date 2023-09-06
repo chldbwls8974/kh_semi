@@ -13,6 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<h1>포인트 적립 관리 페이지</h1>
 	<div class="container">
 		<table class="table table-hover">

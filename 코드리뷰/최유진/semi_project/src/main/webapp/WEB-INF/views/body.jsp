@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 </body>
-<script>
-       alert('로그아웃 성공 성공');
-       location.href="/pj";
-</script>
 </html>

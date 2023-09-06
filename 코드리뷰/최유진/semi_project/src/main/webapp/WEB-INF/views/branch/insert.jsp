@@ -13,6 +13,7 @@
 <title>지점 등록</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container">
 	<h1>지점 등록</h1>
 	<%-- <form action = "" method="post">

@@ -12,6 +12,7 @@
 <title>My page</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 <div class="container">
   <h2>마이 페이지</h2>

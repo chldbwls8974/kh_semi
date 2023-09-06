@@ -13,6 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <div class="container">
 	<h1>반려견 등록</h1>
  	<form action="<c:url value='/dog/insert'/>" method="post">

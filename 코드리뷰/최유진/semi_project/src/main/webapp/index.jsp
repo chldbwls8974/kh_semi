@@ -14,60 +14,8 @@
 <title>Dog Hotel</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <!-- Brand/logo -->
-  <a class="navbar-brand" href="#">
-    <img src="/semi_project" alt="logo" style="width:40px;">
-  </a>
-  
-  <!-- Links -->
-  <div class="collapse navbar-collapse justify-content-between">
-  	<ul class="navbar-nav">
-	
-	    <li class="nav-item">
-	      <a class="nav-link" href="<c:url value='/member/login'/>">로그인</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="<c:url value='/member/signup'/>">회원가입</a>
-	    </li>
-	  
- 	</ul>
- 	<ul class="navbar-nav">  
- 		<li class="nav-item">
-	      <a class="nav-link" href="#">${user.me_id }님 환영합니다</a>
-	    </li>
-	     <li class="nav-item">
-	      <a class="nav-link" href="<c:url value='/dog/main'/>">동물등록하기</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="<c:url value='/member/mypage'/>">마이페이지</a>
-	    </li>
-	     <li class="nav-item">
-	      <a class="nav-link" href="<c:url value='/member/logout'/>">로그아웃</a>
-	    </li>
-   
-	    <li class="nav-item">
-	      <a class="nav-link" href="#">관리자 권한</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="<c:url value='/branch/list'/>">지점관리</a>
-	    </li>
-	     <li class="nav-item">
-	      <a class="nav-link" href="<c:url value='/room/roommain'/>">객실관리</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="#">회원관리</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="<c:url value='/point/main'/>">포인트관리</a>
-	    </li>
-	     <li class="nav-item">
-	      <a class="nav-link" href="<c:url value='/member/logout'/>">로그아웃</a>
-	    </li> 
-	 </ul>
-  </div>	 
-</nav>
 <div class="container">
 	  <h1>첫 화면이 보일 container</h1>
 	  ${user }
