@@ -15,7 +15,6 @@
 <body>
 	<div class="container">
 	<h1>지점 등록</h1>
-<<<<<<< HEAD:코드리뷰/최유진/semi_project/src/main/webapp/WEB-INF/views/branch/insert.jsp
 	<%-- <form action = "" method="post">
 		<input type="text" name="name" placeholder="지점명"> <br>
 		<input type="text" name="phone" placeholder="전화번호"> <br>
@@ -35,7 +34,6 @@
 			}
 		%>
 	</script> --%>
-=======
 	<form action="<c:url value='/views/insert'/>" method="post">
 	 	<div class = "form-group">
 			<label>지점명</label>
