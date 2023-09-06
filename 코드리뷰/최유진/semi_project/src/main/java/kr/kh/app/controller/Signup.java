@@ -11,32 +11,35 @@ import kr.kh.app.service.MemberServiceImp;
 import kr.kh.app.vo.MemberVO;
 
 
-public class LogIn extends HttpServlet {
+public class Signup extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MemberService memberService = new MemberServiceImp();
+	
        
-    public LogIn() {
+   
+    public Signup() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/member/login.jsp").forward(request,response);
+		request.getRequestDispatcher("/WEB-INF/views/member/signup.jsp").forward(request,response);
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("me_id");
 		String pw = request.getParameter("me_pw");
-		MemberVO member = new MemberVO(id,pw,null,null,null,0);
-		MemberVO user = memberService.login(member);
+		String name = request.getParameter("me_name");
+		String address = request.getParameter("me_address"); 
+		String phone = request.getParameter("me_phone");
+		MemberVO member = new MemberVO(id,pw,name,address,phone,0,0,null);
 		boolean Ok = false;
-		if(user != null) {
+		if(memberService.signup(member)) {
 			Ok = true;
 		}
 		request.setAttribute("Ok", Ok);
-		request.getSession().setAttribute("user",user);
 		doGet(request, response);
-		
 	}
 
 }

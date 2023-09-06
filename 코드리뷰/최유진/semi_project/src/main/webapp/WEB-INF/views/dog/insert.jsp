@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,45 +14,48 @@
 </head>
 <body>
 <div class="container">
-	<h1>회원가입</h1>
- 	<form action="<c:url value='/member/signup'/>" method="post">
+	<h1>반려견 등록</h1>
+ 	<form action="<c:url value='/dog/insert'/>" method="post">
  		<div class = "form-group">
  			<label>아이디</label>
- 			<input type="text" class="form-control" name="me_id">
+ 			<input type="text" class="form-control" name="d_me_id" value="${user.me_id}" readonly>
  		</div>
  		<div class = "form-group">
- 			<label>비번</label>
- 			<input type="password" class="form-control" name="me_pw">
+ 			<label>반려견 이름</label>
+ 			<input type="text" class="form-control" name="d_name">
  		</div>
  		<div class = "form-group">
- 			<label>성함</label>
- 			<input type="text" class="form-control" name="me_name">
+ 			<label>나이</label>
+ 			<input type="text" class="form-control" name="d_age">
  		</div>
  		<div class = "form-group">
- 			<label>주소</label>
- 			<input type="text" class="form-control" name="me_address">
+ 			<label>성별</label>
+ 			<input type="text" class="form-control" name="d_gen" placeholder="M or F">
  		</div>
  		<div class = "form-group">
- 			<label>핸드폰 번호</label>
- 			<input type="text" class="form-control" name="me_phone">
+ 			<label>무게</label>
+ 			<input type="text" class="form-control" name="d_kg" placeholder="kg 제외하고 입력">
  		</div>
- 		<button class="btn btn-outline-warning col-12">회원가입</button>
- 	</form>
+ 		<div class = "form-group">
+ 			<label>특이사항</label>
+ 			<textarea rows="10" cols="20" class="form-control" name="d_detail"></textarea>
+ 		</div>
+ 		<button class="btn btn-outline-warning col-12">등록</button>
+ 	</form>	
 </div>
 	<script>
 	   <% 
        Boolean result = (Boolean)request.getAttribute("Ok");
 	   if(result != null && result){
     %>
-       alert('회원가입 성공');
-       location.href="/semi_project";
+       alert('반려견 등록 성공');
+       location.href="/semi_project/dog/main";
     <% 
        }else if(result != null && !result){ %>
-       alert('회원가입 실패')
+       alert('반려견 등록 실패')
     <%
        }
     %>
 	</script>
-
 </body>
 </html>

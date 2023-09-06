@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -18,31 +18,27 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand/logo -->
   <a class="navbar-brand" href="#">
-    <img src="#" alt="logo" style="width:40px;">
+    <img src="/semi_project" alt="logo" style="width:40px;">
   </a>
   
   <!-- Links -->
   <div class="collapse navbar-collapse justify-content-between">
   	<ul class="navbar-nav">
-
+	
 	    <li class="nav-item">
 	      <a class="nav-link" href="<c:url value='/member/login'/>">로그인</a>
 	    </li>
 	    <li class="nav-item">
 	      <a class="nav-link" href="<c:url value='/member/signup'/>">회원가입</a>
 	    </li>
-	
 	  
-	    <li class="nav-item">
-	      <a class="nav-link" href="#">둘러보기</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="#">예매하기</a>
-	    </li>
-	 </ul>
-	 <ul class="navbar-nav">  
-	    <li class="nav-item">
+ 	</ul>
+ 	<ul class="navbar-nav">  
+ 		<li class="nav-item">
 	      <a class="nav-link" href="#">${user.me_id }님 환영합니다</a>
+	    </li>
+	     <li class="nav-item">
+	      <a class="nav-link" href="<c:url value='/dog/main'/>">동물등록하기</a>
 	    </li>
 	    <li class="nav-item">
 	      <a class="nav-link" href="<c:url value='/member/mypage'/>">마이페이지</a>
@@ -50,15 +46,31 @@
 	     <li class="nav-item">
 	      <a class="nav-link" href="<c:url value='/member/logout'/>">로그아웃</a>
 	    </li>
-	     <li class="nav-item">
-	      <a class="nav-link" href="<c:url value='/branch/list'/>">지점목록</a>
+   
+	    <li class="nav-item">
+	      <a class="nav-link" href="#">관리자 권한</a>
 	    </li>
-	    </div>
-	  
- 	  </ul>
+	    <li class="nav-item">
+	      <a class="nav-link" href="<c:url value='/branch/list'/>">지점관리</a>
+	    </li>
+	     <li class="nav-item">
+	      <a class="nav-link" href="<c:url value='/room/roommain'/>">객실관리</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="#">회원관리</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="<c:url value='/point/main'/>">포인트관리</a>
+	    </li>
+	     <li class="nav-item">
+	      <a class="nav-link" href="<c:url value='/member/logout'/>">로그아웃</a>
+	    </li> 
+	 </ul>
+  </div>	 
 </nav>
 <div class="container">
 	  <h1>첫 화면이 보일 container</h1>
+	  ${user }
 </div>
 </body>
 </html>

@@ -1,27 +1,33 @@
 package kr.kh.app.controller;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import kr.kh.app.service.PointService;
+import kr.kh.app.service.PointServiceImp;
+import kr.kh.app.vo.PointVO;
 
-public class Logout extends HttpServlet {
+public class PointMain extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
-    public Logout() {
+	
+	private PointService pointService = new PointServiceImp();
+	
+    public PointMain() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/member/logout.jsp").forward(request,response);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		ArrayList<PointVO> list = pointService.selectPointList();
+		request.setAttribute("list", list);
+		
+		request.getRequestDispatcher("/WEB-INF/views/point/main.jsp").forward(request, response);	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setAttribute("Ok", true);
-		request.getSession().setAttribute("user",null);
 		doGet(request, response);
 	}
 

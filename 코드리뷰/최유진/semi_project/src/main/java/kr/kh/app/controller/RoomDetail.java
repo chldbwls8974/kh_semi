@@ -2,41 +2,36 @@ package kr.kh.app.controller;
 
 import java.io.IOException;
 
-import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import kr.kh.app.service.MemberService;
-import kr.kh.app.service.MemberServiceImp;
+import kr.kh.app.service.RoomService;
+import kr.kh.app.service.RoomServiceImp;
+import kr.kh.app.vo.RoomVO;
 
 
-public class Home extends HttpServlet {
+public class RoomDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-  
-    public Home() {
+	RoomService roomService = new RoomServiceImp();
+   
+    public RoomDetail() {
         super();
     }
 
-
-	public void init(ServletConfig config) throws ServletException {
-	}
-
-	
-	public void destroy() {
-	}
-
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("msg","Hello");
-		request.getRequestDispatcher("WEB-INF/views/home.jsp").forward(request,response);
+		Integer ro_num = null;
+		try {
+		ro_num = Integer.parseInt(request.getParameter("ro_num"));
+		}catch(Exception e) {
+			ro_num = null;
+		}	
+		RoomVO room = roomService.getRoom(ro_num);
+		request.setAttribute("room", room);
+		request.getRequestDispatcher("/WEB-INF/views/room/plus/roomdetail.jsp").forward(request, response);
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
-		System.out.println(id);
 		doGet(request, response);
 	}
 
