@@ -7,20 +7,33 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
-public class BranchInsert extends HttpServlet {
+/**
+ * Servlet implementation class MyPage
+ */
+public class MyPage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public BranchInsert() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public MyPage() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/branch/insert.jsp").forward(request, response);	
+		request.getRequestDispatcher("/WEB-INF/views/member/mypage.jsp").forward(request,response);
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
