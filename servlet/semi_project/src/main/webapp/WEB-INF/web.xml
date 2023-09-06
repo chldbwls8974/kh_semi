@@ -111,4 +111,14 @@
     <servlet-name>SizeUpdate</servlet-name>
     <url-pattern>/size/update</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PriceUpdate</display-name>
+    <servlet-name>PriceUpdate</servlet-name>
+    <servlet-class>kr.kh.app.controller.PriceUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PriceUpdate</servlet-name>
+    <url-pattern>/price/update</url-pattern>
+  </servlet-mapping>
 </web-app>
