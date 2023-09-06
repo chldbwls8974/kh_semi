@@ -34,7 +34,8 @@ public class PriceUpdate extends HttpServlet {
 		PriceVO mPrice = new PriceVO("m", mediumPrice);
 		PriceVO lPrice = new PriceVO("l", largePrice);
 		// 메서드 1개로 3번 실행되게 (소, 중, 대)
-		
+		// 변수 3개를 화면에서 받아와서 updatePrice(s,m,l)처럼 인티저 3개로 넘겨줘서 처리??
+		// -> 서비스에서 priceDao.updatePrice(price); 객체 3개 만들어서 세번하면 됨.
 		boolean Ok = false;
 		if(priceService.updatePrice(sPrice) &&
 				priceService.updatePrice(mPrice) &&
@@ -44,7 +45,6 @@ public class PriceUpdate extends HttpServlet {
 		request.setAttribute("Ok", Ok);
 		
 		
-		doGet(request, response);
 		doGet(request, response);
 	}
 
