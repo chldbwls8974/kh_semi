@@ -46,19 +46,15 @@
 	    <li class="nav-item">
 	      <a class="nav-link" href="/semi_project/member/mypage">마이페이지</a>
 	    </li>
-	     <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/member/logout">로그아웃</a>
-	    </li>
    		<li class="nav-item">
 	      <a class="nav-link" href="/semi_project/room/roommain">객실관리</a>
+	    </li>
+	     <li class="nav-item">
+	      <a class="nav-link" href="/semi_project/member/logout">로그아웃</a>
 	    </li>
 	    <li class="nav-item">
 	      <a class="nav-link" href="/semi_project/admin">관리자 권한</a>
 	    </li>
-	    
-	     <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/member/logout">로그아웃</a>
-	    </li> 
 	 </ul>
   </div>	 
 </nav>
