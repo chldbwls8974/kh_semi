@@ -35,7 +35,7 @@
 			}
 		%>
 	</script> --%>
-	<form action="<c:url value='/views/insert'/>" method="post">
+	<form action="<c:url value='/branch/insert'/>" method="post">
 	 	<div class = "form-group">
 			<label>지점명</label>
 			<input type="text" class="form-control" name="br_name">
@@ -54,7 +54,7 @@
 		   if(result != null && result){
 	    %>
 	       alert('지점등록 성공!');
-	       location.href="/semi_project";
+	       location.href="/semi_project/branch/list";
 	    <% 	
 	       }else if(result != null && !result){ %>
 	       alert('지점등록 실패!'')

@@ -7,6 +7,6 @@
 		insert into point(po_point, po_content, po_me_id) values(#{point.po_point},#{point.po_content},#{point.po_me_id})
 	</insert>
 	<select id="selectPointList" resultType="kr.kh.app.vo.PointVO">
-		select * from point
+		select * from point order by po_num desc
 	</select>
 </mapper>

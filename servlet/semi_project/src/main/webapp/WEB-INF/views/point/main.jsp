@@ -35,6 +35,7 @@
 		    </tbody>
 	  </table>
 	 </div> 
-<a href="<c:url value='/point/insert'/>" class="btn btn-outline-dark col-3 btn float-right">포인트 적립하기</a>
+<a href="<c:url value='/point/insert'/>" class="btn btn-outline-dark col-3 btn float-right">포인트 적립</a>
+<a href="<c:url value='/point/update'/>" class="btn btn-outline-dark col-3 btn float-right">포인트 수정</a>
 </body>
 </html>

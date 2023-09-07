@@ -15,7 +15,7 @@
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<h3>포인트 적립내용 추가</h3>
-	<form action="" method="post">
+	<form action="<c:url value='/point/insert'/>" method="post">
 			<input type="text" name="po_point" placeholder="포인트"> <br>
 			<input type="text" name="po_content" placeholder="내용"> <br>
 			<input type="text" name="po_me_id" placeholder="적립대상자"> <br>
