@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.kh.app.dao.DogDAO">
+	<select id="selectDog" resultType="kr.kh.app.vo.DogVO">
+		select * from dog where d_name = #{d_name}
+	</select>
+	<select id="selectMyDogList" resultType="kr.kh.app.vo.DogVO">
+		select * from dog where d_me_id = #{user.me_id}
+	</select>
+	<insert id="insertDog">
+		insert into dog(d_num, d_name, d_age, d_gen, d_kg, d_detail, d_me_id, d_si_name)
+		values(#{dog.d_num}, #{dog.d_name}, #{dog.d_age},
+		 #{dog.d_gen},#{dog.d_kg},#{dog.d_detail},#{dog.d_me_id}, #{dog.d_si_name})
+	</insert>
+</mapper>
