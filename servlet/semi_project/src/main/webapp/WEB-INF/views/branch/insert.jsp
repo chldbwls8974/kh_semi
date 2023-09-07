@@ -14,8 +14,8 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-	<div class="container">
-	<h1>지점 등록</h1>
+	<div class="container mt-5">
+	<h2>지점 등록</h2>
 	<%-- <form action = "" method="post">
 		<input type="text" name="name" placeholder="지점명"> <br>
 		<input type="text" name="phone" placeholder="전화번호"> <br>
@@ -35,7 +35,7 @@
 			}
 		%>
 	</script> --%>
-	<form action="<c:url value='/branch/insert'/>" method="post">
+	<form action="<c:url value='/branch/insert'/>" method="post" class="mt-4">
 	 	<div class = "form-group">
 			<label>지점명</label>
 			<input type="text" class="form-control" name="br_name">

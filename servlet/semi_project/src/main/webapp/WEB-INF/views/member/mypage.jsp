@@ -14,9 +14,9 @@
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
-<div class="container">
+<div class="container mt-5">
   <h2>마이 페이지</h2>
-  <div class="card">
+  <div class="card mt-4">
     <div class="card-body d-flex flex-column mb-5">
     	<label>아이디</label>
     	<div class="pb-3">${user.me_id }</div>

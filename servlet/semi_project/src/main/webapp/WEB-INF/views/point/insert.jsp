@@ -14,9 +14,10 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-	<h3>포인트 적립내용 추가</h3>
+	
 	<div class="container mt-5">
-		<form action="<c:url value='/point/insert'/>" method="post">
+		<h2>포인트 적립내용 추가</h2>
+		<form action="<c:url value='/point/insert'/>" method="post" class="mt-4">
 		 	<div class = "form-group">
 				<label>포인트</label>
 				<input type="text" class="form-control" name="po_point" placeholder="포인트">

@@ -14,9 +14,10 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-	<h1>포인트 적립 관리 페이지</h1>
+	
 	<div class="container mt-5">
-		<table class="table table-hover">
+		<h2>포인트 적립 관리 페이지</h2>
+		<table class="table table-hover mt-4">
 		    <thead>
 		      <tr>
 		        <th>포인트</th>
