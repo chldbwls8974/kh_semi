@@ -161,4 +161,24 @@
     <servlet-name>PointInsert</servlet-name>
     <url-pattern>/point/insert</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PointUpdate</display-name>
+    <servlet-name>PointUpdate</servlet-name>
+    <servlet-class>kr.kh.app.controller.PointUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PointUpdate</servlet-name>
+    <url-pattern>/point/update</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MemberList</display-name>
+    <servlet-name>MemberList</servlet-name>
+    <servlet-class>kr.kh.app.controller.MemberList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberList</servlet-name>
+    <url-pattern>/member/list</url-pattern>
+  </servlet-mapping>
 </web-app>

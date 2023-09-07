@@ -15,12 +15,23 @@
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<h3>포인트 적립내용 추가</h3>
-	<form action="<c:url value='/point/insert'/>" method="post">
-			<input type="text" name="po_point" placeholder="포인트"> <br>
-			<input type="text" name="po_content" placeholder="내용"> <br>
-			<input type="text" name="po_me_id" placeholder="적립대상자"> <br>
-			<button>등록</button>
-		</form>
+	<div class="container mt-5">
+		<form action="<c:url value='/point/insert'/>" method="post">
+		 	<div class = "form-group">
+				<label>포인트</label>
+				<input type="text" class="form-control" name="po_point" placeholder="포인트">
+			</div>
+			<div class = "form-group">
+				<label>포인트 내용</label>
+				<input type="text" class="form-control" name="po_content" placeholder="내용">
+			</div>
+			<div class = "form-group">
+				<label>적립대상자</label>
+				<input type="text" class="form-control" name="po_me_id" placeholder="적립대상자">
+			</div>
+	 		<button class="btn btn-outline-warning col-12 mt-2">등록</button>
+	 	</form>	
+ 	</div>
 	<script>
 		<% 
 			Boolean result = (Boolean)request.getAttribute("ok");

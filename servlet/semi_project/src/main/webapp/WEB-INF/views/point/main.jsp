@@ -15,13 +15,14 @@
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<h1>포인트 적립 관리 페이지</h1>
-	<div class="container">
+	<div class="container mt-5">
 		<table class="table table-hover">
 		    <thead>
 		      <tr>
 		        <th>포인트</th>
 		        <th>포인트 내용</th>
 		        <th>적립대상자</th>
+		        <th></th>
 		      </tr>
 		    </thead>
 		    <tbody>
@@ -30,12 +31,16 @@
 			        <td>${point.po_point}</td>
 			        <td>${point.po_content}</td>
 			        <td>${point.po_me_id}</td>
+			        <td>
+			        <button class="btn btn-outline-warning">수정</button>
+			        </td>
 			      </tr>
 		      </c:forEach>
 		    </tbody>
-	  </table>
+		</table>
+		<a href="<c:url value='/point/insert'/>" class="btn btn-outline-dark col-3 btn float-right">포인트 적립</a>
+		
 	 </div> 
-<a href="<c:url value='/point/insert'/>" class="btn btn-outline-dark col-3 btn float-right">포인트 적립</a>
-<a href="<c:url value='/point/update'/>" class="btn btn-outline-dark col-3 btn float-right">포인트 수정</a>
+
 </body>
 </html>
