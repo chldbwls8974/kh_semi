@@ -9,4 +9,7 @@
 <insert id="insertMember">
 	insert into member(me_id, me_pw,me_name, me_address, me_phone) values(#{member.me_id},#{member.me_pw},#{member.me_name},#{member.me_address},#{member.me_phone})
 </insert>
+<select id="selectMemberList" resultType="kr.kh.app.vo.MemberVO" >
+	select * from member
+</select>
 </mapper>
