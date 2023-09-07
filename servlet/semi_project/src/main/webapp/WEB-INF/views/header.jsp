@@ -41,13 +41,13 @@
 	      <a class="nav-link" href="#">${user.me_id }님 환영합니다</a>
 	    </li>
 	     <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/dog/main">동물등록하기</a>
+	      <a class="nav-link" href="/semi_project/dog/main">반려견 등록</a>
 	    </li>
 	    <li class="nav-item">
 	      <a class="nav-link" href="/semi_project/member/mypage">마이페이지</a>
 	    </li>
    		<li class="nav-item">
-	      <a class="nav-link" href="/semi_project/room/roommain">객실관리</a>
+	      <a class="nav-link" href="/semi_project/room/roommain">방 둘러보기</a>
 	    </li>
 	     <li class="nav-item">
 	      <a class="nav-link" href="/semi_project/member/logout">로그아웃</a>
