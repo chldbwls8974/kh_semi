@@ -1,6 +1,7 @@
 package kr.kh.app.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -23,11 +24,16 @@ public class DogInsert extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/dog/insert.jsp").forward(request, response);
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		//세션에서 user 받아오기 / list에 해당 user 반려견 목록 불러오기
+		MemberVO user = (MemberVO)session.getAttribute("user"); 
+		ArrayList<DogVO> list = dogService.getMyDogList(user);
+		//테스트출력
+		System.out.println(list.size());
+		int myDogCount = list.size() + 1;
 		
 		String name = request.getParameter("d_name");
 		String age = request.getParameter("d_age");
@@ -35,9 +41,6 @@ public class DogInsert extends HttpServlet {
 		Integer kg =  Integer.parseInt(request.getParameter("d_kg"));
 		String detail = request.getParameter("d_detail");
 		
-		// 유저 세션정보 받아오기
-		MemberVO user = (MemberVO)session.getAttribute("user");  
-		DogVO dbDog = (DogVO)session.getAttribute("dbDog");
 		String id = user.getMe_id();
 		
 		// 강아지는 소 : 8kg 이하 / 중 : 9kg 이상 20kg미만 / 대 : 20kg 이상으로 구분된다.
@@ -46,9 +49,10 @@ public class DogInsert extends HttpServlet {
 		else if(kg <= 20) {	siName ="m"; }
 		else { siName ="l"; }
 		
-		// 반려동물번호 생성 // user + (s/m/l) + 1 <<<<<숫자 어케함?
+		// 관리자 - 수정, 삭제
 		
-		String num = id  + siName + 1; 
+		// 반려동물번호 생성 // user + 00 + 1(증가) //최대 3마리
+		String num = id  + "00" + myDogCount;
 		
 		DogVO dog = new DogVO(num, name, age, gen, kg, detail, id, siName);
 		System.out.println(dog);
@@ -63,3 +67,5 @@ public class DogInsert extends HttpServlet {
 		
 	}
 }
+
+

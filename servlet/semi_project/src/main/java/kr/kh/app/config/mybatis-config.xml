@@ -24,5 +24,9 @@
     <mapper resource="kr/kh/app/dao/DogMapper.xml"/>
     <mapper resource="kr/kh/app/dao/RoomMapper.xml"/>
     <mapper resource="kr/kh/app/dao/PointMapper.xml"/>
+    <mapper resource="kr/kh/app/dao/LevelMapper.xml"/>
+    <mapper resource="kr/kh/app/dao/SizeMapper.xml"/>
+    <mapper resource="kr/kh/app/dao/PriceMapper.xml"/>
   </mappers>
+  
 </configuration>
