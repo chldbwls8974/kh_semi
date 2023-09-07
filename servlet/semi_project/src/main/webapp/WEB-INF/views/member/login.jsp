@@ -14,9 +14,9 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-<div class="container">
-	<h1>로그인</h1>
- 	<form action="<c:url value='/member/login'/>" method="post">
+<div class="container mt-5">
+	<h2>로그인</h2>
+ 	<form action="<c:url value='/member/login'/>" method="post" class="mt-4">
  		<div class = "form-group">
  			<label>아이디</label>
  			<input type="text" class="form-control" name="me_id">

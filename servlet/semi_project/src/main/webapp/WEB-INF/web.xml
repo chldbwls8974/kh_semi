@@ -211,4 +211,14 @@
     <servlet-name>PriceUpdate</servlet-name>
     <url-pattern>/price/update</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Admin</display-name>
+    <servlet-name>Admin</servlet-name>
+    <servlet-class>kr.kh.app.controller.Admin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Admin</servlet-name>
+    <url-pattern>/admin</url-pattern>
+  </servlet-mapping>
 </web-app>

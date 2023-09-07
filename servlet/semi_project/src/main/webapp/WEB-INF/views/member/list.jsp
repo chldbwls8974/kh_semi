@@ -10,7 +10,8 @@
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container mt-5">
-		<table class="table table-hover">
+		<h2>회원 조회</h2>
+		<table class="table table-hover mt-4">
 		    <thead>
 		      <tr>
 		        <th>아이디</th>

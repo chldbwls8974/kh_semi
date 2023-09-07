@@ -22,10 +22,11 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-	<h2>방 전체보기</h2>
 	
-	<div class="container">
-		<table class="table table-hover">
+	
+	<div class="container mt-5">
+		<h2>방 전체보기</h2>
+		<table class="table table-hover mt-4">
 			 <thead>
 			      <tr>
 			        <th>방 번호</th>

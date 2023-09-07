@@ -15,13 +15,11 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-	<h1>지점 조회</h1>
-	<a href="<c:url value='branch/insert'/>">지점 등록</a>
 	<div class="container mt-5">
-		<h1>지점 조회</h1>
+		<h2>지점 조회</h2>
 		<c:choose>
 			<c:when test="${pm.totalCount != 0}">
-				<table class="table table-hover">
+				<table class="table table-hover mt-4">
 				    <thead>
 				      <tr>
 				        <th>지점번호</th>

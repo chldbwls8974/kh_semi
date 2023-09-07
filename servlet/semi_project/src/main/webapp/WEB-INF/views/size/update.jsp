@@ -13,9 +13,11 @@
 <title>등급혜택 변경</title>
 </head>
 <body>
-	<div class="container">
-	<h1>크기 구분 변경</h1>
- 	<form action="<c:url value='/size/update'/>" method="post">
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+	
+	<div class="container mt-5">
+	<h2>크기 구분 변경</h2>
+ 	<form action="<c:url value='/size/update'/>" method="post" class="mt-4">
  		<div class = "form-group">
  			<label>소형</label>
  			<input type="text" class="form-control" name="si_min_kg_s"  placeholder="최소 kg" required>

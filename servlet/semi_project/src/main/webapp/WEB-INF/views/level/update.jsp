@@ -13,9 +13,10 @@
 <title>등급혜택 변경</title>
 </head>
 <body>
-	<div class="container">
-	<h1>등급혜택 변경</h1>
- 	<form action="<c:url value='/level/update'/>" method="post">
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+	<div class="container mt-5">
+	<h2>등급혜택 변경</h2>
+ 	<form action="<c:url value='/level/update'/>" method="post" class="mt-4">
  		<div class = "form-group">
  			<label>일반회원 적립률</label>
  			<input type="text" class="form-control" name="le_benefit"  placeholder="% 제외하고 입력" required>
