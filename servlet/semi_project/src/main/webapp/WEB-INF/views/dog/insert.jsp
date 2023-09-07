@@ -50,7 +50,7 @@
 	   if(result != null && result){
     %>
        alert('반려견 등록 성공');
-       location.href="/semi_project/dog/main";
+       location.href="/semi_project/dog/list";
     <% 
        }else if(result != null && !result){ %>
        alert('반려견 등록 실패')
