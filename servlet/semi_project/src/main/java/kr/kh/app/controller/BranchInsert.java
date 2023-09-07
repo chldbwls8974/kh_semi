@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import kr.kh.app.service.BranchService;
 import kr.kh.app.service.BranchServiceImp;
 import kr.kh.app.vo.BranchVO;
+import kr.kh.app.vo.MemberVO;
 
 
 public class BranchInsert extends HttpServlet {
