@@ -18,12 +18,10 @@ public class LogIn extends HttpServlet {
     public LogIn() {
         super();
     }
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/member/login.jsp").forward(request,response);
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("me_id");
 		String pw = request.getParameter("me_pw");
