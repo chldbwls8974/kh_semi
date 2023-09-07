@@ -27,7 +27,7 @@ public class LevelUpdate extends HttpServlet {
 		Integer benefit = Integer.parseInt(request.getParameter("le_benefit"));
 		Integer benefitVip = Integer.parseInt(request.getParameter("le_benefit_vip"));
 		
-		LevelVO level = new LevelVO("general", benefit);
+		LevelVO level = new LevelVO("일반", benefit);
 		LevelVO levelVip = new LevelVO("vip", benefitVip);
 		// 메서드 1개로 2번 실행되게 (vip,general)
 		boolean Ok = false;
