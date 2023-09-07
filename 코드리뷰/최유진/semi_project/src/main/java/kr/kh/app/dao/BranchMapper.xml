@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.kh.app.dao.BranchDAO">
+	<insert id="insertBranch">
+		insert into branch(br_name, br_phone) values(#{branch.br_name},#{branch.br_phone})
+	</insert>
+<select id="selectBranchList" resultType="kr.kh.app.vo.BranchVO">
+	select * from branch
+</select>
+</mapper>
