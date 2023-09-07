@@ -18,7 +18,7 @@
 
 <div class="container mt-5">
 	<h2>나의 반려견</h2>
-	<table class="table table-bordered mt-4">
+	<table class="table table-hover mt-4">
 	<thead>
 		<tr>
 			<th>반려견 번호</th>
@@ -44,6 +44,7 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<a href="<c:url value='/dog/insert'/>" class="btn btn-outline-success">반려견 등록</a>
 </div>
 </body>
 </html>

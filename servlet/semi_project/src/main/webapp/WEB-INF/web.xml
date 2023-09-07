@@ -103,16 +103,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>DogMain</display-name>
-    <servlet-name>DogMain</servlet-name>
-    <servlet-class>kr.kh.app.controller.DogMain</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DogMain</servlet-name>
-    <url-pattern>/dog/main</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>Room</display-name>
     <servlet-name>Room</servlet-name>
     <servlet-class>kr.kh.app.controller.Room</servlet-class>
