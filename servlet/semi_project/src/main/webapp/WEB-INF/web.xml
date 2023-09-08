@@ -211,4 +211,14 @@
     <servlet-name>Admin</servlet-name>
     <url-pattern>/admin</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReservMain</display-name>
+    <servlet-name>ReservMain</servlet-name>
+    <servlet-class>kr.kh.app.controller.ReservMain</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReservMain</servlet-name>
+    <url-pattern>/reservation/main</url-pattern>
+  </servlet-mapping>
 </web-app>
