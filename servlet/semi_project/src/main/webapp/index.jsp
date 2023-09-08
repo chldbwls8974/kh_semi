@@ -16,9 +16,36 @@
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
-<div class="container">
-	  <h1>첫 화면이 보일 container</h1>
-	  ${user }
+<div id="demo" class="carousel slide mt-5" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="깜바.jpg" alt="깜바">
+    </div>
+    <div class="carousel-item">
+      <img src="복실.jpg" alt="복실">
+    </div>
+    <div class="carousel-item">
+      <img src="써니.jpg" alt="써니">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+
 </div>
 </body>
 </html>
