@@ -18,7 +18,7 @@
 	<form action="<c:url value='/member/update'/>" method="post" class="mt-4">	
  		<div class = "form-group">
  			<label>아이디</label>
-			<input type="text" class="form-control-plaintext" name="me_id" value="${member.me_id}" readonly>
+			<div class="form-control">${member.me_id}</div>
  		</div>
  		<div class = "form-group">
  			<label>이름</label>
