@@ -26,7 +26,7 @@
   </ul>
 
   <!-- The slideshow -->
-  <div class="carousel-inner">
+  <div class="container carousel-inner w-65">
     <div class="carousel-item active">
       <img src="깜바.jpg" alt="깜바">
     </div>
@@ -35,6 +35,9 @@
     </div>
     <div class="carousel-item">
       <img src="써니.jpg" alt="써니">
+    </div>
+      <div class="carousel-item">
+      <img src="지선.jpg" alt="지선">
     </div>
   </div>
 
