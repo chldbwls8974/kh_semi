@@ -54,12 +54,11 @@ public class MyPageUpdate extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//현재 로그인된 사용자 아이디 가져오기
-		String id = ((MemberVO)request.getSession().getAttribute("user")).getMe_id();
+		MemberVO member = (MemberVO)request.getSession().getAttribute("user");
 		String newName= request.getParameter("name");
 		String newAddress = request.getParameter("address");
 		String newPhone= request.getParameter("phone");
 		
-		MemberVO member = new MemberVO();
 		member.setMe_name(newName);
 		member.setMe_address(newAddress);
 		member.setMe_phone(newPhone);
@@ -73,3 +72,5 @@ public class MyPageUpdate extends HttpServlet {
 		doGet(request, response);
 		
 	}
+
+}
