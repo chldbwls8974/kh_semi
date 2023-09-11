@@ -35,7 +35,7 @@
 	      <a class="nav-link" href="/semi_project/member/signup">회원가입</a>
 	    </li>
 	  	<li class="nav-item">
-	      <a class="nav-link" href="/semi_project/dog/main">반려견 등록</a>
+	      <a class="nav-link" href="/semi_project/dog/list">반려견 등록</a>
 	    </li>
 	 	<li class="nav-item">
 	      <a class="nav-link" href="/semi_project/room/roommain">방 둘러보기</a>
