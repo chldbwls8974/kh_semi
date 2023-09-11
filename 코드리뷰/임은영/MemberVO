@@ -20,6 +20,13 @@ public class MemberVO {
 		this.me_authority=authority;
 	}
 
+	public MemberVO(String me_id, String me_name, String address, String phone) {
+		this.me_id= me_id;
+		this.me_name = me_name;
+		this.me_address = address;
+		this.me_phone = phone;
+	}
+
 
 
 }

@@ -12,9 +12,11 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <title>가격 변경</title>
 </head>
-	<div class="container">
-	<h1>가격 변경</h1>
- 	<form action="<c:url value='/price/update'/>" method="post">
+<body>
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+	<div class="container mt-5">
+	<h2>가격 변경</h2>
+ 	<form action="<c:url value='/price/update'/>" method="post" class="mt-4">
  		<div class = "form-group">
  			<label>소형견 가격</label>
  			<input type="text" class="form-control" name="pr_price_s"  required>

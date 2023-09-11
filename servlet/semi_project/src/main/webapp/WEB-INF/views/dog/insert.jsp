@@ -14,9 +14,9 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-<div class="container">
-	<h1>반려견 등록</h1>
- 	<form action="<c:url value='/dog/insert'/>" method="post">
+<div class="container mt-5">
+	<h2>반려견 등록</h2>
+ 	<form action="<c:url value='/dog/insert'/>" method="post" class="mt-4">
  		<div class = "form-group">
  			<label>아이디</label>
  			<input type="text" class="form-control" name="d_me_id" value="${user.me_id}" readonly>
@@ -50,7 +50,7 @@
 	   if(result != null && result){
     %>
        alert('반려견 등록 성공');
-       location.href="/semi_project/dog/main";
+       location.href="/semi_project/dog/list";
     <% 
        }else if(result != null && !result){ %>
        alert('반려견 등록 실패')

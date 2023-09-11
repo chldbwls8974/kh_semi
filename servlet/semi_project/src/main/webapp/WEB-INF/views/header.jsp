@@ -34,40 +34,32 @@
 	    <li class="nav-item">
 	      <a class="nav-link" href="/semi_project/member/signup">회원가입</a>
 	    </li>
+	  	<li class="nav-item">
+	      <a class="nav-link" href="/semi_project/dog/list">반려견 등록</a>
+	    </li>
+	 	<li class="nav-item">
+	      <a class="nav-link" href="/semi_project/room/roommain">방 둘러보기</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="/semi_project/reservation/main">예약하기</a>
+	    </li>
 	  
  	</ul>
  	<ul class="navbar-nav">  
  		<li class="nav-item">
 	      <a class="nav-link" href="#">${user.me_id }님 환영합니다</a>
 	    </li>
-	     <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/dog/main">동물등록하기</a>
-	    </li>
+	    
 	    <li class="nav-item">
 	      <a class="nav-link" href="/semi_project/member/mypage">마이페이지</a>
 	    </li>
+   		
 	     <li class="nav-item">
 	      <a class="nav-link" href="/semi_project/member/logout">로그아웃</a>
 	    </li>
-   
 	    <li class="nav-item">
-	      <a class="nav-link" href="#">관리자 권한</a>
+	      <a class="nav-link" href="/semi_project/admin">관리자 권한</a>
 	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/branch/list">지점관리</a>
-	    </li>
-	     <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/room/roommain">객실관리</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/member/list">회원관리</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/point/main">포인트관리</a>
-	    </li>
-	     <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/member/logout">로그아웃</a>
-	    </li> 
 	 </ul>
   </div>	 
 </nav>

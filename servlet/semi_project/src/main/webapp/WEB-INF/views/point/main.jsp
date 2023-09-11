@@ -14,9 +14,10 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-	<h1>포인트 적립 관리 페이지</h1>
+
 	<div class="container mt-5">
-		<table class="table table-hover">
+		<h2>포인트 적립 관리 페이지</h2>
+		<table class="table table-hover mt-4">
 		    <thead>
 		      <tr>
 		        <th>포인트</th>
@@ -28,19 +29,34 @@
 		    <tbody>
 		      <c:forEach items="${list }" var="point">
 			      <tr>
-			        <td>${point.po_point}</td>
-			        <td>${point.po_content}</td>
+			        <td><input type="text" value="${point.po_point}" class="form-control" name="po_point"></td>
+			        <td><input type="text" value="${point.po_content}" class="form-control" name="po_content"></td>
 			        <td>${point.po_me_id}</td>
 			        <td>
-			        <button class="btn btn-outline-warning">수정</button>
+			        <button class="btn btn-update btn-outline-warning">수정</button>
+			        <button class="btn btn-delete btn-outline-warning" onclick="deletePoint(${point.po_num})">삭제</button>
 			        </td>
 			      </tr>
 		      </c:forEach>
 		    </tbody>
 		</table>
 		<a href="<c:url value='/point/insert'/>" class="btn btn-outline-dark col-3 btn float-right">포인트 적립</a>
-		
 	 </div> 
+
+	<script type="text/javascript">
+	$('.btn-update').click(function(){
+		let po_point = $(this).parents('tr').find('[name=po_point]').val();
+		
+		let po = {
+				po_num : po_num,
+				po_point : po_point
+		}
+		
+	})
+	</script>
+
+
+
 
 </body>
 </html>
