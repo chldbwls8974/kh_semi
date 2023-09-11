@@ -27,10 +27,11 @@ public class MyPageUpdate extends HttpServlet {
 		MemberVO member = memberService.getMember(me_id);
 		request.setAttribute("member", member);
 		request.getRequestDispatcher("/WEB-INF/views/member/update.jsp").forward(request,response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/*protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//현재 로그인된 사용자 아이디 가져오기
 		String me_id = ((MemberVO)request.getSession().getAttribute("user")).getMe_id();
 		String name= request.getParameter("name");
@@ -38,16 +39,37 @@ public class MyPageUpdate extends HttpServlet {
 		String phone= request.getParameter("phone");
 		
 		MemberVO member= new MemberVO(me_id, name, address, phone);
-		String url = "/member/update?me_name=" + name;
+		String url = "/member/update?me_id=" + id;
 		String msg = "개인정보 수정 실패!";
 		
 		if(memberService.updateMember(member)) {
-			url = "/member/mypage?me_name=" + name;
+			url = "/member/mypage?me_id=" + id;
 			msg = "개인정보 수정 성공!";
 		}
 		
 		request.setAttribute("url", url);
 		request.setAttribute("msg", msg);
 		request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
+	}*/
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//현재 로그인된 사용자 아이디 가져오기
+		String id = ((MemberVO)request.getSession().getAttribute("user")).getMe_id();
+		String newName= request.getParameter("name");
+		String newAddress = request.getParameter("address");
+		String newPhone= request.getParameter("phone");
+		
+		MemberVO member = new MemberVO();
+		member.setMe_name(newName);
+		member.setMe_address(newAddress);
+		member.setMe_phone(newPhone);
+		
+		boolean Ok = false;
+		if(memberService.updateMember(member)) {
+			Ok = true;
+		}
+		request.setAttribute("Ok", Ok);
+		
+		doGet(request, response);
+		
 	}
-}
