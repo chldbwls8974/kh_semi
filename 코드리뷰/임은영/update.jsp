@@ -16,21 +16,21 @@
 <div class="container mt-5">
 	<h1>개인정보 수정</h1>
 	<form action="<c:url value='/member/update'/>" method="post" class="mt-4">	
- 		<div class = "form-group">
- 			<label>아이디</label>
+ 		<!--  <div class = "form-group">
+ 		 	<label>아이디</label>
 			<div class="form-control">${member.me_id}</div>
- 		</div>
+ 		</div> -->
  		<div class = "form-group">
  			<label>이름</label>
- 			<input type="text" class="form-control" name="me_name" value="${member.me_name}" required>
+ 			<input type="text" class="form-control" name="name" autocomplete="off" required>
  		</div>
  		<div class = "form-group">
  			<label>주소</label>
- 			<input type="text" class="form-control" name="address" value="${member.me_address}" required>
+ 			<input type="text" class="form-control" name="address" required>
  		</div>
  		<div class = "form-group">
  			<label>연락처</label>
- 			<input type="text" class="form-control" name="phone" value="${member.me_phone}" required>
+ 			<input type="text" class="form-control" name="phone" required>
  		</div>
  	
  		<button class="btn btn-outline-warning col-12">수정</button>
@@ -38,6 +38,19 @@
  	<br><button class="btn btn-outline-dark col-3 btn float-right" id="btnCancel">취소</button><br>
 </div>
 </body>
-
+<script>
+	   <% 
+       Boolean result = (Boolean)request.getAttribute("Ok");
+	   if(result != null && result){
+    %>
+       alert('수정 성공');
+       location.href="/semi_project/member/mypage";
+    <% 
+       }else if(result != null && !result){ %>
+       alert('수정 실패');
+    <%
+       }
+    %>
+	</script>
 </body>
 </html>
