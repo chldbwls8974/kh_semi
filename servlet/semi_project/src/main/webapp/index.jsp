@@ -26,7 +26,7 @@
   </ul>
 
   <!-- The slideshow -->
-  <div class="container carousel-inner w-65">
+  <div class="container carousel-inner w-65 h-40">
     <div class="carousel-item active">
       <img src="깜바.jpg" alt="깜바">
     </div>

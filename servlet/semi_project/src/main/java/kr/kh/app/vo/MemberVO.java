@@ -1,8 +1,10 @@
 package kr.kh.app.vo;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class MemberVO {
 	private String me_id, me_pw, me_name, me_address, me_phone, me_le_name, me_authority;
 	private int me_point, me_total_price;
