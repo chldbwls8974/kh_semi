@@ -10,5 +10,4 @@ public interface BranchService {
 
 	ArrayList<BranchVO> getBranchList();
 
-
 }
