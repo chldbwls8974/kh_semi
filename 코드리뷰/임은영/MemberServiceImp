@@ -73,7 +73,7 @@ public class MemberServiceImp implements MemberService {
 
 	@Override
 	public boolean updateMember(MemberVO member) {
-		if(member == null || member.getMe_name() == null) {
+		if(member == null || member.getMe_name() == null || member.getMe_address() == null || member.getMe_phone() == null) {
 			return false;
 		}
 		return memberDao.updateMember(member) != 0;
