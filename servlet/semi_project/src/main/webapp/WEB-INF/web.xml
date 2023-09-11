@@ -123,6 +123,26 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>RoomUpdate</display-name>
+    <servlet-name>RoomUpdate</servlet-name>
+    <servlet-class>kr.kh.app.controller.RoomUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RoomUpdate</servlet-name>
+    <url-pattern>/room/plus/roomupdate</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>RoomDelete</display-name>
+    <servlet-name>RoomDelete</servlet-name>
+    <servlet-class>kr.kh.app.controller.RoomDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RoomDelete</servlet-name>
+    <url-pattern>/room/plus/roomdelete</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>RoomInsert</display-name>
     <servlet-name>RoomInsert</servlet-name>
     <servlet-class>kr.kh.app.controller.RoomInsert</servlet-class>

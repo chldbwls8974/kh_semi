@@ -6,6 +6,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kr.kh.app.dao.RoomDAO;
 import kr.kh.app.service.RoomService;
 import kr.kh.app.service.RoomServiceImp;
 import kr.kh.app.vo.RoomVO;
@@ -14,7 +15,6 @@ public class RoomInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     private RoomService roomService = new RoomServiceImp();
-
 	
     public RoomInsert() {
         super();
@@ -25,15 +25,22 @@ public class RoomInsert extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String detail = request.getParameter("detail");
-		String name = request.getParameter("name");
-		RoomVO room = new RoomVO(0,name, detail, 0, 0, 0);
-		boolean ok = false;
-		if(roomService.insertRoom(room)) {
-			ok = true;
-		}
-		request.setAttribute("ok", ok);
-		doGet(request, response);
+//		String name = request.getParameter("name");
+//		String detail = request.getParameter("detail");
+//		RoomVO room = new RoomVO(0,name, detail, 0, 0, 0);
+//		boolean ok = false;
+//		if(roomService.insertRoom(room)) {
+//			ok = true;
+//		}
+//		request.setAttribute("ok", ok);
+//		doGet(request, response);
+		
+		RoomVO roomVo  = new RoomVO();
+		roomVo.setRo_name(request.getParameter("객실이름"));
+		roomVo.setRo_detail(request.getParameter("상세정보"));
+		
+		response.sendRedirect("/");
+		
 	}
 
 }

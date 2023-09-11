@@ -21,31 +21,86 @@
 <title>방 상세보기</title>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+		
+	<!-- 상단바 -->	
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		  <!-- Brand/logo -->
+		  <a class="navbar-brand" href="<c:url value='/'/>">Dogtel</a>
+	</nav>	 
+	 
+	  <!-- Links -->
+<!-- 	  <ul class="navbar-nav"> -->
+<!-- 	    <li class="nav-item"> -->
+<%-- 	      <a class="nav-link" href="<c:url value='/room/plus/roomdetail'/>">room 1</a> --%>
+<!-- 	    </li> -->
+<!-- 	    <li class="nav-item"> -->
+<%-- 	      <a class="nav-link" href="<c:url value='/room/plus/roomdetail'/>">room 2</a> --%>
+<!-- 	    </li> -->
+<!-- 	    <li class="nav-item"> -->
+<%-- 	      <a class="nav-link" href="<c:url value='/room/plus/roomdetail'/>">room 3</a> --%>
+<!-- 	    </li> -->
+<!-- 	  </ul> -->
+
 	
-	
-	<div class="container mt-5">
-		<h2>방 전체보기</h2>
-		<table class="table table-hover mt-4">
-			 <thead>
-			      <tr>
-			        <th>방 번호</th>
-			        <th>방 이름</th>
-			        <th>지점 번호</th>
-			      </tr>
-		    </thead>
-		    <tbody>
-				<c:forEach items="${list}" var="room">
+	<!-- 아래는 부트스트랩 디자인임 무시해도 됨 -->
+	<!-- 본문 -->
+<!-- 	<div id="demo" class="carousel slide" data-ride="carousel"> -->
+<!-- 	  <ul class="carousel-indicators"> -->
+<!-- 	    <li data-target="#demo" data-slide-to="0" class="active"></li> -->
+<!-- 	    <li data-target="#demo" data-slide-to="1"></li> -->
+<!-- 	    <li data-target="#demo" data-slide-to="2"></li> -->
+<!-- 	  </ul> -->
+<!-- 	 	<div class="carousel-inner"> -->
+<!-- 	    <div class="carousel-item active"> -->
+<!-- <!-- 	      <img src="../img/retriever.JPG" alt="retriever" width="1100" height="500"> --> -->
+<!-- 	      <a href="#" ><div></div></a> -->
+<!-- 	      <div class="carousel-caption"> -->
+<!-- 	        <h3>Room 1</h3> -->
+<!-- 	        <p>대형견 전용 룸. 중,소형견은 이용 불가합니다.</p> -->
+<!-- 	      </div>    -->
+<!-- 	    </div> -->
+<!-- 	    <div class="carousel-item"> -->
+<!-- <!-- 	      <img src="" alt="WelshCorgi" width="1100" height="500"> --> -->
+<!-- 	      <a href="#"><div></div></a> -->
+<!-- 	      <div class="carousel-caption"> -->
+<!-- 	        <h3>Room 2</h3> -->
+<!-- 	        <p>중형견 전용 룸. 대,소형견은 이용 불가합니다.</p> -->
+<!-- 	      </div>    -->
+<!-- 	    </div> -->
+<!-- 	    <div class="carousel-item"> -->
+<!-- <!-- 	      <img src="" alt="maltese" width="1100" height="500"> --> -->
+<!-- 	      <a href="#"><div></div></a> -->
+<!-- 	      <div class="carousel-caption"> -->
+<!-- 	        <h3>Room 3</h3> -->
+<!-- 	        <p>소형견 전용 룸. 중,대형견은 이용 불가합니다.</p> -->
+<!-- 	      </div>    -->
+<!-- 	    </div> -->
+<!-- 	  </div> -->
+<!-- 	  <a class="carousel-control-prev" href="#demo" data-slide="prev"> -->
+<!-- 	    <span class="carousel-control-prev-icon"></span> -->
+<!-- 	  </a> -->
+<!-- 	  <a class="carousel-control-next" href="#demo" data-slide="next"> -->
+<!-- 	    <span class="carousel-control-next-icon"></span> -->
+<!-- 	  </a> -->
+<!-- 		</div> -->
+
+			
+	<h3 align="center">객실보기</h3>
+		<table align="center">
+			<tr>
+				<td>
+					<a href="<c:url value='/room/plus/roominsert'/>">객실추가</a>
+				</td>
+			</tr>
+			<th>방번호</th>
+			<th>방이름</th>
+			<th>지역번호</th>
+			<c:forEach items="${list}" var="room">
 					<tr>
-						<td>${room.ro_num}</td>
-						<td><a href="<c:url value='/room/plus/roomdetail?ro_num=${room.ro_num}'/>">${room.ro_name }</a></td>
-						<td>${room.ro_br_num}</td>
+						<td align="center">${room.ro_num}</td>
+						<td><a href="<c:url value='/room/plus/roomdetail?ro_num=${room.ro_num}'/>" >${room.ro_name }</a></td>
+						<td align="center">${room.ro_br_num}</td>
 					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-		<!-- 주소 변경 -->
-		<a href="<%=request.getContextPath()%>/room/roomdetail">객실 보러가기</a>
-	 </div>
+			</c:forEach>
+		</table>	
 </body>
-</html>
