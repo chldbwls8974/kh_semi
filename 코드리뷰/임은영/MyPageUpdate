@@ -27,7 +27,6 @@ public class MyPageUpdate extends HttpServlet {
 		MemberVO member = memberService.getMember(me_id);
 		request.setAttribute("member", member);
 		request.getRequestDispatcher("/WEB-INF/views/member/update.jsp").forward(request,response);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 
