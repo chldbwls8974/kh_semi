@@ -26,7 +26,7 @@
 		</div>
  		<button class="btn btn-outline-warning col-12">등록</button>
  	</form>	
- 	<br><button class="btn btn-outline-dark col-3 btn float-right" id="btnCancel">취소</button><br>
+ 	<br><a href="/semi_project" class="btn btn-outline-dark col-3 btn float-right" >취소</a><br>
 </div>
 	<script>
 		 <% 
