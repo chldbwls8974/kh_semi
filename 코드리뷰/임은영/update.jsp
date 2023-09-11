@@ -16,13 +16,13 @@
 <div class="container mt-5">
 	<h1>개인정보 수정</h1>
 	<form action="<c:url value='/member/update'/>" method="post" class="mt-4">	
- 		<!--  <div class = "form-group">
+ 		<div class = "form-group">
  		 	<label>아이디</label>
 			<div class="form-control">${member.me_id}</div>
- 		</div> -->
+ 		</div>
  		<div class = "form-group">
  			<label>이름</label>
- 			<input type="text" class="form-control" name="name" autocomplete="off" required>
+ 			<input type="text" class="form-control" name="name" required>
  		</div>
  		<div class = "form-group">
  			<label>주소</label>
