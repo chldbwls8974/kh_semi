@@ -33,9 +33,10 @@
 			</div>
 			<div class="form-group">
 				<label>맡기고자 하는 개를 선택해주세요</label>
-				<select class="form-control">
+				<select class="form-control dogSelect">
+					<option value="0">반려동물 선택</option>
 					<c:forEach items="${dogList }" var="dog">
-						<option value="${dog.d_num }">${dog.d_name }</option>
+						<option value="${dog.d_si_name }">${dog.d_name }</option>
 					</c:forEach>
 				</select>
 			</div>
@@ -43,7 +44,7 @@
 				<label>예약하고자 하는 방을 선택해주세요</label>
 				<select class="form-control">
 					<c:forEach items="${roomList }" var="room">
-						<option value="${room.ro_num }" <c:if test="${dog.d_si_name}==${room.ro_detail } ">selected</c:if>>${room.ro_name }</option>
+						<option value="${room.ro_num }">${room.ro_name }</option>
 					</c:forEach>
 				</select>
 			</div>
@@ -55,6 +56,23 @@
 	</div>
 	
 	<script type="text/javascript">
+		$('.dogSelect').change(function(){
+			let dSize=$(this).val();
+			console.log(dSize);
+		});
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		$('.btn-add').click(function(){
 			let add =
 				`

@@ -46,11 +46,7 @@
 	<script type="text/javascript">
 	$('.btn-update').click(function(){
 		let po_point = $(this).parents('tr').find('[name=po_point]').val();
-		
-		let po = {
-				po_num : po_num,
-				po_point : po_point
-		}
+		console.log(po_point);
 		
 	})
 	</script>
