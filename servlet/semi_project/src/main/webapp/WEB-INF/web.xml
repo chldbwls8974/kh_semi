@@ -58,8 +58,17 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>MyPage</servlet-name>
-    <url-pattern>/MyPage</url-pattern>
     <url-pattern>/member/mypage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MyPageUpdate</display-name>
+    <servlet-name>MyPageUpdate</servlet-name>
+    <servlet-class>kr.kh.app.controller.MyPageUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyPageUpdate</servlet-name>
+    <url-pattern>/member/update</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
