@@ -10,7 +10,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<title>방 추가하기</title>
+<title>객실등록</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
@@ -20,7 +20,7 @@
 		<form action="" method="post">
 			<input type="text" name="detail" placeholder="상세정보"> <br>
 			<input type="text" name="name" placeholder="방이름"> <br>
-			<button>등록</button>
+			<input class="btn btn-primary"  type="submit" role="button" >등록
 		</form>
 	<script>
 		<% 
