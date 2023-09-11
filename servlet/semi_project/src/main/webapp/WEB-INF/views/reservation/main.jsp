@@ -21,6 +21,7 @@
 		<h2>예약하기</h2>
 		
 		<form action="<c:url value='/reservation/insert'/>">
+			<input type="hidden" class="form-control" name="re_me_id" value="${user.me_id }">
 			<!-- 날짜 입력은 데이터피커로 받을 것 -->
 			<div class="form-group">
 				<label>호텔 이용 시작 날짜</label>

@@ -14,4 +14,5 @@ public interface MemberDAO {
 
 	ArrayList<MemberVO> selectMemberList();
 
+	int updateMember(@Param("member")MemberVO member);
 }

@@ -12,4 +12,8 @@ public interface MemberService {
 
 	ArrayList<MemberVO> selectMemberList();
 
+	MemberVO getMember(String me_id);
+
+	boolean updateMember(MemberVO member);
+
 }
