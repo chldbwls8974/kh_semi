@@ -22,6 +22,9 @@
 	      <a class="nav-link" href="/semi_project/branch/list">지점관리</a>
 	    </li>
 	    <li class="nav-item">
+	      <a class="nav-link" href="/semi_project/room/main">방 관리</a>
+	    </li>
+	    <li class="nav-item">
 	      <a class="nav-link" href="/semi_project/member/list">회원관리</a>
 	    </li>
 	    <li class="nav-item">

@@ -28,7 +28,7 @@ public class RoomDetail extends HttpServlet {
 		}	
 		RoomVO room = roomService.getRoom(ro_num);
 		request.setAttribute("room", room);
-		request.getRequestDispatcher("/WEB-INF/views/room/plus/roomdetail.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/room/detail.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

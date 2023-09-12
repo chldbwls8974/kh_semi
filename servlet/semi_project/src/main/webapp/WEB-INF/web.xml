@@ -118,7 +118,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Room</servlet-name>
-    <url-pattern>/room/roommain</url-pattern>
+    <url-pattern>/room/main</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -128,7 +128,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>RoomDetail</servlet-name>
-    <url-pattern>/room/plus/roomdetail</url-pattern>
+    <url-pattern>/room/detail</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -138,7 +138,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>RoomUpdate</servlet-name>
-    <url-pattern>/room/plus/roomupdate</url-pattern>
+    <url-pattern>/room/update</url-pattern>
   </servlet-mapping>
     <servlet>
     <description></description>
@@ -148,7 +148,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>RoomDelete</servlet-name>
-    <url-pattern>/room/plus/roomdelete</url-pattern>
+    <url-pattern>/room/delete</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -158,7 +158,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>RoomInsert</servlet-name>
-    <url-pattern>/room/plus/roominsert</url-pattern>
+    <url-pattern>/room/insert</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

@@ -13,7 +13,7 @@
 	</select>
 	<!-- 방 추가 -->
 	<insert id="insertRoom">
-		insert into room(ro_name, ro_detail) value(#{room.ro_name}, #{room.ro_detail})
+		insert into room(ro_name, ro_detail, ro_br_num, ro_max_cap) value(#{room.ro_name}, #{room.ro_detail},  #{room.ro_br_num},  #{room.ro_max_cap})
 	</insert>
 	<!-- 방 수정 -->
 	<update id="updateRoom">

@@ -13,19 +13,28 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-	
+	<div class="container mt-5">
 	<h3>객실 상세정보</h3>
+		<div class="card">
+			<div class="card-body">
+				<c:if test="${room != null }">
+					<div>객실 타입 : ${room.ro_name }</div>
+					<div>객실 상세 정보 :${room.ro_detail }</div>
+					<div>지점 번호 : ${branch.br_name}</div>
+					<div>최대 수용 마리 수 : ${room.ro_max_cap}</div>	
+				</c:if>
+			</div>
+		</div>
+		<a href="<c:url value='/room/main${cri.currentUrl }'/>" class="btn btn-outline-dark mt-2 btn-float-right">뒤로가기</a>
+	</div>
 	
-	<c:if test="${room != null }">
-		<div>객실 타입 : ${room.ro_name }</div>
-		<div>객실 상세 정보 :${room.ro_detail }</div>
-		<div>지점 번호 : ${branch.br_name}</div>
-		<div>최대 수용 마리 수 : ${room.ro_max_cap}</div>	
-	</c:if>
 	
-	<a href="<c:url value='/room/roommain${cri.currentUrl }'/>"><button>뒤로가기</button></a>
+	
 	<!-- 관리자만 보이게 수정필요 -->
-	<a href="<c:url value='/room/plus/roomupdate?ro_num=${room.ro_num }'/>"><button>수정</button></a>
-	<a href="<c:url value='/room/plus/roomdelete?ro_num=${room.ro_num }'/>"><button>삭제</button></a>
+	<div class="container">
+		<a href="<c:url value='/room/update?ro_num=${room.ro_num }'/>" class="btn btn-outline-warning mt-2">수정</a>
+		<a href="<c:url value='/room/delete?ro_num=${room.ro_num }'/>" class="btn btn-outline-warning mt-2">삭제</a>
+	</div>
+	
 </body>
 </html>

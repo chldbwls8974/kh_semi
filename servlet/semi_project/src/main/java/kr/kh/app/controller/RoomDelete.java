@@ -18,7 +18,7 @@ public class RoomDelete extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/room/message.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

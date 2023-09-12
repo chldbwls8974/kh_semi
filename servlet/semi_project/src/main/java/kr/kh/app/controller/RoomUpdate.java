@@ -24,7 +24,7 @@ public class RoomUpdate extends HttpServlet {
 		RoomVO room = roomService.getRoom(ro_num);
 		//jsp페이지로 넘겨준다
 		request.setAttribute("room", room);
-		request.getRequestDispatcher("/WEB-INF/views/room/plus/roomupdate.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/room/update.jsp").forward(request, response);
 
 	}
 

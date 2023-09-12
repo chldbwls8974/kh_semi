@@ -21,25 +21,22 @@ public class RoomInsert extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/room/plus/roominsert.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/room/insert.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		String name = request.getParameter("name");
-//		String detail = request.getParameter("detail");
-//		RoomVO room = new RoomVO(0,name, detail, 0, 0, 0);
-//		boolean ok = false;
-//		if(roomService.insertRoom(room)) {
-//			ok = true;
-//		}
-//		request.setAttribute("ok", ok);
-//		doGet(request, response);
+		String name = request.getParameter("name");
+		String detail = request.getParameter("detail");
+		Integer max_cap = Integer.parseInt(request.getParameter("max_cap"));
+		Integer branch = Integer.parseInt(request.getParameter("branch"));
+		RoomVO room = new RoomVO(name,max_cap,0,branch,detail);
+		boolean ok = false;
+		if(roomService.insertRoom(room)) {
+			ok = true;
+		}
+		request.setAttribute("ok", ok);
+		doGet(request, response);
 		
-		RoomVO roomVo  = new RoomVO();
-		roomVo.setRo_name(request.getParameter("객실이름"));
-		roomVo.setRo_detail(request.getParameter("상세정보"));
-		
-		response.sendRedirect("/");
 		
 	}
 
