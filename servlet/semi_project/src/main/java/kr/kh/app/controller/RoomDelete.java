@@ -17,20 +17,18 @@ public class RoomDelete extends HttpServlet {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/room/message.jsp").forward(request, response);
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int ro_num = Integer.parseInt(request.getParameter("ro_num"));
 		String msg = "게시글 삭제에 실패하였습니다.";
-		String redirectUrl = "/room/plus/roomdetail?ro_num=" + ro_num;
+		String redirectUrl = "/room/detail?ro_num=" + ro_num;
 		if(roomService.deleteRoom(ro_num)) {
 			msg = "게시글을 삭제하였습니다.";
 			redirectUrl = "/";
 		}
 		request.setAttribute("msg", msg);
 		request.setAttribute("url", redirectUrl);
+		request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
 	}
 
 }

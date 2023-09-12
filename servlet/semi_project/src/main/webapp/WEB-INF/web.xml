@@ -140,7 +140,7 @@
     <servlet-name>RoomUpdate</servlet-name>
     <url-pattern>/room/update</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>RoomDelete</display-name>
     <servlet-name>RoomDelete</servlet-name>
@@ -249,5 +249,15 @@
   <servlet-mapping>
     <servlet-name>ReservMain</servlet-name>
     <url-pattern>/reservation/main</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Ajex</display-name>
+    <servlet-name>Ajex</servlet-name>
+    <servlet-class>kr.kh.app.controller.Ajex</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ajex</servlet-name>
+    <url-pattern>/ajex</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -67,18 +67,13 @@
 	</div>
 	
 	<script type="text/javascript">
-		$('.dogSelect').change(function(){
-			if($(this).val()=='s')
+	
+		$('[name=dogSelect]').change(function(){
+			let dSize = $(this).val();
+			console.log(dSize)
 		});
+	
 		
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	</script>

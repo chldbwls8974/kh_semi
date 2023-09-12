@@ -4,15 +4,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>객실 수정</h3>
-	<form action="<c:url value='/room/update'/>" method="post">
-		<input type="hidden" name="ro_num" value="${room.ro_num }">
-		<input type="text" name="title" placeholder="제목" value="${room.ro_name }"> <br>
-		<button>등록</button>
-	</form>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+	<div class="container mt-5">
+		<h3>객실 수정</h3>
+			<form action="<c:url value='/room/update'/>" method="post" class="mt-4">
+				<input type="hidden" name="ro_num" value="${room.ro_num }">
+				<div class="form-group">
+					<label>지점번호</label>
+					<input type="text" class="form-control" name="ro_br_num" value="${room.ro_br_num }"  readonly>
+				</div>
+				<div class="form-group">
+					<label>객실명</label>
+					<input type="text" class="form-control" name="ro_name" placeholder="${room.ro_name }")>
+				</div>
+				<div class="form-group">
+					<label>객실 상세정보</label>
+					<input type="text" class="form-control" name="ro_detail" placeholder="${room.ro_detail }")>
+				</div>
+				<div class="form-group">
+					<label>최대 수용 마리 수</label>
+					<input type="text" class="form-control" name="ro_max_cap" placeholder="${room.ro_max_cap }")>
+				</div>
+				<button class="btn btn-outline-success">등록</button>
+			</form>
+	</div>
+
+	
 </body>
 </html>

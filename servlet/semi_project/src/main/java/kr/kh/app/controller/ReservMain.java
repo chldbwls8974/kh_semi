@@ -33,6 +33,8 @@ public class ReservMain extends HttpServlet {
 		HttpSession session = request.getSession();
 		MemberVO user = (MemberVO)session.getAttribute("user"); 
 		
+		System.out.println(request.getParameter("dSize"));
+		
 		ArrayList<BranchVO> branchList = branchService.getBranchList();
 		ArrayList<DogVO> dogList = dogService.getMyDogList(user);
 		ArrayList<RoomVO> roomList = roomService.getRoomList();
@@ -45,6 +47,7 @@ public class ReservMain extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		doGet(request, response);
 	}
 

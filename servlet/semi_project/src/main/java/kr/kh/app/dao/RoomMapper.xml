@@ -17,7 +17,11 @@
 	</insert>
 	<!-- 방 수정 -->
 	<update id="updateRoom">
-		update room set ro_name =#{room.ro_name} where ro_num = #{room.ro_num}
+		update room set 
+		ro_name =#{room.ro_name},
+		ro_detail = #{room.ro_detail},
+		ro_max_cap = #{room.ro_max_cap}
+		where ro_num = #{room.ro_num}
 	</update>
 	<!-- 방 삭제 -->
 	<delete id="deleteRoom">

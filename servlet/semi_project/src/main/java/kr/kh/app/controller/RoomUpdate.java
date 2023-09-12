@@ -30,17 +30,17 @@ public class RoomUpdate extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int ro_num = Integer.parseInt(request.getParameter("ro_num"));
-		String name = request.getParameter("name");
+		String ro_name = request.getParameter("ro_name");
 		int ro_max_cap = Integer.parseInt(request.getParameter("ro_max_cap"));
-		int ro_now_cap = Integer.parseInt(request.getParameter("ro_now_cap"));
 		int ro_br_num = Integer.parseInt(request.getParameter("ro_br_num"));
-		RoomVO room = new RoomVO(ro_num, name, null, ro_max_cap, ro_now_cap, ro_br_num);
-		String url = "/room/plus/roomupdate?ro_num=" + ro_num;
-		String msg = "게시글이 수정되었습니다.";
+		String ro_detail = request.getParameter("ro_detail");
+		RoomVO room = new RoomVO(ro_name, ro_max_cap, 0, ro_br_num,ro_detail);
+		String url = "/room/update?ro_num=" + ro_num;
+		String msg = "객실 수정 완료";
 		
 		if(roomService.updateRoom(room)) {
-			url = "/room/plus/roomdetail?ro_num=" + ro_num;
-			msg = "게시글 수정에 실패했습니다.";
+			url = "/room/detail?ro_num=" + ro_num;
+			msg = "객실 수정 실패";
 		}
 		
 		request.setAttribute("url", url);
