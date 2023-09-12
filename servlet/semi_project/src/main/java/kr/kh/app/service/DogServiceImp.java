@@ -34,7 +34,7 @@ public class DogServiceImp implements DogService {
 		if(dog == null) {
 			return false;
 		}
-		DogVO dbDog = dogDao.selectDog(dog.getD_name());
+		DogVO dbDog = dogDao.selectDog(dog.getD_num());
 		if(dbDog != null) {
 			return false;
 		}

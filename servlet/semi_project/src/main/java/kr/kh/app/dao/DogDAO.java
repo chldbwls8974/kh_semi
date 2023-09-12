@@ -9,7 +9,7 @@ import kr.kh.app.vo.MemberVO;
 
 public interface DogDAO {
 
-	DogVO selectDog(@Param("d_name")String d_name);
+	DogVO selectDog(@Param("d_num")String d_num);
 
 	void insertDog(@Param("dog")DogVO dog);
 

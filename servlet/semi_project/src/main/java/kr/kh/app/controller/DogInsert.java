@@ -55,7 +55,6 @@ public class DogInsert extends HttpServlet {
 		String num = id  + "00" + myDogCount;
 		
 		DogVO dog = new DogVO(num, name, age, gen, kg, detail, id, siName);
-		System.out.println(dog);
 		
 		boolean ok = false;
 		
