@@ -69,8 +69,15 @@
 	<script type="text/javascript">
 	
 		$('[name=dogSelect]').change(function(){
-			let dSize = $(this).val();
-			console.log(dSize)
+			let data = {
+					dSize :  $(this).val(),
+					bSize : $('[name=branchSelect]').val()
+			}
+			console.log(data)
+			function ajaxJsonToJson(false, 'post','/reservation/select', data, (data)=>{
+				
+			})
+			
 		});
 	
 		

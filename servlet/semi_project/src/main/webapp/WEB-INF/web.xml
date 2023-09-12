@@ -260,4 +260,14 @@
     <servlet-name>Ajex</servlet-name>
     <url-pattern>/ajex</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReservSelect</display-name>
+    <servlet-name>ReservSelect</servlet-name>
+    <servlet-class>kr.kh.app.controller.ReservSelect</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReservSelect</servlet-name>
+    <url-pattern>/reservation/select</url-pattern>
+  </servlet-mapping>
 </web-app>
