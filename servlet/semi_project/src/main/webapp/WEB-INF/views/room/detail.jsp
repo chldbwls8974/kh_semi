@@ -9,6 +9,15 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+  /* Make the image fully responsive */
+  .carousel-inner img {
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
 <title>객실 상세페이지</title>
 </head>
 <body>
@@ -18,6 +27,9 @@
 		<div class="card">
 			<div class="card-body">
 				<c:if test="${room != null }">
+					<div>
+						<img alt="room" src="./방1">
+					</div>
 					<div>객실 타입 : ${room.ro_name }</div>
 					<div>객실 상세 정보 :${room.ro_detail }</div>
 					<div>지점 번호 : ${branch.ro_br_name}</div>
@@ -29,13 +41,19 @@
 		<a href="<c:url value='/room/main${cri.currentUrl }'/>" class="btn btn-outline-dark mt-2 btn-float-right">뒤로가기</a>
 	</div>
 	
+	<!-- 회원만 보이게 -->
+	<c:if test="${sessionScope.m_admin=='n'}">
+		<div class="container">
+			<a href="<c:url value='/reservation/main?ro_num=${room.ro_num }'/>" class="btn btn-outline-warning mt-2">예약하기</a>
+		</div>
+	</c:if>
 	
-	
-	<!-- 관리자만 보이게 수정필요 -->
-	<div class="container">
-		<a href="<c:url value='/room/update?ro_num=${room.ro_num }'/>" class="btn btn-outline-warning mt-2">수정</a>
-		<a href="<c:url value='/room/delete?ro_num=${room.ro_num }'/>" class="btn btn-outline-warning mt-2">삭제</a>
-	</div>
-	
+	<!-- 관리자만 보이게 -->
+	<c:if test="${sessionScope.m_admin=='y'}">
+		<div class="container">
+			<a href="<c:url value='/room/update?ro_num=${room.ro_num }'/>" class="btn btn-outline-warning mt-2">수정</a>
+			<a href="<c:url value='/room/delete?ro_num=${room.ro_num }'/>" class="btn btn-outline-warning mt-2">삭제</a>
+		</div>
+	</c:if>	
 </body>
 </html>
