@@ -21,40 +21,75 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-<div class="container mt-5">
-	<h2>객실보기</h2>
-		<div>
-		<label>지점을 선택해주세요</label>
-				<select name="branchSelect">
-					<option value="0">지점 선택</option>
-					<c:forEach items="${branchList }" var="br">
-						<option value="${br.br_num }">${br.br_name }</option>
-					</c:forEach>
-				</select>
-		</div>
-		<table class="table table-hover mt-4">
-		<thead>
-			<tr>
-				<th>방번호</th>
-				<th>방이름</th>
-				<th>최대 수용 반려견 수</th>
-				<th>현재 수용 반려견 수</th>
-				<th>방 타입</th>
-			</tr>
-		</thead>
-			<tbody>
-				<c:forEach items="${list}" var="room">
-						<tr>
-							<td>${room.ro_num}</td>
-							<td><a href="<c:url value='/room/detail?ro_num=${room.ro_num}'/>" >${room.ro_name }</a></td>
-							<td>${room.ro_max_cap}</td>
-							<td>${room.ro_now_cap}</td>
-							<td>${room.ro_detail}</td>
-						</tr>
-				</c:forEach>
-			</tbody>
-		</table>	
-		<a href="<c:url value='/room/insert'/>" class="btn btn-outline-warning mt-2">등록</a>
-</div>	
+<!-- <div class="container mt-5"> -->
+<!-- 	<h2>객실보기</h2> -->
+<!-- 		<div> -->
+<!-- 		<label>지점을 선택해주세요</label> -->
+<!-- 				<select name="branchSelect"> -->
+<!-- 					<option value="0">지점 선택</option> -->
+<%-- 					<c:forEach items="${branchList }" var="br"> --%>
+<%-- 						<option value="${br.br_num }">${br.br_name }</option> --%>
+<%-- 					</c:forEach> --%>
+<!-- 				</select> -->
+<!-- 		</div> -->
+<!-- 		<table class="table table-hover mt-4"> -->
+<!-- 		<thead> -->
+<!-- 			<tr> -->
+<!-- 				<th>방번호</th> -->
+<!-- 				<th>방이름</th> -->
+<!-- 				<th>최대 수용 반려견 수</th> -->
+<!-- 				<th>현재 수용 반려견 수</th> -->
+<!-- 				<th>방 타입</th> -->
+<!-- 			</tr> -->
+<!-- 		</thead> -->
+<!-- 			<tbody> -->
+<%-- 				<c:forEach items="${list}" var="room"> --%>
+<!-- 						<tr> -->
+<%-- 							<td>${room.ro_num}</td> --%>
+<%-- 							<td><a href="<c:url value='/room/detail?ro_num=${room.ro_num}'/>" >${room.ro_name }</a></td> --%>
+<%-- 							<td>${room.ro_max_cap}</td> --%>
+<%-- 							<td>${room.ro_now_cap}</td> --%>
+<%-- 							<td>${room.ro_detail}</td> --%>
+<!-- 						</tr> -->
+<%-- 				</c:forEach> --%>
+<!-- 			</tbody> -->
+<!-- 		</table>	 -->
+<%-- 		<a href="<c:url value='/room/insert'/>" class="btn btn-outline-warning mt-2">등록</a> --%>
+<!-- </div>	 -->
+
+<div id="demo" class="carousel slide mt-5" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="container carousel-inner w-65 h-40">
+    <div class="carousel-item active">
+      <img src="방1.jpg" alt="방1">
+    </div>
+    <div class="carousel-item">
+      <img src="운동장.jpg" alt="운동장">
+    </div>
+    <div class="carousel-item">
+      <img src="방1.jpg" alt="방1">
+    </div>
+      <div class="carousel-item">
+      <img src="운동장.jpg" alt="운동장">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
 </body>
 </html>
