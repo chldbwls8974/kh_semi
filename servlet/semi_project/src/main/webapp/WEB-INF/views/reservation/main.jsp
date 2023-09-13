@@ -29,11 +29,11 @@
 			<!-- 날짜 입력은 데이터피커로 받을 것 -->
 			<div class="form-group">
 				<label>호텔 이용 시작 날짜</label>
-				<input type="date" id="start_date" class="form-control" name="re_date"> 
+				<input type="date" id="datePicker" class="form-control" name="re_date"> 
 			</div>
 			<div class="form-group">
 				<label>이용기간</label>
-				<input type="date" id="end_date" class="form-control" name="re_stay" placeholder="ex)3박4일 이용하시면 4 라고 입력해주세요"> 
+				<input type="date" class="form-control" name="re_stay" placeholder="ex)3박4일 이용하시면 4 라고 입력해주세요"> 
 			</div>	
 			<div class="form-group">
 				<label>지점을 선택해주세요</label>
@@ -98,31 +98,17 @@
 // 			showMonthAfterYear: true,
 // 			yearSuffix: '년'
 // 		});
+	
 		
 		//데이트피커
-		$(function(){
-			//포맷을 한국어로 설정
-			$.datepicker.setDefaults($.datepicker.regional['ko']);
-			
-			$('#start_date').datepicker({
-				dateFormat: 'yyyy-mm-dd',
-				changeMonth: true,
-				maxDate: 0,
-				onClose: function(selectedDate){
-					//시작일 설정시 종료일을 선택하는 최소날짜를 선택한 시작일로 지정
-					$('#start_date').datepicker("option", "minDate", selectedDate);
-				}
-			});
-			$('#end_date').datepicker({
-				dateFormat: 'yyyy-mm-dd',
-				changeMonth: true,
-				maxDate: 0,
-				onClose: function(selectedDate){
-					//시작일 설정시 종료일을 선택하는 최소날짜를 선택한 시작일로 지정
-					$('#end_date').datepicker("option", "maxDate", selectedDate);
-				}
-			});
-		};
+		$('#datePicker').datepicker({
+			dateFormat: 'yyyy-mm-dd', //달력 클릭시 표시할 값
+			language: "kr", //한국어로
+			changeMonth: true,
+			totalHighlight: true, //오늘날짜 강조
+			startDate: '-3d'
+		});
+		
 		
 	</script>
 
