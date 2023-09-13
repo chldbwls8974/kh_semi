@@ -31,7 +31,7 @@
 				<label>이용기간</label>
 				<input type="text" class="form-control" name="re_stay" placeholder="ex)3박4일 이용하시면 4 라고 입력해주세요"> 
 			</div>	
-			<div class="form-group">
+			<div class="form-groupm br-box">
 				<label>지점을 선택해주세요</label>
 				<select class="form-control" name="branchSelect">
 					<option value="0">지점 선택</option>
@@ -40,7 +40,7 @@
 					</c:forEach>
 				</select>
 			</div>
-			<div class="form-group">
+			<div class="form-group do-box">
 				<label>맡기고자 하는 개를 선택해주세요</label>
 				<select class="form-control" name="dogSelect">
 					<option value="0">반려동물 선택</option>
@@ -50,12 +50,12 @@
 				</select>
 			</div>
 		
-			<div class="form-group">
+			<div class="form-group ro-box">
 				<label>예약하고자 하는 방을 선택해주세요</label>
 				<select class="form-control" name="roomSelect">
 					<option value="0">방 선택</option>
-					<c:forEach items="${roomList }" var="room">
-						<option value="${room.ro_detail }">${room.ro_name }</option>
+					<c:forEach items="${roomList }" var="room" >
+						<option class="room" value="${room.ro_detail }">${room.ro_name }</option>
 					</c:forEach>
 				</select>
 			</div>
@@ -68,14 +68,13 @@
 	
 	<script type="text/javascript">
 	
-		$('[name=dogSelect]').change(function(){
-			let data = {
-					dSize :  $(this).val(),
-					bSize : $('[name=branchSelect]').val()
-			}
-			console.log(data)
-			function ajaxJsonToJson(false, 'post','/reservation/select', data, (data)=>{
-				
+		$('[name=branchSelect]').change(function(){
+			
+			let	br_num = $(this).val()
+			//console.log($(this).parents().find('.room').val())
+			
+			ajaxJsonToJson(false,'post','/reservation/select',br_num,(data)=>{
+				alert('성공');
 			})
 			
 		});
