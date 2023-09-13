@@ -12,6 +12,10 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 	
+ 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+ 	<link rel="stylesheet" href="/resources/demos/style.css">
+ 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+ 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <title>Insert title here</title>
 </head>
@@ -25,11 +29,11 @@
 			<!-- 날짜 입력은 데이터피커로 받을 것 -->
 			<div class="form-group">
 				<label>호텔 이용 시작 날짜</label>
-				<input type="text" id="datePicker" class="form-control" name="re_date"> 
+				<input type="date" id="start_date" class="form-control" name="re_date"> 
 			</div>
 			<div class="form-group">
 				<label>이용기간</label>
-				<input type="text" class="form-control" name="re_stay" placeholder="ex)3박4일 이용하시면 4 라고 입력해주세요"> 
+				<input type="date" id="end_date" class="form-control" name="re_stay" placeholder="ex)3박4일 이용하시면 4 라고 입력해주세요"> 
 			</div>	
 			<div class="form-group">
 				<label>지점을 선택해주세요</label>
@@ -81,8 +85,45 @@
 		});
 	
 		
-	
-	
+		//데이트피커 디폴트옵션(포맷설정)
+// 		$.datepicker.setDefaults({
+// 			dateFormat: 'yy-mm-dd',
+// 			prevText: '이전 달',
+// 			nextText: '다음 달',
+// 			monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+// 			monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+// 			dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+// 			dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+// 			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+// 			showMonthAfterYear: true,
+// 			yearSuffix: '년'
+// 		});
+		
+		//데이트피커
+		$(function(){
+			//포맷을 한국어로 설정
+			$.datepicker.setDefaults($.datepicker.regional['ko']);
+			
+			$('#start_date').datepicker({
+				dateFormat: 'yyyy-mm-dd',
+				changeMonth: true,
+				maxDate: 0,
+				onClose: function(selectedDate){
+					//시작일 설정시 종료일을 선택하는 최소날짜를 선택한 시작일로 지정
+					$('#start_date').datepicker("option", "minDate", selectedDate);
+				}
+			});
+			$('#end_date').datepicker({
+				dateFormat: 'yyyy-mm-dd',
+				changeMonth: true,
+				maxDate: 0,
+				onClose: function(selectedDate){
+					//시작일 설정시 종료일을 선택하는 최소날짜를 선택한 시작일로 지정
+					$('#end_date').datepicker("option", "maxDate", selectedDate);
+				}
+			});
+		};
+		
 	</script>
 
 

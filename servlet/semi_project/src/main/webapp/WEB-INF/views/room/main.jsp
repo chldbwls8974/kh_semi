@@ -57,8 +57,11 @@
 						</tr>
 				</c:forEach>
 			</tbody>
-		</table>	
-		<a href="<c:url value='/room/insert'/>" class="btn btn-outline-warning mt-2">등록</a>
+		</table>
+			<!-- 관리자만 등록버튼 보이게 -->
+<%-- 		<c:if test="${sessionScope.m_admin=='y'}"> --%>
+			<a href="<c:url value='/room/insert'/>" class="btn btn-outline-warning mt-2">등록</a>
+<%-- 		</c:if> --%>
 </div>	
 
 <!-- <div id="demo" class="carousel slide mt-5" data-ride="carousel"> -->
