@@ -118,7 +118,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Room</servlet-name>
-    <url-pattern>/room/roommain</url-pattern>
+    <url-pattern>/room/main</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -128,7 +128,27 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>RoomDetail</servlet-name>
-    <url-pattern>/room/plus/roomdetail</url-pattern>
+    <url-pattern>/room/detail</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RoomUpdate</display-name>
+    <servlet-name>RoomUpdate</servlet-name>
+    <servlet-class>kr.kh.app.controller.RoomUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RoomUpdate</servlet-name>
+    <url-pattern>/room/update</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RoomDelete</display-name>
+    <servlet-name>RoomDelete</servlet-name>
+    <servlet-class>kr.kh.app.controller.RoomDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RoomDelete</servlet-name>
+    <url-pattern>/room/delete</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -138,7 +158,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>RoomInsert</servlet-name>
-    <url-pattern>/room/plus/roominsert</url-pattern>
+    <url-pattern>/room/insert</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -229,5 +249,25 @@
   <servlet-mapping>
     <servlet-name>ReservMain</servlet-name>
     <url-pattern>/reservation/main</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Ajex</display-name>
+    <servlet-name>Ajex</servlet-name>
+    <servlet-class>kr.kh.app.controller.Ajex</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ajex</servlet-name>
+    <url-pattern>/ajex</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReservSelect</display-name>
+    <servlet-name>ReservSelect</servlet-name>
+    <servlet-class>kr.kh.app.controller.ReservSelect</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReservSelect</servlet-name>
+    <url-pattern>/reservation/select</url-pattern>
   </servlet-mapping>
 </web-app>

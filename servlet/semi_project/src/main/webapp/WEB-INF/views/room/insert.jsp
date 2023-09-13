@@ -10,29 +10,49 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<title>방 추가하기</title>
+<title>객실등록</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-	
-	<h3>방 추가하기</h3>
+	<div class="container mt-5">
+		<h3>방 추가하기</h3>
 	<!-- 관리자만 등록 버튼 보이게 필요 -->
-		<form action="" method="post">
-			<input type="text" name="detail" placeholder="상세정보"> <br>
-			<input type="text" name="name" placeholder="방이름"> <br>
-			<button>등록</button>
+		<form action="<c:url value='/room/insert'/>" method="post" class="mt-4">
+			<div class="form-group">
+				<label>지점번호</label>
+				<input type="text" class="form-control" name="branch" placeholder="지점번호">
+			</div>
+			<div class="form-group">
+				<label>방이름</label>
+				<input type="text" class="form-control" name="name" placeholder="방이름">
+			</div>
+			<div class="form-group">
+				<label>최대 수용 마리수</label>
+				<input type="text" class="form-control" name="max_cap" placeholder="숫자만 입력하시오.">
+			</div>
+			<div class="form-group">
+				<label>상세정보</label>
+				<input type="text" class="form-control" name="detail" placeholder="상세정보">
+			</div>
+			
+			
+		
+			
+			<button class="btn btn-outline-success">등록</button>
 		</form>
+	</div>
+	
 	<script>
 		<% 
 			Boolean result = (Boolean)request.getAttribute("ok");
 			if(result != null && result){
 		%>
-			alert('게시글 등록 성공!');
-			location.href = '<c:url value="/list"/>';
+			alert('방 등록 성공');
+			location.href = '/semi_project/room/main';
 		<%
 			}else if(result != null && !result){
 		%>
-			alert('게시글 등록 실패!')
+			alert('방 등록 실패')
 		<%
 			}
 		%>

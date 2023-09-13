@@ -20,7 +20,7 @@
 	<div class="container mt-5">
 		<h2>예약하기</h2>
 		
-		<form action="<c:url value='/reservation/insert'/>">
+		<form action="<c:url value='/reservation/insert'/>" method="post" class="reserv-box">
 			<input type="hidden" class="form-control" name="re_me_id" value="${user.me_id }">
 			<!-- 날짜 입력은 데이터피커로 받을 것 -->
 			<div class="form-group">
@@ -30,20 +30,32 @@
 			<div class="form-group">
 				<label>이용기간</label>
 				<input type="text" class="form-control" name="re_stay" placeholder="ex)3박4일 이용하시면 4 라고 입력해주세요"> 
-			</div>
+			</div>	
 			<div class="form-group">
-				<label>맡기고자 하는 개를 선택해주세요</label>
-				<select class="form-control">
-					<c:forEach items="${dogList }" var="dog">
-						<option value="${dog.d_num }">${dog.d_name }</option>
+				<label>지점을 선택해주세요</label>
+				<select class="form-control" name="branchSelect">
+					<option value="0">지점 선택</option>
+					<c:forEach items="${branchList }" var="br">
+						<option value="${br.br_num }">${br.br_name }</option>
 					</c:forEach>
 				</select>
 			</div>
 			<div class="form-group">
+				<label>맡기고자 하는 개를 선택해주세요</label>
+				<select class="form-control" name="dogSelect">
+					<option value="0">반려동물 선택</option>
+					<c:forEach items="${dogList }" var="dog">
+						<option value="${dog.d_si_name }">${dog.d_name }</option>
+					</c:forEach>
+				</select>
+			</div>
+		
+			<div class="form-group">
 				<label>예약하고자 하는 방을 선택해주세요</label>
-				<select class="form-control">
+				<select class="form-control" name="roomSelect">
+					<option value="0">방 선택</option>
 					<c:forEach items="${roomList }" var="room">
-						<option value="${room.ro_num }" <c:if test="${dog.d_si_name}==${room.ro_detail } ">selected</c:if>>${room.ro_name }</option>
+						<option value="${room.ro_detail }">${room.ro_name }</option>
 					</c:forEach>
 				</select>
 			</div>
@@ -55,28 +67,22 @@
 	</div>
 	
 	<script type="text/javascript">
-		$('.btn-add').click(function(){
-			let add =
-				`
-				<hr class="my-5 w-65">
-				<div class="form-group">
-				<label>맡기고자 하는 개를 선택해주세요</label>
-				<select class="form-control">
-					<c:forEach items="${dogList }" var="dog">
-						<option value="${dog.d_num }">${dog.d_name }</option>
-					</c:forEach>
-				</select>
-			</div>
-			<div class="form-group">
-				<label>예약하고자 하는 방을 선택해주세요</label>
-				<select class="form-control">
-					<c:forEach items="${roomList }" var="room">
-						<option value="${room.ro_num }" <c:if test="${dog.d_si_name}==${room.ro_detail } ">selected</c:if>>${room.ro_name }</option>
-					</c:forEach>
-				</select>
-			</div>`;
-			$(this).before(add);
+	
+		$('[name=dogSelect]').change(function(){
+			let data = {
+					dSize :  $(this).val(),
+					bSize : $('[name=branchSelect]').val()
+			}
+			console.log(data)
+			function ajaxJsonToJson(false, 'post','/reservation/select', data, (data)=>{
+				
+			})
+			
 		});
+	
+		
+	
+	
 	</script>
 
 

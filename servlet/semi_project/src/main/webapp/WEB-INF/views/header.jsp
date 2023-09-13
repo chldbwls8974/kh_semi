@@ -9,7 +9,19 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
+	<script type="text/javascript">
+	function ajaxJsonToJson(async, type, url, sendObject, successFunc){
+		$.ajax({
+			async : async, 
+			type : type, 
+			url : '<c:url value="/"/>'+url, 
+			data : JSON.stringify(sendObject), 
+			contentType : "application/json; charset=UTF-8", 
+			dataType : "json",
+			success : successFunc
+		});
+	}
+	</script>
 <style>
   /* 사진 크기 */
   .carousel-inner img {
@@ -38,7 +50,7 @@
 	      <a class="nav-link" href="/semi_project/dog/list">반려견 등록</a>
 	    </li>
 	 	<li class="nav-item">
-	      <a class="nav-link" href="/semi_project/room/roommain">방 둘러보기</a>
+	      <a class="nav-link" href="/semi_project/room/main">방 둘러보기</a>
 	    </li>
 	    <li class="nav-item">
 	      <a class="nav-link" href="/semi_project/reservation/main">예약하기</a>
@@ -63,5 +75,7 @@
 	 </ul>
   </div>	 
 </nav>
+
+
 </body>
 </html>
