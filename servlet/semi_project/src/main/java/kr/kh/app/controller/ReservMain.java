@@ -33,7 +33,6 @@ public class ReservMain extends HttpServlet {
 		HttpSession session = request.getSession();
 		MemberVO user = (MemberVO)session.getAttribute("user"); 
 		
-		System.out.println(request.getParameter("dSize"));
 		
 		ArrayList<BranchVO> branchList = branchService.getBranchList();
 		ArrayList<DogVO> dogList = dogService.getMyDogList(user);
@@ -47,7 +46,11 @@ public class ReservMain extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
+		String br_num = request.getParameter("br_num");
+		System.out.println(br_num);
 		doGet(request, response);
 	}
 

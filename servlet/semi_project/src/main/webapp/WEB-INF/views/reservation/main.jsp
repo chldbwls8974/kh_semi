@@ -54,6 +54,7 @@
 				<label>예약하고자 하는 방을 선택해주세요</label>
 				<select class="form-control" name="roomSelect">
 					<option value="0">방 선택</option>
+					<!-- room.ro_br_num == br.br_num -->
 					<c:forEach items="${roomList }" var="room">
 						<option value="${room.ro_detail }">${room.ro_name }</option>
 					</c:forEach>
@@ -66,24 +67,43 @@
 		</form>
 	</div>
 	
-	<script type="text/javascript">
-	
-		$('[name=dogSelect]').change(function(){
-			let data = {
-					dSize :  $(this).val(),
-					bSize : $('[name=branchSelect]').val()
-			}
-			console.log(data)
-			function ajaxJsonToJson(false, 'post','/reservation/select', data, (data)=>{
-				
-			})
-			
+<script type="text/javascript">
+	function ajaxJsonToJson(async, type, url, sendObject, successFunc){
+		$.ajax({
+			async : async, 
+			type : type, 
+			url : '<c:url value="/"/>'+url, 
+			data : JSON.stringify(sendObject), 
+			contentType : "application/json; charset=UTF-8", 
+			dataType : "json",
+			success : successFunc
 		});
-	
-		
-	
-	
-	</script>
+	}
+// 	$('[name=roomSelect]').click(function(){
+//  		let d_si_name = $('[name=dogSelect]').val();
+//  		let br_num = $('[name=branchSelect]').val();
+//  		let data = {
+//  				d_si_name :  d_si_name,
+//  				br_num : br_num
+//  		}
+//  		console.log(data);
+// 	});
+	$('[name=roomSelect]').click(function(){
+		/* 개 size */
+		let d_si_name = $('[name=dogSelect]').val();
+		/* 지점번호 */
+ 		let br_num = $('[name=branchSelect]').val();
+		let data = {
+ 				"d_si_name" :  d_si_name,
+ 				"br_num" : br_num
+		}
+ 		console.log(data);
+		ajaxJsonToJson(false, 'post','/reservation/main', data, (data)=>{
+			console.log(data);
+			console.log(data);
+		});
+	});
+</script>
 
 
 </body>
