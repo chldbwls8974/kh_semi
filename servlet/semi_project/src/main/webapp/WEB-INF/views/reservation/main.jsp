@@ -74,20 +74,34 @@
 			let	data ={
 					br_num : $(this).val()
 			} 
-			
 			// ajax를 통해서 지점 번호만 넘겨줌
-			ajaxObjectToJson(false,'post','<c:url value="/reservation/select"/>',data,(data)=>{
+			ajaxObjectToJson(false,'post','<c:url value="/reservation/select"/>',data,(a)=>{
+				if(a==null){
+					alert('해당 지점은 이용하실 수 없습니다.')
+				}
+				
 			})
-			
+			console.log(1)
 		});
 	
 		function getRoomList(){
-			ajaxJsonToJson(false, )
+			let str = '';
+			str += `
+				<div class="form-group ro-box">
+					<label>예약하고자 하는 방을 선택해주세요</label>
+					<select class="form-control" name="roomSelect">
+						<option value="0">방 선택</option>
+						<c:forEach items="\${roomlist }" var="room" >
+							<option class="room" value="\${room.ro_detail }">\${room.ro_name }</option>
+						</c:forEach>
+					</select>
+				</div>s
+			`;
 		}
 	
 	
 	</script>
-
+	
 
 </body>
 </html>

@@ -29,6 +29,10 @@
 	</delete>
 	<!-- 지점에 맞는 방 선택 -->
 	<select id="selectRoomByBranch" resultType="kr.kh.app.vo.RoomVO">
-		select * from room where ro_br_num = #{br_num}
+		select * from room
+		<if test="br_num != 0">
+		where ro_br_num = #{br_num}
+		</if>
+		 
 	</select>
 </mapper>

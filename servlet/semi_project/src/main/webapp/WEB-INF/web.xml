@@ -270,4 +270,14 @@
     <servlet-name>ReservSelect</servlet-name>
     <url-pattern>/reservation/select</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReservBrList</display-name>
+    <servlet-name>ReservBrList</servlet-name>
+    <servlet-class>kr.kh.app.controller.ReservBrList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReservBrList</servlet-name>
+    <url-pattern>/reservation/branch/roomlist</url-pattern>
+  </servlet-mapping>
 </web-app>

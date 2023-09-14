@@ -55,6 +55,7 @@
 			</tbody>
 		</table>	
 		<a href="<c:url value='/room/insert'/>" class="btn btn-outline-warning mt-2">등록</a>
+		
 </div>	
 </body>
 </html>
