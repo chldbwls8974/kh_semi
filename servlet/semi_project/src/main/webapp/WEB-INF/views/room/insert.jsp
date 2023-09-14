@@ -35,10 +35,10 @@
 				<input type="text" class="form-control" name="detail" placeholder="상세정보">
 			</div>
 			
+			<button class="btn btn-outline-warning col-12">등록</button>
 			
 		
-		<input type="button" id="add" value="등록">	
-<!-- 			<button class="btn btn-outline-success">등록</button> -->
+<!-- 		<input type="button" id="add" value="등록">	 -->
 		</form>
 	</div>
 	
