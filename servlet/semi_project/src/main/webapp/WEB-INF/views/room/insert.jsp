@@ -17,7 +17,7 @@
 	<div class="container mt-5">
 		<h3>방 추가하기</h3>
 	<!-- 관리자만 등록 버튼 보이게 필요 -->
-		<form action="<c:url value='/room/insert'/>" method="post" class="mt-4">
+		<form action="<c:url value='/room/insert'/>" id="frm" method="post" class="mt-4">
 			<div class="form-group">
 				<label>지점번호</label>
 				<input type="text" class="form-control" name="branch" placeholder="지점번호">
@@ -37,8 +37,8 @@
 			
 			
 		
-			
-			<button class="btn btn-outline-success">등록</button>
+		<input type="button" id="add" value="등록">	
+<!-- 			<button class="btn btn-outline-success">등록</button> -->
 		</form>
 	</div>
 	
@@ -56,6 +56,23 @@
 		<%
 			}
 		%>
+		
+		$(document).ready(function(){
+			$('#add').on('click', function(){
+				$.ajax({
+					async : false,
+					method: 'post',
+					url : '<c:url value="/"/>',
+					data: JSON.stringify(comment),
+					contentType : 'application/json; charset=utf-8',
+					dataType : 'json',
+					success : function(data){
+						
+						}
+					}
+				})
+			})
+		});
 	</script>
 
 </body>
