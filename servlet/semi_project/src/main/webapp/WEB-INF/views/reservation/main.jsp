@@ -68,18 +68,22 @@
 	
 	<script type="text/javascript">
 	
+		// 지점 번호 서버로 넘겨주는 함수
 		$('[name=branchSelect]').change(function(){
 			
-			let	br_num = $(this).val()
-			//console.log($(this).parents().find('.room').val())
+			let	data ={
+					br_num : $(this).val()
+			} 
 			
-			ajaxJsonToJson(false,'post','/reservation/select',br_num,(data)=>{
-				alert('성공');
+			// ajax를 통해서 지점 번호만 넘겨줌
+			ajaxObjectToJson(false,'post','<c:url value="/reservation/select"/>',data,(data)=>{
 			})
 			
 		});
 	
-		
+		function getRoomList(){
+			ajaxJsonToJson(false, )
+		}
 	
 	
 	</script>
