@@ -29,8 +29,11 @@ public class RoomInsert extends HttpServlet {
 		String detail = request.getParameter("detail");
 		Integer max_cap = Integer.parseInt(request.getParameter("max_cap"));
 		Integer branch = Integer.parseInt(request.getParameter("branch"));
+		
 		RoomVO room = new RoomVO(name,max_cap,0,branch,detail);
+		
 		boolean ok = false;
+		
 		if(roomService.insertRoom(room)) {
 			ok = true;
 		}

@@ -51,7 +51,7 @@
 	      <a class="nav-link" href="/semi_project/dog/list">반려견 등록</a>
 	    </li>
 	 	<li class="nav-item">
-	      <a class="nav-link" href="/semi_project/room/main">방 둘러보기</a>
+	      <a class="nav-link" href="/semi_project/room/main">객실 보기</a>
 	    </li>
 	    <li class="nav-item">
 	      <a class="nav-link" href="/semi_project/reservation/main">예약하기</a>
@@ -60,7 +60,7 @@
  	</ul>
  	<ul class="navbar-nav">  
  		<li class="nav-item">
-	      <a class="nav-link" href="#">${user.me_id }님 환영합니다</a>
+	      <a class="nav-link">${user.me_id }님 환영합니다</a>
 	    </li>
 	    
 	    <li class="nav-item">
