@@ -31,8 +31,8 @@ public class RoomDetail extends HttpServlet {
 			ro_num = null;
 		}	
 		RoomVO room = roomService.getRoom(ro_num);
-		int br_num = room.getRo_br_num();
 		
+		int br_num = room.getRo_br_num();
 		BranchVO branch = branchService.getBranch(br_num);
 		
 		request.setAttribute("room", room);

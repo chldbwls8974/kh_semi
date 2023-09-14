@@ -29,7 +29,7 @@
 			<div class="card-body">
 				<c:if test="${room != null }">
 					<div>
-						<img src="<c:url value='/resources/images/방1.jpg'/>" alt="방1" width="800"/>
+						<img src="<c:url value='/resources/images/room.jpg'/>" alt="방1" width="800"/>
 					</div>
 					<div>객실 타입 : ${room.ro_name }</div>
 					<div>객실 상세 정보 :${room.ro_detail }</div>

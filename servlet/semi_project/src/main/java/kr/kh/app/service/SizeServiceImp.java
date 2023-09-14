@@ -35,4 +35,9 @@ public class SizeServiceImp implements SizeService {
 		sizeDao.updateSize(size);
 		return true;
 	}
+
+	@Override
+	public String getSize(String si_name) {
+		return sizeDao.selectSize(si_name);
+	}
 }

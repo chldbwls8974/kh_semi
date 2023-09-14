@@ -35,6 +35,29 @@
 					<option value="${br.br_num }">${br.br_name }</option>
 				</c:forEach>
 			</select>
+	</div>
+		<table class="table table-hover mt-4">
+		<thead>
+			<tr>
+				<th>방번호</th>
+				<th>방이름</th>
+				<th>최대 수용 반려견 수</th>
+				<th>현재 수용 반려견 수</th>
+				<th>방 타입</th>
+			</tr>
+		</thead>
+			<tbody>
+				<c:forEach items="${list}" var="room">
+						<tr>
+							<td>${room.ro_num}</td>
+							<td><a href="<c:url value='/room/detail?ro_num=${room.ro_num}'/>" >${room.ro_name }</a></td>
+							<td>${room.ro_max_cap}</td>
+							<td>${room.ro_now_cap}</td>
+							<td>${size.si_name}</td>
+						</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 		
 	</div>
 <table class="table table-hover mt-4"> 
