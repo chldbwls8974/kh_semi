@@ -15,5 +15,8 @@ public interface DogDAO {
 
 	ArrayList<DogVO> selectMyDogList(@Param("user")MemberVO user);
 
+	int deleteDog(@Param("d_num")String d_num);
+
+	boolean updateDog(@Param("dog")DogVO dog);
 
 }

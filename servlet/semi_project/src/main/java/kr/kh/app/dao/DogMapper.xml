@@ -14,4 +14,16 @@
 		values(#{dog.d_num}, #{dog.d_name}, #{dog.d_age},
 		 #{dog.d_gen},#{dog.d_kg},#{dog.d_detail},#{dog.d_me_id}, #{dog.d_si_name})
 	</insert>
+	<delete id="deleteDog">
+		delete from dog where d_num = #{d_num}
+	</delete>
+	<update id="updateDog">
+		update 
+			dog 
+		set 
+			d_name = #{dog.d_name}, d_age = #{dog.d_age}, 
+			d_gen= #{dog.d_gen}, d_kg= #{dog.d_kg}, d_detail = #{dog.d_detail}  
+		where 
+			d_num = #{dog.d_num}
+	</update>
 </mapper>

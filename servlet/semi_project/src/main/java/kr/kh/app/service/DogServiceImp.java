@@ -48,5 +48,23 @@ public class DogServiceImp implements DogService {
 		return dogDao.selectMyDogList(user);
 	}
 
+	@Override
+	public boolean deleteDog(String d_num) {
+		return dogDao.deleteDog(d_num) != 0;
+	}
+
+	@Override
+	public DogVO getDog(String d_num) {
+		return dogDao.selectDog(d_num);
+	}
+
+	@Override
+	public boolean updateDog(DogVO dog) {
+		if(dog == null || dog.getD_name() == null) {
+			return false;
+		}
+		return dogDao.updateDog(dog);
+	}
+
 
 }
