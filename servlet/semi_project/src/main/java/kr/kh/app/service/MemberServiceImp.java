@@ -65,6 +65,19 @@ public class MemberServiceImp implements MemberService {
 	public ArrayList<MemberVO> selectMemberList() {
 		return memberDao.selectMemberList();
 	}
+
+	@Override
+	public MemberVO getMember(String me_id) {
+		return memberDao.selectMember(me_id);
+	}
+
+	@Override
+	public boolean updateMember(MemberVO member) {
+		if(member == null || member.getMe_name() == null || member.getMe_address() == null || member.getMe_phone() == null) {
+			return false;
+		}
+		return memberDao.updateMember(member) != 0;
+	}
 	
 
 	

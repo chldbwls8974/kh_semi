@@ -48,6 +48,16 @@ private MemberDAO memberDao;
 	public ArrayList<BranchVO> getBranchList() {
 		return branchDao.selectBranchList();
 	}
+
+	@Override
+	public boolean deleteBranch(int br_num) {
+		return branchDao.deleteBranch(br_num) != 0;
+	}
+
+	@Override
+	public BranchVO getBranch(int br_num) {
+		return branchDao.selectBranch(br_num);
+	}
 }
 
 

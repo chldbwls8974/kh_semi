@@ -11,5 +11,15 @@ public interface RoomDAO {
 	ArrayList<RoomVO> selectRoomList();
 
 	RoomVO selectRoom(@Param("ro_num") Integer ro_num);
+
+	boolean updateRoom(@Param("room") RoomVO room);
+
+	int deleteRoom(@Param("ro_num") int ro_num);
+
+	void insertRoom(@Param("room") RoomVO room);
+
+	ArrayList<RoomVO> selectRoomByBranch(@Param("br_num")Integer br_num);
+
+	ArrayList<RoomVO> selectReservationRoom(@Param("br_num")Integer br_num, @Param("d_size")String d_size);
 	
 }

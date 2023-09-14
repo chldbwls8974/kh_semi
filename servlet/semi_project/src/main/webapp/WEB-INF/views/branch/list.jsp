@@ -1,7 +1,6 @@
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>       
+    pageEncoding="UTF-8"%>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +24,7 @@
 				        <th>지점번호</th>
 				        <th>지점명</th>
 				        <th>지점 연락처</th>
+				        <th>지점 삭제</th>
 				      </tr>
 				    </thead>
 				    <tbody>
@@ -33,6 +33,12 @@
 					        <td>${branch.br_num}</td>
 					        <td>${branch.br_name}</td>
 					        <td>${branch.br_phone}</td>
+					        <td>
+					        <form action="<c:url value='/branch/delete'/>" method="post">
+					        <button class="btn btn-outline-danger btn-branch-delete">삭제</button>
+					        <input type="hidden" name="br_num" value="${branch.br_num}">
+					        </form>
+					        </td>
 					      </tr>
 					    </c:forEach>
 				    </tbody>

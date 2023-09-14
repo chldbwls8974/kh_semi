@@ -12,4 +12,12 @@ public interface RoomService {
 	RoomVO getRoom(Integer ro_num);
 
 	boolean insertRoom(RoomVO room);
+
+	boolean updateRoom(RoomVO room);
+
+	boolean deleteRoom(int ro_num);
+
+	ArrayList<RoomVO> getRoomListByBranch(Integer br_num);
+
+	ArrayList<RoomVO> getRoomListByBranchAndSize(Integer br_num, String d_size);
 }

@@ -11,6 +11,10 @@ public interface BranchService {
 
 	boolean insertBranch(BranchVO branch);
 
+	boolean deleteBranch(int br_num);
+
+	BranchVO getBranch(int br_num);
+
 
 
 }

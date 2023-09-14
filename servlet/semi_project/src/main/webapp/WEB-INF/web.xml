@@ -58,8 +58,17 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>MyPage</servlet-name>
-    <url-pattern>/MyPage</url-pattern>
     <url-pattern>/member/mypage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MyPageUpdate</display-name>
+    <servlet-name>MyPageUpdate</servlet-name>
+    <servlet-class>kr.kh.app.controller.MyPageUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyPageUpdate</servlet-name>
+    <url-pattern>/member/update</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -80,6 +89,16 @@
   <servlet-mapping>
     <servlet-name>BranchInsert</servlet-name>
     <url-pattern>/branch/insert</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BranchDelete</display-name>
+    <servlet-name>BranchDelete</servlet-name>
+    <servlet-class>kr.kh.app.controller.BranchDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BranchDelete</servlet-name>
+    <url-pattern>/branch/delete</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -109,7 +128,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Room</servlet-name>
-    <url-pattern>/room/roommain</url-pattern>
+    <url-pattern>/room/main</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -119,7 +138,27 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>RoomDetail</servlet-name>
-    <url-pattern>/room/plus/roomdetail</url-pattern>
+    <url-pattern>/room/detail</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RoomUpdate</display-name>
+    <servlet-name>RoomUpdate</servlet-name>
+    <servlet-class>kr.kh.app.controller.RoomUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RoomUpdate</servlet-name>
+    <url-pattern>/room/update</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RoomDelete</display-name>
+    <servlet-name>RoomDelete</servlet-name>
+    <servlet-class>kr.kh.app.controller.RoomDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RoomDelete</servlet-name>
+    <url-pattern>/room/delete</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -129,7 +168,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>RoomInsert</servlet-name>
-    <url-pattern>/room/plus/roominsert</url-pattern>
+    <url-pattern>/room/insert</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -220,5 +259,55 @@
   <servlet-mapping>
     <servlet-name>ReservMain</servlet-name>
     <url-pattern>/reservation/main</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Ajex</display-name>
+    <servlet-name>Ajex</servlet-name>
+    <servlet-class>kr.kh.app.controller.Ajex</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ajex</servlet-name>
+    <url-pattern>/ajex</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReservSelect</display-name>
+    <servlet-name>ReservSelect</servlet-name>
+    <servlet-class>kr.kh.app.controller.ReservSelect</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReservSelect</servlet-name>
+    <url-pattern>/reservation/select</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReservBrList</display-name>
+    <servlet-name>ReservBrList</servlet-name>
+    <servlet-class>kr.kh.app.controller.ReservBrList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReservBrList</servlet-name>
+    <url-pattern>/reservation/branch/roomlist</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RoomSelect</display-name>
+    <servlet-name>RoomSelect</servlet-name>
+    <servlet-class>kr.kh.app.controller.RoomSelect</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RoomSelect</servlet-name>
+    <url-pattern>/room/select</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReserSelect2</display-name>
+    <servlet-name>ReserSelect2</servlet-name>
+    <servlet-class>kr.kh.app.controller.ReserSelect2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReserSelect2</servlet-name>
+    <url-pattern>/reservation/select2</url-pattern>
   </servlet-mapping>
 </web-app>

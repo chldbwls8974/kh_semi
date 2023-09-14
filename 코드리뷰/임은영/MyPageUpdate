@@ -29,26 +29,25 @@ public class MyPageUpdate extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/views/member/update.jsp").forward(request,response);
 	}
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//현재 로그인된 사용자 아이디 가져오기
-		String me_id = (String)request.getSession().getAttribute("me_id");
-		String me_name= request.getParameter("me_name");
-		String address = request.getParameter("address");
-		String phone= request.getParameter("phone");
+		MemberVO member = (MemberVO)request.getSession().getAttribute("user");
+		String newName= request.getParameter("name");
+		String newAddress = request.getParameter("address");
+		String newPhone= request.getParameter("phone");
 		
-		//기존 회원정보 가져오기
-		MemberVO member= new MemberVO(me_id, me_name, address, phone);
-		String url = "/member/update?me_id=" + me_id;
-		String msg = "개인정보 수정 실패!";
+		member.setMe_name(newName);
+		member.setMe_address(newAddress);
+		member.setMe_phone(newPhone);
 		
+		boolean Ok = false;
 		if(memberService.updateMember(member)) {
-			url = "/member/mypage?me_id=" + me_id;
-			msg = "개인정보 수정 성공!";
+			Ok = true;
 		}
+		request.setAttribute("Ok", Ok);
 		
-		request.setAttribute("url", url);
-		request.setAttribute("msg", msg);
-		request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
+		doGet(request, response);
+		
 	}
+
 }

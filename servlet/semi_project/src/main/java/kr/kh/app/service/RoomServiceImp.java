@@ -9,11 +9,14 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import kr.kh.app.dao.MemberDAO;
 import kr.kh.app.dao.RoomDAO;
+import kr.kh.app.vo.MemberVO;
 import kr.kh.app.vo.RoomVO;
 
 public class RoomServiceImp implements RoomService {
 	private RoomDAO roomDao;
+	private MemberDAO memberDao;
 	
 	public RoomServiceImp() {
 		try {
@@ -44,7 +47,45 @@ public class RoomServiceImp implements RoomService {
 
 	@Override
 	public boolean insertRoom(RoomVO room) {
-		return false;
+		//매개변수 체크
+		if(room == null || room.getRo_name() == null) {
+			return false;
+		}
+//		//관리자가 맞는지 확인 < 보류
+//		MemberVO member = memberDao.selectAdmin("admin".equals("user"));
+//		if(member == null) {
+//			return false;
+//		}
+		//모두 성립한다면 방 추가하기
+		roomDao.insertRoom(room);
+		return true;
 	}
+
+	@Override
+	public boolean updateRoom(RoomVO room) {
+		//매개변수 체크 (방이 없거나 방 이름이 없으면 false)
+		if(room == null || room.getRo_name() == null) {
+			return false;
+		}
+		//있다면 다오에게 요청
+		return roomDao.updateRoom(room);
+	}
+
+	@Override
+	public boolean deleteRoom(int ro_num) {
+		return roomDao.deleteRoom(ro_num) != 0;
+	}
+
+
+	@Override
+	public ArrayList<RoomVO> getRoomListByBranchAndSize(Integer br_num, String d_size) {
+		return roomDao.selectReservationRoom(br_num, d_size);
+	}
+
+	@Override
+	public ArrayList<RoomVO> getRoomListByBranch(Integer br_num) {
+		return roomDao.selectRoomByBranch(br_num);
+	}
+
 	
 }
