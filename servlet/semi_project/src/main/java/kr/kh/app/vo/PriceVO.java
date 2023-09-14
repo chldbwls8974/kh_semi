@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PriceVO {
 	private String pr_si_name;
-	private Integer pr_price;
+	private int pr_price;
 	
 }

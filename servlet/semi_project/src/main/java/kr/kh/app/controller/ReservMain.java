@@ -48,7 +48,7 @@ public class ReservMain extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-
+        
 		String br_num = request.getParameter("br_num");
 		System.out.println(br_num);
 		doGet(request, response);

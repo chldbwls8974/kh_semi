@@ -310,4 +310,14 @@
     <servlet-name>ReserSelect2</servlet-name>
     <url-pattern>/reservation/select2</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReservInsert</display-name>
+    <servlet-name>ReservInsert</servlet-name>
+    <servlet-class>kr.kh.app.controller.ReservInsert</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReservInsert</servlet-name>
+    <url-pattern>/reservation/insert</url-pattern>
+  </servlet-mapping>
 </web-app>

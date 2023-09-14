@@ -27,6 +27,7 @@
     <mapper resource="kr/kh/app/dao/LevelMapper.xml"/>
     <mapper resource="kr/kh/app/dao/SizeMapper.xml"/>
     <mapper resource="kr/kh/app/dao/PriceMapper.xml"/>
+    <mapper resource="kr/kh/app/dao/ReservMapper.xml"/>
   </mappers>
   
 </configuration>

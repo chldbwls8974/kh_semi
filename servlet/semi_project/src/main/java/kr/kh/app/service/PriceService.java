@@ -6,4 +6,6 @@ public interface PriceService {
 
 	boolean updatePrice(PriceVO price);
 
+	PriceVO getSizePrice(String size);
+
 }

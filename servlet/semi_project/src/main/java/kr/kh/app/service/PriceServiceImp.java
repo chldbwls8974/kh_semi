@@ -35,4 +35,9 @@ public class PriceServiceImp implements PriceService{
 		priceDao.updatePrice(price);
 		return true;
 	}
+
+	@Override
+	public PriceVO getSizePrice(String size) {
+		return priceDao.getSizePrice(size);
+	}
 }

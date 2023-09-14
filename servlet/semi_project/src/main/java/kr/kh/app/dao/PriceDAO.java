@@ -8,4 +8,6 @@ public interface PriceDAO {
 
 	void updatePrice(@Param("price")PriceVO price);
 
+	PriceVO getSizePrice(@Param("size")String size);
+
 }

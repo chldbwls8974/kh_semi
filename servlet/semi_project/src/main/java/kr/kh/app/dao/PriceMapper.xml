@@ -6,4 +6,7 @@
 	<update id="updatePrice">
 		update price set pr_price = #{price.pr_price} where pr_si_name = #{price.pr_si_name} 
 	</update>
+	<select id="getSizePrice" resultType="kr.kh.app.vo.PriceVO">
+		select * from price where pr_si_name = #{size}
+	</select>
 </mapper>

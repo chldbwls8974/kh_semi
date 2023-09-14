@@ -9,10 +9,6 @@ pageEncoding="UTF-8"%>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-	
-	
-	
-	
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 
 <title>Reservation</title>
@@ -24,7 +20,6 @@ pageEncoding="UTF-8"%>
 		
 		<form action="<c:url value='/reservation/insert'/>" method="post" class="reserv-box">
 			<input type="hidden" class="form-control" name="re_me_id" value="${user.me_id }">
-			
 			<div class="form-container">
 				<div class="form-group">
 					<label>입실 날짜</label>
@@ -155,6 +150,19 @@ pageEncoding="UTF-8"%>
 			$('.datePicker').datepicker('setDate', 'today'); //input창에 초기값을 오늘로
 		});
 	
+		
+		  <% 
+	       Boolean result = (Boolean)request.getAttribute("ok");
+		   if(result != null && result){
+	    %>
+	       alert('예약 성공');
+	       location.href="/semi_project";
+	    <% 
+	       }else if(result != null && !result){ %>
+	       alert('예약 실패')
+	    <%
+	       }
+	    %>
 /*
 은영언니 구현
 function getTodayType(){
