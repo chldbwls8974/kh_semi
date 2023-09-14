@@ -90,6 +90,16 @@
     <servlet-name>BranchInsert</servlet-name>
     <url-pattern>/branch/insert</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>BranchDelete</display-name>
+    <servlet-name>BranchDelete</servlet-name>
+    <servlet-class>kr.kh.app.controller.BranchDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BranchDelete</servlet-name>
+    <url-pattern>/branch/delete</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>DogInsert</display-name>
