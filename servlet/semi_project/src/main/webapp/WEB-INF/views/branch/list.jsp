@@ -51,6 +51,5 @@
 		<a href="<c:url value='/branch/insert'/>" class="btn btn-outline-success">지점 등록</a>
 		<a href="/semi_project" class="btn btn-outline-success">메인으로</a>
 	</div>
-
 </body>
 </html>
