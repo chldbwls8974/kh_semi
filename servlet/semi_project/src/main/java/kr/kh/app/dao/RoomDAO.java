@@ -19,5 +19,7 @@ public interface RoomDAO {
 	void insertRoom(@Param("room") RoomVO room);
 
 	ArrayList<RoomVO> selectRoomByBranch(@Param("br_num")Integer br_num);
+
+	ArrayList<RoomVO> selectReservationRoom(@Param("br_num")Integer br_num, @Param("d_size")String d_size);
 	
 }

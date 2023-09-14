@@ -26,9 +26,10 @@ public class ReservSelect extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// ajax를 통해 넘겨받은 지점 번호
-		System.out.println(request.getParameter("br_num"));
 		Integer br_num = Integer.parseInt(request.getParameter("br_num"));
-		ArrayList<RoomVO> roomlist = roomService.getRoomListByBranch(br_num);
+		String d_size = request.getParameter("d_size");
+		
+		ArrayList<RoomVO> roomlist = roomService.getRoomListByBranchAndSize(br_num, d_size);
 		
 		JSONArray jsonArray = new JSONArray(roomlist);
 		request.setAttribute("roomlist", jsonArray.toString());

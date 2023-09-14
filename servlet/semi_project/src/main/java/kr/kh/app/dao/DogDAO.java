@@ -15,4 +15,5 @@ public interface DogDAO {
 
 	ArrayList<DogVO> selectMyDogList(@Param("user")MemberVO user);
 
+
 }
