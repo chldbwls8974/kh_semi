@@ -20,28 +20,22 @@
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container mt-5">
-		<h2>예약하기</h2>
+		<h1>예약하기</h1>
 		
 		<form action="<c:url value='/reservation/insert'/>" method="post" class="reserv-box">
 			<input type="hidden" class="form-control" name="re_me_id" value="${user.me_id }">
 			
-			<div class="form-group">
-				<label>입실 날짜</label>
-				<input type="text" id="from" name="from" class="datePicker">
-				<label>퇴실 날짜</label>
-				<input type="text" id="to" name="to" class="datePicker">
-			</div>
+			<div class="form-container">
+				<div class="form-group">
+					<label>입실 날짜</label>
+					<input  type="text" id="from" name="from" class="datePicker" size="100%">
+				</div>
+				<div class="form-group">	
+					<label>퇴실 날짜</label>
+					<input type="text" id="to" name="to" class="datePicker" size="100%">
+				</div>
+			</div>	
 			
-			
-			<!-- 날짜 입력은 데이터피커로 받을 것 -->
-<!-- 			<div class="form-group"> -->
-<!-- 				<label>호텔 입실 날짜</label> -->
-<!-- 				<input type="date" id="start" class="form-control" name="re_date">  -->
-<!-- 			</div> -->
-<!-- 			<div class="form-group"> -->
-<!-- 				<label>호텔 퇴실 날짜</label> -->
-<!-- 				<input type="date" id="end" class="form-control" name="re_date">  -->
-<!-- 			</div> -->
 			<div class="form-group">
 				<label>지점을 선택해주세요</label>
 				<select class="form-control" name="branchSelect">
