@@ -11,5 +11,11 @@ public interface DogService {
 
 	ArrayList<DogVO> getMyDogList(MemberVO user);
 
+	boolean deleteDog(String d_num);
+
+	DogVO getDog(String d_num);
+
+	boolean updateDog(DogVO dog);
+
 
 }

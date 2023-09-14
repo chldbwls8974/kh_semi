@@ -29,6 +29,8 @@
 			<th>특이사항</th>
 			<th>견주ID</th>
 			<th>크기</th>
+			<th>수정</th>
+			<th>삭제</th>
 		</tr>
 	</thead>
 		<c:forEach items="${list}" var="dog">
@@ -41,6 +43,13 @@
 				<td>${dog.d_detail}</td>
 				<td>${dog.d_me_id }</td>
 				<td>${dog.d_si_name }</td>
+				<td><a href="<c:url value='/dog/update'/>" class="btn btn-outline-success" role="button">수정</a></td>
+			    <td>
+			    <form action="<c:url value='/dog/delete'/>" method="post">
+			        <button class="btn btn-outline-danger btn-dog-delete">삭제</button>
+			        <input type="hidden" name="d_num" value="${dog.d_num}">
+		        </form>
+		        </td>
 			</tr>
 		</c:forEach>
 	</table>
