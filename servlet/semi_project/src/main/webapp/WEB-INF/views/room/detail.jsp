@@ -40,21 +40,30 @@
 			</div>
 		</div>
 		<a href="<c:url value='/room/main${cri.currentUrl }'/>" class="btn btn-outline-dark mt-2 btn-float-right">뒤로가기</a>
+		<!-- 회원만 보이게 -->
+		<c:if test="${sessionScope.user != null}">
+			<a href="<c:url value='/reservation/main?ro_num=${room.ro_num }'/>" class="btn btn-outline-dark mt-2">예약하기</a>
+		</c:if>
 	</div>
 	
-	<!-- 회원만 보이게 -->
-	<c:if test="${sessionScope.m_admin=='n'}">
+	<c:if test="${sessionScope.user != null}">
 		<div class="container">
-			<a href="<c:url value='/reservation/main?ro_num=${room.ro_num }'/>" class="btn btn-outline-warning mt-2">예약하기</a>
+			<a href="<c:url value='/room/update?ro_num=${room.ro_num }'/>" class="btn btn-outline-warning mt-2">수정</a>
+			<a href="<c:url value='/room/delete?ro_num=${room.ro_num }'/>" id=btn-delete class="btn btn-outline-warning mt-2">삭제</a>
 		</div>
 	</c:if>
 	
-	<!-- 관리자만 보이게 -->
-	<c:if test="${sessionScope.m_admin=='y'}">
-		<div class="container">
-			<a href="<c:url value='/room/update?ro_num=${room.ro_num }'/>" class="btn btn-outline-warning mt-2">수정</a>
-			<a href="<c:url value='/room/delete?ro_num=${room.ro_num }'/>" class="btn btn-outline-warning mt-2">삭제</a>
-		</div>
-	</c:if>	
+	
+	<script type="text/javascript">
+		$(function(){
+			$('#btn-delete').on("click", function(){
+				if(confirm('삭제하시겠습니까?')){
+					form.action='/room/main';
+					form.submit();
+				}
+			})
+		});
+	</script>
+		
 </body>
 </html>

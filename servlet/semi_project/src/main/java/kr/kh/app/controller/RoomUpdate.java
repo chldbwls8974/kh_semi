@@ -32,9 +32,11 @@ public class RoomUpdate extends HttpServlet {
 		int ro_num = Integer.parseInt(request.getParameter("ro_num"));
 		String ro_name = request.getParameter("ro_name");
 		int ro_max_cap = Integer.parseInt(request.getParameter("ro_max_cap"));
+		int ro_now_cap = Integer.parseInt(request.getParameter("ro_now_cap"));
 		int ro_br_num = Integer.parseInt(request.getParameter("ro_br_num"));
 		String ro_detail = request.getParameter("ro_detail");
-		RoomVO room = new RoomVO(ro_name, ro_max_cap, 0, ro_br_num,ro_detail);
+		
+		RoomVO room = new RoomVO(ro_name, ro_max_cap, ro_now_cap, ro_br_num,ro_detail);
 		String url = "/room/update?ro_num=" + ro_num;
 		String msg = "객실 수정 완료";
 		
