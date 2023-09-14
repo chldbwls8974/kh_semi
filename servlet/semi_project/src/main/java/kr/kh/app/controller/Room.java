@@ -20,7 +20,6 @@ public class Room extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private RoomService roomService = new RoomServiceImp();
 	private BranchService branchService = new BranchServiceImp();
-	private SizeService sizeService = new SizeServiceImp();
 
     public Room() {
         super();
@@ -31,11 +30,9 @@ public class Room extends HttpServlet {
 		ArrayList<RoomVO> list = roomService.getRoomList();
 		ArrayList<BranchVO> branchList = branchService.getBranchList();
 		
-		String si_name = sizeService.getSize(si_name);
 		
 		request.setAttribute("branchList", branchList);
 		request.setAttribute("list", list);
-		request.setAttribute("size", size);
 		
 		request.getRequestDispatcher("/WEB-INF/views/room/main.jsp").forward(request, response);
 }
