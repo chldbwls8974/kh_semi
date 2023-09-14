@@ -16,4 +16,6 @@ public interface RoomService {
 	boolean updateRoom(RoomVO room);
 
 	boolean deleteRoom(int ro_num);
+
+	ArrayList<RoomVO> getRoomListByBranch(Integer br_num);
 }

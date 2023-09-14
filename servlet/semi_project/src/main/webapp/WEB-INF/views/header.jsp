@@ -14,9 +14,20 @@
 		$.ajax({
 			async : async, 
 			type : type, 
-			url : '<c:url value="/"/>'+url, 
+			url : url, 
 			data : JSON.stringify(sendObject), 
 			contentType : "application/json; charset=UTF-8", 
+			dataType : "json",
+			success : successFunc
+		});
+	}
+	function ajaxObjectToJson(async, type, url, sendObject, successFunc){
+		$.ajax({
+			async : async, 
+			type : type, 
+			url : url, 
+			data : sendObject, 
+			
 			dataType : "json",
 			success : successFunc
 		});
