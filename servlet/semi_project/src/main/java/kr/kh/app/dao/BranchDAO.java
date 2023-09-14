@@ -15,6 +15,8 @@ public interface BranchDAO {
 
 	int deleteBranch(@Param("br_num")int br_num);
 
+	BranchVO selectBranch(@Param("br_num")int br_num);
+
 
 
 }
