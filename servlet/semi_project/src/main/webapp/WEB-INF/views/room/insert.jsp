@@ -43,6 +43,7 @@
 	</div>
 	
 	<script>
+	
 		<% 
 			Boolean result = (Boolean)request.getAttribute("ok");
 			if(result != null && result){
@@ -56,24 +57,6 @@
 		<%
 			}
 		%>
-		/*
-		$(document).ready(function(){
-			$('#add').on('click', function(){
-				$.ajax({
-					async : false,
-					method: 'post',
-					url : '<c:url value="/"/>',
-					data: JSON.stringify(comment),
-					contentType : 'application/json; charset=utf-8',
-					dataType : 'json',
-					success : function(data){
-						
-						}
-					}
-				})
-			})
-		});
-		*/
 	</script>
 
 </body>

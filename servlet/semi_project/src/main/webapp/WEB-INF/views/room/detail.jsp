@@ -5,11 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+	
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
+ 
   <style>
   /* Make the image fully responsive */
   .carousel-inner img {
@@ -28,11 +29,11 @@
 			<div class="card-body">
 				<c:if test="${room != null }">
 					<div>
-						<img alt="room" src="./방1">
+						<img src="<c:url value='/resources/images/방1.jpg'/>" alt="방1" width="800"/>
 					</div>
 					<div>객실 타입 : ${room.ro_name }</div>
 					<div>객실 상세 정보 :${room.ro_detail }</div>
-					<div>지점 번호 : ${branch.ro_br_name}</div>
+					<div>지점명 : ${branch.br_name}</div>
 					<div>최대 수용 마리 수 : ${room.ro_max_cap}</div>	
 					<div>현재 수용 마리 수 : ${room.ro_now_cap}</div>
 				</c:if>

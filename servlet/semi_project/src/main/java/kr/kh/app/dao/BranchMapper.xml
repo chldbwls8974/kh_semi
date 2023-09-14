@@ -12,4 +12,7 @@
 <delete id="deleteBranch">
 	delete from branch where br_num = #{br_num}
 </delete>
+<select id="selectBranch" resultType="kr.kh.app.vo.BranchVO">
+	select * from branch where br_num = #{br_num}
+</select>
 </mapper>
