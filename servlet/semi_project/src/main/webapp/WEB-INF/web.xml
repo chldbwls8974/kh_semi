@@ -90,7 +90,7 @@
     <servlet-name>BranchInsert</servlet-name>
     <url-pattern>/branch/insert</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>BranchDelete</display-name>
     <servlet-name>BranchDelete</servlet-name>
@@ -279,5 +279,35 @@
   <servlet-mapping>
     <servlet-name>ReservSelect</servlet-name>
     <url-pattern>/reservation/select</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReservBrList</display-name>
+    <servlet-name>ReservBrList</servlet-name>
+    <servlet-class>kr.kh.app.controller.ReservBrList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReservBrList</servlet-name>
+    <url-pattern>/reservation/branch/roomlist</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RoomSelect</display-name>
+    <servlet-name>RoomSelect</servlet-name>
+    <servlet-class>kr.kh.app.controller.RoomSelect</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RoomSelect</servlet-name>
+    <url-pattern>/room/select</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReserSelect2</display-name>
+    <servlet-name>ReserSelect2</servlet-name>
+    <servlet-class>kr.kh.app.controller.ReserSelect2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReserSelect2</servlet-name>
+    <url-pattern>/reservation/select2</url-pattern>
   </servlet-mapping>
 </web-app>

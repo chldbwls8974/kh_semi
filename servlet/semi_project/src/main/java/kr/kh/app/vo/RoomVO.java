@@ -23,4 +23,13 @@ public class RoomVO {
 		this.ro_now_cap = ro_now_cap;
 		this.ro_br_num = ro_br_num;
 	}
+	public String toString() {
+		
+		return "{\"ro_num\" : " + ro_num + ","
+				+ "\"ro_name\" : \"" + ro_name + "\","
+				+ "\"ro_detail\" : \"" + ro_detail + "\","
+				+ "\"ro_max_cap\" : " + ro_max_cap + ","
+				+ "\"ro_now_cap\" : " + ro_now_cap + ","
+				+ "\"ro_br_num\" : " + ro_br_num + "}";
+	}
 }

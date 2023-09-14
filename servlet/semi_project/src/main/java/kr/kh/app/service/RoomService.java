@@ -18,4 +18,6 @@ public interface RoomService {
 	boolean deleteRoom(int ro_num);
 
 	ArrayList<RoomVO> getRoomListByBranch(Integer br_num);
+
+	ArrayList<RoomVO> getRoomListByBranchAndSize(Integer br_num, String d_size);
 }
