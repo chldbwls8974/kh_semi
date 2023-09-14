@@ -67,16 +67,23 @@ pageEncoding="UTF-8"%>
 </div>
 
 	<script type="text/javascript">
+		function getTodayType(){
+			let date = new Date();
+			return date.getFullYear() +"-"+("0"+(date.getMonth()+1)).slice(-2) + "-"+ ("0"+date.getDate()).slice(-2);
+		}
+		
 		$( function() {
 	    var dateFormat = "mm/dd/yy",
+	    let today = getTodayType()
 	      from = $( "#from" )
 	        .datepicker({
 	          defaultDate: "+1w",
 	          changeMonth: true,
 	          numberOfMonths: 3,
-	          minDate: today
+	          minDate: today  	          
 	        })
 	        .on( "change", function() {
+	        	console.log($(this).val())
 	          to.datepicker( "option", "minDate", getDate( this ) );
 	        }),
 	      to = $( "#to" ).datepicker({
