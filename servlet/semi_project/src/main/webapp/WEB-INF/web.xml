@@ -300,4 +300,14 @@
     <servlet-name>RoomSelect</servlet-name>
     <url-pattern>/room/select</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReserSelect2</display-name>
+    <servlet-name>ReserSelect2</servlet-name>
+    <servlet-class>kr.kh.app.controller.ReserSelect2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReserSelect2</servlet-name>
+    <url-pattern>/reservation/select2</url-pattern>
+  </servlet-mapping>
 </web-app>

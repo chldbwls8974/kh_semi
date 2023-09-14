@@ -26,6 +26,8 @@ public class RoomSelect extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer br_num = Integer.parseInt(request.getParameter("br_num"));
+		
+		
 		ArrayList<RoomVO> roomlist = roomService.getRoomListByBranch(br_num);
 		
 		JSONArray jsonArray = new JSONArray(roomlist);

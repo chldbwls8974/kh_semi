@@ -11,4 +11,5 @@ public interface DogService {
 
 	ArrayList<DogVO> getMyDogList(MemberVO user);
 
+
 }

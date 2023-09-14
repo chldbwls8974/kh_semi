@@ -67,7 +67,6 @@
 		let data={
 				br_num : $(this).val()
 		}
-	
 		
 		ajaxObjectToJson(false,'post','<c:url value="/room/select"/>',data,(a)=>{
 			if(a==''){

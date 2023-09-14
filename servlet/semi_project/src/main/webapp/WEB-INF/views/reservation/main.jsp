@@ -45,7 +45,7 @@ pageEncoding="UTF-8"%>
 					</c:forEach>
 				</select>
 			</div>
-			<div class="form-group">
+			<div class="form-group" name="dog-box">
 				<label>맡기고자 하는 개를 선택해주세요</label>
 				<select class="form-control" name="dogSelect">
 					<option value="0">반려동물 선택</option>
@@ -54,8 +54,10 @@ pageEncoding="UTF-8"%>
 					</c:forEach>
 				</select>
 			</div>
-		
-			<div class="form-group">
+			<div  class="form-group" >
+				<button type="button" name="btn-search">검색</button>
+			</div>
+			<div class="form-group" name="room-box">
 				<label>예약하고자 하는 방을 선택해주세요</label>
 				<select class="form-control" name="roomSelect">
 					<option value="0">방 선택</option>
@@ -73,22 +75,57 @@ pageEncoding="UTF-8"%>
 		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<script type="text/javascript">
 	
-		// 지점 번호 서버로 넘겨주는 함수
-		$('[name=branchSelect]').change(function(){
+		$(document).on('click','[name=btn-search]',function(){
 			
-			let	data ={
-					br_num : $(this).val()
-			} 
-			// ajax를 통해서 지점 번호만 넘겨줌
+			let data = {
+					br_num : $(this).parents().find('[name=branchSelect]').val(),
+					d_size :  $(this).parents().find('[name=dogSelect]').val()
+			}
+			
 			ajaxObjectToJson(false,'post','<c:url value="/reservation/select"/>',data,(a)=>{
-				if(a==null){
-					alert('해당 지점은 이용하실 수 없습니다.')
+				if(a==''){
+					$('[name=room-box]').hide()
+					alert('예약할수 있는 방이 없습니다.')
+				}else{
+					$('[name=room-box]').hide()
+					let str = '';
+					
+					str += `
+							<div class="form-group" name="room-box">
+							<label>예약하고자 하는 방을 선택해주세요</label>
+							<select class="form-control" name="roomSelect">
+								<option value="0">방 선택</option>
+						`;
+				for(room of a){
+					let obj = JSON.parse(room)
+					console.log(obj)
+					str += `
+						<option value="\${obj.ro_detail }">\${obj.ro_name }</option>
+					`;
+				}
+				str+=`
+						</select>
+						</div>
+					`;
+					$('[name=dog-box]').after(str)
+					
 				}
 				
 			})
-			console.log(1)
-		});
-	
+		})
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		//데이트피커
 		$(document).ready(function(){

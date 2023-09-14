@@ -30,5 +30,12 @@ public class DogVO {
 		this.d_si_name = d_si_name;
 	}
 	
+public String toString() {
+		
+		return "{\"d_num\" : " + d_num + ","
+				+ "\"d_name\" : \"" + d_name + "\","
+				+ "\"d_age\" : \"" + d_age + ","
+				+ "\"d_si_name\" : " + d_si_name+ "\"}";
+	}
 	
 }

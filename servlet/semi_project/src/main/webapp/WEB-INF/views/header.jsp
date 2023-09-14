@@ -32,7 +32,6 @@
 			type : type, 
 			url : url, 
 			data : sendObject, 
-			
 			dataType : "json",
 			success : successFunc,
 			error : function(a,b,c){
