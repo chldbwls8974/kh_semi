@@ -26,8 +26,8 @@
 
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
  <div class="container mt-5">
-	<h3>객실보기</h3>
-	<div>
+	<h1>객실보기</h1>
+	<div class="selectbox">
 		<label>지점을 선택해주세요</label>
 			<select name="branchSelect">
 				<option value="0">지점 선택</option>
@@ -35,41 +35,85 @@
 					<option value="${br.br_num }">${br.br_name }</option>
 				</c:forEach>
 			</select>
-	</div>
-		<table class="table table-hover mt-4">
-		<thead>
-			<tr>
-				<th>방번호</th>
-				<th>방이름</th>
-				<th>최대 수용 반려견 수</th>
-				<th>현재 수용 반려견 수</th>
-				<th>방 타입</th>
-			</tr>
-		</thead>
-			<tbody>
-				<c:forEach items="${list}" var="room">
-						<tr>
-							<td>${room.ro_num}</td>
-							<td><a href="<c:url value='/room/detail?ro_num=${room.ro_num}'/>" >${room.ro_name }</a></td>
-							<td>${room.ro_max_cap}</td>
-							<td>${room.ro_now_cap}</td>
-							<td>${room.ro_detail}</td>
-						</tr>
-				</c:forEach>
-			</tbody>
-		</table>
 		
-	<!-- 관리자만 등록버튼 보이게 -->
-<%-- 	<c:if test="${sessionScope.m_admin=='y'}"> --%>
-		<a href="<c:url value='/room/insert'/>" class="btn btn-outline-warning mt-2">등록</a>
-<%-- 	</c:if> --%>	
-
+	</div>
+<table class="table table-hover mt-4"> 
+<thead> 
+	<tr> 
+		<th>방번호</th> 
+	<th>방이름</th> 
+		<th>최대 수용 반려견 수</th> 
+		<th>현재 수용 반려견 수</th> 
+		<th>방 타입</th> 
+		</tr> 
+	</thead> 
+	<tbody> 
+		<c:forEach items="${list}" var="room"> 
+			<tr> 
+				<td>${room.ro_num}</td>
+				<td><a href="<c:url value='/room/detail?ro_num=${room.ro_num}'/>" >${room.ro_name }</a></td>
+				<td>${room.ro_max_cap}</td>
+				<td>${room.ro_now_cap}</td>
+				<td>${room.ro_detail}</td>
+			</tr> 
+		</c:forEach> 
+	</tbody> 
+</table> 
+<a href="<c:url value='/room/insert'/>" class="btn btn-outline-warning mt-2">등록</a>
 </div>	
 
-
 <script type="text/javascript">
-
+	$('[name=branchSelect]').change(function(){
+		let data={
+				br_num : $(this).val()
+		}
+	
+		
+		ajaxObjectToJson(false,'post','<c:url value="/room/select"/>',data,(a)=>{
+			if(a==''){
+				$('.table').hide()
+				alert('해당 지점에는 등록된 방이 없습니다.')
+			}else{
+				$('.table').hide()
+				let str='';
+				str=`
+				<table class="table table-hover mt-4"> 
+						<thead> 
+							<tr> 
+								<th>방번호</th> 
+							<th>방이름</th> 
+								<th>최대 수용 반려견 수</th> 
+								<th>현재 수용 반려견 수</th> 
+								<th>방 타입</th> 
+								</tr> 
+							</thead> 
+							<tbody> 
+				`;
+				for(room of a){
+					let obj = JSON.parse(room)
+					console.log(obj)
+					
+					str+=`
+							<tr> 
+								<td>\${obj.ro_num}</td>
+								<td><a href="<c:url value='/room/detail?ro_num=\${obj.ro_num}'/>" >\${obj.ro_name}</a></td>
+								<td>\${obj.ro_max_cap}</td>
+								<td>\${obj.ro_now_cap}</td>
+								<td>\${obj.ro_detail}</td>
+							</tr> 
+							
+					`;
+					
+				}
+				str+=`
+					</tbody> 
+					</table> 
+				`;
+				$('.selectbox').after(str);
+				
+			}
+		})
+	})
 </script>
-
 </body>
 </html>
