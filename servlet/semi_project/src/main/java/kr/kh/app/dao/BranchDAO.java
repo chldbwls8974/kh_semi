@@ -13,6 +13,8 @@ public interface BranchDAO {
 
 	void insertBranch(@Param("branch")BranchVO branch);
 
+	int deleteBranch(@Param("br_num")int br_num);
+
 
 
 }
