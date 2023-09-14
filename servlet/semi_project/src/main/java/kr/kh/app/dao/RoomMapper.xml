@@ -27,4 +27,8 @@
 	<delete id="deleteRoom">
 		delete room from where ro_num = #{ro_num}
 	</delete>
+	<!-- 지점에 맞는 방 선택 -->
+	<select id="selectRoomByBranch" resultType="kr.kh.app.vo.RoomVO">
+		select * from room where ro_br_num = #{br_num}
+	</select>
 </mapper>

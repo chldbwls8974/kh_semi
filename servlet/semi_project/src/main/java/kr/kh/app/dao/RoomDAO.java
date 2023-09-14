@@ -17,5 +17,7 @@ public interface RoomDAO {
 	int deleteRoom(@Param("ro_num") int ro_num);
 
 	void insertRoom(@Param("room") RoomVO room);
+
+	ArrayList<RoomVO> selectRoomByBranch(@Param("br_num")Integer br_num);
 	
 }

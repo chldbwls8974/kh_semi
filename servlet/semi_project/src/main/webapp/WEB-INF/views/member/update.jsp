@@ -35,7 +35,7 @@
  	
  		<button class="btn btn-outline-warning col-12">수정</button>
  	</form>	
- 	<br><button class="btn btn-outline-dark col-3 btn float-right" id="btnCancel">취소</button><br>
+ 	<br><a href="<c:url value='/member/mypage'/>"  class="btn btn-outline-dark col-3 btn float-right">취소</a><br>
 </div>
 </body>
 <script>

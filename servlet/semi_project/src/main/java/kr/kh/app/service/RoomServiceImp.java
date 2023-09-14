@@ -75,5 +75,11 @@ public class RoomServiceImp implements RoomService {
 	public boolean deleteRoom(int ro_num) {
 		return roomDao.deleteRoom(ro_num) != 0;
 	}
+
+	@Override
+	public ArrayList<RoomVO> getRoomListByBranch(Integer br_num) {
+		return roomDao.selectRoomByBranch(br_num);
+	}
+
 	
 }
