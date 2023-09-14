@@ -73,16 +73,20 @@ pageEncoding="UTF-8"%>
 		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<script type="text/javascript">
 	
-		$('[name=dogSelect]').change(function(){
-			let data = {
-					dSize :  $(this).val(),
-					bSize : $('[name=branchSelect]').val()
-			}
-			console.log(data)
-			ajaxJsonToJson(false, 'post','/reservation/select', data, (data)=>{
+		// 지점 번호 서버로 넘겨주는 함수
+		$('[name=branchSelect]').change(function(){
+			
+			let	data ={
+					br_num : $(this).val()
+			} 
+			// ajax를 통해서 지점 번호만 넘겨줌
+			ajaxObjectToJson(false,'post','<c:url value="/reservation/select"/>',data,(a)=>{
+				if(a==null){
+					alert('해당 지점은 이용하실 수 없습니다.')
+				}
 				
 			})
-			
+			console.log(1)
 		});
 	
 		

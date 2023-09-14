@@ -18,7 +18,12 @@
 			data : JSON.stringify(sendObject), 
 			contentType : "application/json; charset=UTF-8", 
 			dataType : "json",
-			success : successFunc
+			success : successFunc,
+			error : function(a,b,c){
+				console.log(a);
+				console.log(b);
+				console.log(c)
+			}
 		});
 	}
 	function ajaxObjectToJson(async, type, url, sendObject, successFunc){
@@ -29,7 +34,12 @@
 			data : sendObject, 
 			
 			dataType : "json",
-			success : successFunc
+			success : successFunc,
+			error : function(a,b,c){
+				console.log(a);
+				console.log(b);
+				console.log(c)
+			}
 		});
 	}
 	</script>

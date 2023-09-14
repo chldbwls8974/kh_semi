@@ -3,6 +3,8 @@ package kr.kh.app.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,13 +25,17 @@ public class ReservSelect extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/reservation/select.jsp").forward(request, response);	
 		// ajax를 통해 넘겨받은 지점 번호
+		System.out.println(request.getParameter("br_num"));
 		Integer br_num = Integer.parseInt(request.getParameter("br_num"));
 		ArrayList<RoomVO> roomlist = roomService.getRoomListByBranch(br_num);
-		request.setAttribute("roomlist", roomlist);
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		JSONArray jsonArray = new JSONArray(roomlist);
+		System.out.println(jsonArray);
+		request.setAttribute("roomlist", jsonArray.toString());
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(jsonArray.toString());
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
