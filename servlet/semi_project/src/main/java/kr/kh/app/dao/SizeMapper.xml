@@ -6,4 +6,7 @@
 	<update id="updateSize">
 		update size set si_min_kg = #{size.si_min_kg} where si_name = #{size.si_name} 
 	</update>
+	<select id="selectSize" resultType="kr.kh.app.vo.SizeVO">
+		select * from size where si_name = #{si_name}
+	</select>
 </mapper>
