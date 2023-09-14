@@ -7,17 +7,15 @@
 	
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 	
- 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
- 	<link rel="stylesheet" href="/resources/demos/style.css">
- 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
- 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	
+	
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 
-<title>Insert title here</title>
+<title>Reservation</title>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
@@ -26,15 +24,24 @@
 		
 		<form action="<c:url value='/reservation/insert'/>" method="post" class="reserv-box">
 			<input type="hidden" class="form-control" name="re_me_id" value="${user.me_id }">
-			<!-- 날짜 입력은 데이터피커로 받을 것 -->
+			
 			<div class="form-group">
-				<label>호텔 이용 시작 날짜</label>
-				<input type="date" id="datePicker" class="form-control" name="re_date"> 
+				<label>입실 날짜</label>
+				<input type="text" id="from" name="from" class="datePicker">
+				<label>퇴실 날짜</label>
+				<input type="text" id="to" name="to" class="datePicker">
 			</div>
-			<div class="form-group">
-				<label>이용기간</label>
-				<input type="date" class="form-control" name="re_stay" placeholder="ex)3박4일 이용하시면 4 라고 입력해주세요"> 
-			</div>	
+			
+			
+			<!-- 날짜 입력은 데이터피커로 받을 것 -->
+<!-- 			<div class="form-group"> -->
+<!-- 				<label>호텔 입실 날짜</label> -->
+<!-- 				<input type="date" id="start" class="form-control" name="re_date">  -->
+<!-- 			</div> -->
+<!-- 			<div class="form-group"> -->
+<!-- 				<label>호텔 퇴실 날짜</label> -->
+<!-- 				<input type="date" id="end" class="form-control" name="re_date">  -->
+<!-- 			</div> -->
 			<div class="form-group">
 				<label>지점을 선택해주세요</label>
 				<select class="form-control" name="branchSelect">
@@ -69,7 +76,7 @@
 			<button class="btn btn-float-right btn-outline-success col-3  mt-2">확인</button>
 		</form>
 	</div>
-	
+		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<script type="text/javascript">
 	
 		$('[name=dogSelect]').change(function(){
@@ -78,40 +85,35 @@
 					bSize : $('[name=branchSelect]').val()
 			}
 			console.log(data)
-			function ajaxJsonToJson(false, 'post','/reservation/select', data, (data)=>{
+			ajaxJsonToJson(false, 'post','/reservation/select', data, (data)=>{
 				
 			})
 			
 		});
 	
 		
-		//데이트피커 디폴트옵션(포맷설정)
-// 		$.datepicker.setDefaults({
-// 			dateFormat: 'yy-mm-dd',
-// 			prevText: '이전 달',
-// 			nextText: '다음 달',
-// 			monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-// 			monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-// 			dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-// 			dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-// 			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-// 			showMonthAfterYear: true,
-// 			yearSuffix: '년'
-// 		});
-	
-		
 		//데이트피커
-		$('#datePicker').datepicker({
-			dateFormat: 'yyyy-mm-dd', //달력 클릭시 표시할 값
-			language: "kr", //한국어로
-			changeMonth: true,
-			totalHighlight: true, //오늘날짜 강조
-			startDate: '-3d'
+		$(function(){
+			$(".datePicker").datepicker('setDate', 'today'){//input창에 초기값을 오늘로
+				dateFormat: 'yy-mm-dd' //달력 날짜 형태
+				,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+				,showMonthAfterYear:true // 월- 년 순서가아닌 년도 - 월 순서
+				,changeYear: true //option값 년 선택 가능
+				,changeMonth: true //option값  월 선택 가능                
+				,showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시  
+				,yearSuffix: "년" //달력의 년도 부분 뒤 텍스트
+				,prevText: '이전 달'
+			    ,nextText: '다음 달'
+				,monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 텍스트
+				,dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'] //달력의 요일 텍스트
+				,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 Tooltip
+			}
+			
+			
 		});
 		
-		
+	
 	</script>
-
 
 </body>
 </html>
