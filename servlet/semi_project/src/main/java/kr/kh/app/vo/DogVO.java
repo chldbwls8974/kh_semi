@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DogVO {
 	
+	
 	private String d_num;
 	private String d_name;
 	private String d_age;
@@ -37,12 +38,4 @@ public String toString() {
 				+ "\"d_si_name\" : " + d_si_name+ "\"}";
 	}
 
-public DogVO(String d_name, String d_age, String d_gen, int d_kg, String d_detail) {
-	this.d_name = d_name;
-	this.d_age = d_age;
-	this.d_gen = d_gen;
-	this.d_kg = d_kg;
-	this.d_detail = d_detail;
-	
-	}
 }
