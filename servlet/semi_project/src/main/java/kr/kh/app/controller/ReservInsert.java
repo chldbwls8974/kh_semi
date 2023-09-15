@@ -1,16 +1,18 @@
 package kr.kh.app.controller;
 
 import java.io.IOException;
-import java.time.LocalDate;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kr.kh.app.service.DogService;
+import kr.kh.app.service.DogServiceImp;
 import kr.kh.app.service.PriceService;
 import kr.kh.app.service.PriceServiceImp;
 import kr.kh.app.service.ReservService;
 import kr.kh.app.service.ReservServiceImp;
+import kr.kh.app.vo.DogVO;
 import kr.kh.app.vo.PriceVO;
 
 public class ReservInsert extends HttpServlet {
@@ -18,7 +20,7 @@ public class ReservInsert extends HttpServlet {
     
 	ReservService reservService = new ReservServiceImp();
 	PriceService priceService = new PriceServiceImp();
-	
+	DogService dogService = new DogServiceImp();
     public ReservInsert() {
         super();
     }
@@ -40,11 +42,14 @@ public class ReservInsert extends HttpServlet {
 		String d_num2 = request.getParameter("dogSelect2");
 		String d_num3 = request.getParameter("dogSelect3");
 		
-		String d_si_name1 = request.getParameter("dogSelect");
-//		String d_si_name2 = request.getParameter("dogSelect2");
-//		String d_si_name3 = request.getParameter("dogSelect3");
-		String d_si_name2 = "m";
-		String d_si_name3 = "l";
+		DogVO dog1 = dogService.getDog(d_num1);
+		DogVO dog2 = dogService.getDog(d_num2);
+		DogVO dog3 = dogService.getDog(d_num3);
+		dog1.getD_si_name();
+		
+		String d_si_name1 = dog1.getD_si_name();
+		String d_si_name2 = dog2.getD_si_name();
+		String d_si_name3 = dog3.getD_si_name();
 		
 		//사이즈별 마리 수 구해오기
 		int re_s_count = reservService.smallCount(d_si_name1,d_si_name2,d_si_name3);
