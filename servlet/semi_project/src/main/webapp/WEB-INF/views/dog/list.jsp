@@ -57,11 +57,11 @@
 	
 	<c:choose>
 	    <c:when test="${fn:length(list) < 3 }">
-	   		<!--  -->
+	   		<!-- 3마리 이하인 경우 -->
 	   		<a href="<c:url value='/dog/insert'/>" class="btn btn-outline-success">반려견 등록</a>
 	    </c:when>
 	    <c:otherwise>
-			 <!-- 거짓인 경우 -->
+			 <!-- 3마리 이상인 경우 -->
 			 <a href="<c:url value='/dog/list'/>" class="btn btn-outline-success" id="btnAdd">반려견 등록</a>
 			 <script type="text/javascript">
 			 	$("#btnAdd").click(function(){
