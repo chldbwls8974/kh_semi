@@ -19,15 +19,15 @@
  	<form action="<c:url value='/price/update'/>" method="post" class="mt-4">
  		<div class = "form-group">
  			<label>소형견 가격</label>
- 			<input type="text" class="form-control" name="pr_price_s"  required>
+ 			<input type="text" class="form-control" name="pr_price_s" placeholder="${sPrice.pr_price }"  required >
  		</div>
  		<div class = "form-group">
  			<label>중형견 가격</label>
- 			<input type="text" class="form-control" name="pr_price_m"  required>
+ 			<input type="text" class="form-control" name="pr_price_m" placeholder="${mPrice.pr_price }"  required>
  		</div>
  		<div class = "form-group">
  			<label>대형견 가격</label>
- 			<input type="text" class="form-control" name="pr_price_l" required>
+ 			<input type="text" class="form-control" name="pr_price_l" placeholder="${lPrice.pr_price }" required>
  		</div>
  		
  		<button class="btn btn-outline-warning col-12">변경</button>
