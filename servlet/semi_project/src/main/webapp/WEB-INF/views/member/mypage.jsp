@@ -21,6 +21,8 @@
     <div class="card-body d-flex flex-column mb-5">
     	<label>아이디</label>
     	<div class="pb-3">${user.me_id }</div>
+    	<label>등급</label>
+    	<div class="pb-3">${user.me_le_name }</div>
     	<label>이름</label>
     	<div class="pb-3">${user.me_name }</div>
     	<label>주소</label>
@@ -29,6 +31,7 @@
     	<div class="pb-3">${user.me_phone}</div>
     	<label>포인트</label>
     	<div class="pb-3">${user.me_point}</div>
+    	<hr>
     	<label>나의 반려견</label>
     	<div class="pb-3">
     		<table class="table table-bordered mt-1">
@@ -58,6 +61,7 @@
     	</div>
     	<a class="btn btn-float-righ btn-outline-success col-5 t" href="/semi_project/member/update" role="button">개인정보 수정</a>
     	<a class="btn btn-float-right btn-outline-success mt-2 col-5 " href="/semi_project/dog/insert" role="button">반려견 등록</a>
+    	<a class="btn btn-float-right btn-outline-success mt-2 col-5 " href="/semi_project/member/reservation" role="button">내 예약정보 보기</a>
     </div>
   </div>
 </div>

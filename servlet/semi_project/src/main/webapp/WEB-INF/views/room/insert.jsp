@@ -20,7 +20,12 @@
 		<form action="<c:url value='/room/insert'/>" id="frm" method="post" class="mt-4">
 			<div class="form-group">
 				<label>지점번호</label>
-				<input type="text" class="form-control" name="branch" placeholder="지점번호">
+				<select class="form-control" name="branch">
+					<option value="0">지점 선택</option>
+					<c:forEach items="${branchList }" var="br">
+						<option value="${br.br_num }">${br.br_name }</option>
+					</c:forEach>
+				</select>
 			</div>
 			<div class="form-group">
 				<label>방이름</label>

@@ -321,7 +321,7 @@
     <url-pattern>/reservation/insert</url-pattern>
   </servlet-mapping>
   <servlet>
-  <description></description>
+    <description></description>
     <display-name>DogDelete</display-name>
     <servlet-name>DogDelete</servlet-name>
     <servlet-class>kr.kh.app.controller.DogDelete</servlet-class>
@@ -339,5 +339,15 @@
   <servlet-mapping>
     <servlet-name>DogUpdate</servlet-name>
     <url-pattern>/dog/update</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MyReserv</display-name>
+    <servlet-name>MyReserv</servlet-name>
+    <servlet-class>kr.kh.app.controller.MyReserv</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyReserv</servlet-name>
+    <url-pattern>/member/reservation</url-pattern>
   </servlet-mapping>
 </web-app>

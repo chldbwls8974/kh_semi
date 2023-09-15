@@ -3,5 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.kh.app.dao.ReservDAO">
-
+	<select id="selectMyReservArray" resultType="kr.kh.app.vo.ReservationVO">
+		select * from reservation where re_me_id = #{user.me_id}
+	</select>
 </mapper>
