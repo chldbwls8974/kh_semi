@@ -31,8 +31,8 @@
 					<div>
 						<img src="<c:url value='/resources/images/room.jpg'/>" alt="방1" width="800"/>
 					</div>
-					<div>객실 타입 : ${room.ro_name }</div>
-					<div>객실 상세 정보 :${room.ro_detail }</div>
+					<div>객실 이름 : ${room.ro_name }</div>
+					<div>객실 타입 :${room.ro_detail }</div>
 					<div>지점명 : ${branch.br_name}</div>
 					<div>최대 수용 마리 수 : ${room.ro_max_cap}</div>	
 					<div>현재 수용 마리 수 : ${room.ro_now_cap}</div>
