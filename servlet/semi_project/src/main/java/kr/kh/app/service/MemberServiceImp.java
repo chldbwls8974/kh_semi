@@ -32,7 +32,7 @@ public class MemberServiceImp implements MemberService {
 
 	@Override
 	public boolean signup(MemberVO member) {
-		if(member == null) {
+		if(member == null || member.getMe_id() ==null || member.getMe_pw() ==null || member.getMe_name()==null || member.getMe_phone() ==null || member.getMe_address()==null ) {
 			return false;
 		}
 		MemberVO dbMember = memberDao.selectMember(member.getMe_id());
