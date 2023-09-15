@@ -61,6 +61,7 @@
     	</div>
     	<a class="btn btn-float-righ btn-outline-success col-5 t" href="/semi_project/member/update" role="button">개인정보 수정</a>
     	<a class="btn btn-float-right btn-outline-success mt-2 col-5 " href="/semi_project/dog/insert" role="button">반려견 등록</a>
+    	<a class="btn btn-float-right btn-outline-success mt-2 col-5 " href="/semi_project/member/reservation" role="button">내 예약정보 보기</a>
     </div>
   </div>
 </div>

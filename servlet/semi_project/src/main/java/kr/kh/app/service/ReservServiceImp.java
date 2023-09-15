@@ -3,6 +3,7 @@ package kr.kh.app.service;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -10,6 +11,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kr.kh.app.dao.ReservDAO;
+import kr.kh.app.vo.MemberVO;
+import kr.kh.app.vo.ReservationVO;
 
 public class ReservServiceImp implements ReservService{
 	
@@ -81,4 +84,12 @@ public class ReservServiceImp implements ReservService{
 		LocalDate toDate = LocalDate.parse(to);
 		return (toDate.getDayOfMonth() - fromDate.getDayOfMonth()) + 1;
 	}
+
+
+	@Override
+	public ArrayList<ReservationVO> getMyReservArray(MemberVO user) {
+		return reservDao.selectMyReservArray(user);
+	}
+
+
 }

@@ -3,9 +3,15 @@ package kr.kh.app.vo;
 
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class ReservationVO {
 	private int re_num, re_stay, re_s_count, re_m_count, re_l_count, re_price;
 	private int re_real_price, re_use_point, re_add_point;
