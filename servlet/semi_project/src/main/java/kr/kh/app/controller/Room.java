@@ -11,6 +11,8 @@ import kr.kh.app.service.BranchService;
 import kr.kh.app.service.BranchServiceImp;
 import kr.kh.app.service.RoomService;
 import kr.kh.app.service.RoomServiceImp;
+import kr.kh.app.service.SizeService;
+import kr.kh.app.service.SizeServiceImp;
 import kr.kh.app.vo.BranchVO;
 import kr.kh.app.vo.RoomVO;
 
@@ -27,6 +29,8 @@ public class Room extends HttpServlet {
 //		int ro_num = Integer.parseInt(request.getParameter("ro_num"));
 		ArrayList<RoomVO> list = roomService.getRoomList();
 		ArrayList<BranchVO> branchList = branchService.getBranchList();
+		
+		
 		request.setAttribute("branchList", branchList);
 		request.setAttribute("list", list);
 		

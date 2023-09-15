@@ -1,6 +1,7 @@
 package kr.kh.app.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -9,7 +10,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import kr.kh.app.service.PriceService;
 import kr.kh.app.service.PriceServiceImp;
 import kr.kh.app.vo.PriceVO;
-import kr.kh.app.vo.SizeVO;
 
 public class PriceUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -21,6 +21,12 @@ public class PriceUpdate extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PriceVO sPrice = priceService.getSizePrice("s");
+		PriceVO mPrice = priceService.getSizePrice("m");
+		PriceVO lPrice = priceService.getSizePrice("l");
+		request.setAttribute("sPrice", sPrice);
+		request.setAttribute("mPrice", mPrice);
+		request.setAttribute("lPrice", lPrice);
 		request.getRequestDispatcher("/WEB-INF/views/price/update.jsp").forward(request,response);
 		
 	}

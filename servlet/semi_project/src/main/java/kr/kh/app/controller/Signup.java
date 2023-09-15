@@ -30,14 +30,15 @@ public class Signup extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("me_id");
 		String pw = request.getParameter("me_pw");
+		String pw2 = request.getParameter("me_pw2");
 		String name = request.getParameter("me_name");
 		String address = request.getParameter("me_address"); 
 		String phone = request.getParameter("me_phone");
-		MemberVO member = new MemberVO(id,pw,name,address,phone,0,0,null);
 		boolean Ok = false;
-		if(memberService.signup(member)) {
-			Ok = true;
-		}
+			MemberVO member = new MemberVO(id,pw,pw2,name,address,phone,0,0,null);
+			if(memberService.signup(member)) {
+				Ok = true;
+			}
 		request.setAttribute("Ok", Ok);
 		doGet(request, response);
 	}

@@ -26,7 +26,7 @@ public class PointInsert extends HttpServlet {
 		int po_point = Integer.parseInt(request.getParameter("po_point"));
 		String content = request.getParameter("po_content");
 		String me_id = request.getParameter("po_me_id");
-		PointVO point = new PointVO(po_point, content, me_id);
+		PointVO point = new PointVO(0,po_point, content, me_id);
 		boolean ok = false;
 		if(pointService.insertPoint(point)) {
 			ok = true;

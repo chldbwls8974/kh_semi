@@ -25,7 +25,7 @@ public class LogIn extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("me_id");
 		String pw = request.getParameter("me_pw");
-		MemberVO member = new MemberVO(id,pw,null,null,null,0,0, null);
+		MemberVO member = new MemberVO(id,pw,null,null,null,null,0,0, null);
 		MemberVO user = memberService.login(member);
 		boolean Ok = false;
 		if(user != null) {

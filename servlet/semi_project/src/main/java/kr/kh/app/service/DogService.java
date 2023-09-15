@@ -13,7 +13,7 @@ public interface DogService {
 
 	boolean deleteDog(String d_num);
 
-	DogVO getDog(String d_num);
+	DogVO getDog(String d_me_id);
 
 	boolean updateDog(DogVO dog);
 

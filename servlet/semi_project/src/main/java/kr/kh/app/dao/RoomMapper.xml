@@ -20,12 +20,14 @@
 		update room set 
 		ro_name =#{room.ro_name},
 		ro_detail = #{room.ro_detail},
-		ro_max_cap = #{room.ro_max_cap}
+		ro_max_cap = #{room.ro_max_cap},
+		ro_now_cap = #{room.ro_now_cap},
+		ro_br_num = #{room.ro_br_num}
 		where ro_num = #{room.ro_num}
 	</update>
 	<!-- 방 삭제 -->
 	<delete id="deleteRoom">
-		delete room from where ro_num = #{ro_num}
+		delete from room where ro_num = #{ro_num}
 	</delete>
 	<!-- 지점에 맞는 방 선택 -->
 	<select id="selectRoomByBranch" resultType="kr.kh.app.vo.RoomVO">
