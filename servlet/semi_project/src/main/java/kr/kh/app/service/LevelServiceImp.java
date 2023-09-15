@@ -36,4 +36,9 @@ public class LevelServiceImp implements LevelService{
 		levelDao.updateLevel(level);
 		return true;
 	}
+
+	@Override
+	public LevelVO getBenefitLevel(String benefit) {
+		return levelDao.getBenefitLevel(benefit);
+	}
 }

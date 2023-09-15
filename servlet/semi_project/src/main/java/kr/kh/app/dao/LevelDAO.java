@@ -8,4 +8,6 @@ public interface LevelDAO {
 
 	void updateLevel(@Param("level")LevelVO level);
 
+	LevelVO getBenefitLevel(@Param("benefit")String benefit);
+
 }
