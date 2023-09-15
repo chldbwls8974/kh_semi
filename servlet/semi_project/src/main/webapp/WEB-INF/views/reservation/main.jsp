@@ -49,8 +49,8 @@ pageEncoding="UTF-8"%>
 					</c:forEach>
 				</select>
 			</div>
-			<div  class="form-group" >
-				<button type="button" name="btn-search">검색</button>
+			<div  class="form-group" name="btn-box">
+				<button type="button" name="btn-search" class="btn btn-outline-dark btn-float-right col-1">검색</button>
 			</div>
 			<div class="form-group" name="room-box">
 				<label>예약하고자 하는 방을 선택해주세요</label>
@@ -69,7 +69,7 @@ pageEncoding="UTF-8"%>
 	</div>
 		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<script type="text/javascript">
-	
+		$('[name=room-box]').hide()
 		$(document).on('click','[name=btn-search]',function(){
 			
 			let data = {
@@ -79,7 +79,7 @@ pageEncoding="UTF-8"%>
 			
 			ajaxObjectToJson(false,'post','<c:url value="/reservation/select"/>',data,(a)=>{
 				if(a==''){
-					$('[name=room-box]').hide()
+					
 					alert('예약할수 있는 방이 없습니다.')
 				}else{
 					$('[name=room-box]').hide()
@@ -102,7 +102,7 @@ pageEncoding="UTF-8"%>
 						</select>
 						</div>
 					`;
-					$('[name=dog-box]').after(str)
+					$('[name=btn-box]').after(str)
 					
 				}
 				
