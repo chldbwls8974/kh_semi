@@ -9,4 +9,7 @@
 	<select id="selectSize" resultType="kr.kh.app.vo.SizeVO">
 		select * from size where si_name = #{si_name}
 	</select>
+	<select id="getPriceSize" resultType="kr.kh.app.vo.SizeVO">
+		select * from size where si_name = #{price}
+	</select>
 </mapper>

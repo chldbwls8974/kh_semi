@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kr.kh.app.dao.SizeDAO;
+import kr.kh.app.vo.PriceVO;
 import kr.kh.app.vo.SizeVO;
 
 public class SizeServiceImp implements SizeService {
@@ -40,4 +41,10 @@ public class SizeServiceImp implements SizeService {
 	public String getSize(String si_name) {
 		return sizeDao.selectSize(si_name);
 	}
+
+	@Override
+	public SizeVO getPriceSize(String price) {
+		return sizeDao.getPriceSize(price);
+	}
+
 }

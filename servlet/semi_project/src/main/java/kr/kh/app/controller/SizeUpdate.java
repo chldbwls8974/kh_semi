@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import kr.kh.app.service.SizeService;
 import kr.kh.app.service.SizeServiceImp;
+import kr.kh.app.vo.PriceVO;
 import kr.kh.app.vo.SizeVO;
 
 public class SizeUpdate extends HttpServlet {
@@ -18,6 +19,12 @@ public class SizeUpdate extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		SizeVO sSize = sizeService.getPriceSize("s");
+		SizeVO mSize = sizeService.getPriceSize("m");
+		SizeVO lSize = sizeService.getPriceSize("l");
+		request.setAttribute("sSize", sSize);
+		request.setAttribute("mSize", mSize);
+		request.setAttribute("lSize", lSize);
 		request.getRequestDispatcher("/WEB-INF/views/size/update.jsp").forward(request,response);
 	}
 
