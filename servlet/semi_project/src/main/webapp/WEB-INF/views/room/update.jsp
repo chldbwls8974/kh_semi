@@ -28,15 +28,21 @@
 				</div>
 				<div class="form-group">
 					<label>최대 수용 마리 수</label>
-					<input type="text" class="form-control" name="ro_max_cap" type="number">
+					<input type="text" class="form-control" name="ro_max_cap" placeholder="숫자를 입력하세요.">
 				</div>
 				<div class="form-group">
 					<label>현재 수용 마리 수</label>
-					<input type="text" class="form-control" name="ro_now_cap" type="number">
+					<input type="text" class="form-control" name="ro_now_cap" placeholder="숫자를 입력하세요.">
 				</div>
-				<div class="form-group">
+				<div class="form-group" name="branch-box">
 					<label>지점명</label>
 					<input type="text" class="form-control" name="br_name">
+<!-- 필요한가?				<select class="form-control" name="branchSelect"> -->
+<!-- 						<option value="0">지점 선택</option> -->
+<%-- 						<c:forEach items="${branchList }" var="branch"> --%>
+<%-- 							<option value="${room.ro_br_num }">${branch.br_name }</option> --%>
+<%-- 						</c:forEach> --%>
+<!-- 					</select> -->
 				</div>
 				<div class="form-group">
 					<label>객실 타입</label>
