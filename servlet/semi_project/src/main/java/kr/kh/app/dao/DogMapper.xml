@@ -12,7 +12,7 @@
 	<insert id="insertDog">
 		insert into dog(d_num, d_name, d_age, d_gen, d_kg, d_detail, d_me_id, d_si_name)
 		values(#{dog.d_num}, #{dog.d_name}, #{dog.d_age},
-		 #{dog.d_gen},#{dog.d_kg},#{dog.d_detail},#{dog.d_me_id}, #{dog.d_si_name}) // 근데 킹론상 쟤는 상관없긴 한데 
+		 #{dog.d_gen},#{dog.d_kg},#{dog.d_detail},#{dog.d_me_id}, #{dog.d_si_name}) 
 	</insert>
 	<delete id="deleteDog">
 		delete from dog where d_num = #{d_num}
