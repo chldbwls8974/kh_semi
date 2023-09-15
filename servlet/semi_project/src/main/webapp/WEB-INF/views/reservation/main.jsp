@@ -45,7 +45,8 @@ pageEncoding="UTF-8"%>
 				<select class="form-control" name="dogSelect">
 					<option value="0">반려동물 선택</option>
 					<c:forEach items="${dogList }" var="dog">
-						<option value="${dog.d_si_name }">${dog.d_name }</option>
+					<!-- d_si_name -> d_num  -->
+						<option value="${dog.d_num }">${dog.d_name }</option>
 					</c:forEach>
 				</select>
 			</div>
@@ -57,7 +58,8 @@ pageEncoding="UTF-8"%>
 				<select class="form-control" name="roomSelect">
 					<option value="0">방 선택</option>
 					<c:forEach items="${roomList }" var="room">
-						<option value="${room.ro_detail }">${room.ro_name }</option>
+					<!-- re_detail -> ro_num -->
+						<option value="${room.ro_num }">${room.ro_name }</option>
 					</c:forEach>
 				</select>
 			</div>
@@ -74,7 +76,8 @@ pageEncoding="UTF-8"%>
 			
 			let data = {
 					br_num : $(this).parents().find('[name=branchSelect]').val(),
-					d_size :  $(this).parents().find('[name=dogSelect]').val()
+					/* d_size -> d_num */
+					d_num :  $(this).parents().find('[name=dogSelect]').val()
 			}
 			
 			ajaxObjectToJson(false,'post','<c:url value="/reservation/select"/>',data,(a)=>{

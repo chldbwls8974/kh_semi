@@ -35,7 +35,11 @@ public class ReservInsert extends HttpServlet {
 		String from = request.getParameter("from");
 		String to = request.getParameter("to");
 		String br_num = request.getParameter("branchSelect");
-		// 3마리까지 받아옴
+		// 3마리까지 받아옴 (d_num 으로)
+		String d_num1 = request.getParameter("dogSelect");
+		String d_num2 = request.getParameter("dogSelect2");
+		String d_num3 = request.getParameter("dogSelect3");
+		
 		String d_si_name1 = request.getParameter("dogSelect");
 //		String d_si_name2 = request.getParameter("dogSelect2");
 //		String d_si_name3 = request.getParameter("dogSelect3");
