@@ -43,7 +43,7 @@
 				<td>${dog.d_detail}</td>
 				<td>${dog.d_me_id }</td>
 				<td>${dog.d_si_name }</td>
-				<td><a href="<c:url value='/dog/update'/>" class="btn btn-outline-success" role="button">수정</a></td>
+				<td><a href="<c:url value='/dog/update?d_num=${dog.d_num }'/>" class="btn btn-outline-success" role="button">수정</a></td>
 			    <td>
 			    <form action="<c:url value='/dog/delete'/>" method="post">
 			        <button class="btn btn-outline-danger btn-dog-delete">삭제</button>

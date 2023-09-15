@@ -60,7 +60,7 @@ public class DogServiceImp implements DogService {
 
 	@Override
 	public boolean updateDog(DogVO dog) {
-		if(dog == null || dog.getD_name() == null) {
+		if(dog == null || dog.getD_num() == null) {
 			return false;
 		}
 		return dogDao.updateDog(dog);
