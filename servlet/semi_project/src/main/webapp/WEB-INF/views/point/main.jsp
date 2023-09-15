@@ -29,11 +29,13 @@
 		    <tbody>
 		      <c:forEach items="${list }" var="point">
 			      <tr>
-			        <td><input type="text" value="${point.po_point}" class="form-control" name="po_point"></td>
+			        <td>
+			        <input type="hidden" value="${point.po_num}" class="form-control" name="po_num">
+			        <input type="text" value="${point.po_point}" class="form-control" name="po_point"></td>
 			        <td><input type="text" value="${point.po_content}" class="form-control" name="po_content"></td>
 			        <td>${point.po_me_id}</td>
 			        <td>
-			        <button class="btn btn-update btn-outline-warning">수정</button>
+			        <button class="btn btn-outline-warning" name="btn-update" data-num="${point.po_num}">수정</button>
 			        <button class="btn btn-delete btn-outline-warning" onclick="deletePoint(${point.po_num})">삭제</button>
 			        </td>
 			      </tr>
@@ -44,10 +46,18 @@
 	 </div> 
 
 	<script type="text/javascript">
-	$('.btn-update').click(function(){
-		let po_point = $(this).parents('tr').find('[name=po_point]').val();
-		console.log(po_point);
 		
+	$(document).on('click','[name=btn-update]',function(){
+		let data = {
+				num : $('[name=po_num]').val(),
+				point : $('[name=po_point]').val(),
+				content : $('[name=po_content]').val()
+		}
+		
+		console.log(data)
+		
+		ajaxObjectToJson(false, 'post','<c:url value="/point/update"/>', data, (a)=>{
+		})					
 	})
 	</script>
 

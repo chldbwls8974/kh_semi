@@ -11,4 +11,5 @@ public interface PointService {
 	ArrayList<PointVO> selectPointList();
 
 
+
 }
