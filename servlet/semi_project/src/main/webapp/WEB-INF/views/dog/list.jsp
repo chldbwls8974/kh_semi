@@ -54,12 +54,10 @@
 			</tr>
 		</c:forEach>
 	</table>
-<%-- 	${fn:length(list) } --%>
-<%-- 	<a href="<c:url value='/dog/insert'/>" class="btn btn-outline-success">반려견 등록</a> --%>
 	
 	<c:choose>
 	    <c:when test="${fn:length(list) < 3 }">
-	   		<!-- 참인 경우 -->
+	   		<!--  -->
 	   		<a href="<c:url value='/dog/insert'/>" class="btn btn-outline-success">반려견 등록</a>
 	    </c:when>
 	    <c:otherwise>

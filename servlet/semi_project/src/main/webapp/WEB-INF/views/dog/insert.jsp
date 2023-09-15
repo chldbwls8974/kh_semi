@@ -46,7 +46,7 @@
 </div>
 	<script>
 	   <% 
-       Boolean result = (Boolean)request.getAttribute("Ok");
+       Boolean result = (Boolean)request.getAttribute("ok");
 	   if(result != null && result){
     %>
        alert('반려견 등록 성공');
