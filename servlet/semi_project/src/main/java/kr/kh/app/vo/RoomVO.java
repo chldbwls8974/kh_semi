@@ -11,9 +11,9 @@ public class RoomVO {
 	
 	private int ro_num;
 	private String ro_name;
-	private String ro_detail;
 	private int ro_max_cap;
 	private int ro_now_cap; 
+	private String ro_detail;
 	private int ro_br_num;
 	
 	public RoomVO(String ro_name, int ro_max_cap, int ro_now_cap, int ro_br_num, String ro_detail) {

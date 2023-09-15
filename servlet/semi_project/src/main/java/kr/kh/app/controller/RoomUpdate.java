@@ -30,6 +30,8 @@ public class RoomUpdate extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int ro_num = Integer.parseInt(request.getParameter("ro_num"));
+		
+		
 		String ro_name = request.getParameter("ro_name");
 		int ro_max_cap = Integer.parseInt(request.getParameter("ro_max_cap"));
 		int ro_now_cap = Integer.parseInt(request.getParameter("ro_now_cap"));
@@ -44,7 +46,7 @@ public class RoomUpdate extends HttpServlet {
 			url = "/room/detail?ro_num=" + ro_num;
 			msg = "객실 수정 실패";
 		}
-		
+		System.out.println(room);
 		request.setAttribute("url", url);
 		request.setAttribute("msg", msg);
 		request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
