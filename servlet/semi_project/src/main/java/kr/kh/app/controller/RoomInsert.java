@@ -30,7 +30,7 @@ public class RoomInsert extends HttpServlet {
 		Integer max_cap = Integer.parseInt(request.getParameter("max_cap"));
 		Integer branch = Integer.parseInt(request.getParameter("branch"));
 		
-		RoomVO room = new RoomVO(name,max_cap,0,branch,detail);
+		RoomVO room = new RoomVO(0,name,max_cap,0,branch,detail);
 		
 		boolean ok = false;
 		

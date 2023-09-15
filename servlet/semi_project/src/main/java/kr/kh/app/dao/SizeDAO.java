@@ -8,5 +8,7 @@ public interface SizeDAO {
 
 	void updateSize(@Param("size")SizeVO size);
 
+	String selectSize(@Param("si_name")String si_name);
+
 
 }

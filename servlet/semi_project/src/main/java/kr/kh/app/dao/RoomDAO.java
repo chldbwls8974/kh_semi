@@ -14,7 +14,7 @@ public interface RoomDAO {
 
 	boolean updateRoom(@Param("room") RoomVO room);
 
-	int deleteRoom(@Param("ro_num") int ro_num);
+	boolean deleteRoom(@Param("ro_num") int ro_num);
 
 	void insertRoom(@Param("room") RoomVO room);
 

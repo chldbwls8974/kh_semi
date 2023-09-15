@@ -65,6 +65,7 @@ public class RoomServiceImp implements RoomService {
 	public boolean updateRoom(RoomVO room) {
 		//매개변수 체크 (방이 없거나 방 이름이 없으면 false)
 		if(room == null || room.getRo_name() == null) {
+			System.out.println("11");
 			return false;
 		}
 		//있다면 다오에게 요청
@@ -73,7 +74,7 @@ public class RoomServiceImp implements RoomService {
 
 	@Override
 	public boolean deleteRoom(int ro_num) {
-		return roomDao.deleteRoom(ro_num) != 0;
+		return roomDao.deleteRoom(ro_num);
 	}
 
 

@@ -24,20 +24,44 @@
 				</div>
 				<div class="form-group">
 					<label>객실명</label>
-					<input type="text" class="form-control" name="ro_name" placeholder="${room.ro_name }")>
-				</div>
-				<div class="form-group">
-					<label>객실 상세정보</label>
-					<input type="text" class="form-control" name="ro_detail" placeholder="${room.ro_detail }")>
+					<input type="text" class="form-control" name="ro_name">
 				</div>
 				<div class="form-group">
 					<label>최대 수용 마리 수</label>
-					<input type="text" class="form-control" name="ro_max_cap" placeholder="${room.ro_max_cap }")>
+					<input type="text" class="form-control" name="ro_max_cap" type="number">
+				</div>
+				<div class="form-group">
+					<label>현재 수용 마리 수</label>
+					<input type="text" class="form-control" name="ro_now_cap" type="number">
+				</div>
+				<div class="form-group">
+					<label>지점명</label>
+					<input type="text" class="form-control" name="br_name">
+				</div>
+				<div class="form-group">
+					<label>객실 타입</label>
+					<input type="text" class="form-control" name="ro_detail" placeholder="S,M,L 중 하나만 입력하세요.">
 				</div>
 				<button class="btn btn-outline-success">등록</button>
 			</form>
 	</div>
 
+<script type="text/javascript">
+
+	<% 
+	Boolean result = (Boolean)request.getAttribute("ok");
+	if(result != null && result){
+	%>
+	alert('객실 수정에 성공했습니다.');
+	location.href="/semi_project/room/main";
+	<% 
+	}else if(result != null && !result){ %>
+	alert('객실 수정에 실패했습니다.')
+	<%
+	}
+	%>
+
+</script>
 	
 </body>
 </html>
