@@ -319,6 +319,9 @@
   <servlet-mapping>
     <servlet-name>ReservInsert</servlet-name>
     <url-pattern>/reservation/insert</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  <description></description>
     <display-name>DogDelete</display-name>
     <servlet-name>DogDelete</servlet-name>
     <servlet-class>kr.kh.app.controller.DogDelete</servlet-class>
