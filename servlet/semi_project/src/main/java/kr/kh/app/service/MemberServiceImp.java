@@ -3,6 +3,7 @@ package kr.kh.app.service;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -32,13 +33,32 @@ public class MemberServiceImp implements MemberService {
 
 	@Override
 	public boolean signup(MemberVO member) {
-		if(member == null || member.getMe_id() ==null || member.getMe_pw() ==null || member.getMe_name()==null || member.getMe_phone() ==null || member.getMe_address()==null ) {
+		if(member == null ) {
 			return false;
 		}
+		
 		MemberVO dbMember = memberDao.selectMember(member.getMe_id());
 		if(dbMember != null) {
 			return false;
 		}
+		if(!member.getMe_pw().equals(member.getMe_pw2())) {
+			return false;
+		}
+		//아이디, 비번 null 체크 + 유효성 검사
+		//아이디는 영문으로 시작하고, 6~15자
+		String idRegex = "^[a-zA-Z][a-zA-Z0-9]{6,9}$";
+		//비번은 영문,숫자,!@#$%로 이루어지고 6~15자 
+		String pwRegex = "^[a-zA-Z0-9!@#$%]{6,14}$";
+		
+		//아이디가 유효성에 맞지 않으면
+		if(!Pattern.matches(idRegex, member.getMe_id())) {
+			return false;
+		}
+		//비번이 유효성에 맞지 않으면
+		if(!Pattern.matches(pwRegex, member.getMe_pw())) {
+			return false;
+		}
+		
 		memberDao.insertMember(member);
 		return true;
 		
