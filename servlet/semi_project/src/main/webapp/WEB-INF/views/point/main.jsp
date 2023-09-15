@@ -49,9 +49,9 @@
 		
 	$(document).on('click','[name=btn-update]',function(){
 		let data = {
-				num : $('[name=po_num]').val(),
-				point : $('[name=po_point]').val(),
-				content : $('[name=po_content]').val()
+				num : $(this).parents('tr').find('[name=po_num]').val(),
+				point : $(this).parents('tr').find('[name=po_point]').val(),
+				content : $(this).parents('tr').find('[name=po_content]').val()
 		}
 		
 		console.log(data)
