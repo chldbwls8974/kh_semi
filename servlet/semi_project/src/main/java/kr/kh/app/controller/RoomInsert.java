@@ -1,26 +1,33 @@
 package kr.kh.app.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import kr.kh.app.dao.RoomDAO;
+import kr.kh.app.service.BranchService;
+import kr.kh.app.service.BranchServiceImp;
 import kr.kh.app.service.RoomService;
 import kr.kh.app.service.RoomServiceImp;
+import kr.kh.app.vo.BranchVO;
 import kr.kh.app.vo.RoomVO;
 
 public class RoomInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     private RoomService roomService = new RoomServiceImp();
+    private BranchService branchService = new BranchServiceImp();
 	
     public RoomInsert() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ArrayList<BranchVO> branchList = branchService.getBranchList();
+		request.setAttribute("branchList", branchList);
+		
 		request.getRequestDispatcher("/WEB-INF/views/room/insert.jsp").forward(request, response);
 	}
 
