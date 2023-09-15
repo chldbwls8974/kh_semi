@@ -31,9 +31,8 @@ public class DogInsert extends HttpServlet {
 		//세션에서 user 받아오기 / list에 해당 user 반려견 목록 불러오기
 		MemberVO user = (MemberVO)session.getAttribute("user"); 
 		ArrayList<DogVO> list = dogService.getMyDogList(user);
-		//테스트출력
-		System.out.println(list.size());
-		int myDogCount = list.size() + 1;
+		int myDogCount = list.size();
+		
 		
 		String name = request.getParameter("d_name");
 		String age = request.getParameter("d_age");
@@ -52,16 +51,22 @@ public class DogInsert extends HttpServlet {
 		// 관리자 - 수정, 삭제
 		
 		// 반려동물번호 생성 // user + 00 + 1(증가) //최대 3마리
-		String num = id  + "00" + myDogCount;
+		String num = id  + "00" + (list.size() +1);
 		
 		DogVO dog = new DogVO(num, name, age, gen, kg, detail, id, siName);
 		
 		boolean ok = false;
-		
-		if(dogService.insertDog(dog)) {
-			ok = true;
+		//개가 3마리 이상이면 실패
+		if(myDogCount >= 3) {
+			request.setAttribute("ok", ok);
 		}
-		request.setAttribute("Ok", ok);
+		else{
+			if(dogService.insertDog(dog)) {
+				ok = true;
+			}
+			request.setAttribute("ok", ok);
+		}
+		
 		doGet(request, response); 
 		
 	}
