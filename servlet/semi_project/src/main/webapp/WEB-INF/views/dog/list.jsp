@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+  <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -53,7 +54,24 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<a href="<c:url value='/dog/insert'/>" class="btn btn-outline-success">반려견 등록</a>
+<%-- 	${fn:length(list) } --%>
+<%-- 	<a href="<c:url value='/dog/insert'/>" class="btn btn-outline-success">반려견 등록</a> --%>
+	
+	<c:choose>
+	    <c:when test="${fn:length(list) < 3 }">
+	   		<!-- 참인 경우 -->
+	   		<a href="<c:url value='/dog/insert'/>" class="btn btn-outline-success">반려견 등록</a>
+	    </c:when>
+	    <c:otherwise>
+			 <!-- 거짓인 경우 -->
+			 <a href="<c:url value='/dog/list'/>" class="btn btn-outline-success" id="btnAdd">반려견 등록</a>
+			 <script type="text/javascript">
+			 	$("#btnAdd").click(function(){
+				 	alert('반려견은 3마리 까지 등록할 수 있습니다.');
+			 	})
+			 </script>
+	    </c:otherwise>
+	</c:choose>
 </div>
 </body>
 </html>

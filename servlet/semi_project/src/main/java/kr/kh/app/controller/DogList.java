@@ -27,6 +27,7 @@ public class DogList extends HttpServlet {
 		
 		ArrayList<DogVO> list = dogService.getMyDogList(user);
 		request.setAttribute("list", list);
+//		int dogCount = list.size() + 1;
 		
 		request.getRequestDispatcher("/WEB-INF/views/dog/list.jsp").forward(request, response);
 	}

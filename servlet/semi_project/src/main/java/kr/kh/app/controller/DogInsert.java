@@ -35,6 +35,7 @@ public class DogInsert extends HttpServlet {
 		System.out.println(list.size());
 		int myDogCount = list.size() + 1;
 		
+		
 		String name = request.getParameter("d_name");
 		String age = request.getParameter("d_age");
 		String gen = request.getParameter("d_gen");
@@ -57,11 +58,15 @@ public class DogInsert extends HttpServlet {
 		DogVO dog = new DogVO(num, name, age, gen, kg, detail, id, siName);
 		
 		boolean ok = false;
-		
-		if(dogService.insertDog(dog)) {
+		//개가 3마리 이상이면 실패
+		if(myDogCount >= 3) {
+			request.setAttribute("Ok", ok);
+		} else if(dogService.insertDog(dog)) {
 			ok = true;
+			request.setAttribute("Ok", ok);
+			
 		}
-		request.setAttribute("Ok", ok);
+		
 		doGet(request, response); 
 		
 	}
