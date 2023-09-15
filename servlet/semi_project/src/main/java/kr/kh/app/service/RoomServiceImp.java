@@ -74,7 +74,7 @@ public class RoomServiceImp implements RoomService {
 
 	@Override
 	public boolean deleteRoom(int ro_num) {
-		return roomDao.deleteRoom(ro_num) != 0;
+		return roomDao.deleteRoom(ro_num);
 	}
 
 

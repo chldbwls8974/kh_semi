@@ -47,6 +47,7 @@
 	</div>
 	
 	<c:if test="${sessionScope.user != null}">
+	
 		<div class="container">
 			<a href="<c:url value='/room/update?ro_num=${room.ro_num }'/>" class="btn btn-outline-warning mt-2">수정</a>
 			<a href="<c:url value='/room/delete?ro_num=${room.ro_num }'/>" id=btn-delete class="btn btn-outline-warning mt-2">삭제</a>
