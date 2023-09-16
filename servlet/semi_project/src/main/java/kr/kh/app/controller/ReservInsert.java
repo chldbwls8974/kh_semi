@@ -88,7 +88,6 @@ public class ReservInsert extends HttpServlet {
 		
 		
 		
-		
 		boolean ok = true;
 		request.setAttribute("ok", ok);
 		doGet(request, response);
