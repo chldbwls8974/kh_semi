@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `dogtel` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `dogtel`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: dogtel
@@ -18,27 +16,27 @@ USE `dogtel`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `level`
+-- Table structure for table `size`
 --
 
-DROP TABLE IF EXISTS `level`;
+DROP TABLE IF EXISTS `size`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `level` (
-  `le_name` varchar(10) NOT NULL DEFAULT '일반',
-  `le_benefit` int NOT NULL DEFAULT '5',
-  PRIMARY KEY (`le_name`)
+CREATE TABLE `size` (
+  `si_name` varchar(6) NOT NULL,
+  `si_min_kg` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`si_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `level`
+-- Dumping data for table `size`
 --
 
-LOCK TABLES `level` WRITE;
-/*!40000 ALTER TABLE `level` DISABLE KEYS */;
-INSERT INTO `level` VALUES ('vip',10),('일반',5);
-/*!40000 ALTER TABLE `level` ENABLE KEYS */;
+LOCK TABLES `size` WRITE;
+/*!40000 ALTER TABLE `size` DISABLE KEYS */;
+INSERT INTO `size` VALUES ('l',20),('m',9),('s',0);
+/*!40000 ALTER TABLE `size` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-15 16:00:17
+-- Dump completed on 2023-09-16 16:34:29

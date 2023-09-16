@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `dogtel` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `dogtel`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: dogtel
@@ -18,28 +16,36 @@ USE `dogtel`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `price`
+-- Table structure for table `member`
 --
 
-DROP TABLE IF EXISTS `price`;
+DROP TABLE IF EXISTS `member`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `price` (
-  `pr_si_name` varchar(6) NOT NULL,
-  `pr_price` int NOT NULL DEFAULT '0',
-  PRIMARY KEY (`pr_si_name`),
-  CONSTRAINT `FK_size_TO_price_1` FOREIGN KEY (`pr_si_name`) REFERENCES `size` (`si_name`)
+CREATE TABLE `member` (
+  `me_id` varchar(10) NOT NULL,
+  `me_le_name` varchar(10) NOT NULL DEFAULT '일반',
+  `me_pw` varchar(255) NOT NULL,
+  `me_name` varchar(20) NOT NULL,
+  `me_address` varchar(100) NOT NULL,
+  `me_phone` varchar(13) NOT NULL,
+  `me_total_price` int NOT NULL DEFAULT '0',
+  `me_authority` varchar(5) NOT NULL DEFAULT 'USER',
+  `me_point` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`me_id`),
+  KEY `FK_level_TO_member_1` (`me_le_name`),
+  CONSTRAINT `FK_level_TO_member_1` FOREIGN KEY (`me_le_name`) REFERENCES `level` (`le_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `price`
+-- Dumping data for table `member`
 --
 
-LOCK TABLES `price` WRITE;
-/*!40000 ALTER TABLE `price` DISABLE KEYS */;
-INSERT INTO `price` VALUES ('l',4500),('m',3000),('s',1500);
-/*!40000 ALTER TABLE `price` ENABLE KEYS */;
+LOCK TABLES `member` WRITE;
+/*!40000 ALTER TABLE `member` DISABLE KEYS */;
+INSERT INTO `member` VALUES ('ADMIN','일반','ADMIN','ADMIN','ADMIN','010-1111-1111',0,'ADMIN',0),('asdqwe123','일반','asdqwe123!','asd','서울시 강서구','1212222',0,'USER',0),('user001','일반','user001','이름을 수정','주소를 수정','연락처를 수정',0,'USER',0);
+/*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-15 16:00:16
+-- Dump completed on 2023-09-16 16:34:30

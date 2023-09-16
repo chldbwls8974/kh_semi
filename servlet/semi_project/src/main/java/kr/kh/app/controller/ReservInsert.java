@@ -39,17 +39,23 @@ public class ReservInsert extends HttpServlet {
 		String br_num = request.getParameter("branchSelect");
 		// 3마리까지 받아옴 (d_num 으로)
 		String d_num1 = request.getParameter("dogSelect");
+		//null
 		String d_num2 = request.getParameter("dogSelect2");
 		String d_num3 = request.getParameter("dogSelect3");
 		
+		//String d_num이 null이면 dog == null임
 		DogVO dog1 = dogService.getDog(d_num1);
 		DogVO dog2 = dogService.getDog(d_num2);
 		DogVO dog3 = dogService.getDog(d_num3);
-		dog1.getD_si_name();
 		
-		String d_si_name1 = dog1.getD_si_name();
-		String d_si_name2 = dog2.getD_si_name();
-		String d_si_name3 = dog3.getD_si_name();
+		
+//		String d_si_name = (dog1 == null) ? null : dog1.getD_si_name();
+		String d_si_name1 = null;
+		String d_si_name2 = null;
+		String d_si_name3 = null;
+		if(dog1 != null) {d_si_name1 = dog1.getD_si_name();	}
+		if(dog2 != null) {d_si_name2 = dog2.getD_si_name();	}
+		if(dog3 != null) {d_si_name3 = dog3.getD_si_name();	}
 		
 		//사이즈별 마리 수 구해오기
 		int re_s_count = reservService.smallCount(d_si_name1,d_si_name2,d_si_name3);
@@ -63,11 +69,12 @@ public class ReservInsert extends HttpServlet {
 		//총 가격
 		int totalPrice = (re_s_count * sPrice.getPr_price()) + (re_m_count * mPrice.getPr_price()) + (re_l_count * lPrice.getPr_price());
 		//이용일수 계산해서 가져오는 메서드
-		int re_stay = reservService.calStayDay(from, to);
+//		int re_stay = reservService.calStayDay(from, to);
 		
 		
 		////////////
-		System.out.println(re_stay);
+		System.out.println(from);
+		System.out.println(to);
 		System.out.println(totalPrice);
 		System.out.println(re_s_count);
 		System.out.println(re_m_count);

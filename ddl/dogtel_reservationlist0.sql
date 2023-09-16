@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `dogtel` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `dogtel`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: dogtel
@@ -18,33 +16,34 @@ USE `dogtel`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `room`
+-- Table structure for table `reservationlist`
 --
 
-DROP TABLE IF EXISTS `room`;
+DROP TABLE IF EXISTS `reservationlist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `room` (
-  `ro_num` int NOT NULL AUTO_INCREMENT,
-  `ro_name` varchar(10) NOT NULL,
-  `ro_max_cap` int NOT NULL,
-  `ro_now_cap` int NOT NULL DEFAULT '0',
-  `ro_detail` varchar(50) DEFAULT NULL,
-  `ro_br_num` int NOT NULL,
-  PRIMARY KEY (`ro_num`),
-  KEY `FK_branch_TO_room_1` (`ro_br_num`),
-  CONSTRAINT `FK_branch_TO_room_1` FOREIGN KEY (`ro_br_num`) REFERENCES `branch` (`br_num`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `reservationlist` (
+  `rl_num` int NOT NULL AUTO_INCREMENT,
+  `rl_d_num` varchar(13) NOT NULL,
+  `rl_ro_num` int NOT NULL,
+  `rl_re_num` int NOT NULL,
+  PRIMARY KEY (`rl_num`),
+  KEY `FK_dog_TO_reservationList_1` (`rl_d_num`),
+  KEY `FK_room_TO_reservationList_1` (`rl_ro_num`),
+  KEY `FK_reservation_TO_reservationList_1` (`rl_re_num`),
+  CONSTRAINT `FK_dog_TO_reservationList_1` FOREIGN KEY (`rl_d_num`) REFERENCES `dog` (`d_num`),
+  CONSTRAINT `FK_reservation_TO_reservationList_1` FOREIGN KEY (`rl_re_num`) REFERENCES `reservation` (`re_num`),
+  CONSTRAINT `FK_room_TO_reservationList_1` FOREIGN KEY (`rl_ro_num`) REFERENCES `room` (`ro_num`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `room`
+-- Dumping data for table `reservationlist`
 --
 
-LOCK TABLES `room` WRITE;
-/*!40000 ALTER TABLE `room` DISABLE KEYS */;
-INSERT INTO `room` VALUES (1,'핑크',10,0,'s',1),(2,'그린',10,0,'m',1),(3,'오렌지',5,0,'s',1),(4,'옐로우',10,0,'l',2);
-/*!40000 ALTER TABLE `room` ENABLE KEYS */;
+LOCK TABLES `reservationlist` WRITE;
+/*!40000 ALTER TABLE `reservationlist` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reservationlist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-15 16:00:16
+-- Dump completed on 2023-09-16 16:34:30

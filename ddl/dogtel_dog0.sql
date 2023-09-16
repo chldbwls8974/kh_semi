@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `dogtel` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `dogtel`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: dogtel
@@ -18,27 +16,38 @@ USE `dogtel`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `size`
+-- Table structure for table `dog`
 --
 
-DROP TABLE IF EXISTS `size`;
+DROP TABLE IF EXISTS `dog`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `size` (
-  `si_name` varchar(6) NOT NULL,
-  `si_min_kg` int NOT NULL DEFAULT '0',
-  PRIMARY KEY (`si_name`)
+CREATE TABLE `dog` (
+  `d_num` varchar(13) NOT NULL,
+  `d_name` varchar(20) NOT NULL,
+  `d_age` int NOT NULL,
+  `d_age_type` char(1) NOT NULL DEFAULT 'Y',
+  `d_gen` char(1) DEFAULT NULL,
+  `d_kg` int NOT NULL,
+  `d_detail` varchar(50) DEFAULT NULL,
+  `d_me_id` varchar(10) NOT NULL,
+  `d_si_name` varchar(6) NOT NULL,
+  PRIMARY KEY (`d_num`),
+  KEY `FK_member_TO_dog_1` (`d_me_id`),
+  KEY `FK_size_TO_dog_1` (`d_si_name`),
+  CONSTRAINT `FK_member_TO_dog_1` FOREIGN KEY (`d_me_id`) REFERENCES `member` (`me_id`),
+  CONSTRAINT `FK_size_TO_dog_1` FOREIGN KEY (`d_si_name`) REFERENCES `size` (`si_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `size`
+-- Dumping data for table `dog`
 --
 
-LOCK TABLES `size` WRITE;
-/*!40000 ALTER TABLE `size` DISABLE KEYS */;
-INSERT INTO `size` VALUES ('l',20),('m',9),('s',0);
-/*!40000 ALTER TABLE `size` ENABLE KEYS */;
+LOCK TABLES `dog` WRITE;
+/*!40000 ALTER TABLE `dog` DISABLE KEYS */;
+INSERT INTO `dog` VALUES ('user001001','멍멍1',2,'Y','M',3,'','user001','s'),('user001002','멍멍2',5,'Y','F',11,'','user001','m'),('user001003','멍멍3',4,'Y','F',23,'','user001','l');
+/*!40000 ALTER TABLE `dog` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-15 16:00:16
+-- Dump completed on 2023-09-16 16:34:30

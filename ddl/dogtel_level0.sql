@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `dogtel` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `dogtel`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: dogtel
@@ -18,31 +16,27 @@ USE `dogtel`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `point`
+-- Table structure for table `level`
 --
 
-DROP TABLE IF EXISTS `point`;
+DROP TABLE IF EXISTS `level`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `point` (
-  `po_num` int NOT NULL AUTO_INCREMENT,
-  `po_point` int NOT NULL DEFAULT '0',
-  `po_content` varchar(30) DEFAULT NULL,
-  `po_me_id` varchar(10) NOT NULL,
-  PRIMARY KEY (`po_num`),
-  KEY `FK_member_TO_point_1` (`po_me_id`),
-  CONSTRAINT `FK_member_TO_point_1` FOREIGN KEY (`po_me_id`) REFERENCES `member` (`me_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `level` (
+  `le_name` varchar(10) NOT NULL DEFAULT '일반',
+  `le_benefit` int NOT NULL DEFAULT '5',
+  PRIMARY KEY (`le_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `point`
+-- Dumping data for table `level`
 --
 
-LOCK TABLES `point` WRITE;
-/*!40000 ALTER TABLE `point` DISABLE KEYS */;
-INSERT INTO `point` VALUES (1,300,'테스트0911','user001'),(2,1000,'테스트','user001');
-/*!40000 ALTER TABLE `point` ENABLE KEYS */;
+LOCK TABLES `level` WRITE;
+/*!40000 ALTER TABLE `level` DISABLE KEYS */;
+INSERT INTO `level` VALUES ('vip',10),('일반',5);
+/*!40000 ALTER TABLE `level` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-15 16:00:17
+-- Dump completed on 2023-09-16 16:34:29
