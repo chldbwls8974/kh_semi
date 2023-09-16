@@ -11,5 +11,7 @@ public interface ReservDAO {
 
 	ArrayList<ReservationVO> selectMyReservArray(@Param("user")MemberVO user);
 
+	boolean insertReserv(@Param("reserv")ReservationVO reserv);
+
 
 }

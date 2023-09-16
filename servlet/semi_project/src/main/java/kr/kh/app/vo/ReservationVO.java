@@ -17,7 +17,7 @@ public class ReservationVO {
 	private String re_me_id, re_date, re_end_date, re_state;
 	
 	public ReservationVO(int re_s_count, int re_m_count, int re_l_count, int re_price, int re_real_price,
-			int re_use_point, int re_add_point, String re_me_id, String re_date, String re_end_date, String re_state) {
+			int re_use_point, int re_add_point, String re_me_id, String re_date, String re_end_date) {
 		this.re_s_count = re_s_count;
 		this.re_m_count = re_m_count;
 		this.re_l_count = re_l_count;
@@ -28,6 +28,5 @@ public class ReservationVO {
 		this.re_me_id = re_me_id;
 		this.re_date = re_date;
 		this.re_end_date = re_end_date;
-		this.re_state = re_state;
 	}
 }
