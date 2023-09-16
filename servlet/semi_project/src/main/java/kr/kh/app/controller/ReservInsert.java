@@ -44,11 +44,10 @@ public class ReservInsert extends HttpServlet {
 		String d_num2 = request.getParameter("dogSelect2");
 		String d_num3 = request.getParameter("dogSelect3");
 		
-		
+		//사용할 포인트
 		int re_use_point = 0;
 		
 		ReservationVO reserv = reservService.createVO(re_me_id, from, to, br_num, d_num1, d_num2, d_num3, re_use_point);
-		
 		
 		System.out.println(reserv);
 		
