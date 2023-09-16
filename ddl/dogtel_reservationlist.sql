@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `dogtel` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `dogtel`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: dogtel
@@ -16,28 +18,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `price`
+-- Table structure for table `reservationlist`
 --
 
-DROP TABLE IF EXISTS `price`;
+DROP TABLE IF EXISTS `reservationlist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `price` (
-  `pr_si_name` varchar(6) NOT NULL,
-  `pr_price` int NOT NULL DEFAULT '0',
-  PRIMARY KEY (`pr_si_name`),
-  CONSTRAINT `FK_size_TO_price_1` FOREIGN KEY (`pr_si_name`) REFERENCES `size` (`si_name`)
+CREATE TABLE `reservationlist` (
+  `rl_num` int NOT NULL AUTO_INCREMENT,
+  `rl_d_num` varchar(13) NOT NULL,
+  `rl_ro_num` int NOT NULL,
+  `rl_re_num` int NOT NULL,
+  PRIMARY KEY (`rl_num`),
+  KEY `FK_dog_TO_reservationList_1` (`rl_d_num`),
+  KEY `FK_room_TO_reservationList_1` (`rl_ro_num`),
+  KEY `FK_reservation_TO_reservationList_1_idx` (`rl_re_num`),
+  CONSTRAINT `FK_dog_TO_reservationList_1` FOREIGN KEY (`rl_d_num`) REFERENCES `dog` (`d_num`),
+  CONSTRAINT `FK_reservation_TO_reservationList_1` FOREIGN KEY (`rl_re_num`) REFERENCES `reservation` (`re_num`),
+  CONSTRAINT `FK_room_TO_reservationList_1` FOREIGN KEY (`rl_ro_num`) REFERENCES `room` (`ro_num`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `price`
+-- Dumping data for table `reservationlist`
 --
 
-LOCK TABLES `price` WRITE;
-/*!40000 ALTER TABLE `price` DISABLE KEYS */;
-INSERT INTO `price` VALUES ('l',4500),('m',3000),('s',1500);
-/*!40000 ALTER TABLE `price` ENABLE KEYS */;
+LOCK TABLES `reservationlist` WRITE;
+/*!40000 ALTER TABLE `reservationlist` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reservationlist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-16 16:34:30
+-- Dump completed on 2023-09-16 17:41:25

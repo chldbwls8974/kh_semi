@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `dogtel` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `dogtel`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: dogtel
@@ -16,27 +18,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `size`
+-- Table structure for table `branch`
 --
 
-DROP TABLE IF EXISTS `size`;
+DROP TABLE IF EXISTS `branch`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `size` (
-  `si_name` varchar(6) NOT NULL,
-  `si_min_kg` int NOT NULL DEFAULT '0',
-  PRIMARY KEY (`si_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `branch` (
+  `br_num` int NOT NULL AUTO_INCREMENT,
+  `br_name` varchar(10) NOT NULL,
+  `br_phone` varchar(13) NOT NULL,
+  PRIMARY KEY (`br_num`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `size`
+-- Dumping data for table `branch`
 --
 
-LOCK TABLES `size` WRITE;
-/*!40000 ALTER TABLE `size` DISABLE KEYS */;
-INSERT INTO `size` VALUES ('l',20),('m',9),('s',0);
-/*!40000 ALTER TABLE `size` ENABLE KEYS */;
+LOCK TABLES `branch` WRITE;
+/*!40000 ALTER TABLE `branch` DISABLE KEYS */;
+INSERT INTO `branch` VALUES (1,'성남점','성남점'),(2,'하남점','하남점'),(3,'강서점','023');
+/*!40000 ALTER TABLE `branch` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-16 16:34:29
+-- Dump completed on 2023-09-16 17:41:24
