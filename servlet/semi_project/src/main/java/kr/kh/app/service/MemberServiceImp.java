@@ -98,7 +98,5 @@ public class MemberServiceImp implements MemberService {
 		}
 		return memberDao.updateMember(member) != 0;
 	}
-	
 
-	
 }

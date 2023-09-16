@@ -17,6 +17,7 @@
 
 <div class="container mt-5">
   <h2>나의 예약 정보</h2>
+  <label>회원님의 등급은 <b>'${member.me_le_name}'</b>입니다.</label>
   <div class="card mt-4">
 <%--   ${list} --%>
     <div class="card-body d-flex flex-column mb-5">
@@ -24,18 +25,22 @@
 				<thead>
 					<tr>
 						<th>예약 번호</th>
+						<th>예약 지점명</th>
 						<th>이용 시작일</th>
 						<th>이용 종료일</th>
 						<th>실 결제 금액</th>
+						<th>예약 상태</th>
 
 					</tr>
 				</thead>
 					<c:forEach items="${list}" var="reservation">
 						<tr>
 							<td>${reservation.re_num}</td>
-							<td>${reservation.re_s_count}</td>
-							<td>${reservation.re_m_count}</td>
+							<td>${reservationList.rl_ro_num}</td>
+							<td>${reservation.re_date}</td>
+							<td>${reservation.re_end_date}</td>
 							<td>${reservation.re_real_price}</td>
+							<td>${reservation.re_state}</td>
 						</tr>
 					</c:forEach>
 			</table>
@@ -43,6 +48,12 @@
     	<a class="btn btn-float-right btn-outline-dark mt-2 col-5 " href="/semi_project/member/mypage" role="button">뒤로가기</a>
     </div>
 </div>
+
+<script type="text/javascript">
+
+	
+
+</script>
 
 </body>
 </html>
