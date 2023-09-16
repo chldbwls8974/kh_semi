@@ -18,19 +18,24 @@
 <div class="container mt-5">
   <h2>나의 예약 정보</h2>
   <div class="card mt-4">
-  ${list}
+<%--   ${list} --%>
     <div class="card-body d-flex flex-column mb-5">
     		<table class="table table-bordered mt-1">
 				<thead>
 					<tr>
-						<th>예약번호</th>
-						<th>이용시작일</th>
-						<th>이용종료일</th>
-						<th>결제금액</th>
+						<th>예약 번호</th>
+						<th>이용 시작일</th>
+						<th>이용 종료일</th>
+						<th>실 결제 금액</th>
+
 					</tr>
 				</thead>
-					<c:forEach items="${list}" var="dog">
+					<c:forEach items="${list}" var="reservation">
 						<tr>
+							<td>${reservation.re_num}</td>
+							<td>${reservation.re_s_count}</td>
+							<td>${reservation.re_m_count}</td>
+							<td>${reservation.re_real_price}</td>
 						</tr>
 					</c:forEach>
 			</table>

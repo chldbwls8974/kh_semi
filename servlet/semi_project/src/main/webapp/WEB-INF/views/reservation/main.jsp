@@ -113,18 +113,6 @@ pageEncoding="UTF-8"%>
 		})
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		//데이트피커
 		$(document).ready(function(){
 			$(".datePicker").datepicker({
@@ -152,6 +140,7 @@ pageEncoding="UTF-8"%>
 			
 			$('.datePicker').datepicker('setDate', 'today'); //input창에 초기값을 오늘로
 		});
+		
 	
 		
 		  <% 
@@ -166,48 +155,7 @@ pageEncoding="UTF-8"%>
 	    <%
 	       }
 	    %>
-/*
-은영언니 구현
-function getTodayType(){
-			var date = new Date();
-			return date.getFullYear() +"-"+("0"+(date.getMonth()+1)).slice(-2) + "-"+ ("0"+date.getDate()).slice(-2);
-		}
-		
-		$(function() {
-		    var dateFormat = "mm/dd/yy",
-		    let today = getTodayType()
-		      from = $( "#from" )
-		        .datepicker({
-		          defaultDate: "+1w",
-		          changeMonth: true,
-		          numberOfMonths: 3,
-		          minDate: today  	          
-	        })
-	        .on( "change", function() {
-	        	console.log($(this).val())
-	          to.datepicker( "option", "minDate", getDate(this));
-	        }),
-	     to = $( "#to" ).datepicker({
-	        defaultDate: "+1w",
-	        changeMonth: true,
-	        numberOfMonths: 3
-	     })
-	     .on("change", function() {
-	        from.datepicker( "option", "maxDate", getDate(this));
-	     });
- 
-	    function getDate( element ) {
-	      var date;
-	      try {
-	        date = $.datepicker.parseDate( dateFormat, element.value );
-	      } catch( error ) {
-	        date = null;
-	      }
-	 
-	      return date;
-	    }
-	  } );
-		*/
+	    
 	</script>
 
 </body>
