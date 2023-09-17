@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,22 +38,24 @@
 						<tr>
 							<td>${reservation.re_num}</td>
 							<td>${reservationList.rl_ro_num}</td>
-							<td>${reservation.re_date}</td>
-							<td>${reservation.re_end_date}</td>
+							<td><fmt:formatDate value="${reservation.re_date}" pattern="yyyy-MM-dd"/></td>
+							<td><fmt:formatDate value="${reservation.re_end_date}" pattern="yyyy-MM-dd"/></td>
 							<td>${reservation.re_real_price}</td>
 							<td>${reservation.re_state}</td>
 						</tr>
 					</c:forEach>
 			</table>
     	</div>
-    	<a class="btn btn-float-right btn-outline-dark mt-2 col-5 " href="/semi_project/member/mypage" role="button">뒤로가기</a>
+    	<div align="center">
+	    	<a class="btn btn-float-right btn-outline-dark mt-1 col-5 " href="/semi_project/member/mypage" role="button">뒤로가기</a>
+	    	<a class="btn btn-float-right btn-outline-dark mt-1 col-5 " href="/semi_project/point/main" role="button">My 포인트</a>
+  		</div>
     </div>
 </div>
 
 <script type="text/javascript">
 
 	
-
 </script>
 
 </body>
