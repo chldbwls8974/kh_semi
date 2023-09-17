@@ -14,6 +14,7 @@ import kr.kh.app.service.ReservService;
 import kr.kh.app.service.ReservServiceImp;
 import kr.kh.app.vo.DogVO;
 import kr.kh.app.vo.PriceVO;
+import kr.kh.app.vo.ReservationVO;
 
 public class ReservInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -39,51 +40,23 @@ public class ReservInsert extends HttpServlet {
 		String br_num = request.getParameter("branchSelect");
 		// 3마리까지 받아옴 (d_num 으로)
 		String d_num1 = request.getParameter("dogSelect");
+		//null
 		String d_num2 = request.getParameter("dogSelect2");
 		String d_num3 = request.getParameter("dogSelect3");
 		
-		DogVO dog1 = dogService.getDog(d_num1);
-		DogVO dog2 = dogService.getDog(d_num2);
-		DogVO dog3 = dogService.getDog(d_num3);
-		dog1.getD_si_name();
+		//사용할 포인트
+		int re_use_point = 0;
 		
-		String d_si_name1 = dog1.getD_si_name();
-		String d_si_name2 = dog2.getD_si_name();
-		String d_si_name3 = dog3.getD_si_name();
+		ReservationVO reserv = reservService.createVO(re_me_id, from, to, br_num, d_num1, d_num2, d_num3, re_use_point);
 		
-		//사이즈별 마리 수 구해오기
-		int re_s_count = reservService.smallCount(d_si_name1,d_si_name2,d_si_name3);
-		int re_m_count = reservService.mediumCount(d_si_name1,d_si_name2,d_si_name3);
-		int re_l_count = reservService.largeCount(d_si_name1,d_si_name2,d_si_name3);
+		System.out.println(reserv);
 		
-		//사이즈별 시세 가져오기
-		PriceVO sPrice = priceService.getSizePrice("s");
-		PriceVO mPrice = priceService.getSizePrice("m");
-		PriceVO lPrice = priceService.getSizePrice("l");
-		//총 가격
-		int totalPrice = (re_s_count * sPrice.getPr_price()) + (re_m_count * mPrice.getPr_price()) + (re_l_count * lPrice.getPr_price());
-		//이용일수 계산해서 가져오는 메서드
-		int re_stay = reservService.calStayDay(from, to);
+		boolean ok = false;
+		if(reservService.insertReserv(reserv)) {
+			ok = true;
+			request.setAttribute("ok", ok);
+		};
 		
-		
-		////////////
-		System.out.println(re_stay);
-		System.out.println(totalPrice);
-		System.out.println(re_s_count);
-		System.out.println(re_m_count);
-		System.out.println(re_l_count);
-		System.out.println(sPrice);
-		System.out.println(mPrice);
-		System.out.println(lPrice);
-		System.out.println(re_me_id);
-		System.out.println(br_num);
-		System.out.println(d_si_name1);
-		
-		
-		
-		
-		boolean ok = true;
-		request.setAttribute("ok", ok);
 		doGet(request, response);
 	}
 	

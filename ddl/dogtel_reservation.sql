@@ -25,10 +25,10 @@ DROP TABLE IF EXISTS `reservation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `reservation` (
-  `re_num` int NOT NULL,
+  `re_num` int NOT NULL AUTO_INCREMENT,
   `re_me_id` varchar(10) NOT NULL,
-  `re_date` date NOT NULL,
-  `re_stay` int NOT NULL DEFAULT '1',
+  `re_date` varchar(15) NOT NULL,
+  `re_end_date` varchar(15) NOT NULL,
   `re_s_count` int NOT NULL DEFAULT '0',
   `re_m_count` int NOT NULL DEFAULT '0',
   `re_l_count` int NOT NULL DEFAULT '0',
@@ -40,7 +40,7 @@ CREATE TABLE `reservation` (
   PRIMARY KEY (`re_num`),
   KEY `FK_member_TO_reservation_1` (`re_me_id`),
   CONSTRAINT `FK_member_TO_reservation_1` FOREIGN KEY (`re_me_id`) REFERENCES `member` (`me_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,6 +49,7 @@ CREATE TABLE `reservation` (
 
 LOCK TABLES `reservation` WRITE;
 /*!40000 ALTER TABLE `reservation` DISABLE KEYS */;
+INSERT INTO `reservation` VALUES (1,'qwe','2023-09-16','2023-09-16',1,0,0,'완료',1500,1500,0,0),(2,'qwe','2023-09-16','2023-09-17',1,0,0,'완료',1500,1500,0,0),(3,'qwe','2023-09-16','2023-09-16',1,0,0,'완료',1500,1500,0,0),(4,'qwe','2023-09-18','2023-09-20',0,0,1,'완료',4500,4500,0,0),(5,'qwe','2023-09-16','2023-09-16',0,1,0,'완료',3000,3000,0,0);
 /*!40000 ALTER TABLE `reservation` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -61,4 +62,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-15 16:00:16
+-- Dump completed on 2023-09-16 17:41:24

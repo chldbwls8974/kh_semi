@@ -10,5 +10,7 @@ public interface SizeDAO {
 
 	String selectSize(@Param("si_name")String si_name);
 
+	SizeVO getPriceSize(@Param("price")String price);
+
 
 }

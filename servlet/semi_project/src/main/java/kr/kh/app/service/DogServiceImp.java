@@ -55,6 +55,9 @@ public class DogServiceImp implements DogService {
 
 	@Override
 	public DogVO getDog(String d_num) {
+		if(d_num == null) {
+			return null;
+		}
 		return dogDao.selectDog(d_num);
 	}
 

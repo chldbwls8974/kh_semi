@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import kr.kh.app.service.LevelService;
 import kr.kh.app.service.LevelServiceImp;
 import kr.kh.app.vo.LevelVO;
+import kr.kh.app.vo.PriceVO;
 
 public class LevelUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -19,6 +20,12 @@ public class LevelUpdate extends HttpServlet {
     }
     // 혜택 (%)를 수정할 수 있게, 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		LevelVO level = levelService.getBenefitLevel("일반");
+		LevelVO levelVip = levelService.getBenefitLevel("vip");
+		
+		request.setAttribute("level", level);
+		request.setAttribute("levelVip", levelVip);
+		
 		request.getRequestDispatcher("/WEB-INF/views/level/update.jsp").forward(request,response);
 	}
 

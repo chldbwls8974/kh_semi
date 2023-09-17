@@ -6,4 +6,7 @@
 	<update id="updateLevel">
 		update level set le_benefit = #{level.le_benefit} where le_name = #{level.le_name} 
 	</update>
+	<select id="getBenefitLevel" resultType="kr.kh.app.vo.LevelVO">
+		select * from level where le_name = #{benefit}
+	</select>
 </mapper>

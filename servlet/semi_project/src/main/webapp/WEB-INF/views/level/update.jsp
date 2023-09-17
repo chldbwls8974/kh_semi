@@ -19,11 +19,11 @@
  	<form action="<c:url value='/level/update'/>" method="post" class="mt-4">
  		<div class = "form-group">
  			<label>일반회원 적립률</label>
- 			<input type="text" class="form-control" name="le_benefit"  placeholder="% 제외하고 입력" required>
+ 			<input type="text" class="form-control" name="le_benefit"  placeholder="${level.le_benefit}" required>
  		</div>
  		<div class = "form-group">
  			<label>vip회원 적립률</label>
- 			<input type="text" class="form-control" name="le_benefit_vip" placeholder="% 제외하고 입력" required >
+ 			<input type="text" class="form-control" name="le_benefit_vip" placeholder="${levelVip.le_benefit}" required >
  		</div>
  		<button class="btn btn-outline-warning col-12">변경</button>
  	</form>	

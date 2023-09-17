@@ -6,4 +6,6 @@ public interface LevelService {
 
 	boolean updateLevel(LevelVO level);
 
+	LevelVO getBenefitLevel(String benefit);
+
 }
