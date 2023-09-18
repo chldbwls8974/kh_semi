@@ -50,7 +50,7 @@ pageEncoding="UTF-8"%>
 					</c:forEach>
 				</select>
 			</div>
-			<div  class="form-group" name="btn-serchbox">
+			<div  class="form-group" name="btn-searchbox">
 				<button type="button" name="btn-search" class="btn btn-outline-dark btn-float-right col-1">검색</button>
 			</div>
 			<div class="form-group" name="room-box">
@@ -71,7 +71,6 @@ pageEncoding="UTF-8"%>
 	</div>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<script type="text/javascript">
-		$('[name=room-box]').hide()
 	
 		// 보유 멍멍 마릿수
 		var d_count =  $('[name=dogSelect] option').length -1
@@ -82,10 +81,54 @@ pageEncoding="UTF-8"%>
 		var count = 0;
 		var str = '';
 	
-		//$('[name=room-box]').hide()
+		$('[name=room-box]').hide()
+		
+		
+		// 두번째 방 추가
+		$(document).on('click','.btn-add',function(){
+			count++;
+			if(count > d_count -1){
+				alert('더 이상 예약할 수 있는 반려견이 없습니다')
+				return;
+			}else{
+				let data = {
+						br_num : br_num,
+						/* d_size -> d_num */
+						d_num :  $(this).parents().find('[name=dogSelect]').val()
+				}
+				let add ='';
+				add += `
+					<hr>
+					<div class="form-group" name="dog-box">
+					<label>맡기고자 하는 개를 선택해주세요</label>
+					<select class="form-control" name="dogSelect">
+						<option value="0">반려동물 선택</option>
+						<c:forEach items="${dogList }" var="dog">
+						<!-- d_si_name -> d_num  -->
+							<option value="${dog.d_num }">${dog.d_name }</option>
+						</c:forEach>
+					</select>
+				</div>
+				<div  class="form-group" name="btn-searchbox">
+					<button type="button" name="btn-search" class="btn btn-outline-dark btn-float-right col-1">검색</button>
+				</div>
+				<div class="form-group">
+					<input type="button" class="btn btn-add btn-outline-warning col-12" value="+">
+				</div>
+				`;
+				$(this).hide()
+				$(this).after(add)
+			} 
+			
+		})
+		
+		
+		
+		
+		
+		
 		
 		// 조건에 맞는 방 찾기 - 첫번째 박스
-	function getRoom(){
 		$(document).on('click','[name=btn-search]',function(){
 			
 			let data = {
@@ -99,8 +142,8 @@ pageEncoding="UTF-8"%>
 					
 					alert('예약할수 있는 방이 없습니다.')
 				}else{
-					
-					let str = '';
+					$('[name=room-box]').hide()
+					str = '';
 					
 					str += `
 							<div class="form-group" name="room-box">
@@ -125,45 +168,14 @@ pageEncoding="UTF-8"%>
 					}
 				
 				})
+				
 			})
-		}
-		$('[name=room-box]').hide()
-		getRoom();
-		
-		
-		
-		// 두번째 방 추가
-		$(document).on('click','.btn-add',function(){
-			count++;
-			if(count > d_count -1){
-				alert('더 이상 예약할 수 있는 반려견이 없습니다')
-				return;
-			}else{
-				let add ='';
-				add += `
-					<hr>
-					<div class="form-group" name="dog-box">
-					<label>맡기고자 하는 개를 선택해주세요</label>
-					<select class="form-control" name="dogSelect">
-						<option value="0">반려동물 선택</option>
-						<c:forEach items="${dogList }" var="dog">
-						<!-- d_si_name -> d_num  -->
-							<option value="${dog.d_num }">${dog.d_name }</option>
-						</c:forEach>
-					</select>
-				</div>
-				<div  class="form-group" name="btn-serchbox">
-					<button type="button" name="btn-search" class="btn btn-outline-dark btn-float-right col-1">검색</button>
-				</div>
-				<div class="form-group">
-					<input type="button" class="btn btn-add btn-outline-warning col-12" value="+">
-				</div>
-				`;
-				$(this).hide()
-				$(this).after(add)
-			} 
 			
-		})
+		
+		
+		
+		
+		
 		
 		
 		
