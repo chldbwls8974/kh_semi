@@ -40,7 +40,6 @@ pageEncoding="UTF-8"%>
 					</c:forEach>
 				</select>
 			</div>
-			<div class="form-group add-box">
 			<div class="form-group" name="dog-box">
 				<label>맡기고자 하는 개를 선택해주세요</label>
 				<select class="form-control" name="dogSelect">
@@ -64,7 +63,6 @@ pageEncoding="UTF-8"%>
 					</c:forEach>
 				</select>
 			</div>
-			</div>
 			<div class="form-group">
 				<input type="button" class="btn btn-add btn-outline-warning col-12" value="+">
 			</div>
@@ -74,10 +72,24 @@ pageEncoding="UTF-8"%>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<script type="text/javascript">
 		$('[name=room-box]').hide()
+	
+		// 보유 멍멍 마릿수
+		var d_count =  $('[name=dogSelect] option').length -1
+		var br_num
+		$('[name=branchSelect]').change(function(){
+			br_num = $('[name=branchSelect]').val()
+		})
+		var count = 0;
+		var str = '';
+	
+		$('[name=room-box]').hide()
+		
+		// 조건에 맞는 방 찾기 - 첫번째 박스
+	function getRoom(){
 		$(document).on('click','[name=btn-search]',function(){
 			
 			let data = {
-					br_num : $(this).parents().find('[name=branchSelect]').val(),
+					br_num : br_num,
 					/* d_size -> d_num */
 					d_num :  $(this).parents().find('[name=dogSelect]').val()
 			}
@@ -110,21 +122,55 @@ pageEncoding="UTF-8"%>
 						
 					obj.after(str)
 					
-				}
+					}
 				
+				})
 			})
+		}
+		getRoom();
+		
+		
+		
+		// 두번째 방 추가
+		$(document).on('click','.btn-add',function(){
+			count++;
+			if(count > d_count -1){
+				alert('더 이상 예약할 수 있는 반려견이 없습니다')
+				return;
+			}else{
+				let add ='';
+				add += `
+					<hr>
+					<div class="form-group" name="dog-box">
+					<label>맡기고자 하는 개를 선택해주세요</label>
+					<select class="form-control" name="dogSelect">
+						<option value="0">반려동물 선택</option>
+						<c:forEach items="${dogList }" var="dog">
+						<!-- d_si_name -> d_num  -->
+							<option value="${dog.d_num }">${dog.d_name }</option>
+						</c:forEach>
+					</select>
+				</div>
+				<div  class="form-group" name="btn-serchbox">
+					<button type="button" name="btn-search" class="btn btn-outline-dark btn-float-right col-1">검색</button>
+				</div>
+				<div class="form-group" name="room-box">
+					<label>예약하고자 하는 방을 선택해주세요</label>
+					<select class="form-control" name="roomSelect">
+						<option value="0">방 선택</option>
+						<c:forEach items="${roomList }" var="room">
+						<!-- re_detail -> ro_num -->
+							<option value="${room.ro_num }">${room.ro_name }</option>
+						</c:forEach>
+					</select>
+				</div>
+				`;
+				$('[name=roomSelect]').hide()
+				$(this).before(add)
+				getRoom();
+			} 
+			
 		})
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
