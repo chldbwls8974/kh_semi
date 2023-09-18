@@ -147,7 +147,7 @@ pageEncoding="UTF-8"%>
 					th.parent().next().find('[name=roomSelect]').empty();
 					for(room of a){
 						let obj = JSON.parse(room)
-						var option = `<option value="\${obj.ro_detail }">\${obj.ro_name }</option>`;
+						var option = `<option value="\${obj.ro_num }">\${obj.ro_name }</option>`;
 						th.parent().next().find('[name=roomSelect]').append(option)
 						}
 					}
