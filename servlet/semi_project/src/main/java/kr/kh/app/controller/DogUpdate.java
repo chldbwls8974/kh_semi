@@ -39,6 +39,10 @@ public class DogUpdate extends HttpServlet {
 		String newGen = request.getParameter("d_gen");
 		int newKg = Integer.parseInt(request.getParameter("d_kg"));
 		String newDetail = request.getParameter("d_detail");
+		String siName = request.getParameter("d_si_name"); 
+		if (newKg <= 8) { siName = "S"; }
+		else if(newKg <= 20) {	siName ="M"; }
+		else { siName ="L"; }
 
 		dog.setD_num(newNum);
 		dog.setD_name(newName);
@@ -46,6 +50,7 @@ public class DogUpdate extends HttpServlet {
 		dog.setD_gen(newGen);
 		dog.setD_kg(newKg);
 		dog.setD_detail(newDetail);
+		dog.setD_si_name(siName);
 		dog.setD_me_id(member.getMe_id());
 
 		System.out.println(dog);

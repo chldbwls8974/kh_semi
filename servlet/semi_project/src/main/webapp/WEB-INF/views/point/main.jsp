@@ -54,10 +54,11 @@
 				content : $(this).parents('tr').find('[name=po_content]').val()
 		}
 		
-		console.log(data)
 		
 		ajaxObjectToJson(false, 'post','<c:url value="/point/update"/>', data, (a)=>{
-		})					
+			alert('수정완료')
+		})			
+		
 	})
 	</script>
 

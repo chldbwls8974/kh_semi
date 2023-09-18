@@ -44,9 +44,9 @@ public class DogInsert extends HttpServlet {
 		
 		// 강아지는 소 : 8kg 이하 / 중 : 9kg 이상 20kg미만 / 대 : 20kg 이상으로 구분된다.
 		String siName = request.getParameter("d_si_name"); 
-		if (kg <= 8) { siName = "s"; }
-		else if(kg <= 20) {	siName ="m"; }
-		else { siName ="l"; }
+		if (kg <= 8) { siName = "S"; }
+		else if(kg <= 20) {	siName ="M"; }
+		else { siName ="L"; }
 		
 		// 관리자 - 수정, 삭제
 		
