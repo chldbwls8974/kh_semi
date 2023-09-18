@@ -1,6 +1,9 @@
 package kr.kh.app.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -12,8 +15,6 @@ import kr.kh.app.service.PriceService;
 import kr.kh.app.service.PriceServiceImp;
 import kr.kh.app.service.ReservService;
 import kr.kh.app.service.ReservServiceImp;
-import kr.kh.app.vo.DogVO;
-import kr.kh.app.vo.PriceVO;
 import kr.kh.app.vo.ReservationVO;
 
 public class ReservInsert extends HttpServlet {
@@ -43,6 +44,11 @@ public class ReservInsert extends HttpServlet {
 		//null
 		String d_num2 = request.getParameter("dogSelect2");
 		String d_num3 = request.getParameter("dogSelect3");
+		String[] dataArray = request.getParameterValues("dogSelect");
+		 List<String> dataList = new ArrayList<>(Arrays.asList(dataArray));
+		 for (String data : dataList) {
+             System.out.println("Received data: " + data);
+		 }
 		
 		//사용할 포인트
 		int re_use_point = 0;

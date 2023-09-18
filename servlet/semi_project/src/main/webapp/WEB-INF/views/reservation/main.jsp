@@ -40,7 +40,6 @@ pageEncoding="UTF-8"%>
 					</c:forEach>
 				</select>
 			</div>
-			<div class="form-group add-box">
 			<div class="form-group" name="dog-box">
 				<label>맡기고자 하는 개를 선택해주세요</label>
 				<select class="form-control" name="dogSelect">
@@ -51,19 +50,14 @@ pageEncoding="UTF-8"%>
 					</c:forEach>
 				</select>
 			</div>
-			<div  class="form-group" name="btn-serchbox">
+			<div  class="form-group" name="btn-searchbox">
 				<button type="button" name="btn-search" class="btn btn-outline-dark btn-float-right col-1">검색</button>
 			</div>
 			<div class="form-group" name="room-box">
 				<label>예약하고자 하는 방을 선택해주세요</label>
 				<select class="form-control" name="roomSelect">
 					<option value="0">방 선택</option>
-					<c:forEach items="${roomList }" var="room">
-					<!-- re_detail -> ro_num -->
-						<option value="${room.ro_num }">${room.ro_name }</option>
-					</c:forEach>
 				</select>
-			</div>
 			</div>
 			<div class="form-group">
 				<input type="button" name="btn-add" class="btn btn-add btn-outline-warning col-12" value="+">
@@ -71,65 +65,99 @@ pageEncoding="UTF-8"%>
 			<button class="btn btn-float-right btn-outline-success col-3  mt-2">확인</button>
 		</form>
 	</div>
+	
+	
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<script type="text/javascript">
 	
-	let count = 3;
-	$(document).on('click','[name=btn-add]',function(){
-		for(let i = 0;i < count;i++){
-	    $("#container").append("#container");
-		}
-	});
+		// 보유 멍멍 마릿수
+		var d_count =  $('[name=dogSelect] option').length -1
+		var br_num
+		var d_num
+		$('[name=branchSelect]').change(function(){
+			br_num = $(this).val()
+		})
+		$(document).on('change', '[name=dogSelect]', function(){
+			d_num = $(this).val()
+			console.log(d_num)
+		})
+		var count = 0;
+		var str = '';
 	
-// 		$('[name=room-box]').hide()
-		$(document).on('click','[name=btn-search]',function(){
+	
+	 	// 두번째 방 추가
+		$(document).on('click','.btn-add',function(){
+			count++;
+			if(count > d_count -1){
+				alert('더 이상 예약할 수 있는 반려견이 없습니다')
+				return;
+			}else{
+				let data = {
+						br_num : br_num,
+						d_num :  $(this).parents('div').find('[name=dogSelect]').val()
+				}
+				let add ='';
+				add += `
+					<hr>
+					<div class="form-group" name="dog-box">
+						<label>맡기고자 하는 개를 선택해주세요</label>
+						<select class="form-control" name="dogSelect">
+							<option value="0">반려동물 선택</option>
+							<c:forEach items="${dogList }" var="dog">
+								<option value="${dog.d_num }">${dog.d_name }</option>
+							</c:forEach>
+						</select>
+					</div>
+					<div  class="form-group" name="btn-searchbox">
+						<button type="button" name="btn-search" class="btn btn-outline-dark btn-float-right col-1">검색</button>
+					</div>
+					<div class="form-group" name="room-box">
+						<label>예약하고자 하는 방을 선택해주세요</label>
+						<select class="form-control" name="roomSelect">
+							<option value="0">방 선택</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<input type="button" class="btn btn-add btn-outline-warning col-12" value="+">
+					</div>
+				`;
+				$(this).hide()
+				$(this).after(add)
+			} 
 			
+		})
+		
+		
+		
+		// 조건에 맞는 방 찾기
+		$(document).on('click','[name=btn-search]',function(){
 			let data = {
-					br_num : $(this).parents().find('[name=branchSelect]').val(),
+					br_num : br_num,
 					/* d_size -> d_num */
-					d_num :  $(this).parents().find('[name=dogSelect]').val()
+					d_num :  d_num
 			}
-			let obj = $(this);
+			console.log(data)
+			let th = $(this);
+			
 			ajaxObjectToJson(false,'post','<c:url value="/reservation/select"/>',data,(a)=>{
 				if(a==''){
 					
 					alert('예약할수 있는 방이 없습니다.')
 				}else{
-					$('[name=room-box]').hide()
-					let str = '';
-					
-					str += `
-							<div class="form-group" name="room-box">
-							<label>예약하고자 하는 방을 선택해주세요</label>
-							<select class="form-control" name="roomSelect">
-								<option value="0">방 선택</option>
-						`;
+					th.parent().next().find('[name=roomSelect]').empty();
 					for(room of a){
 						let obj = JSON.parse(room)
-						console.log(obj)
-						str += `
-							<option value="\${obj.ro_detail }">\${obj.ro_name }</option>
-						`;
+						var option = `<option value="\${obj.ro_detail }">\${obj.ro_name }</option>`;
+						th.parent().next().find('[name=roomSelect]').append(option)
+						}
 					}
-					str+=`
-							</select>
-							</div>
-						`;
-						
-					obj.after(str)
-					
-				}
-				
+				})
+			
 			})
-		})
-		
-		
-		
-		
-		
-		
-		
-		
+			
+
+			
+	
 		
 		
 		
