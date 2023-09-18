@@ -38,8 +38,8 @@
 						<tr>
 							<td>${reservation.re_num}</td>
 							<td>${reservationList.rl_ro_num}</td>
-							<td><fmt:formatDate value="${reservation.re_date}" pattern="yyyy-MM-dd"/></td>
-							<td><fmt:formatDate value="${reservation.re_end_date}" pattern="yyyy-MM-dd"/></td>
+							<td>${reservation.re_date}</td>
+							<td>${reservation.re_end_date}</td>
 							<td>${reservation.re_real_price}</td>
 							<td>${reservation.re_state}</td>
 						</tr>
