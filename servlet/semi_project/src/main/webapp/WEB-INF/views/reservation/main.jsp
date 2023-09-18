@@ -40,6 +40,7 @@ pageEncoding="UTF-8"%>
 					</c:forEach>
 				</select>
 			</div>
+			<div class="form-group add-box">
 			<div class="form-group" name="dog-box">
 				<label>맡기고자 하는 개를 선택해주세요</label>
 				<select class="form-control" name="dogSelect">
@@ -50,7 +51,7 @@ pageEncoding="UTF-8"%>
 					</c:forEach>
 				</select>
 			</div>
-			<div  class="form-group" name="btn-box">
+			<div  class="form-group" name="btn-serchbox">
 				<button type="button" name="btn-search" class="btn btn-outline-dark btn-float-right col-1">검색</button>
 			</div>
 			<div class="form-group" name="room-box">
@@ -63,13 +64,14 @@ pageEncoding="UTF-8"%>
 					</c:forEach>
 				</select>
 			</div>
+			</div>
 			<div class="form-group">
 				<input type="button" class="btn btn-add btn-outline-warning col-12" value="+">
 			</div>
 			<button class="btn btn-float-right btn-outline-success col-3  mt-2">확인</button>
 		</form>
 	</div>
-		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<script type="text/javascript">
 		$('[name=room-box]').hide()
 		$(document).on('click','[name=btn-search]',function(){
@@ -79,7 +81,7 @@ pageEncoding="UTF-8"%>
 					/* d_size -> d_num */
 					d_num :  $(this).parents().find('[name=dogSelect]').val()
 			}
-			
+			let obj = $(this);
 			ajaxObjectToJson(false,'post','<c:url value="/reservation/select"/>',data,(a)=>{
 				if(a==''){
 					
@@ -94,23 +96,36 @@ pageEncoding="UTF-8"%>
 							<select class="form-control" name="roomSelect">
 								<option value="0">방 선택</option>
 						`;
-				for(room of a){
-					let obj = JSON.parse(room)
-					console.log(obj)
-					str += `
-						<option value="\${obj.ro_detail }">\${obj.ro_name }</option>
-					`;
-				}
-				str+=`
-						</select>
-						</div>
-					`;
-					$('[name=btn-box]').after(str)
+					for(room of a){
+						let obj = JSON.parse(room)
+						console.log(obj)
+						str += `
+							<option value="\${obj.ro_detail }">\${obj.ro_name }</option>
+						`;
+					}
+					str+=`
+							</select>
+							</div>
+						`;
+						
+					obj.after(str)
 					
 				}
 				
 			})
 		})
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		//데이트피커

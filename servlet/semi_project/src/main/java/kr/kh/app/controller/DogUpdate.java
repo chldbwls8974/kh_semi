@@ -53,8 +53,6 @@ public class DogUpdate extends HttpServlet {
 		dog.setD_si_name(siName);
 		dog.setD_me_id(member.getMe_id());
 
-		System.out.println(dog);
-
 		boolean Ok = false;
 		if(dogService.updateDog(dog)) {
 			Ok = true;
