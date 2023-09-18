@@ -27,9 +27,8 @@ public class ReservInsert extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		request.getRequestDispatcher("/WEB-INF/views/reservation/main.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/reservation/insert.jsp").forward(request, response);
 		
 	}
 
@@ -97,15 +96,9 @@ public class ReservInsert extends HttpServlet {
 		String re_num = re_me_id + from + d_num1;
 		ReservationVO reserv = reservService.createVO(re_num, re_me_id, from, to, br_num, d_num1, d_num2, d_num3, re_use_point);
 		
-		System.out.println(reserv);
-
-//
-//		JSONObject jsonVar = new JSONObject(reserv);
-//		request.setAttribute("roomlist", jsonVar.toString());
-//		response.setContentType("application/json");
-//		response.setCharacterEncoding("UTF-8");
-//		response.getWriter().write(jsonVar.toString());
-//		
+		
+		request.setAttribute("reserv", reserv);
+		
 		boolean ok = false;
 		if(reservService.insertReserv(reserv)) {
 			
