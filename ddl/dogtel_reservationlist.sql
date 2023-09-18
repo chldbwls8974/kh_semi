@@ -32,7 +32,7 @@ CREATE TABLE `reservationlist` (
   PRIMARY KEY (`rl_num`),
   KEY `FK_dog_TO_reservationList_1` (`rl_d_num`),
   KEY `FK_room_TO_reservationList_1` (`rl_ro_num`),
-  KEY `FK_reservation_TO_reservationList_1` (`rl_re_num`),
+  KEY `FK_reservation_TO_reservationList_1_idx` (`rl_re_num`),
   CONSTRAINT `FK_dog_TO_reservationList_1` FOREIGN KEY (`rl_d_num`) REFERENCES `dog` (`d_num`),
   CONSTRAINT `FK_reservation_TO_reservationList_1` FOREIGN KEY (`rl_re_num`) REFERENCES `reservation` (`re_num`),
   CONSTRAINT `FK_room_TO_reservationList_1` FOREIGN KEY (`rl_ro_num`) REFERENCES `room` (`ro_num`)
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-15 16:00:17
+-- Dump completed on 2023-09-16 17:41:25

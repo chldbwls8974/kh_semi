@@ -11,7 +11,7 @@
 
 </body>
 <script>
-       alert('로그아웃 성공 성공');
+       alert('로그아웃 성공');
        location.href="/semi_project";
 </script>
 </html>

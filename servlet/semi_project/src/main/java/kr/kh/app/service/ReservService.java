@@ -17,4 +17,10 @@ public interface ReservService {
 
 	ArrayList<ReservationVO> getMyReservArray(MemberVO user);
 
+	boolean insertReserv(ReservationVO reserv);
+
+	ReservationVO createVO(String re_me_id, String from, String to, String br_num, String d_num1, String d_num2,
+			String d_num3, int re_use_point);
+
+
 }
