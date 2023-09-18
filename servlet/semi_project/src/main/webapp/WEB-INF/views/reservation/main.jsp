@@ -82,7 +82,7 @@ pageEncoding="UTF-8"%>
 		var count = 0;
 		var str = '';
 	
-		$('[name=room-box]').hide()
+		//$('[name=room-box]').hide()
 		
 		// 조건에 맞는 방 찾기 - 첫번째 박스
 	function getRoom(){
@@ -99,7 +99,7 @@ pageEncoding="UTF-8"%>
 					
 					alert('예약할수 있는 방이 없습니다.')
 				}else{
-					$('[name=room-box]').hide()
+					
 					let str = '';
 					
 					str += `
@@ -127,6 +127,7 @@ pageEncoding="UTF-8"%>
 				})
 			})
 		}
+		$('[name=room-box]').hide()
 		getRoom();
 		
 		
@@ -154,20 +155,12 @@ pageEncoding="UTF-8"%>
 				<div  class="form-group" name="btn-serchbox">
 					<button type="button" name="btn-search" class="btn btn-outline-dark btn-float-right col-1">검색</button>
 				</div>
-				<div class="form-group" name="room-box">
-					<label>예약하고자 하는 방을 선택해주세요</label>
-					<select class="form-control" name="roomSelect">
-						<option value="0">방 선택</option>
-						<c:forEach items="${roomList }" var="room">
-						<!-- re_detail -> ro_num -->
-							<option value="${room.ro_num }">${room.ro_name }</option>
-						</c:forEach>
-					</select>
+				<div class="form-group">
+					<input type="button" class="btn btn-add btn-outline-warning col-12" value="+">
 				</div>
 				`;
-				$('[name=roomSelect]').hide()
-				$(this).before(add)
-				getRoom();
+				$(this).hide()
+				$(this).after(add)
 			} 
 			
 		})
