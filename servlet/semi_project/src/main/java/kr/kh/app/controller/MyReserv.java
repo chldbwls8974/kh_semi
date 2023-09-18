@@ -16,7 +16,7 @@ import kr.kh.app.vo.ReservationVO;
 public class MyReserv extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ReservService reservService = new ReservServiceImp();
-       
+
     public MyReserv() {
         super();
     }
@@ -26,6 +26,7 @@ public class MyReserv extends HttpServlet {
 		MemberVO user = (MemberVO)session.getAttribute("user"); 
 		
 		ArrayList<ReservationVO> list = reservService.getMyReservArray(user);
+
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("/WEB-INF/views/member/reservation.jsp").forward(request,response);
 	}

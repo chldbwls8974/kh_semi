@@ -37,9 +37,11 @@ public class ReservMain extends HttpServlet {
 		ArrayList<BranchVO> branchList = branchService.getBranchList();
 		ArrayList<DogVO> dogList = dogService.getMyDogList(user);
 		ArrayList<RoomVO> roomList = roomService.getRoomList();
+
 		request.setAttribute("dogList", dogList);
 		request.setAttribute("roomList", roomList);
 		request.setAttribute("branchList", branchList);
+
 		
 		request.getRequestDispatcher("/WEB-INF/views/reservation/main.jsp").forward(request, response);	
 		response.getWriter().append("Served at: ").append(request.getContextPath());
