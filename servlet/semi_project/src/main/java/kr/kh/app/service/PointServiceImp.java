@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kr.kh.app.dao.PointDAO;
 import kr.kh.app.vo.DogVO;
+import kr.kh.app.vo.MemberVO;
 import kr.kh.app.vo.PointVO;
 
 public class PointServiceImp implements PointService{
@@ -52,6 +53,16 @@ public class PointServiceImp implements PointService{
 			return;
 		}
 		pointDao.updatePoint(point);
+	}
+
+	@Override
+	public ArrayList<PointVO> getMyPointList(MemberVO user) {
+		return pointDao.selectMyPointList(user);
+	}
+
+	@Override
+	public boolean deletePoint(PointVO point) {
+		return pointDao.deletePoint(point) != 0;
 	}
 
 

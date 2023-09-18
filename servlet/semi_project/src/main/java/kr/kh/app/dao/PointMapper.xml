@@ -15,4 +15,10 @@
 		po_content = #{point.po_content}
 		where po_num = #{point.po_num}
 	</update>
+	<select id="selectMyPointList" resultType="kr.kh.app.vo.PointVO">
+		select * from point where po_me_id = #{user.me_id}
+	</select>
+	<delete id="deletePoint">
+		delete from point where po_num = #{point.po_num}
+	</delete>
 </mapper>

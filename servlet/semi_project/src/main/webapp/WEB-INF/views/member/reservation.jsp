@@ -48,7 +48,7 @@
     	</div>
     	<div align="center">
 	    	<a class="btn btn-float-right btn-outline-dark mt-1 col-5 " href="/semi_project/member/mypage" role="button">뒤로가기</a>
-	    	<a class="btn btn-float-right btn-outline-dark mt-1 col-5 " href="/semi_project/point/main" role="button">My 포인트</a>
+	    	<a class="btn btn-float-right btn-outline-dark mt-1 col-5 " href="/semi_project/member/mypoint" role="button">My 포인트</a>
   		</div>
     </div>
 </div>

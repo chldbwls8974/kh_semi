@@ -350,4 +350,24 @@
     <servlet-name>MyReserv</servlet-name>
     <url-pattern>/member/reservation</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MyPoint</display-name>
+    <servlet-name>MyPoint</servlet-name>
+    <servlet-class>kr.kh.app.controller.MyPoint</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyPoint</servlet-name>
+    <url-pattern>/member/mypoint</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PointDelete</display-name>
+    <servlet-name>PointDelete</servlet-name>
+    <servlet-class>kr.kh.app.controller.PointDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PointDelete</servlet-name>
+    <url-pattern>/point/delete</url-pattern>
+  </servlet-mapping>
 </web-app>

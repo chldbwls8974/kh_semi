@@ -30,13 +30,16 @@
 		      <c:forEach items="${list }" var="point">
 			      <tr>
 			        <td>
-			        <input type="hidden" value="${point.po_num}" class="form-control" name="po_num">
-			        <input type="text" value="${point.po_point}" class="form-control" name="po_point"></td>
-			        <td><input type="text" value="${point.po_content}" class="form-control" name="po_content"></td>
-			        <td>${point.po_me_id}</td>
+				        <input type="hidden" value="${point.po_num}" class="form-control" name="po_num">
+				        <input type="text" value="${point.po_point}" class="form-control" name="po_point">
+			        </td>
 			        <td>
-			        <button class="btn btn-outline-warning" name="btn-update" data-num="${point.po_num}">수정</button>
-			        <button class="btn btn-delete btn-outline-warning" onclick="deletePoint(${point.po_num})">삭제</button>
+			       	 <input type="text" value="${point.po_content}" class="form-control" name="po_content">
+			        </td>
+			        <td>${point.po_me_id} </td>
+			        <td>
+				        <a class="btn btn-outline-warning" name="btn-update" data-num="${point.po_num}">수정</a>
+				     	<a href="javascript:void(0);" data-num="${point.po_num}" class="btn btn-delete btn-outline-warning">삭제</a>
 			        </td>
 			      </tr>
 		      </c:forEach>
@@ -60,10 +63,21 @@
 		})			
 		
 	})
+
+	
+	$(document).ready(function() {
+	    $(".btn-delete").on("click", function() {
+	        var po_num = $(this).data("num"); // data-num 속성을 이용하여 포인트 번호 가져오기
+	        var result = confirm("정말로 삭제하시겠습니까?");
+	        
+	        if (result) {
+	            // 삭제 작업 후 페이지를 새로고침
+	            window.location.href = "PointDelete?po_num=" + po_num;
+	        }
+	    });
+	});
+	
 	</script>
-
-
-
 
 </body>
 </html>
