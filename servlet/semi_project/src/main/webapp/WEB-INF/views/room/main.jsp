@@ -53,7 +53,7 @@
 							<td><a href="<c:url value='/room/detail?ro_num=${room.ro_num}'/>" >${room.ro_name }</a></td>
 							<td>${room.ro_max_cap}</td>
 							<td>${room.ro_now_cap}</td>
-							<td>${size.si_name}</td>
+							<td>${room.ro_detail}</td>
 						</tr>
 				</c:forEach>
 			</tbody>
