@@ -35,7 +35,14 @@
 					        <td>${branch.br_phone}</td>
 					        <td>
 					        <form action="<c:url value='/branch/delete'/>" method="post">
-					        <button class="btn btn-outline-danger btn-branch-delete">삭제</button>
+					        <c:choose>
+							    <c:when test="${user.me_authority == 'ADMIN' }">
+							        <button class="btn btn-outline-danger btn-branch-delete">삭제</button>
+							    </c:when>
+							    <c:otherwise>
+							    	<button type="button" class="btn btn-outline-danger btn-branch-delete btn-no-authority">삭제</button>
+							    </c:otherwise>
+							</c:choose>
 					        <input type="hidden" name="br_num" value="${branch.br_num}">
 					        </form>
 					        </td>
@@ -52,4 +59,12 @@
 		<a href="/semi_project" class="btn btn-outline-success">메인으로</a>
 	</div>
 </body>
+<script type="text/javascript">
+	$('.btn-no-authority').click(function(){
+		if ("${user == null || user.me_authority != 'ADMIN'}") {
+			alert('권한이 없습니다.');
+			location.href="/semi_project";
+		}
+	})
+</script>
 </html>

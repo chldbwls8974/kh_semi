@@ -59,7 +59,7 @@
 			</tbody>
 		</table>
 
-<a href="<c:url value='/room/insert'/>" class="btn btn-outline-warning mt-2">등록</a>
+<a href="<c:url value='/room/insert'/>" class="btn btn-outline-warning mt-2 btn-add">등록</a>
 </div>	
 
 <script type="text/javascript">
@@ -113,6 +113,10 @@
 			}
 		})
 	})
+	
+		if ("${user == null || user.me_authority != 'ADMIN'}") {
+			$('.btn-add').hide();
+		}
 </script>
 </body>
 </html>
