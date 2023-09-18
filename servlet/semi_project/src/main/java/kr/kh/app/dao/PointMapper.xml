@@ -9,4 +9,10 @@
 	<select id="selectPointList" resultType="kr.kh.app.vo.PointVO">
 		select * from point order by po_num desc
 	</select>
+	<update id="updatePoint">
+		update point set 
+		po_point = #{point.po_point},
+		po_content = #{point.po_content}
+		where po_num = #{point.po_num}
+	</update>
 </mapper>
