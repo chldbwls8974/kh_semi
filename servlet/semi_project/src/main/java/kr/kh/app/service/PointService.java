@@ -10,6 +10,8 @@ public interface PointService {
 
 	ArrayList<PointVO> selectPointList();
 
+	void updatePoint(PointVO point);
+
 
 
 }

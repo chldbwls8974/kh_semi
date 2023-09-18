@@ -43,6 +43,17 @@ public class PointServiceImp implements PointService{
 		return pointDao.selectPointList();
 	}
 
+	@Override
+	public void updatePoint(PointVO point) {
+		if(point==null) {
+			return;
+		}
+		if(point.getPo_num() == 0 || point.getPo_content() ==null) {
+			return;
+		}
+		pointDao.updatePoint(point);
+	}
+
 
 
 }

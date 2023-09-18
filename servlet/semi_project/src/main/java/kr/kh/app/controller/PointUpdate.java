@@ -24,9 +24,7 @@ public class PointUpdate extends HttpServlet {
 		Integer p_point = Integer.parseInt(request.getParameter("point"));
 		String p_content = request.getParameter("content");
 		PointVO point = new PointVO(p_num,p_point,p_content,null);
-		System.out.println(point);
-		//pointService.updatePoint(point);
-		
+		pointService.updatePoint(point);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

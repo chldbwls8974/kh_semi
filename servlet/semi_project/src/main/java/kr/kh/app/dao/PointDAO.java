@@ -12,5 +12,7 @@ public interface PointDAO {
 
 	ArrayList<PointVO> selectPointList();
 
+	void updatePoint(@Param("point")PointVO point);
+
 
 }

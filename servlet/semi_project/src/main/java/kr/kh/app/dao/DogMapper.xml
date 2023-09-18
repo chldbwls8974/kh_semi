@@ -22,7 +22,7 @@
 			dog 
 		set 
 			d_name = #{dog.d_name}, d_age = #{dog.d_age}, 
-			d_gen= #{dog.d_gen}, d_kg= #{dog.d_kg}, d_detail = #{dog.d_detail}  
+			d_gen= #{dog.d_gen}, d_kg= #{dog.d_kg}, d_detail = #{dog.d_detail}, d_si_name=#{dog.d_si_name}
 		where 
 			d_num = #{dog.d_num}
 	</update>
