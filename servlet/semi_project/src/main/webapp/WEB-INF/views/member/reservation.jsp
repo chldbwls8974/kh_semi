@@ -18,7 +18,7 @@
 
 <div class="container mt-5">
   <h2>나의 예약 정보</h2>
-  <label>회원님의 등급은 <b>'${member.me_le_name}'</b>입니다.</label>
+  <label>회원님의 등급은 <b>'${user.me_le_name}'</b>입니다.</label>
   <div class="card mt-4">
 <%--   ${list} --%>
     <div class="card-body d-flex flex-column mb-5">
