@@ -45,10 +45,10 @@ public class MemberServiceImp implements MemberService {
 			return false;
 		}
 		//아이디, 비번 null 체크 + 유효성 검사
-		//아이디는 영문으로 시작하고, 6~15자
-		String idRegex = "^[a-zA-Z][a-zA-Z0-9]{6,9}$";
-		//비번은 영문,숫자,!@#$%로 이루어지고 6~15자 
-		String pwRegex = "^[a-zA-Z0-9!@#$%]{6,14}$";
+		//아이디는 영문,숫자 6자에서 15자
+		String idRegex = "^\\w{6,15}$";
+		//비번은 영문,숫자,!@#$%로 이루어지고 8~20자 
+		String pwRegex = "^[a-zA-Z0-9!@#$%]{8,20}$";
 		
 		//아이디가 유효성에 맞지 않으면
 		if(!Pattern.matches(idRegex, member.getMe_id())) {
@@ -97,6 +97,13 @@ public class MemberServiceImp implements MemberService {
 			return false;
 		}
 		return memberDao.updateMember(member) != 0;
+	}
+	
+	//아이디 중복 확인
+	@Override
+	public boolean isIdDuplicate(String id) {
+	    MemberVO dbMember = memberDao.selectMember(id);
+	    return dbMember != null;
 	}
 
 }
