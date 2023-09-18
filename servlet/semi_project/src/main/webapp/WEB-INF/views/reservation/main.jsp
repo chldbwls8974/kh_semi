@@ -66,14 +66,22 @@ pageEncoding="UTF-8"%>
 			</div>
 			</div>
 			<div class="form-group">
-				<input type="button" class="btn btn-add btn-outline-warning col-12" value="+">
+				<input type="button" name="btn-add" class="btn btn-add btn-outline-warning col-12" value="+">
 			</div>
 			<button class="btn btn-float-right btn-outline-success col-3  mt-2">확인</button>
 		</form>
 	</div>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<script type="text/javascript">
-		$('[name=room-box]').hide()
+	
+	let count = 3;
+	$(document).on('click','[name=btn-add]',function(){
+		for(let i = 0;i < count;i++){
+	    $("#container").append("#container");
+		}
+	});
+	
+// 		$('[name=room-box]').hide()
 		$(document).on('click','[name=btn-search]',function(){
 			
 			let data = {
@@ -170,6 +178,9 @@ pageEncoding="UTF-8"%>
 	    <%
 	       }
 	    %>
+	    
+	    
+	    
 	    
 	</script>
 
