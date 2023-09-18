@@ -65,5 +65,13 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+	let totalPoint = 0;
+	
+	 function autoPoint() {
+		 
+	 }
+</script>
 </body>
 </html>
