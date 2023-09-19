@@ -38,7 +38,7 @@ CREATE TABLE `dog` (
   KEY `FK_member_TO_dog_1` (`d_me_id`),
   KEY `FK_size_TO_dog_1` (`d_si_name`),
   CONSTRAINT `FK_member_TO_dog_1` FOREIGN KEY (`d_me_id`) REFERENCES `member` (`me_id`),
-  CONSTRAINT `FK_size_TO_dog_1` FOREIGN KEY (`d_si_name`) REFERENCES `size` (`si_name`)
+  CONSTRAINT `FK_size_TO_dog_1` FOREIGN KEY (`d_si_name`) REFERENCES `size` (`si_name`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -48,7 +48,7 @@ CREATE TABLE `dog` (
 
 LOCK TABLES `dog` WRITE;
 /*!40000 ALTER TABLE `dog` DISABLE KEYS */;
-INSERT INTO `dog` VALUES ('qwe001','써니',5,'Y','M',8,'','qwe','s'),('qwe002','뿌꾸',15,'Y','M',15,'','qwe','m'),('qwe003','간짜장',4,'Y','F',25,'','qwe','l'),('user001001','멍멍1',2,'Y','M',3,'','user001','s'),('user001002','멍멍2',5,'Y','F',11,'','user001','m'),('user001003','멍멍3',12,'Y','M',11,'','user001','M');
+INSERT INTO `dog` VALUES ('qwe001','써니',5,'Y','M',8,'','qwe','S'),('qwe002','뿌꾸',15,'Y','M',15,'','qwe','M'),('qwe003','간짜장',4,'Y','F',25,'','qwe','L'),('user001001','멍멍1',2,'Y','M',3,'','user001','S'),('user001002','멍멍2',5,'Y','F',11,'','user001','M'),('user001003','멍멍3',12,'Y','M',11,'','user001','M');
 /*!40000 ALTER TABLE `dog` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -61,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-18 20:14:00
+-- Dump completed on 2023-09-19 17:41:43

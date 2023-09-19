@@ -30,7 +30,7 @@
 			</div>
 			<div class="form-group">
 				<label>사용할 포인트 내역</label>
-				<input type="text" class="form-control" name="re_use_point">
+				<input type="text" class="form-control" name="re_use_point" value="0">
 			</div>
 			<div class="form-group">
 				<button class="btn btn-use btn-outline-dark col-12" type="button">사용</button>
@@ -51,12 +51,13 @@
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 
 <script type="text/javascript">
+	var level = $('[name=me_level]').val()
+	var per = level=='일반'? 0.05: 0.1;
+	var defaultpoint = Math.floor($('[name=re_price]').val()*per)
+	$('[name=re_add_point]').attr("value",defaultpoint);
 	$(document).on('click','.btn-use',function(){
-		let level = $('[name=me_level]').val()
-		let per = level=='일반'? 0.05: 0.1;
 		let price = $('[name=re_price]').val() - $('[name=re_use_point]').val()
-		let point = (price)*per
-		
+		let point = Math.floor((price)*per)
 		$('[name=re_real_price]').attr("value",price);
 		$('[name=re_add_point]').attr("value",point);
 	})
@@ -64,7 +65,6 @@
 	
 
 </script>
-<script type="text/javascript">
-</script>
+
 </body>
 </html>

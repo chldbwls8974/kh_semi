@@ -29,7 +29,7 @@
 		    <tbody>
 		      <c:forEach items="${list }" var="point">
 			      <tr>
-			      	<td>${reservation.re_num}</td>
+			      	<td>${point.po_re_num}</td>
 			      	<td>${point.po_point}</td>
 			      	<td>${point.po_content}</td>
 			      </tr>

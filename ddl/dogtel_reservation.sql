@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `reservation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `reservation` (
-  `re_num` varchar(30) NOT NULL,
+  `re_num` varchar(50) NOT NULL,
   `re_me_id` varchar(10) NOT NULL,
   `re_date` varchar(15) NOT NULL,
   `re_end_date` varchar(15) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE `reservation` (
 
 LOCK TABLES `reservation` WRITE;
 /*!40000 ALTER TABLE `reservation` DISABLE KEYS */;
-INSERT INTO `reservation` VALUES ('15','user001','2023-09-18','2023-09-18',1,0,0,'완료',1500,1500,0,0),('16','user001','2023-09-18','2023-09-18',1,0,0,'완료',1500,1500,0,0),('17','user001','2023-09-18','2023-09-18',0,0,0,'완료',0,0,0,0),('18','user001','2023-09-18','2023-09-18',0,0,0,'완료',0,0,0,0),('19','user001','2023-09-18','2023-09-18',1,1,0,'완료',4500,4500,0,0),('user0012023-09-18null','user001','2023-09-18','2023-09-18',1,0,0,'완료',1500,1500,0,0),('user0012023-09-18user001001','user001','2023-09-18','2023-09-18',1,0,0,'완료',1500,1500,0,0),('user0012023-09-18user001002','user001','2023-09-18','2023-09-18',0,1,0,'완료',3000,3000,0,0),('user0012023-09-19user001001','user001','2023-09-19','2023-09-20',1,0,0,'완료',1500,1500,0,0),('user0012023-09-20user001001','user001','2023-09-20','2023-09-23',1,0,0,'완료',1500,1500,0,0),('user0012023-09-23user001001','user001','2023-09-23','2023-09-23',1,0,0,'완료',1500,1500,0,0),('user0012023-09-28user001001','user001','2023-09-28','2023-09-28',1,0,0,'완료',1500,1500,0,0);
+INSERT INTO `reservation` VALUES ('qwe2023-09-19qwe001','qwe','2023-09-19','2023-09-19',1,1,0,'완료',4500,4500,0,225),('qwe2023-09-20qwe001','qwe','2023-09-20','2023-09-20',1,0,0,'완료',1500,1400,-100,140),('qwe2023-09-21qwe001','qwe','2023-09-21','2023-09-21',1,0,0,'완료',1500,1500,0,150);
 /*!40000 ALTER TABLE `reservation` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -62,4 +62,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-18 20:14:00
+-- Dump completed on 2023-09-19 17:41:43

@@ -29,10 +29,13 @@ CREATE TABLE `point` (
   `po_point` int NOT NULL DEFAULT '0',
   `po_content` varchar(30) DEFAULT NULL,
   `po_me_id` varchar(10) NOT NULL,
+  `po_re_num` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`po_num`),
   KEY `FK_member_TO_point_1` (`po_me_id`),
-  CONSTRAINT `FK_member_TO_point_1` FOREIGN KEY (`po_me_id`) REFERENCES `member` (`me_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `FK_reservation_TO_point_1_idx` (`po_re_num`),
+  CONSTRAINT `FK_member_TO_point_1` FOREIGN KEY (`po_me_id`) REFERENCES `member` (`me_id`),
+  CONSTRAINT `FK_reservation_TO_point_1` FOREIGN KEY (`po_re_num`) REFERENCES `reservation` (`re_num`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +44,7 @@ CREATE TABLE `point` (
 
 LOCK TABLES `point` WRITE;
 /*!40000 ALTER TABLE `point` DISABLE KEYS */;
-INSERT INTO `point` VALUES (1,300,'테스트','user001'),(2,1500,'테스트','user001');
+INSERT INTO `point` VALUES (1,300,'테스트','user001',NULL),(2,1500,'테스트','user001',NULL),(11,1000,'이벤트 당첨','qwe',NULL),(12,1000,'이벤트 당첨','qwe',NULL),(18,0,'호텔 결제시 포인트 사용에 의한 차감','qwe','qwe2023-09-19qwe001'),(19,225,'호텔 결제에 의한 적립','qwe','qwe2023-09-19qwe001'),(20,-100,'호텔 결제시 포인트 사용에 의한 차감','qwe','qwe2023-09-20qwe001'),(21,140,'호텔 결제에 의한 적립','qwe','qwe2023-09-20qwe001'),(23,100,'관리자로 포인트적립 테스트','qwe',NULL);
 /*!40000 ALTER TABLE `point` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-18 20:14:00
+-- Dump completed on 2023-09-19 17:41:43

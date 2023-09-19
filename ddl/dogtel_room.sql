@@ -33,7 +33,7 @@ CREATE TABLE `room` (
   `ro_br_num` int NOT NULL,
   PRIMARY KEY (`ro_num`),
   KEY `FK_branch_TO_room_1` (`ro_br_num`),
-  CONSTRAINT `FK_branch_TO_room_1` FOREIGN KEY (`ro_br_num`) REFERENCES `branch` (`br_num`)
+  CONSTRAINT `FK_branch_TO_room_1` FOREIGN KEY (`ro_br_num`) REFERENCES `branch` (`br_num`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-18 20:14:00
+-- Dump completed on 2023-09-19 17:41:43

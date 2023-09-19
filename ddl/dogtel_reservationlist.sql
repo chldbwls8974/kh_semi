@@ -28,15 +28,15 @@ CREATE TABLE `reservationlist` (
   `rl_num` int NOT NULL AUTO_INCREMENT,
   `rl_d_num` varchar(13) NOT NULL,
   `rl_ro_num` int NOT NULL,
-  `rl_re_num` varchar(30) NOT NULL,
+  `rl_re_num` varchar(50) NOT NULL,
   PRIMARY KEY (`rl_num`),
   KEY `FK_dog_TO_reservationList_1` (`rl_d_num`),
   KEY `FK_room_TO_reservationList_1` (`rl_ro_num`),
   KEY `re_to_rl_idx` (`rl_re_num`),
   CONSTRAINT `FK_dog_TO_reservationList_1` FOREIGN KEY (`rl_d_num`) REFERENCES `dog` (`d_num`),
   CONSTRAINT `FK_room_TO_reservationList_1` FOREIGN KEY (`rl_ro_num`) REFERENCES `room` (`ro_num`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `re_to_rl` FOREIGN KEY (`rl_re_num`) REFERENCES `reservation` (`re_num`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `re_to_rl` FOREIGN KEY (`rl_re_num`) REFERENCES `reservation` (`re_num`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,6 +45,7 @@ CREATE TABLE `reservationlist` (
 
 LOCK TABLES `reservationlist` WRITE;
 /*!40000 ALTER TABLE `reservationlist` DISABLE KEYS */;
+INSERT INTO `reservationlist` VALUES (4,'qwe001',1,'qwe2023-09-19qwe001'),(5,'qwe002',2,'qwe2023-09-19qwe001'),(6,'qwe001',1,'qwe2023-09-20qwe001'),(7,'qwe001',3,'qwe2023-09-21qwe001');
 /*!40000 ALTER TABLE `reservationlist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-18 20:14:01
+-- Dump completed on 2023-09-19 17:41:43

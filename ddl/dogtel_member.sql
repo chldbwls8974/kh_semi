@@ -46,7 +46,7 @@ CREATE TABLE `member` (
 
 LOCK TABLES `member` WRITE;
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
-INSERT INTO `member` VALUES ('ADMIN','일반','ADMIN','ADMIN','ADMIN','010-1111-1111',0,'ADMIN',0),('asdqwe123','일반','asdqwe123!','asd','서울시 강서구','1212222',0,'USER',0),('qwe','일반','qwe','홍길동','서울시 강남구','010-1234-1234',0,'USER',0),('user001','일반','user001','이름을 수정','주소를 수정','연락처를 수정',0,'USER',0);
+INSERT INTO `member` VALUES ('ADMIN','일반','ADMIN','ADMIN','ADMIN','010-1111-1111',0,'ADMIN',0),('asdqwe123','일반','asdqwe123!','asd','서울시 강서구','1212222',0,'USER',0),('qwe','vip','qwe','홍길동','서울시 강남구','010-1234-1234',7400,'USER',2415),('user001','일반','user001','이름을 수정','주소를 수정','연락처를 수정',0,'USER',0);
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-18 20:14:00
+-- Dump completed on 2023-09-19 17:41:43
