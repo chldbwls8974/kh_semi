@@ -32,10 +32,10 @@ public class DogVO {
 	
 public String toString() {
 		
-		return "{\"d_num\" : " + d_num + ","
+		return "{\"d_num\" : \"" + d_num + "\","
 				+ "\"d_name\" : \"" + d_name + "\","
-				+ "\"d_age\" : \"" + d_age + ","
-				+ "\"d_si_name\" : " + d_si_name+ "\"}";
+				+ "\"d_age\" : " + d_age + ","
+				+ "\"d_si_name\" : \"" + d_si_name+ "\"}";
 	}
 
 }
