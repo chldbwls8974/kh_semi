@@ -13,5 +13,7 @@ public interface ReservDAO {
 
 	boolean insertReserv(@Param("reserv")ReservationVO reserv);
 
+	boolean updateReserv(@Param("reserv")ReservationVO reserv);
+
 
 }
