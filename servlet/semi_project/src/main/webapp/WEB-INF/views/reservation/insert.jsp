@@ -30,10 +30,7 @@
 			</div>
 			<div class="form-group">
 				<label>사용할 포인트 내역</label>
-				<input type="text" class="form-control" name="re_use_point" value="0">
-			</div>
-			<div class="form-group">
-				<button class="btn btn-use btn-outline-dark col-12" type="button">사용</button>
+				<input type="number" class="form-control" name="re_use_point" value="0" min="0" max="${user.me_point }">
 			</div>
 			<div class="form-group">
 				<label>적립 예정 포인트</label>
@@ -51,16 +48,20 @@
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 
 <script type="text/javascript">
-	var real_price = $('[name=re_price]').val()
-	var level = $('[name=me_level]').val()
-	var use_point = $('[name=re_use_point]').val()
+	let real_price = $('[name=re_price]').val()
+	let level = $('[name=me_level]').val()
+	let me_point = $('[name=me_point]').val()
+	let use_point = $('[name=re_use_point]').val()
 	
-	var per = level=='일반'? 0.05: 0.1;
-	var defaultpoint = Math.floor($('[name=re_price]').val()*per)
+		
+	
+	let per = level=='일반'? 0.05: 0.1;
+	let defaultpoint = Math.floor($('[name=re_price]').val()*per)
 	
 	$('[name=re_add_point]').attr("value",defaultpoint);
 	
-	$(document).on('click','.btn-use',function(){
+	$(document).on('keyup','[name=re_use_point]',function(){
+		use_point = $('[name=re_use_point]').val()
 		let price = $('[name=re_price]').val() - $('[name=re_use_point]').val()
 		let point = Math.floor((price)*per)
 		$('[name=re_real_price]').attr("value",price);
