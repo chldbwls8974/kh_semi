@@ -52,7 +52,6 @@ public class ReservPay extends HttpServlet {
 		}
 		//내 포인트 총량 들고오기
 		int myPoint = pointService.getUserPoint(me_id);
-		System.out.println(myPoint);
 		//member 테이블에 업데이트
 		memberService.updateUserPoint(me_id, myPoint);
 		
