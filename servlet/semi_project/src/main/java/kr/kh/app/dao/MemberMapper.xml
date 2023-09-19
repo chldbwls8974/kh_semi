@@ -26,6 +26,6 @@
 	me_le_name = (
 	case when 1000 > me_total_price then '일반' else 'vip' end
 	)
-where me_id = #{me_id};
+	where me_id = #{me_id};
 </update>
 </mapper>

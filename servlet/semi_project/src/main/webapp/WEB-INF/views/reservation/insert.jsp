@@ -53,11 +53,11 @@
 <script type="text/javascript">
 	var level = $('[name=me_level]').val()
 	var per = level=='일반'? 0.05: 0.1;
-	var defaultpoint = $('[name=re_price]').val()*per
+	var defaultpoint = Math.floor($('[name=re_price]').val()*per)
 	$('[name=re_add_point]').attr("value",defaultpoint);
 	$(document).on('click','.btn-use',function(){
 		let price = $('[name=re_price]').val() - $('[name=re_use_point]').val()
-		let point = (price)*per
+		let point = Math.floor((price)*per)
 		$('[name=re_real_price]').attr("value",price);
 		$('[name=re_add_point]').attr("value",point);
 	})
