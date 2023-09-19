@@ -14,6 +14,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 	<div class="container mt-5">
 		<h2>지점 조회</h2>
 		<c:choose>

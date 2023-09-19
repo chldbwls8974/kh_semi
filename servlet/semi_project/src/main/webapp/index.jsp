@@ -14,9 +14,15 @@
   
   <style>
   /* Make the image fully responsive */
+  .container-box{
+  	width : 65%;
+  	height : 40%;
+  	min-height: 300px;
+  }
+  
   .carousel-inner img {
     width: 100%;
-    height: 100%;
+    height: 80%;
   }
   </style>
   	
@@ -24,7 +30,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 <div id="demo" class="carousel slide mt-5" data-ride="carousel">
 
   <!-- Indicators -->
@@ -35,12 +41,13 @@
   </ul>
 
   <!-- The slideshow -->
-  <div class="container carousel-inner w-65 h-40">
+ <div class="container container-box">
+  <div class="container carousel-inner">
     <div class="carousel-item active">
       <img src="깜바.jpg" alt="깜바">
     </div>
     <div class="carousel-item">
-      <img src="복실.jpg" alt="복실">
+      <img src="복실2.jpg" alt="복실">
     </div>
     <div class="carousel-item">
       <img src="써니.jpg" alt="써니">
@@ -49,7 +56,7 @@
       <img src="지선.jpg" alt="지선">
     </div>
   </div>
-
+</div>
   <!-- Left and right controls -->
   <a class="carousel-control-prev" href="#demo" data-slide="prev">
     <span class="carousel-control-prev-icon"></span>

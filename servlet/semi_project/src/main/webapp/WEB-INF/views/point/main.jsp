@@ -47,7 +47,7 @@
 		</table>
 		<a href="<c:url value='/point/insert'/>" class="btn btn-outline-dark col-3 btn float-right">포인트 적립</a>
 	 </div> 
-
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 	<script type="text/javascript">
 		
 	$(document).on('click','[name=btn-update]',function(){
