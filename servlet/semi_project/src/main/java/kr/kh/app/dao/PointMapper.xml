@@ -4,7 +4,10 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.kh.app.dao.PointDAO">
 	<insert id="insertPoint">
-		insert into point(po_point, po_content, po_me_id) values(#{point.po_point},#{point.po_content},#{point.po_me_id})
+		insert into 
+			point(po_point, po_content, po_me_id, po_re_num) 
+		values
+			(#{point.po_point},#{point.po_content},#{point.po_me_id}, #{point.po_re_num})
 	</insert>
 	<select id="selectPointList" resultType="kr.kh.app.vo.PointVO">
 		select * from point order by po_num desc

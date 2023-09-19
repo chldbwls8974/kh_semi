@@ -38,6 +38,8 @@ public class LogIn extends HttpServlet {
 		int myPoint = pointService.getUserPoint(id);
 		//member 테이블에 업데이트
 		memberService.updateUserPoint(id, myPoint);
+		//업데이트 한 user 다시 가져오기
+		user = memberService.getMember(id);
 		
 		request.setAttribute("Ok", Ok);
 		request.getSession().setAttribute("user",user);
