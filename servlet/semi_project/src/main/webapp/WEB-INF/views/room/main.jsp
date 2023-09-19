@@ -54,12 +54,24 @@
 							<td>${room.ro_max_cap}</td>
 							<td>${room.ro_now_cap}</td>
 							<td>${room.ro_detail}</td>
+							<td>
+								<c:if test="${user != null && user.me_authority == 'ADMIN'}">
+									<form action="<c:url value='/room/update?ro_num=${room.ro_num}'/>" method="get">
+								        <input type="hidden" name="ro_num" value="${room.ro_num}">
+									    <button type="submit" class="btn btn-outline-dark">수정</button>
+								    </form>
+									<form action="<c:url value='/room/delete'/>" method="post">
+								        <input type="hidden" name="ro_num" value="${room.ro_num}">
+									    <button type="submit" class="btn btn-outline-dark mt-1">삭제</button>
+								    </form>
+								</c:if>
+			      		 	</td>
 						</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 
-<a href="<c:url value='/room/insert'/>" class="btn btn-outline-warning mt-2 btn-add">등록</a>
+<a href="<c:url value='/room/insert'/>" class="btn btn-outline-warning mt-2 btn-add col-12">새 객실 등록</a>
 </div>	
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 <script type="text/javascript">
