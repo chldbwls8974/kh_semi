@@ -28,7 +28,7 @@ CREATE TABLE `price` (
   `pr_si_name` varchar(6) NOT NULL,
   `pr_price` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`pr_si_name`),
-  CONSTRAINT `FK_size_TO_price_1` FOREIGN KEY (`pr_si_name`) REFERENCES `size` (`si_name`)
+  CONSTRAINT `FK_size_TO_price_1` FOREIGN KEY (`pr_si_name`) REFERENCES `size` (`si_name`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -38,7 +38,7 @@ CREATE TABLE `price` (
 
 LOCK TABLES `price` WRITE;
 /*!40000 ALTER TABLE `price` DISABLE KEYS */;
-INSERT INTO `price` VALUES ('l',4500),('m',3000),('s',1500);
+INSERT INTO `price` VALUES ('L',4500),('M',3000),('S',1500);
 /*!40000 ALTER TABLE `price` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-18 20:14:00
+-- Dump completed on 2023-09-19 17:41:43
