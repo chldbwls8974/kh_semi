@@ -61,7 +61,7 @@
 
 <a href="<c:url value='/room/insert'/>" class="btn btn-outline-warning mt-2 btn-add">등록</a>
 </div>	
-
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 <script type="text/javascript">
 	$('[name=branchSelect]').change(function(){
 		let data={
@@ -114,9 +114,10 @@
 		})
 	})
 	
-		if ("${user == null || user.me_authority != 'ADMIN'}") {
+		if ('${user}' == null || '${user.me_authority}' != 'ADMIN') {
 			$('.btn-add').hide();
 		}
 </script>
+
 </body>
 </html>

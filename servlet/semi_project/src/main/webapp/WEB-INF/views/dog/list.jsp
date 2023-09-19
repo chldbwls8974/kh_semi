@@ -72,11 +72,12 @@
 	</c:choose>
 	
 	<script type="text/javascript">
-// 		if(${user == null}) {
-// 			alert('로그인이 필요한 서비스입니다.');
-// 			location.href="/semi_project/member/login";
-// 		}
+		if('${user}' == null) {
+			alert('로그인이 필요한 서비스입니다.');
+			location.href="/semi_project/member/login";
+		}
 	</script>
 </div>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 </body>
 </html>

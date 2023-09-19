@@ -151,17 +151,19 @@
 		<form>
 			<a href="<c:url value='/room/main${cri.currentUrl }'/>" class="btn btn-outline-dark mt-2 btn-float-right">뒤로가기</a>
 			<a href="<c:url value='/reservation/main?ro_num=${room.ro_num }'/>" class="btn btn-outline-dark mt-2">예약하기</a>
+			<c:if test="${user.me_authority } == 'ADMIN'">
+				<a href="<c:url value='/room/update?ro_num=${room.ro_num}'/>" class="btn btn-outline-dark mt-2">수정</a>
+			</c:if>
 		</form>	
-		<c:if test="${user != null && user.me_authority == 'ADMIN'}">
-			<a href="<c:url value='/room/update?ro_num=${room.ro_num}'/>" class="btn btn-outline-dark mt-2">수정</a>
+		<c:if test="${user.me_authority } == 'ADMIN'">
 			<form action="<c:url value='/room/delete'/>" method="post">
 		        <button class="btn btn-outline-danger mt-2 btn-room-delete col-2" class="btn-room-delete">삭제</button>
 		        <input type="hidden" name="ro_num" value="${room.ro_num}">
 		    </form>
-	    </c:if>
+	  </c:if>
 	</div>
 	
-	
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 	<script type="text/javascript">
 		$(function(){
 			$('#btn-delete').on("click", function(){

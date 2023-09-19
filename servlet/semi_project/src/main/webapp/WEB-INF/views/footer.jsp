@@ -10,14 +10,22 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<title>pay</title>
+<title>Insert title here</title>
+<style type="text/css">
+	body{
+	}
+	footer{
+		position:absolute;
+		bottom:0px;
+	}
+</style>
+
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-	${reserv}
-	<div class="container">
-		
-	</div>
-<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
+	<footer class="container-fluid navbar-fixed-bottom mt-auto bg-dark py-5">
+		<div class="footer-box">
+			<h1>footer</h1>
+		</div>
+	</footer>
 </body>
 </html>

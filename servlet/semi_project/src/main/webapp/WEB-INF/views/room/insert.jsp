@@ -37,7 +37,7 @@
 			</div>
 			<div class="form-group">
 				<label>객실 타입</label>
-				<input type="text" class="form-control" name="detail" placeholder="객실 타입">
+				<input type="text" class="form-control" name="detail" placeholder="객실 타입(S / M / L)">
 			</div>
 			
 			<button class="btn btn-outline-warning col-12">등록</button>
@@ -46,7 +46,7 @@
 <!-- 		<input type="button" id="add" value="등록">	 -->
 		</form>
 	</div>
-	
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>		
 	<script>
 	
 		<% 
@@ -63,7 +63,7 @@
 			}
 		%>
 		
-		if ("${user == null || user.me_authority != 'ADMIN'}") {
+		if ('${user}' == null || '${user.me_authority}' != 'ADMIN') {
 	    	alert('권한이 없습니다.');
 		    location.href="/semi_project";
 	    }
