@@ -389,4 +389,14 @@
     <servlet-name>ReservPay</servlet-name>
     <url-pattern>/reservation/pay</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MemberDelete</display-name>
+    <servlet-name>MemberDelete</servlet-name>
+    <servlet-class>kr.kh.app.controller.MemberDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberDelete</servlet-name>
+    <url-pattern>/member/delete</url-pattern>
+  </servlet-mapping>
 </web-app>
