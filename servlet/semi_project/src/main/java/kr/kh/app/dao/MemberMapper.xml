@@ -15,4 +15,9 @@
 <update id="updateMember">
 	update member set me_name = #{member.me_name}, me_address = #{member.me_address}, me_phone = #{member.me_phone} where me_id = #{member.me_id}
 </update>
+<update id="updatePoint">
+	update member
+	set me_point = #{me_point}
+	where me_id = #{me_id}
+</update>
 </mapper>

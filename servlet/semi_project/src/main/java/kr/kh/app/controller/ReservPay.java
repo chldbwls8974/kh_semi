@@ -6,6 +6,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kr.kh.app.service.MemberService;
+import kr.kh.app.service.MemberServiceImp;
 import kr.kh.app.service.PointService;
 import kr.kh.app.service.PointServiceImp;
 import kr.kh.app.service.ReservService;
@@ -17,6 +19,7 @@ public class ReservPay extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private ReservService reservService = new ReservServiceImp();  
     private PointService pointService = new PointServiceImp();
+	private MemberService memberService = new MemberServiceImp();
 	
     public ReservPay() {
         super();
@@ -47,8 +50,12 @@ public class ReservPay extends HttpServlet {
 			pointService.insertPoint(addpoint);
 			ok = true;
 		}
+		//내 포인트 총량 들고오기
 		int myPoint = pointService.getUserPoint(me_id);
 		System.out.println(myPoint);
+		//member 테이블에 업데이트
+		memberService.updateUserPoint(me_id, myPoint);
+		
 		
 		request.setAttribute("reserv", reserv);
 		request.setAttribute("ok", ok);

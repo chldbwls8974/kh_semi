@@ -106,4 +106,9 @@ public class MemberServiceImp implements MemberService {
 	    return dbMember != null;
 	}
 
+	@Override
+	public void updateUserPoint(String me_id, int myPoint) {
+		memberDao.updatePoint(me_id, myPoint);
+	}
+
 }

@@ -18,4 +18,6 @@ public interface MemberService {
 
 	boolean isIdDuplicate(String id);
 
+	void updateUserPoint(String me_id, int myPoint);
+
 }

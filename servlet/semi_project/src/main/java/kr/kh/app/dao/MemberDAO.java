@@ -15,4 +15,6 @@ public interface MemberDAO {
 	ArrayList<MemberVO> selectMemberList();
 
 	int updateMember(@Param("member")MemberVO member);
+
+	void updatePoint(@Param("me_id")String me_id, @Param("me_point")int myPoint);
 }
