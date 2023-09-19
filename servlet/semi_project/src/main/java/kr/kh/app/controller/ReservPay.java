@@ -41,13 +41,14 @@ public class ReservPay extends HttpServlet {
 		PointVO usepoint = new PointVO(0,re_use_point,content2,me_id);
 		boolean ok = false;
 		
-		int myPoint = pointService.getUserPoint(me_id);
-		System.out.println(myPoint);
+		
 		if(reservService.updateReserv(reserv)) {
 			pointService.insertPoint(usepoint);
 			pointService.insertPoint(addpoint);
 			ok = true;
 		}
+		int myPoint = pointService.getUserPoint(me_id);
+		System.out.println(myPoint);
 		
 		request.setAttribute("reserv", reserv);
 		request.setAttribute("ok", ok);
