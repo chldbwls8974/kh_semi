@@ -90,9 +90,6 @@ public class ReservInsert extends HttpServlet {
 	            }
 
 	        }
-		  System.out.println(r_num1);
-		  System.out.println(r_num2);
-		  System.out.println(r_num3);
 		
 		//사용할 포인트
 		int re_use_point = 0;
