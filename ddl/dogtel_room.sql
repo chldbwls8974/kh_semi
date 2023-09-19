@@ -43,7 +43,7 @@ CREATE TABLE `room` (
 
 LOCK TABLES `room` WRITE;
 /*!40000 ALTER TABLE `room` DISABLE KEYS */;
-INSERT INTO `room` VALUES (1,'핑크',10,0,'s',1),(2,'그린',10,0,'m',1),(3,'오렌지',5,0,'s',1),(4,'옐로우',10,0,'l',2);
+INSERT INTO `room` VALUES (1,'초록',10,0,'L',1),(2,'그린',10,0,'M',1),(3,'오렌지',5,0,'S',1),(4,'옐로우',10,0,'L',2);
 /*!40000 ALTER TABLE `room` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-19 17:41:43
+-- Dump completed on 2023-09-19 20:44:33
