@@ -1,6 +1,8 @@
 package kr.kh.app.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -8,15 +10,16 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import kr.kh.app.service.ReservListService;
 import kr.kh.app.service.ReservListServiceImp;
-import kr.kh.app.vo.MemberVO;
+import kr.kh.app.service.ReservService;
+import kr.kh.app.service.ReservServiceImp;
 import kr.kh.app.vo.ReservListVO;
 import kr.kh.app.vo.ReservationVO;
-
 
 public class ReservList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ReservListService reservListService = new ReservListServiceImp();
-
+	private ReservService reservService = new ReservServiceImp();
+	
     public ReservList() {
         super();
     }
@@ -24,21 +27,17 @@ public class ReservList extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		MemberVO user = (MemberVO)session.getAttribute("user"); 
 		
-		ReservationVO num = (ReservationVO)session.getAttribute("re_num"); 
+		 ReservationVO reserv = (ReservationVO)session.getAttribute("re_num");
+		 
+		//getParameter로 받아와서 rl_re_num에 저장
+		String rl_re_num = request.getParameter("rl_re_num");
 		
-		Integer rl_num; 
-		try {
-			rl_num = Integer.parseInt(request.getParameter("rl_num"));
-		}catch(Exception e) {
-			rl_num = null;
-		}
-		ReservListVO reservlist = reservListService.getReservList(rl_num);
-		request.setAttribute("reservlist", reservlist);
+		 ArrayList<ReservListVO> rl = reservListService.getReservListArray(rl_re_num);
+		 request.setAttribute("rl", rl);
 		
-		request.setAttribute("re_num", num);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		request.getRequestDispatcher("/WEB-INF/views/reservation/detail.jsp").forward(request, response);
 	}
 
 

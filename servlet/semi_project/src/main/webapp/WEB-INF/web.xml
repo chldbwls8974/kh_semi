@@ -284,7 +284,7 @@
     <description></description>
     <display-name>ReservList</display-name>
     <servlet-name>ReservList</servlet-name>
-    <servlet-class>kr.kh.app.controller.ReservBrList</servlet-class>
+    <servlet-class>kr.kh.app.controller.ReservList</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ReservList</servlet-name>

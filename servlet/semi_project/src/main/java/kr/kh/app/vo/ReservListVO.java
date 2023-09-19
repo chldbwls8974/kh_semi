@@ -1,8 +1,12 @@
 package kr.kh.app.vo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+
 public class ReservListVO {
 	private int rl_num ,rl_ro_num;
 	private String rl_d_num , rl_re_num;

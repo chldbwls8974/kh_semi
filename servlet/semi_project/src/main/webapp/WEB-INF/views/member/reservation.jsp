@@ -36,7 +36,7 @@
 					<c:forEach items="${list}" var="reservation">
 						<tr>
 							<td>
-							<a href="<c:url value='/reservation/detail?rl_num=${rl_num}'/>">${reservation.re_num}</a>
+							<a href="<c:url value='/reservation/detail?rl_re_num=${reservation.re_num}'/>" >${reservation.re_num}</a>
 							</td>
 							<td>${reservation.re_date}</td>
 							<td>${reservation.re_end_date}</td>

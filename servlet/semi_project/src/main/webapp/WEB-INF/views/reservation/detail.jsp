@@ -29,12 +29,12 @@
 	      </tr>
 	    </thead>
 	    <tbody>
-	      <c:forEach items="${list }" var="reservList">
+	      <c:forEach items="${rl }" var="rl">
 		      <tr>
-		      	<td>${user.rl_num}</td>
-		      	<td>${rl.d_num}</td>
-		      	<td>${rl.ro_num}</td>
-		      	<td>${rl.re_num}</td>
+		      	<td>${rl.rl_num}</td>
+		      	<td>${rl.rl_d_num}</td>
+		      	<td>${rl.rl_ro_num}</td>
+		      	<td>${rl.rl_re_num}</td>
 		      </tr>
 		  </c:forEach>
 		</tbody>     
