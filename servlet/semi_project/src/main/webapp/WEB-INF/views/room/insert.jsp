@@ -37,7 +37,7 @@
 			</div>
 			<div class="form-group">
 				<label>객실 타입</label>
-				<input type="text" class="form-control" name="detail" placeholder="객실 타입">
+				<input type="text" class="form-control" name="detail" placeholder="객실 타입(S / M / L)">
 			</div>
 			
 			<button class="btn btn-outline-warning col-12">등록</button>
