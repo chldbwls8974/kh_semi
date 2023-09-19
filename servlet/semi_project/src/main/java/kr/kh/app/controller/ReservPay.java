@@ -12,6 +12,7 @@ import kr.kh.app.service.PointService;
 import kr.kh.app.service.PointServiceImp;
 import kr.kh.app.service.ReservService;
 import kr.kh.app.service.ReservServiceImp;
+import kr.kh.app.vo.MemberVO;
 import kr.kh.app.vo.PointVO;
 import kr.kh.app.vo.ReservationVO;
 
@@ -53,9 +54,13 @@ public class ReservPay extends HttpServlet {
 		}
 		//내 포인트 총량 들고오기
 		int myPoint = pointService.getUserPoint(me_id);
+		
 		//member 테이블에 업데이트
 		memberService.updateUserPoint(me_id, myPoint);
-		
+		//업데이트 한 user 다시 가져오기
+		MemberVO user = memberService.getMember(me_id);
+		//세션에 업데이트 (로그인 해제하지 않아도 마이페이지에서 point를 업데이트 해 주기 위해서)
+		request.getSession().setAttribute("user", user);
 		
 		request.setAttribute("reserv", reserv);
 		request.setAttribute("ok", ok);
