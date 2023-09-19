@@ -117,4 +117,9 @@ public class MemberServiceImp implements MemberService {
 		
 	}
 
+	@Override
+	public boolean deleteMember(MemberVO member) {
+		return memberDao.deleteMember(member);
+	}
+
 }

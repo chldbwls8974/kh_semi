@@ -27,11 +27,20 @@
 			        <td>${member.me_name}</td>
 			        <td>${member.me_address}</td>
 			        <td>${member.me_phone}</td>
+			        <td>
+						<form method="POST" action="<c:url value='/member/delete'/>">
+			                <input type="hidden" name="me_id" value="${member.me_id}">
+			                <button type="submit" class="btn btn-outline-warning">삭제</button>
+            			</form>
+			        </td>
 			      </tr>
 			    </c:forEach>
 		    </tbody>
 		</table>
 	</div>
-	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+	<script type="text/javascript">
+		
+	</script>	
 </body>
 </html>

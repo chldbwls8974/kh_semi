@@ -22,4 +22,6 @@ public interface MemberService {
 
 	void updateTotalPrice(String me_id, Integer re_real_price);
 
+	boolean deleteMember(MemberVO member);
+
 }

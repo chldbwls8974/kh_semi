@@ -14,7 +14,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
+	
 	<div class="container mt-5">
 		<h2>지점 조회</h2>
 		<c:choose>
@@ -59,7 +59,7 @@
 		<a href="<c:url value='/branch/insert'/>" class="btn btn-outline-success">지점 등록</a>
 		<a href="/semi_project" class="btn btn-outline-success">메인으로</a>
 	</div>
-</body>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 <script type="text/javascript">
 
 	$('.btn-no-authority').click(function(){
@@ -69,4 +69,5 @@
 		}
 	})
 </script>
+</body>
 </html>

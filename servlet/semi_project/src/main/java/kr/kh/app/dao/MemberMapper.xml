@@ -28,4 +28,7 @@
 	)
 	where me_id = #{me_id};
 </update>
+<delete id="deleteMember">
+	delete from member where me_id = #{member.me_id}
+</delete>
 </mapper>

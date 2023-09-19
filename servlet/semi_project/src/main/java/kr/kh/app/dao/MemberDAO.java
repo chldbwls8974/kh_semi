@@ -20,4 +20,6 @@ public interface MemberDAO {
 	void updatePoint(@Param("me_id")String me_id, @Param("me_point")int myPoint);
 
 	void updateMemberToReserv(@Param("me_id")String me_id, @Param("price")Integer re_real_price);
+
+	boolean deleteMember(@Param("member")MemberVO member);
 }
