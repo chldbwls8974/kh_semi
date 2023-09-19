@@ -1,6 +1,5 @@
 package kr.kh.app.controller;
 
-import java.awt.Point;
 import java.io.IOException;
 
 import jakarta.servlet.ServletException;
@@ -25,6 +24,7 @@ public class PointUpdate extends HttpServlet {
 		String p_content = request.getParameter("content");
 		PointVO point = new PointVO(p_num,p_point,p_content,null);
 		pointService.updatePoint(point);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

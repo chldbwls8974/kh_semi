@@ -2,24 +2,28 @@ package kr.kh.app.controller;
 
 import java.io.IOException;
 
-import org.json.JSONObject;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import kr.kh.app.service.DogService;
 import kr.kh.app.service.DogServiceImp;
 import kr.kh.app.service.PriceService;
 import kr.kh.app.service.PriceServiceImp;
+import kr.kh.app.service.ReservListService;
+import kr.kh.app.service.ReservListServiceImp;
 import kr.kh.app.service.ReservService;
 import kr.kh.app.service.ReservServiceImp;
+import kr.kh.app.vo.MemberVO;
+import kr.kh.app.vo.ReservListVO;
 import kr.kh.app.vo.ReservationVO;
 
 public class ReservInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	ReservService reservService = new ReservServiceImp();
+	ReservListService reservListService = new ReservListServiceImp();
 	PriceService priceService = new PriceServiceImp();
 	DogService dogService = new DogServiceImp();
     public ReservInsert() {
@@ -27,7 +31,8 @@ public class ReservInsert extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		HttpSession session = request.getSession();
+		MemberVO user = (MemberVO)session.getAttribute("user"); 
 		request.getRequestDispatcher("/WEB-INF/views/reservation/insert.jsp").forward(request, response);
 		
 	}
@@ -87,25 +92,31 @@ public class ReservInsert extends HttpServlet {
 	            }
 
 	        }
-		  System.out.println(r_num1);
-		  System.out.println(r_num2);
-		  System.out.println(r_num3);
 		
 		//사용할 포인트
 		int re_use_point = 0;
 		String re_num = re_me_id + from + d_num1;
 		ReservationVO reserv = reservService.createVO(re_num, re_me_id, from, to, br_num, d_num1, d_num2, d_num3, re_use_point);
-		
+		ReservListVO reservlist1 = new ReservListVO(0,r_num1,d_num1, re_num);
+		ReservListVO reservlist2 = new ReservListVO(0,r_num2,d_num2, re_num);
+		ReservListVO reservlist3 = new ReservListVO(0,r_num3,d_num3, re_num);
 		
 		request.setAttribute("reserv", reserv);
 		
 		boolean ok = false;
 		if(reservService.insertReserv(reserv)) {
-			
 			ok = true;
 			request.setAttribute("ok", ok);
 		};
-		
+		if(d_num1 != null) {
+			reservListService.insertReservList(reservlist1);
+		}
+		if(d_num2 != null) {
+			reservListService.insertReservList(reservlist2);
+		}
+		if(d_num3 != null) {
+			reservListService.insertReservList(reservlist3);
+		}
 		doGet(request, response);
 	}
 	

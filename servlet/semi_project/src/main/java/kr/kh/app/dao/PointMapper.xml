@@ -21,4 +21,13 @@
 	<delete id="deletePoint">
 		delete from point where po_num = #{point.po_num}
 	</delete>
+	<select id="getUserPoint" resultType="int">
+		select 
+			sum(po_point)
+		from 
+			point
+		where 
+			po_me_id = #{me_id}
+		order by po_num desc
+	</select>
 </mapper>

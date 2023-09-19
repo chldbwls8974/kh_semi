@@ -65,6 +65,17 @@ public class PointServiceImp implements PointService{
 		return pointDao.deletePoint(point) != 0;
 	}
 
+	@Override
+	public int getUserPoint(String me_id) {
+		
+		if(pointDao.getUserPoint(me_id) == null) {
+			return 0;
+		}
+		return pointDao.getUserPoint(me_id);
+	}
+
+
+
 
 
 }

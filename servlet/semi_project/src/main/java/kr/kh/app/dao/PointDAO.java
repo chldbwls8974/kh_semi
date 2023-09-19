@@ -19,5 +19,7 @@ public interface PointDAO {
 
 	int deletePoint(@Param("point")PointVO point);
 
+	Integer getUserPoint(@Param("me_id")String me_id);
+
 
 }

@@ -26,18 +26,18 @@
 				<thead>
 					<tr>
 						<th>예약 번호</th>
-						<th>예약 지점명</th>
 						<th>이용 시작일</th>
 						<th>이용 종료일</th>
 						<th>실 결제 금액</th>
-						<th>예약 상태</th>
+						<th>결제 상태</th>
 
 					</tr>
 				</thead>
 					<c:forEach items="${list}" var="reservation">
 						<tr>
-							<td>${reservation.re_num}</td>
-							<td>${reservationList.rl_ro_num}</td>
+							<td>
+							<a href="<c:url value='/reservation/detail?ro_num=${reservation.re_num}'/>">${reservation.re_num}</a>
+							</td>
 							<td>${reservation.re_date}</td>
 							<td>${reservation.re_end_date}</td>
 							<td>${reservation.re_real_price}</td>
@@ -52,7 +52,6 @@
   		</div>
     </div>
 </div>
-<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 <script type="text/javascript">
 
 	
