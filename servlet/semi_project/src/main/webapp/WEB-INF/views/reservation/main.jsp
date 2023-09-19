@@ -69,7 +69,7 @@ pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>		
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<script type="text/javascript">
-	function indexOfDogs(dogList, dogNum){
+	/* function indexOfDogs(dogList, dogNum){
 		if(dogList | dogList.length == 0){
 			return -1;
 		}
@@ -79,9 +79,9 @@ pageEncoding="UTF-8"%>
 			}
 		}
 		return -1;
-	}
+	} */
 		//전역변수
-		let dogs = ${dogList}
+		//let dogs = ${dogList}
 		// 보유 멍멍 마릿수
 		var d_count =  $('[name=dogSelect] option').length -1
 		var br_num
@@ -98,38 +98,41 @@ pageEncoding="UTF-8"%>
 	
 	 	// 두번째 방 추가
 		$(document).on('click','.btn-add',function(){
-			//
+			/* //
 			$('[name=dogSelect]').each(function(){
 				let index = indexOfDogs(dogs, $(this).val());
 				if(index == -1){
 					return;
 				}
 				dogs.splice(index, 1);
-			});
+			}); */
 			
 			
 			count++;
 			if(count > d_count -1){
 				alert('더 이상 예약할 수 있는 반려견이 없습니다')
 				return;
-			}else{
+			}
 				let data = {
 						br_num : br_num,
 						d_num :  $(this).parents('div').find('[name=dogSelect]').val()
 				}
 				let add ='';
-				let dogselectStr ='';
+				/* let dogselectStr ='';
 				for(dog of dogs){
 					dogselectStr +=`<option value="\${dog.d_num }">\${dog.d_name }</option>`
 				}
-				
+				 */
 				
 				add += `
 					<hr>
 					<div class="form-group" name="dog-box">
 						<label>맡기고자 하는 개를 선택해주세요</label>
 						<select class="form-control" name="dogSelect">
-							\${dogselectStr}
+							<option value="0">반려동물 선택</option>
+							<c:forEach items="${dogList }" var="dog">
+								<option value="${dog.d_num }">${dog.d_name }</option>
+							</c:forEach>
 						</select>
 					</div>
 					<div  class="form-group" name="btn-searchbox">
@@ -145,11 +148,9 @@ pageEncoding="UTF-8"%>
 						<input type="button" class="btn btn-add btn-outline-warning col-12" value="+">
 					</div>
 				`;
+				
 				$(this).hide()
 				$(this).after(add)
-				
-			} 
-			
 		})
 		
 		
