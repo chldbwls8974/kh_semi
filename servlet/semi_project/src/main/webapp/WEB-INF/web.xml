@@ -379,4 +379,14 @@
     <servlet-name>CheckId</servlet-name>
     <url-pattern>/member/checkId</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReservPay</display-name>
+    <servlet-name>ReservPay</servlet-name>
+    <servlet-class>kr.kh.app.controller.ReservPay</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReservPay</servlet-name>
+    <url-pattern>/reservation/pay</url-pattern>
+  </servlet-mapping>
 </web-app>

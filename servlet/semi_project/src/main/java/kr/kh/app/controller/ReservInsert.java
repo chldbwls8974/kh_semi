@@ -8,12 +8,14 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import kr.kh.app.service.DogService;
 import kr.kh.app.service.DogServiceImp;
 import kr.kh.app.service.PriceService;
 import kr.kh.app.service.PriceServiceImp;
 import kr.kh.app.service.ReservService;
 import kr.kh.app.service.ReservServiceImp;
+import kr.kh.app.vo.MemberVO;
 import kr.kh.app.vo.ReservationVO;
 
 public class ReservInsert extends HttpServlet {
@@ -27,7 +29,8 @@ public class ReservInsert extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		HttpSession session = request.getSession();
+		MemberVO user = (MemberVO)session.getAttribute("user"); 
 		request.getRequestDispatcher("/WEB-INF/views/reservation/insert.jsp").forward(request, response);
 		
 	}

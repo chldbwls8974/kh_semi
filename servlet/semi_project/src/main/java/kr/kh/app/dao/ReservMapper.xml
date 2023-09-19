@@ -18,4 +18,11 @@
 			#{reserv.re_add_point}, #{reserv.re_me_id}, #{reserv.re_date}, 
 			#{reserv.re_end_date}) 
 	</insert>
+	<update id="updateReserv">
+		update reservation set
+		re_add_point = #{reserv.re_add_point},
+		re_use_point = #{reserv.re_use_point},
+		re_real_price = #{reserv.re_real_price}
+		where re_num = #{reserv.re_num}
+	</update>
 </mapper>
