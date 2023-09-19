@@ -108,13 +108,13 @@ public class ReservInsert extends HttpServlet {
 			ok = true;
 			request.setAttribute("ok", ok);
 		};
-		if(d_num1 != null) {
+		if(d_num1 != null && r_num1 != 0 ) {
 			reservListService.insertReservList(reservlist1);
 		}
-		if(d_num2 != null) {
+		if(d_num2 != null  && r_num2 != 0) {
 			reservListService.insertReservList(reservlist2);
 		}
-		if(d_num3 != null) {
+		if(d_num3 != null  && r_num3 != 0) {
 			reservListService.insertReservList(reservlist3);
 		}
 		doGet(request, response);
