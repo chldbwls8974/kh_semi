@@ -31,7 +31,7 @@ public class ReservPay extends HttpServlet {
 		String content="호텔 결제에 의한 적립";
 		String content2="호텔 결제시 포인트 사용에 의한 차감";
 		String me_id = request.getParameter("me_id");
-		Integer re_use_point = Integer.parseInt(request.getParameter("re_use_point"));
+		Integer re_use_point = -(Integer.parseInt(request.getParameter("re_use_point")));
 		Integer re_add_point = Integer.parseInt(request.getParameter("re_add_point"));
 		Integer re_real_price= Integer.parseInt(request.getParameter("re_real_price"));
 		
@@ -41,11 +41,14 @@ public class ReservPay extends HttpServlet {
 		PointVO usepoint = new PointVO(0,re_use_point,content2,me_id);
 		boolean ok = false;
 		
+		int myPoint = pointService.getUserPoint(me_id);
+		System.out.println(myPoint);
 		if(reservService.updateReserv(reserv)) {
 			pointService.insertPoint(usepoint);
 			pointService.insertPoint(addpoint);
 			ok = true;
 		}
+		
 		request.setAttribute("reserv", reserv);
 		request.setAttribute("ok", ok);
 		doGet(request, response);
