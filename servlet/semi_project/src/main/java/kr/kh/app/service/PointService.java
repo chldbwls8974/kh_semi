@@ -17,6 +17,8 @@ public interface PointService {
 
 	boolean deletePoint(PointVO point);
 
+	int getUserPoint(String me_id);
+
 
 
 }

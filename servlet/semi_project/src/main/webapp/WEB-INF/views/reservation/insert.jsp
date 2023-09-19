@@ -18,6 +18,7 @@
 	<h2>결제</h2>
 		<form action="<c:url value='/reservation/pay'/>" method="post" class="mt-4">
 			<input type="hidden" class="form-control" name="me_level" value="${user.me_le_name }">
+			<input type="hidden" class="form-control" name="me_id" value="${user.me_id }">
 			<input type="hidden" class="form-control" name="re_num" value="${reserv.re_num}">
 			<div class="form-group">
 				<label>총 결제 금액</label>
