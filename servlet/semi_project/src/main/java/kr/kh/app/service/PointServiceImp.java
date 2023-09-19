@@ -67,8 +67,11 @@ public class PointServiceImp implements PointService{
 
 	@Override
 	public int getUserPoint(String me_id) {
-		return pointDao.getUserPoint(me_id);
 		
+		if(pointDao.getUserPoint(me_id) == null) {
+			return 0;
+		}
+		return pointDao.getUserPoint(me_id);
 	}
 
 
