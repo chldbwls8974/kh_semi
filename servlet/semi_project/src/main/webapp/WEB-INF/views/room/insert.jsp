@@ -36,8 +36,12 @@
 				<input type="text" class="form-control" name="max_cap" placeholder="숫자만 입력하시오.">
 			</div>
 			<div class="form-group">
-				<label>객실 타입</label>
-				<input type="text" class="form-control" name="detail" placeholder="객실 타입(S / M / L)">
+			 	<label for="detail">객실 타입</label>
+				  <select class="form-control" id="roomtype" name="detail">
+				    <option>S</option>
+				    <option>M</option>
+				    <option>L</option>
+				  </select>
 			</div>
 			
 			<button class="btn btn-outline-warning col-12">등록</button>
