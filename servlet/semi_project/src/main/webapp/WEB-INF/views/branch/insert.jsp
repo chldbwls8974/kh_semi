@@ -14,6 +14,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 	<div class="container mt-5">
 	<h2>지점 등록</h2>
 	<%-- <form action = "" method="post">
@@ -63,7 +64,7 @@
 	    %>
 	    
 
-	    if ("${user == null || user.me_authority != 'ADMIN'}") {
+	    if ('${user}' == null || '${user.me_authority}' != 'ADMIN') {
 	    	alert('권한이 없습니다.');
 		    location.href="/semi_project";
 	    }

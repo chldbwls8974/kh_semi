@@ -33,6 +33,7 @@
  		<button class="btn btn-outline-warning col-12">변경</button>
  	</form>	
 </div>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 	<script>
 	   <% 
        Boolean result = (Boolean)request.getAttribute("Ok");
@@ -47,7 +48,7 @@
        }
     %>
     
-    if ("${user == null || user.me_authority != 'ADMIN'}") {
+    if ('${user}' == null || '${user.me_authority}' != 'ADMIN') {
     	alert('권한이 없습니다.');
 	    location.href="/semi_project";
     }

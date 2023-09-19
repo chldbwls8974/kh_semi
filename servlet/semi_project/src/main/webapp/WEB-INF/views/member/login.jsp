@@ -30,6 +30,7 @@
  	</form>	
  	<br><button class="btn btn-outline-dark col-3 btn float-right" id="btnCancel">취소</button><br>
 </div>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 </body>
 <script>
 	   <% 

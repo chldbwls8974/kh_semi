@@ -53,6 +53,7 @@ pageEncoding="UTF-8"%>
  		<button class="btn btn-outline-warning col-12">회원가입</button>
  	</form>
 </div>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 	<script>
 	   <% 
        Boolean result = (Boolean)request.getAttribute("Ok");
