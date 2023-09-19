@@ -6,4 +6,7 @@ public interface ReservListService {
 
 	void insertReservList(ReservListVO reservlist);
 
+	ReservListVO getReservList(Integer rl_num);
+
+
 }
