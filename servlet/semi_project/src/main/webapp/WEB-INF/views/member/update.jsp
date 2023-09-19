@@ -37,6 +37,7 @@
  	</form>	
  	<br><a href="<c:url value='/member/mypage'/>"  class="btn btn-outline-dark col-3 btn float-right">취소</a><br>
 </div>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 </body>
 <script>
 	   <% 

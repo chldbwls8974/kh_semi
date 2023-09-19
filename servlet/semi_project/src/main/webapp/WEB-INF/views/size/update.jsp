@@ -34,6 +34,7 @@
  		<button class="btn btn-outline-warning col-12">변경</button>
  	</form>	
 </div>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 	<script>
 	   <% 
        Boolean result = (Boolean)request.getAttribute("Ok");
@@ -53,5 +54,6 @@
 	    location.href="/semi_project";
     }
 	</script>
+
 </body>
 </html>

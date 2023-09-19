@@ -14,6 +14,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 	<div class="container mt-5">
 	<h2>지점 등록</h2>
 	<%-- <form action = "" method="post">
