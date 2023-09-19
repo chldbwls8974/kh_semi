@@ -12,20 +12,20 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
-	body{
-	}
 	footer{
-		position:absolute;
-		bottom:0px;
+		height: 60px;
+/* 		position:relative; */
+		transform : translateY(0%);
+		margin-top: 50px;
 	}
 </style>
 
 </head>
 <body>
-	<footer class="container-fluid navbar-fixed-bottom mt-auto bg-dark py-5">
-		<div class="footer-box">
-			<h1>footer</h1>
-		</div>
+	
+	<footer class="container-fluid bg-dark">
+		<a class="navbar-brand" href="/semi_project">DogHotel</a>
+		<small>Copyright &copy;team1</small>
 	</footer>
 </body>
 </html>

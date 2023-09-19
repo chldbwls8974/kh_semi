@@ -30,7 +30,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
+	
 <div id="demo" class="carousel slide mt-5" data-ride="carousel">
 
   <!-- Indicators -->
@@ -66,5 +66,9 @@
   </a>
 
 </div>
+
+<footer>
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+</footer>
 </body>
 </html>

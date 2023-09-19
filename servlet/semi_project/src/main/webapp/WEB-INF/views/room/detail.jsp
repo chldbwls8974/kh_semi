@@ -160,7 +160,7 @@
 		        <button class="btn btn-outline-danger mt-2 btn-room-delete col-2" class="btn-room-delete">삭제</button>
 		        <input type="hidden" name="ro_num" value="${room.ro_num}">
 		    </form>
-	    </c:if>
+	  </c:if>
 	</div>
 	
 	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
