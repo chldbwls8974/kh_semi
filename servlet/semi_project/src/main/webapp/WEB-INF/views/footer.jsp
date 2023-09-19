@@ -12,12 +12,28 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
-	footer{
-		height: 60px;
-/* 		position:relative; */
-		transform : translateY(0%);
-		margin-top: 50px;
+	html, body{
+		height: 100%;
 	}
+	body{
+		display: flex; flex-direction: column;
+	}
+	div{
+		flex: 1;
+	}
+	a{
+		
+	}
+	
+	footer{
+		position: relative;
+		bottom: 0;
+		width: 100%;
+		height: 60px;
+ 		margin-top: 50px; 
+/*  		transform : translateY(-100%);  */
+	}
+	
 </style>
 
 </head>
@@ -25,7 +41,7 @@
 	
 	<footer class="container-fluid bg-dark">
 		<a class="navbar-brand" href="/semi_project">DogHotel</a>
-		<small>Copyright &copy;team1</small>
+		<small style="color: gray;">Copyright &copy;team1 :임은영 이충희 최유진 이지선</small>
 	</footer>
 </body>
 </html>
