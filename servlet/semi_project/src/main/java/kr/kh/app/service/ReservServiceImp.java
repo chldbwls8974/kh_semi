@@ -128,9 +128,9 @@ public class ReservServiceImp implements ReservService{
 		int re_l_count = largeCount(d_si_name1,d_si_name2,d_si_name3);
 		
 		//사이즈별 시세 가져오기
-		PriceVO sPrice = priceService.getSizePrice("s");
-		PriceVO mPrice = priceService.getSizePrice("m");
-		PriceVO lPrice = priceService.getSizePrice("l");
+		PriceVO sPrice = priceService.getSizePrice("S");
+		PriceVO mPrice = priceService.getSizePrice("M");
+		PriceVO lPrice = priceService.getSizePrice("L");
 		
 		//총 가격
 		int totalPrice = (re_s_count * sPrice.getPr_price()) + (re_m_count * mPrice.getPr_price()) + (re_l_count * lPrice.getPr_price());
