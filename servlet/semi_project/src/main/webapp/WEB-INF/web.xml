@@ -369,6 +369,8 @@
   <servlet-mapping>
     <servlet-name>PointDelete</servlet-name>
     <url-pattern>/point/delete</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <display-name>CheckId</display-name>
     <servlet-name>CheckId</servlet-name>
     <servlet-class>kr.kh.app.controller.CheckId</servlet-class>
