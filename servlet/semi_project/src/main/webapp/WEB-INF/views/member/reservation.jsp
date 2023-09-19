@@ -26,11 +26,10 @@
 				<thead>
 					<tr>
 						<th>예약 번호</th>
-						<th>예약 지점명</th>
 						<th>이용 시작일</th>
 						<th>이용 종료일</th>
 						<th>실 결제 금액</th>
-						<th>예약 상태</th>
+						<th>결제 상태</th>
 
 					</tr>
 				</thead>
