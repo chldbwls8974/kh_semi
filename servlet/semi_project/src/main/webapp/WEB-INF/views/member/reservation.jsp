@@ -36,8 +36,9 @@
 				</thead>
 					<c:forEach items="${list}" var="reservation">
 						<tr>
-							<td>${reservation.re_num}</td>
-							<td>${reservationList.rl_ro_num}</td>
+							<td>
+							<a href="<c:url value='/reservation/detail?ro_num=${reservation.re_num}'/>">${reservation.re_num}</a>
+							</td>
 							<td>${reservation.re_date}</td>
 							<td>${reservation.re_end_date}</td>
 							<td>${reservation.re_real_price}</td>
@@ -52,7 +53,6 @@
   		</div>
     </div>
 </div>
-<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 <script type="text/javascript">
 
 	

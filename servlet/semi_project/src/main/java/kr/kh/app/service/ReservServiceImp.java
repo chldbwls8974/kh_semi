@@ -150,4 +150,13 @@ public class ReservServiceImp implements ReservService{
 	}
 
 
+	@Override
+	public boolean updateReserv(ReservationVO reserv) {
+		if(reserv==null) {
+			return false;
+		}
+		return reservDao.updateReserv(reserv);
+	}
+
+
 }
