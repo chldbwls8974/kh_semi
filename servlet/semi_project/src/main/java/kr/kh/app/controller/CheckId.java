@@ -18,7 +18,7 @@ public class CheckId extends HttpServlet {
 		//아이디 가져오기
 		String id = request.getParameter("me_id");
         
-        // 아이디 중복 체크 로직을 수행하고 결과를 JSON 형식으로 응답합니다.
+        // 아이디 중복 체크 후 응답
         boolean isIdDuplicate = memberService.isIdDuplicate(id);
 
         response.setContentType("application/json");

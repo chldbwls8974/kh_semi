@@ -6,4 +6,7 @@
 	<insert id="insertReservList">
 	 insert into reservationlist(rl_d_num, rl_ro_num, rl_re_num) values(#{rl.rl_d_num},#{rl.rl_ro_num},#{rl.rl_re_num})
 	</insert>
+	<select id="selectReservListArray" resultType="kr.kh.app.vo.ReservListVO">
+		select * from reservationlist where rl_re_num = #{rl_re_num}
+	</select>
 </mapper>

@@ -2,6 +2,7 @@ package kr.kh.app.service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -36,4 +37,16 @@ public class ReservListServiceImp implements ReservListService{
 		reservListDao.insertReservList(reservlist);
 	}
 
+	/*@Override
+	public ReservListVO getReservList(String rl_re_num) {
+		if(rl_re_num == null) {
+			return null;
+	}
+	return reservListDao.selectReservList(rl_re_num);
+	}*/
+
+	@Override
+	public ArrayList<ReservListVO> getReservListArray(String rl_re_num) {
+		return reservListDao.selectReservListArray(rl_re_num);
+	}
 }

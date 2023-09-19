@@ -282,13 +282,13 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ReservBrList</display-name>
-    <servlet-name>ReservBrList</servlet-name>
-    <servlet-class>kr.kh.app.controller.ReservBrList</servlet-class>
+    <display-name>ReservList</display-name>
+    <servlet-name>ReservList</servlet-name>
+    <servlet-class>kr.kh.app.controller.ReservList</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ReservBrList</servlet-name>
-    <url-pattern>/reservation/branch/roomlist</url-pattern>
+    <servlet-name>ReservList</servlet-name>
+    <url-pattern>/reservation/detail</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
