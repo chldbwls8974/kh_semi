@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import kr.kh.app.dao.MemberDAO;
 import kr.kh.app.dao.ReservDAO;
 import kr.kh.app.vo.DogVO;
 import kr.kh.app.vo.MemberVO;
@@ -21,6 +22,7 @@ public class ReservServiceImp implements ReservService{
 	ReservDAO reservDao;
 	DogService dogService = new DogServiceImp();
 	PriceService priceService = new PriceServiceImp();
+	MemberDAO memberDao;
 	
 	private final String MYBATIS_CONFIG_PATH="kr/kh/app/config/mybatis-config.xml";
 	
@@ -30,6 +32,7 @@ public class ReservServiceImp implements ReservService{
 			SqlSessionFactory sf = new SqlSessionFactoryBuilder().build(is);
 			SqlSession session = sf.openSession(true);
 			reservDao = session.getMapper(ReservDAO.class);
+			memberDao = session.getMapper(MemberDAO.class);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -103,7 +106,7 @@ public class ReservServiceImp implements ReservService{
 		if(reserv == null) {
 			return false;
 		}
-		
+		//memberDao.updateMemberToReserv(reserv);
 		return reservDao.insertReserv(reserv);
 	}
 
