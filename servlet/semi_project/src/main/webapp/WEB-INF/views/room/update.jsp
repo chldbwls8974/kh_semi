@@ -41,7 +41,7 @@
 				<button class="btn btn-outline-success">등록</button>
 			</form>
 	</div>
-
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 <script type="text/javascript">
 
 	<% 
@@ -62,6 +62,6 @@
 	    location.href="/semi_project";
     }
 </script>
-	
+
 </body>
 </html>
