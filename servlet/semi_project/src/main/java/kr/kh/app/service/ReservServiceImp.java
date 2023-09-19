@@ -42,13 +42,13 @@ public class ReservServiceImp implements ReservService{
 		//개 1마리값만 들어오면 나머지 개선택 2개는 null이라서 예외발생함
 		int count = 0;
 		if(str1 != null) {
-			if(str1.equals("s")) {count++;}
+			if(str1.equals("S")) {count++;}
 		}
 		if(str2 != null) {
-			if(str2.equals("s")) {count++;}
+			if(str2.equals("S")) {count++;}
 		}
 		if(str3 != null) {
-			if(str3.equals("s")) {count++;}
+			if(str3.equals("S")) {count++;}
 		}
 		
 		return count;
@@ -57,13 +57,13 @@ public class ReservServiceImp implements ReservService{
 	public int mediumCount(String str1, String str2, String str3) {
 		int count = 0;
 		if(str1 != null) {
-			if(str1.equals("m")) {count++;}
+			if(str1.equals("M")) {count++;}
 		}
 		if(str2 != null) {
-			if(str2.equals("m")) {count++;}
+			if(str2.equals("M")) {count++;}
 		}
 		if(str3 != null) {
-			if(str3.equals("m")) {count++;}
+			if(str3.equals("M")) {count++;}
 		}
 		return count;
 	}
@@ -71,13 +71,13 @@ public class ReservServiceImp implements ReservService{
 	public int largeCount(String str1, String str2, String str3) {
 		int count = 0;
 		if(str1 != null) {
-			if(str1.equals("l")) {count++;}
+			if(str1.equals("L")) {count++;}
 		}
 		if(str2 != null) {
-			if(str2.equals("l")) {count++;}
+			if(str2.equals("L")) {count++;}
 		}
 		if(str3 != null) {
-			if(str3.equals("l")) {count++;}
+			if(str3.equals("L")) {count++;}
 		}
 		return count;
 	}
@@ -128,9 +128,9 @@ public class ReservServiceImp implements ReservService{
 		int re_l_count = largeCount(d_si_name1,d_si_name2,d_si_name3);
 		
 		//사이즈별 시세 가져오기
-		PriceVO sPrice = priceService.getSizePrice("s");
-		PriceVO mPrice = priceService.getSizePrice("m");
-		PriceVO lPrice = priceService.getSizePrice("l");
+		PriceVO sPrice = priceService.getSizePrice("S");
+		PriceVO mPrice = priceService.getSizePrice("M");
+		PriceVO lPrice = priceService.getSizePrice("L");
 		
 		//총 가격
 		int totalPrice = (re_s_count * sPrice.getPr_price()) + (re_m_count * mPrice.getPr_price()) + (re_l_count * lPrice.getPr_price());
