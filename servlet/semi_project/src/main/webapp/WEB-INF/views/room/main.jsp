@@ -53,13 +53,13 @@
 							<td><a href="<c:url value='/room/detail?ro_num=${room.ro_num}'/>" >${room.ro_name }</a></td>
 							<td>${room.ro_max_cap}</td>
 							<td>${room.ro_now_cap}</td>
-							<td>${size.si_name}</td>
+							<td>${room.ro_detail}</td>
 						</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 
-<a href="<c:url value='/room/insert'/>" class="btn btn-outline-warning mt-2">등록</a>
+<a href="<c:url value='/room/insert'/>" class="btn btn-outline-warning mt-2 btn-add">등록</a>
 </div>	
 
 <script type="text/javascript">
@@ -113,6 +113,10 @@
 			}
 		})
 	})
+	
+		if ("${user == null || user.me_authority != 'ADMIN'}") {
+			$('.btn-add').hide();
+		}
 </script>
 </body>
 </html>

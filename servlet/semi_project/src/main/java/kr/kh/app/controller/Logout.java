@@ -25,8 +25,8 @@ public class Logout extends HttpServlet {
 		}
 		request.setAttribute("Ok", Ok);
 		request.getRequestDispatcher("/WEB-INF/views/member/logout.jsp").forward(request,response);
-		request.getRequestDispatcher("/WEB-INF/views/branch/insert.jsp").forward(request, response);	
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+//		request.getRequestDispatcher("/WEB-INF/views/branch/insert.jsp").forward(request, response);	
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

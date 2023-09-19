@@ -48,7 +48,7 @@ CREATE TABLE `dog` (
 
 LOCK TABLES `dog` WRITE;
 /*!40000 ALTER TABLE `dog` DISABLE KEYS */;
-INSERT INTO `dog` VALUES ('qwe001','써니',5,'Y','M',8,'','qwe','s'),('qwe002','뿌꾸',15,'Y','M',15,'','qwe','m'),('qwe003','간짜장',4,'Y','F',25,'','qwe','l'),('user001001','멍멍1',2,'Y','M',3,'','user001','s'),('user001002','멍멍2',5,'Y','F',11,'','user001','m'),('user001003','멍멍3',4,'Y','F',23,'','user001','l');
+INSERT INTO `dog` VALUES ('qwe001','써니',5,'Y','M',8,'','qwe','s'),('qwe002','뿌꾸',15,'Y','M',15,'','qwe','m'),('qwe003','간짜장',4,'Y','F',25,'','qwe','l'),('user001001','멍멍1',2,'Y','M',3,'','user001','s'),('user001002','멍멍2',5,'Y','F',11,'','user001','m'),('user001003','멍멍3',12,'Y','M',11,'','user001','M');
 /*!40000 ALTER TABLE `dog` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -61,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-16 17:41:25
+-- Dump completed on 2023-09-18 20:14:00

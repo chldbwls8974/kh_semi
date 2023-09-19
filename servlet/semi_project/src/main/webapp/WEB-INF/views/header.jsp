@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,39 +60,46 @@
   <!-- Links -->
   <div class="collapse navbar-collapse justify-content-between">
   	<ul class="navbar-nav">
-	
-	    <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/member/login">로그인</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/member/signup">회원가입</a>
-	    </li>
-	  	<li class="nav-item">
-	      <a class="nav-link" href="/semi_project/dog/list">반려견 등록</a>
-	    </li>
-	 	<li class="nav-item">
-	      <a class="nav-link" href="/semi_project/room/main">객실 보기</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/reservation/main">예약하기</a>
-	    </li>
+		<c:if test="${user == null }">
+		    <li class="nav-item">
+		      <a class="nav-link" href="/semi_project/member/login">로그인</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="/semi_project/member/signup">회원가입</a>
+		    </li>
+		</c:if>
+		<c:if test="${user != null }">
+		  	<li class="nav-item">
+		      <a class="nav-link" href="/semi_project/dog/list">반려견 등록</a>
+		    </li>
+		 	<li class="nav-item">
+		      <a class="nav-link" href="/semi_project/room/main">객실 보기</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="/semi_project/reservation/main">예약하기</a>
+		    </li>
+		</c:if>
 	  
  	</ul>
  	<ul class="navbar-nav">  
- 		<li class="nav-item">
-	      <a class="nav-link">${user.me_id }님 환영합니다</a>
-	    </li>
-	    
-	    <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/member/mypage">마이페이지</a>
-	    </li>
-   		
-	     <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/member/logout">로그아웃</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/admin">관리자 권한</a>
-	    </li>
+ 		<c:if test="${user != null }">
+	 		<li class="nav-item">
+		      <a class="nav-link">${user.me_id }님 환영합니다</a>
+		    </li>
+ 		</c:if>
+	    <c:if test="${user != null }">
+		    <li class="nav-item">
+		      <a class="nav-link" href="/semi_project/member/mypage">마이페이지</a>
+		    </li>
+		     <li class="nav-item">
+		      <a class="nav-link" href="/semi_project/member/logout">로그아웃</a>
+		    </li>
+	    </c:if>
+<%--    		<c:if test="${user != null && user.me_authority == 'ADMIN'}"> --%>
+		    <li class="nav-item">
+		      <a class="nav-link" href="/semi_project/admin">관리자 권한</a>
+		    </li>
+<%--    		</c:if> --%>
 	 </ul>
   </div>	 
 </nav>

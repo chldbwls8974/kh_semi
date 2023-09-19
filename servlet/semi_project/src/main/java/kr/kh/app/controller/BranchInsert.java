@@ -24,19 +24,18 @@ public class BranchInsert extends HttpServlet {
 
 		request.getRequestDispatcher("/WEB-INF/views/branch/insert.jsp").forward(request, response);	
 
-		MemberVO user =(MemberVO)request.getSession().getAttribute("user");
-		boolean Ok = false;
-		if(user != null) {
-			Ok = true;
-			request.getSession().removeAttribute("user");
-			request.getSession().invalidate();
-		}
-		request.setAttribute("Ok", Ok);
-		request.getRequestDispatcher("/WEB-INF/views/member/logout.jsp").forward(request,response);
+//		MemberVO user =(MemberVO)request.getSession().getAttribute("user");
+//		boolean Ok = false;
+//		if(user != null) {
+//			Ok = true;
+//			request.getSession().removeAttribute("user");
+//			request.getSession().invalidate();
+//		}
+//		request.setAttribute("Ok", Ok);
+//		request.getRequestDispatcher("/WEB-INF/views/member/logout.jsp").forward(request,response);
+//
+//		request.getRequestDispatcher("/WEB-INF/views/branch/insert.jsp").forward(request, response);	
 
-		request.getRequestDispatcher("/WEB-INF/views/branch/insert.jsp").forward(request, response);	
-
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,8 +49,7 @@ public class BranchInsert extends HttpServlet {
 		}
 		request.setAttribute("ok", ok);
 
-		request.setAttribute("Ok", true);
-		request.getSession().setAttribute("user",null);
+//		request.getSession().setAttribute("user",null);
 
 		doGet(request, response);
 	}

@@ -2,6 +2,8 @@ package kr.kh.app.controller;
 
 import java.io.IOException;
 
+import org.json.JSONObject;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,8 +14,6 @@ import kr.kh.app.service.PriceService;
 import kr.kh.app.service.PriceServiceImp;
 import kr.kh.app.service.ReservService;
 import kr.kh.app.service.ReservServiceImp;
-import kr.kh.app.vo.DogVO;
-import kr.kh.app.vo.PriceVO;
 import kr.kh.app.vo.ReservationVO;
 
 public class ReservInsert extends HttpServlet {
@@ -27,9 +27,9 @@ public class ReservInsert extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		request.getRequestDispatcher("/WEB-INF/views/reservation/main.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/reservation/insert.jsp").forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,21 +38,70 @@ public class ReservInsert extends HttpServlet {
 		String from = request.getParameter("from");
 		String to = request.getParameter("to");
 		String br_num = request.getParameter("branchSelect");
-		// 3마리까지 받아옴 (d_num 으로)
-		String d_num1 = request.getParameter("dogSelect");
-		//null
-		String d_num2 = request.getParameter("dogSelect2");
-		String d_num3 = request.getParameter("dogSelect3");
+		String d_num1 = null;
+		String d_num2 = null;
+		String d_num3 = null;
+		
+		int r_num1 = 0;
+        int r_num2 = 0;
+        int r_num3 = 0;
+        
+		String[] dataArray = request.getParameterValues("dogSelect");
+		String[] roomArray = request.getParameterValues("roomSelect");
+		
+		  if (dataArray != null) {
+	            // 변수 초기화
+			  d_num1 = null;
+			  d_num2 = null;
+			  d_num3 = null;
+	            
+	            // 데이터 처리 및 변수에 저장
+	            if (dataArray.length > 0) {
+	            	d_num1 = dataArray[0]; // 첫 번째 값
+	            }
+	            if (dataArray.length > 1) {
+	            	d_num2 = dataArray[1]; // 두 번째 값
+	            }
+	            if (dataArray.length > 2) {
+	            	d_num3 = dataArray[2]; // 세 번째 값
+	            }
+
+	        }
+		  
+		  if (roomArray != null) {
+	            // 변수 초기화
+				  r_num1 = 0;
+		          r_num2 = 0;
+		          r_num3 = 0;
+	            
+	            // 데이터 처리 및 변수에 저장
+	            if (roomArray.length > 0) {
+	            	
+	            	r_num1 = Integer.parseInt(roomArray[0]); // 첫 번째 값
+	            }
+	            if (roomArray.length > 1) {
+	            	r_num2 =  Integer.parseInt(roomArray[1]); // 두 번째 값
+	            }
+	            if (roomArray.length > 2) {
+	            	r_num3 =  Integer.parseInt(roomArray[2]); // 세 번째 값
+	            }
+
+	        }
+		  System.out.println(r_num1);
+		  System.out.println(r_num2);
+		  System.out.println(r_num3);
 		
 		//사용할 포인트
 		int re_use_point = 0;
+		String re_num = re_me_id + from + d_num1;
+		ReservationVO reserv = reservService.createVO(re_num, re_me_id, from, to, br_num, d_num1, d_num2, d_num3, re_use_point);
 		
-		ReservationVO reserv = reservService.createVO(re_me_id, from, to, br_num, d_num1, d_num2, d_num3, re_use_point);
 		
-		System.out.println(reserv);
+		request.setAttribute("reserv", reserv);
 		
 		boolean ok = false;
 		if(reservService.insertReserv(reserv)) {
+			
 			ok = true;
 			request.setAttribute("ok", ok);
 		};

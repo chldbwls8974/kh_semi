@@ -1,16 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-	<script src="../js/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <title>회원가입</title>
 <style>
 		[class^=error]{
@@ -37,7 +37,7 @@
  			<label>비번확인</label>
  			<input type="password" class="form-control" name="me_pw2">
  		</div>
- 		<div class="error-pw2"></div>
+	 		<div class="error-pw2"></div>
  		<div class = "form-group">
  			<label>성함</label>
  			<input type="text" class="form-control" name="me_name">
@@ -57,60 +57,72 @@
 	   <% 
        Boolean result = (Boolean)request.getAttribute("Ok");
 	   if(result != null && result){
-    %>
-       alert('회원가입 성공');
-       location.href="/semi_project";
-    <% 
-       }else if(result != null && !result){ %>
-       alert('회원가입 실패')
-    <%
-       }
-    %>
+	    %>
+	       alert('회원가입 성공');
+	       location.href="/semi_project";
+	    <% 
+	       }else if(result != null && !result){ %>
+	       alert('회원가입 실패')
+	    <%
+	       }
+	    %>
 	</script>
-		<script>
+	
+	<script type="text/javascript">
 		$('[name=me_id]').change(checkId);
 		$('[name=me_pw]').change(checkPw);
 		$('[name=me_pw2]').change(checkPw2);
-		$('[name=me_email]').change(checkEmail);
 
 		$('form').submit(function(){
 			let ok = true;
 
-			if(!checkId()){
+			if(!checkId){
 				ok = false;
 			}
-			if(!checkPw()){
+			if(!checkPw){
 				ok = false;
 			}
-			if(!checkPw2()){
+			if(!checkPw2){
 				ok = false;
 			}
-			if(!checkEmail()){
-				ok = false;
-			}
-
 			return ok;
 		});
 
-		function checkId(){
-			let id = $('[name=me_id]').val();
-			let regex = /^\w{6,10}$/;
-			if(regex.test(id)){
-				$('.error-id').text('사용 가능한 아이디입니다.');
-				return true;
-			}else{
-				$('.error-id').text('아이디는 영문,숫자 6자에서 10자이어야 합니다.');
-				return false;
-			}
+		function checkId() {
+		    let id = $('[name=me_id]').val();
+		    let regex = /^\w{6,15}$/;
+
+		    if (!regex.test(id)) {
+		        $('.error-id').text('아이디는 영문,숫자 6자에서 15자 이어야 합니다.');
+		        return false;
+		    }
+			
+		    $.ajax({
+		        type: 'post',
+		        url: '<c:url value="/member/checkId"/>',
+		        data: { me_id: id },
+		        async: false,
+		        success: function (data) {
+		            if (data.isIdDuplicate) {
+		                $('.error-id').text('이미 사용 중인 아이디입니다.');
+		            } else {
+		                $('.error-id').text('사용 가능한 아이디입니다.');
+		            }
+		        }
+		    });
+
+		    return true;
 		}
+			
 		function checkPw(){
 			let pw = $('[name=me_pw]').val();
-			let regex = /^[a-zA-Z0-9!@#$]{8,20}$/;
+			let regex = /^[a-zA-Z0-9!@#$%]{8,20}$/;
+
 			if(regex.test(pw)){
 				$('.error-pw').text('');
 				return true;
 			}else{
-				$('.error-pw').text('비밀번호는 영문,숫자, 특수문자(!@#$) 8자에서 20자이어야 합니다.');
+				$('.error-pw').text('비번은 영문,숫자,!@#$%로 이루어지고 8~20자 이어야 합니다.');
 				return false;
 			}
 		}

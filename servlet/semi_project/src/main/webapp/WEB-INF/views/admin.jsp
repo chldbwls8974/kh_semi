@@ -42,5 +42,11 @@
 	  </ul>
 	</div>
 
+<script type="text/javascript">
+// 	if ("${user == null || user.me_authority != 'ADMIN'}") {
+// 		alert('권한이 없습니다.');
+// 	    location.href="/semi_project";
+// 	}
+</script>
 </body>
 </html>

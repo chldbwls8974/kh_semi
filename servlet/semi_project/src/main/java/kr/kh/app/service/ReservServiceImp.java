@@ -109,7 +109,7 @@ public class ReservServiceImp implements ReservService{
 
 
 	@Override
-	public ReservationVO createVO(String re_me_id, String from, String to, String br_num, String d_num1, String d_num2,
+	public ReservationVO createVO(String re_num, String re_me_id, String from, String to, String br_num, String d_num1, String d_num2,
 			String d_num3, int re_use_point) {
 		
 		//현재 d_num2, d_num3은 null값임
@@ -143,7 +143,7 @@ public class ReservServiceImp implements ReservService{
 		int re_add_point = 0; // me_id의 등급 판별 -> 해당 등급의 적립률 가져오기 -> 실 결제금액 * 적립률 / 100 = 적립포인트 
 		
 		
-		ReservationVO reserv = new ReservationVO(re_s_count, re_m_count, re_l_count, totalPrice, re_real_price,
+		ReservationVO reserv = new ReservationVO(re_num, re_s_count, re_m_count, re_l_count, totalPrice, re_real_price,
 				 re_use_point, re_add_point, re_me_id,  from,  to);
 		
 		return reserv;

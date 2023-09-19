@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,8 +62,26 @@
 			</table>
     	</div>
     	<a class="btn btn-float-righ btn-outline-success col-5 t" href="/semi_project/member/update" role="button">개인정보 수정</a>
-    	<a class="btn btn-float-right btn-outline-success mt-2 col-5 " href="/semi_project/dog/insert" role="button">반려견 등록</a>
+    	<!-- 개 등록 버튼 -->
+    	<c:choose>
+		    <c:when test="${fn:length(list) < 3 }">
+		   		<!-- 3마리 이하인 경우 -->
+		   		<a href="<c:url value='/dog/insert'/>" class="btn btn-float-right btn-outline-success mt-2 col-5">반려견 등록</a>
+		    </c:when>
+		    <c:otherwise>
+				 <!-- 3마리 이상인 경우 -->
+				 <a href="<c:url value='/member/mypage'/>" class="btn btn-float-right btn-outline-success mt-2 col-5" id="btnAdd">반려견 등록</a>
+				 <script type="text/javascript">
+				 	$("#btnAdd").click(function(){
+					 	alert('반려견은 3마리 까지 등록할 수 있습니다.');
+				 	})
+				 </script>
+		    </c:otherwise>
+		</c:choose>
+		
     	<a class="btn btn-float-right btn-outline-success mt-2 col-5 " href="/semi_project/member/reservation" role="button">내 예약정보 보기</a>
+    	
+	
     </div>
   </div>
 </div>
