@@ -28,5 +28,6 @@
 			point
 		where 
 			po_me_id = #{me_id}
+		order by po_num desc
 	</select>
 </mapper>
