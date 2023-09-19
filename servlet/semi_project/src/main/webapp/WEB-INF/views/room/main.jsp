@@ -114,7 +114,7 @@
 		})
 	})
 	
-		if ("${user == null || user.me_authority != 'ADMIN'}") {
+		if ('${user}' == null || '${user.me_authority}' != 'ADMIN') {
 			$('.btn-add').hide();
 		}
 </script>
