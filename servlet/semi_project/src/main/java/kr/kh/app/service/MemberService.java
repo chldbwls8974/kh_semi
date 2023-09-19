@@ -20,4 +20,6 @@ public interface MemberService {
 
 	void updateUserPoint(String me_id, int myPoint);
 
+	void updateTotalPrice(String me_id, Integer re_real_price);
+
 }
