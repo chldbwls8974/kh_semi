@@ -29,8 +29,6 @@ public class ReservList extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		ReservationVO reserv = (ReservationVO)session.getAttribute("re_num");
 		
 		//getParameter로 받아와서 rl_re_num에 저장
 		String rl_re_num = request.getParameter("rl_re_num");
@@ -42,7 +40,6 @@ public class ReservList extends HttpServlet {
 		request.setAttribute("Doglist", Doglist);
 				
 		request.getRequestDispatcher("/WEB-INF/views/reservation/detail.jsp").forward(request, response);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 
