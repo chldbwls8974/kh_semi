@@ -31,7 +31,7 @@
  		</div>
  		<div class = "form-group">
  			<label>성별</label>
- 			<input type="text" class="form-control" name="d_gen" placeholder="M or F">
+ 			<input type="text" maxlength="1" style="text-transform: uppercase;" class="form-control" name="d_gen" placeholder="M or F">
  		</div>
  		<div class = "form-group">
  			<label>무게</label>
