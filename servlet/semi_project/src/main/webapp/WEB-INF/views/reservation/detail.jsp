@@ -1,3 +1,4 @@
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -24,6 +25,7 @@
 	      <tr>
 	        <th>예약리스트 번호</th>
 	        <th>반려동물 번호</th>
+	        <th>반려견 이름</th>
 	        <th>방번호</th>
 	        <th>예약번호</th>
 	      </tr>
@@ -33,6 +35,13 @@
 		      <tr>
 		      	<td>${rl.rl_num}</td>
 		      	<td>${rl.rl_d_num}</td>
+		      	<td>
+		      	<c:forEach items="${Doglist}" var="dog">
+				 	<c:if test="${dog.d_num eq rl.rl_d_num}">
+                        ${dog.d_name}
+                    </c:if>
+				</c:forEach>
+				</td>
 		      	<td>${rl.rl_ro_num}</td>
 		      	<td>${rl.rl_re_num}</td>
 		      </tr>
@@ -40,20 +49,6 @@
 		</tbody>     
 	</table>
 	<hr>
-   	<div class="pb-3">
-   		<table class="table table-bordered mt-1">
-			<thead>
-				<tr>
-					<th>반려견 이름</th>
-				</tr>
-			</thead>
-				<c:forEach items="${list}" var="dog">
-					<tr>
-						<td>${dog.d_name}</td>
-					</tr>
-				</c:forEach>
-		</table>
-   	</div>
 	<a class="btn btn-float-right btn-outline-success mt-1 col-3 " href="/semi_project/member/mypage" role="button">목록으로</a>
 </div>
 		

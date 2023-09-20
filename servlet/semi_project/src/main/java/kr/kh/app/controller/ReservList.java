@@ -12,7 +12,9 @@ import kr.kh.app.service.DogService;
 import kr.kh.app.service.DogServiceImp;
 import kr.kh.app.service.ReservListService;
 import kr.kh.app.service.ReservListServiceImp;
+import kr.kh.app.vo.BranchVO;
 import kr.kh.app.vo.DogVO;
+import kr.kh.app.vo.MemberVO;
 import kr.kh.app.vo.ReservListVO;
 import kr.kh.app.vo.ReservationVO;
 
@@ -28,7 +30,6 @@ public class ReservList extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		
 		ReservationVO reserv = (ReservationVO)session.getAttribute("re_num");
 		
 		//getParameter로 받아와서 rl_re_num에 저장
@@ -36,14 +37,12 @@ public class ReservList extends HttpServlet {
 		
 		ArrayList<ReservListVO> rl = reservListService.getReservListArray(rl_re_num);
 		request.setAttribute("rl", rl);
-		
-		/*String rl_d_num = request.getParameter("rl_d_num");*/
-		ReservListVO rl2 = (ReservListVO)session.getAttribute("rl_d_num"); 
-
-		ArrayList<DogVO> list = dogService.getDogList(rl2);
-		request.setAttribute("list", list);
-
+	
+		ArrayList<DogVO> Doglist = dogService.getDogList();
+		request.setAttribute("Doglist", Doglist);
+				
 		request.getRequestDispatcher("/WEB-INF/views/reservation/detail.jsp").forward(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 

@@ -18,8 +18,7 @@ public interface DogService {
 
 	boolean updateDog(DogVO dog);
 
-	ArrayList<DogVO> getDogList(ReservListVO rl2);
-
+	ArrayList<DogVO> getDogList();
 
 
 }
