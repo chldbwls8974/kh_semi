@@ -31,10 +31,13 @@
 		 			<label>나이</label>
 		 			<input type="number" class="form-control" name="d_age" >
 		 		</div>
-		 		<div class = "form-group">
-		 			<label>성별</label>
-		 			<input type="text" maxlength="1" style="text-transform: uppercase;" class="form-control" name="d_gen" placeholder="M or F">
-		 		</div>
+		 		<div class="form-group">
+					<label>성별</label>
+					<select class="form-control" id="doggen" name="d_gen">
+						<option>M</option>
+						<option>F</option>
+					</select>
+				</div>
 		 		<div class = "form-group">
 		 			<label>무게</label>
 		 			<input type="number" class="form-control" name="d_kg" placeholder="kg 제외하고 입력">
