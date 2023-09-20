@@ -13,7 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <div class="container mt-5">
 
 	<h1>개인정보 수정</h1>
