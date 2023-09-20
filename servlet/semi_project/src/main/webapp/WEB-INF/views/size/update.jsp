@@ -20,15 +20,15 @@
  	<form action="<c:url value='/size/update'/>" method="post" class="mt-4">
  		<div class = "form-group">
  			<label>소형</label>
- 			<input type="text" class="form-control" name="si_min_kg_s"  placeholder="${sSize.si_min_kg}" required>
+ 			<input type="number" class="form-control" name="si_min_kg_s"  placeholder="${sSize.si_min_kg}" required>
  		</div>
  		<div class = "form-group">
  			<label>중형</label>
- 			<input type="text" class="form-control" name="si_min_kg_m"  placeholder="${mSize.si_min_kg}" required>
+ 			<input type="number" class="form-control" name="si_min_kg_m"  placeholder="${mSize.si_min_kg}" required>
  		</div>
  		<div class = "form-group">
  			<label>대형</label>
- 			<input type="text" class="form-control" name="si_min_kg_l"  placeholder="${lSize.si_min_kg}" required>
+ 			<input type="number" class="form-control" name="si_min_kg_l"  placeholder="${lSize.si_min_kg}" required>
  		</div>
  		
  		<button class="btn btn-outline-warning col-12">변경</button>
