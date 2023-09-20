@@ -10,6 +10,4 @@ public interface ReservListService {
 
 	ArrayList<ReservListVO> getReservListArray(String rl_re_num);
 
-
-
 }
