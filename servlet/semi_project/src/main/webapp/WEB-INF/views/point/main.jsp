@@ -59,15 +59,7 @@
 		
 		
 		ajaxObjectToJson(false, 'post','<c:url value="/point/update"/>', data, (a)=>{
-			if(a == ''){
-			alert('수정완료')
-			console.log('수정완료')
-				
-			}else{
-			alert('수정완료')
-			console.log('수정완료')
-				
-			}
+				alert('수정완료')
 		})			
 		
 	})
