@@ -27,7 +27,7 @@
  		</div>
  		<div class = "form-group">
  			<label>나이</label>
- 			<input type="text" class="form-control" name="d_age">
+ 			<input type="number" class="form-control" name="d_age">
  		</div>
  		<div class = "form-group">
  			<label>성별</label>
@@ -35,7 +35,7 @@
  		</div>
  		<div class = "form-group">
  			<label>무게</label>
- 			<input type="text" class="form-control" name="d_kg" placeholder="kg 제외하고 입력">
+ 			<input type="number" class="form-control" name="d_kg" placeholder="kg 제외하고 입력">
  		</div>
  		<div class = "form-group">
  			<label>특이사항</label>
@@ -58,6 +58,9 @@
     <%
        }
     %>
+    
+
+    
 	</script>
 </body>
 </html>
