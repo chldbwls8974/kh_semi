@@ -6,6 +6,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kr.kh.app.service.MemberService;
+import kr.kh.app.service.MemberServiceImp;
 import kr.kh.app.service.PointService;
 import kr.kh.app.service.PointServiceImp;
 import kr.kh.app.vo.PointVO;
@@ -13,6 +15,7 @@ import kr.kh.app.vo.PointVO;
 public class PointInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private PointService pointService = new PointServiceImp();
+	private MemberService memberService = new MemberServiceImp();
 	
     public PointInsert() {
         super();
@@ -31,6 +34,8 @@ public class PointInsert extends HttpServlet {
 		if(pointService.insertPoint(point)) {
 			ok = true;
 		}
+		 //member 테이블에 업데이트
+  		memberService.updateUserPoint(me_id, pointService.getUserPoint(me_id));
 		request.setAttribute("ok", ok);
 		doGet(request, response);
 	}

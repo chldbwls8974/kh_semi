@@ -31,6 +31,7 @@
 			      <tr>
 			        <td>
 				        <input type="hidden" value="${point.po_num}" class="form-control" name="po_num">
+				        <input type="hidden" value="${point.po_me_id}" class="form-control" name="po_me_id">
 				        <input type="number" value="${point.po_point}" class="form-control" name="po_point" min="0" required>
 			        </td>
 			        <td>
@@ -54,7 +55,8 @@
 		let data = {
 				num : $(this).parents('tr').find('[name=po_num]').val(),
 				point : $(this).parents('tr').find('[name=po_point]').val(),
-				content : $(this).parents('tr').find('[name=po_content]').val()
+				content : $(this).parents('tr').find('[name=po_content]').val(),
+				id : $(this).parents('tr').find('[name=po_me_id]').val()
 		}
 		
 		
@@ -68,7 +70,8 @@
 		let data = {
 				num : $(this).parents('tr').find('[name=po_num]').val(),
 				point : $(this).parents('tr').find('[name=po_point]').val(),
-				content : $(this).parents('tr').find('[name=po_content]').val()
+				content : $(this).parents('tr').find('[name=po_content]').val(),
+				id : $(this).parents('tr').find('[name=po_me_id]').val()
 		}
 		
 		
