@@ -181,4 +181,10 @@ public class ReservServiceImp implements ReservService{
 	}
 
 
+	@Override
+	public ArrayList<ReservationVO> getReservArray() {
+		return reservDao.selectReservArray();
+	}
+
+
 }

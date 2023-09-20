@@ -15,5 +15,7 @@ public interface ReservDAO {
 
 	boolean updateReserv(@Param("reserv")ReservationVO reserv);
 
+	ArrayList<ReservationVO> selectReservArray();
+
 
 }

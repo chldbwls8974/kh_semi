@@ -26,5 +26,7 @@ public interface ReservService {
 
 	boolean isCorrectSelect(String br_num, String[] dataArray, String[] roomArray);
 
+	ArrayList<ReservationVO> getReservArray();
+
 
 }

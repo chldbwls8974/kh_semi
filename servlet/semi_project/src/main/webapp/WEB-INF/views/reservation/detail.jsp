@@ -24,16 +24,32 @@
 		<thead>
 	      <tr>
 	        <th>예약리스트 번호</th>
+	        <th>이용 시작일	</th>
+	        <th>이용 종료일	</th>
 	        <th>반려동물 번호</th>
-	        <th>반려견 이름</th>
+	        <th>반려동물 이름</th>
 	        <th>방번호</th>
 	        <th>예약번호</th>
 	      </tr>
 	    </thead>
 	    <tbody>
-	      <c:forEach items="${rl }" var="rl">
+	      <c:forEach items="${rl}" var="rl">
 		      <tr>
-		      	<td>${rl.rl_num}</td>
+			    <td>${rl.rl_num}</td>
+				<td>
+		      	<c:forEach items="${reservation}" var="reservation">
+		      		<c:if test="${reservation.re_num eq rl.rl_re_num}">
+						${reservation.re_date}
+					</c:if>
+				</c:forEach>
+				</td>
+				<td>
+		      	<c:forEach items="${reservation}" var="reservation">
+		      		<c:if test="${reservation.re_num eq rl.rl_re_num}">
+						${reservation.re_end_date}
+					</c:if>
+				</c:forEach>
+				</td>
 		      	<td>${rl.rl_d_num}</td>
 		      	<td>
 		      	<c:forEach items="${Doglist}" var="dog">

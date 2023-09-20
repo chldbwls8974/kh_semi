@@ -25,4 +25,8 @@
 		re_real_price = #{reserv.re_real_price}
 		where re_num = #{reserv.re_num}
 	</update>
+	<select id="selectReservArray">
+		select * from reservation
+	</select>
+	
 </mapper>
