@@ -25,11 +25,11 @@
 
 		 		<div class = "form-group">
 		 			<label>반려견 이름</label>
-		 			<input type="text" class="form-control" name="d_name" >
+		 			<input type="text" class="form-control" name="d_name" required >
 		 		</div>
 		 		<div class = "form-group">
 		 			<label>나이</label>
-		 			<input type="number" class="form-control" name="d_age" >
+		 			<input type="number" class="form-control" name="d_age"   min="1" required >
 		 		</div>
 		 		<div class="form-group">
 					<label>성별</label>
@@ -40,7 +40,7 @@
 				</div>
 		 		<div class = "form-group">
 		 			<label>무게</label>
-		 			<input type="number" class="form-control" name="d_kg" placeholder="kg 제외하고 입력">
+		 			<input type="number" class="form-control" name="d_kg" placeholder="kg 제외하고 입력"  min="1" required>
 		 		</div>
 		 		<div class = "form-group">
 		 			<label>특이사항</label>

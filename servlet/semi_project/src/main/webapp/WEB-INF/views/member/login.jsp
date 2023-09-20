@@ -19,11 +19,11 @@
  	<form action="<c:url value='/member/login'/>" method="post" class="mt-4">
  		<div class = "form-group">
  			<label>아이디</label>
- 			<input type="text" class="form-control" name="me_id">
+ 			<input type="text" class="form-control" name="me_id" required>
  		</div>
  		<div class = "form-group">
  			<label>비번</label>
- 			<input type="password" class="form-control" name="me_pw">
+ 			<input type="password" class="form-control" name="me_pw" required>
  		</div>
  	
  		<button class="btn btn-outline-warning col-12">로그인</button>

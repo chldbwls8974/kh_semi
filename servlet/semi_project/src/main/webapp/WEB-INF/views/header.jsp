@@ -49,6 +49,12 @@
     width: 100%;
     height: 100%;
   }
+  
+  	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+	}
   </style>
 <title>Insert title here</title>
 </head>
