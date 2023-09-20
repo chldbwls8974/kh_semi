@@ -35,8 +35,12 @@
 					<input type="number" class="form-control" name="ro_now_cap" placeholder="숫자를 입력하세요.">
 				</div>
 				<div class="form-group">
-					<label>객실 타입</label>
-					<input type="text" class="form-control" name="ro_detail" placeholder="S,M,L 중 하나만 입력하세요.">
+			 	<label for="detail">객실 타입</label>
+					  <select class="form-control" id="roomtype" name="detail">
+					    <option>S</option>
+					    <option>M</option>
+					    <option>L</option>
+					  </select>
 				</div>
 				<button class="btn btn-outline-success">등록</button>
 			</form>
