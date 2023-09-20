@@ -48,7 +48,7 @@ pageEncoding="UTF-8"%>
  		</div>
  		<div class = "form-group">
  			<label>핸드폰 번호</label>
- 			<input type="text" class="form-control" name="me_phone">
+ 			<input type="number" maxlength="11" oninput="phoneLength(this);" class="form-control" name="me_phone">
  		</div>
  		<button class="btn btn-outline-warning col-12">회원가입</button>
  	</form>
@@ -138,6 +138,14 @@ pageEncoding="UTF-8"%>
 				return false;
 			}
 		}
+		
+	    //전화번호 길이제한
+	    function phoneLength(e){
+	    	if(e.value.length > e.maxLength){
+	    		e.value = e.value.slice(0,e.maxLength);
+	    	}
+	    }
+		
 	</script>
 </body>
 </html>
