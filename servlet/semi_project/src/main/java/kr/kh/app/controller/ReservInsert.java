@@ -74,7 +74,7 @@ public class ReservInsert extends HttpServlet {
 			e.printStackTrace();
 		}
         // serviceimp에서 두 날짜 사이의 날짜를 추출하고 db에 저장 >> 위치 바꿔ㅜ저야함
-        //reservDateService.calculateDate(start_date,end_date);
+        
         
         
       
