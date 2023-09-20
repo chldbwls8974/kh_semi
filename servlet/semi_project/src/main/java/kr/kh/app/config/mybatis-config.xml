@@ -29,6 +29,7 @@
     <mapper resource="kr/kh/app/dao/PriceMapper.xml"/>
     <mapper resource="kr/kh/app/dao/ReservMapper.xml"/>
     <mapper resource="kr/kh/app/dao/ReservListMapper.xml"/>
+    <mapper resource="kr/kh/app/dao/ReservDateMapper.xml"/>
   </mappers>
   
 </configuration>

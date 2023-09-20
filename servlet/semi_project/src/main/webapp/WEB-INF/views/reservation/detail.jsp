@@ -19,7 +19,7 @@
   <h2>예약 상세 정보</h2>
  
    <table class="table table-hover mt-4">
-    <label><b>'${user.me_id}'</b>회원님의 예약 상세 정보</label>	
+    <label><b>'${user.me_id}'</b>회원님의 예약 상세 정보</label>	<br>
 		<thead>
 	      <tr>
 	        <th>예약리스트 번호</th>
@@ -39,7 +39,22 @@
 		  </c:forEach>
 		</tbody>     
 	</table>
-	<a href="<c:url value='/member/mypage'/>">목록으로</a>
+	<hr>
+   	<div class="pb-3">
+   		<table class="table table-bordered mt-1">
+			<thead>
+				<tr>
+					<th>반려견 이름</th>
+				</tr>
+			</thead>
+				<c:forEach items="${list}" var="dog">
+					<tr>
+						<td>${dog.d_name}</td>
+					</tr>
+				</c:forEach>
+		</table>
+   	</div>
+	<a class="btn btn-float-right btn-outline-success mt-1 col-3 " href="/semi_project/member/mypage" role="button">목록으로</a>
 </div>
 		
 </body>

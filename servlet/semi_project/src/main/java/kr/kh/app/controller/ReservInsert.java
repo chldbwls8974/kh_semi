@@ -1,6 +1,9 @@
 package kr.kh.app.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -50,6 +53,23 @@ public class ReservInsert extends HttpServlet {
         String[] dogArray = request.getParameterValues("dogSelect");
         String[] roomArray = request.getParameterValues("roomSelect");
         
+        Date start_date = null;
+        Date end_date = null;
+        
+        // 받아온 문자열의 날짜들을 날짜형으로 형변환
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+			start_date = formatter.parse(from);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+        try {
+			end_date = formatter.parse(to);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+        System.out.println(start_date);
+        System.out.println(end_date);
         
 		
 		

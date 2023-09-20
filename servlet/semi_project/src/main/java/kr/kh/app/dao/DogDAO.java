@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import kr.kh.app.vo.DogVO;
 import kr.kh.app.vo.MemberVO;
+import kr.kh.app.vo.ReservListVO;
 
 public interface DogDAO {
 
@@ -18,5 +19,7 @@ public interface DogDAO {
 	int deleteDog(@Param("d_num")String d_num);
 
 	boolean updateDog(@Param("dog")DogVO dog);
+
+	ArrayList<DogVO> selectDogList(@Param("rl2")ReservListVO rl2);
 
 }

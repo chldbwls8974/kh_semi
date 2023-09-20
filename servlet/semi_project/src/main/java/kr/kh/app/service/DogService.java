@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import kr.kh.app.vo.DogVO;
 import kr.kh.app.vo.MemberVO;
+import kr.kh.app.vo.ReservListVO;
 
 public interface DogService {
 
@@ -16,6 +17,8 @@ public interface DogService {
 	DogVO getDog(String d_me_id);
 
 	boolean updateDog(DogVO dog);
+
+	ArrayList<DogVO> getDogList(ReservListVO rl2);
 
 
 

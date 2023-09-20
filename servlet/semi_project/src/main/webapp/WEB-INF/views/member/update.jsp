@@ -30,7 +30,7 @@
  		</div>
  		<div class = "form-group">
  			<label>연락처</label>
- 			<input type="text" class="form-control" name="phone" required>
+ 			<input type="number" maxlength="11" oninput="phoneLength(this);" class="form-control" name="phone" required>
  		</div>
  	
  		<button class="btn btn-outline-warning col-12">수정</button>
@@ -52,6 +52,14 @@
     <%
        }
     %>
+    
+  	//전화번호 길이제한
+    function phoneLength(e){
+    	if(e.value.length > e.maxLength){
+    		e.value = e.value.slice(0,e.maxLength);
+    	}
+    }
+    
 	</script>
 </body>
 </html>

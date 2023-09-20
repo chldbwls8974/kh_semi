@@ -26,5 +26,8 @@
 		where 
 			d_num = #{dog.d_num}
 	</update>
+	<select id="selectDogList" resultType="kr.kh.app.vo.DogVO">
+		select * from dog where d_num = #{rl2.rl_d_num}
+	</select>
 	<!-- ${dog} -->
 </mapper>
