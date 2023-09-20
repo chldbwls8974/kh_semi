@@ -37,14 +37,6 @@ public class ReservListServiceImp implements ReservListService{
 		reservListDao.insertReservList(reservlist);
 	}
 
-	/*@Override
-	public ReservListVO getReservList(String rl_re_num) {
-		if(rl_re_num == null) {
-			return null;
-	}
-	return reservListDao.selectReservList(rl_re_num);
-	}*/
-
 	@Override
 	public ArrayList<ReservListVO> getReservListArray(String rl_re_num) {
 		return reservListDao.selectReservListArray(rl_re_num);

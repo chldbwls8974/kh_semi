@@ -28,9 +28,16 @@ public class ReservSelect extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// ajax를 통해 넘겨받은 지점 번호, 개 번호
+		// ajax를 통해 넘겨받은 지점 번호, 개 번호, 날짜
 		Integer br_num = Integer.parseInt(request.getParameter("br_num"));
 		String d_num = request.getParameter("d_num");
+		// 날짜
+		String start_date = request.getParameter("start_date");
+		String end_date = request.getParameter("end_date");
+		
+		
+		// 날짜에 맞는 
+		
 		//개 번호로 사이즈 가져오기
 		DogVO dog = dogService.getDog(d_num);
 		String d_size = dog.getD_si_name();
