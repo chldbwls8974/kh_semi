@@ -65,7 +65,7 @@
 		</tbody>     
 	</table>
 	<hr>
-	<a class="btn btn-float-right btn-outline-success mt-1 col-3 " href="/semi_project/member/mypage" role="button">목록으로</a>
+	<a class="btn btn-float-right btn-outline-success mt-1 col-3 " href="/semi_project/member/reservation" role="button">목록으로</a>
 </div>
 		
 </body>
