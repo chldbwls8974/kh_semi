@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import kr.kh.app.dao.DogDAO;
 import kr.kh.app.vo.DogVO;
 import kr.kh.app.vo.MemberVO;
+import kr.kh.app.vo.ReservListVO;
 
 public class DogServiceImp implements DogService {
 	private DogDAO dogDao;
@@ -67,6 +68,12 @@ public class DogServiceImp implements DogService {
 			return false;
 		}
 		return dogDao.updateDog(dog);
+	}
+
+	@Override
+	public ArrayList<DogVO> getDogList(ReservListVO rl2) {
+		return dogDao.selectDogList(rl2);
+
 	}
 
 

@@ -41,4 +41,5 @@ public class ReservListServiceImp implements ReservListService{
 	public ArrayList<ReservListVO> getReservListArray(String rl_re_num) {
 		return reservListDao.selectReservListArray(rl_re_num);
 	}
+
 }

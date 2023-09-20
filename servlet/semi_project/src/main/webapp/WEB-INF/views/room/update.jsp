@@ -28,11 +28,11 @@
 				</div>
 				<div class="form-group">
 					<label>최대 수용 마리 수</label>
-					<input type="text" class="form-control" name="ro_max_cap" placeholder="숫자를 입력하세요.">
+					<input type="number" class="form-control" name="ro_max_cap" placeholder="숫자를 입력하세요.">
 				</div>
 				<div class="form-group">
 					<label>현재 수용 마리 수</label>
-					<input type="text" class="form-control" name="ro_now_cap" placeholder="숫자를 입력하세요.">
+					<input type="number" class="form-control" name="ro_now_cap" placeholder="숫자를 입력하세요.">
 				</div>
 				<div class="form-group">
 					<label>객실 타입</label>

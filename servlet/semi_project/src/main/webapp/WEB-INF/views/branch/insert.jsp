@@ -14,7 +14,6 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 	<div class="container mt-5">
 	<h2>지점 등록</h2>
 	<%-- <form action = "" method="post">
@@ -43,12 +42,13 @@
 		</div>
 		<div class = "form-group">
 			<label>전화번호</label>
-			<input type="text" class="form-control" name="br_phone">
+			<input type="number" maxlength="11" oninput="phoneLength(this);" class="form-control" name="br_phone">
 		</div>
  		<button class="btn btn-outline-warning col-12">등록</button>
  	</form>	
  	<br><a href="/semi_project" class="btn btn-outline-dark col-3 btn float-right" >취소</a><br>
 </div>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 	<script>
 		 <% 
 	       Boolean result = (Boolean)request.getAttribute("ok");
@@ -67,6 +67,13 @@
 	    if ('${user}' == null || '${user.me_authority}' != 'ADMIN') {
 	    	alert('권한이 없습니다.');
 		    location.href="/semi_project";
+	    }
+	    
+	    //전화번호 길이제한
+	    function phoneLength(e){
+	    	if(e.value.length > e.maxLength){
+	    		e.value = e.value.slice(0,e.maxLength);
+	    	}
 	    }
 	</script>
 </body>
