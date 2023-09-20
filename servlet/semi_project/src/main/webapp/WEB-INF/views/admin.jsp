@@ -10,7 +10,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<title>Insert title here</title>
+<title>Admin Page</title>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
@@ -19,19 +19,19 @@
 	  <h2>관리자 권한</h2>
 	  <ul class="nav flex-column">
 	    <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/branch/list">지점관리</a>
+	      <a class="nav-link" href="/semi_project/branch/list">지점 관리</a>
 	    </li>
 	    <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/room/main">방 관리</a>
+	      <a class="nav-link" href="/semi_project/room/main">객실 관리</a>
 	    </li>
 	    <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/member/list">회원관리</a>
+	      <a class="nav-link" href="/semi_project/member/list">회원 관리</a>
 	    </li>
 	    <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/point/main">포인트관리</a>
+	      <a class="nav-link" href="/semi_project/point/main">포인트 관리</a>
 	    </li>
 	    <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/price/update">가격수정</a>
+	      <a class="nav-link" href="/semi_project/price/update">객실 가격 수정</a>
 	    </li>
 	    <li class="nav-item">
 	      <a class="nav-link" href="/semi_project/level/update">등급별 혜택 수정</a>
