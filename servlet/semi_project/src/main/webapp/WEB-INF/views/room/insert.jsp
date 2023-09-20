@@ -10,16 +10,16 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<title>객실등록</title>
+<title>객실 등록</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container mt-5">
-		<h3>방 추가하기</h3>
+		<h3>객실 등록하기</h3>
 	<!-- 관리자만 등록 버튼 보이게 필요 -->
 		<form action="<c:url value='/room/insert'/>" id="frm" method="post" class="mt-4">
 			<div class="form-group">
-				<label>지점번호</label>
+				<label>지점 번호</label>
 				<select class="form-control" name="branch">
 					<option value="0">지점 선택</option>
 					<c:forEach items="${branchList }" var="br">
@@ -28,8 +28,8 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<label>방이름</label>
-				<input type="text" class="form-control" name="name" placeholder="방이름" required>
+				<label>객실 이름</label>
+				<input type="text" class="form-control" name="name" placeholder="방이름">
 			</div>
 			<div class="form-group">
 				<label>최대 수용 마리수</label>
