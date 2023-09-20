@@ -59,12 +59,20 @@
 		
 		
 		ajaxObjectToJson(false, 'post','<c:url value="/point/update"/>', data, (a)=>{
+			if(a == ''){
 			alert('수정완료')
+			console.log('수정완료')
+				
+			}else{
+			alert('수정완료')
+			console.log('수정완료')
+				
+			}
 		})			
 		
 	})
-
-		$(document).on('click','[name=btn-delete]',function(){
+	
+	$(document).on('click','[name=btn-delete]',function(){
 		let data = {
 				num : $(this).parents('tr').find('[name=po_num]').val(),
 				point : $(this).parents('tr').find('[name=po_point]').val(),
