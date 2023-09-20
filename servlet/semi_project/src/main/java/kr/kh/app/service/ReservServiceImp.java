@@ -164,7 +164,7 @@ public class ReservServiceImp implements ReservService{
 
 	@Override
 	public boolean isCorrectSelect(String br_num, String[] dogArray, String[] roomArray) {
-		if(br_num == null || br_num == "0") {
+		if(br_num == null || br_num.equals("0")) {
 			return false;
 		}
 		for(String tmp : dogArray) {
