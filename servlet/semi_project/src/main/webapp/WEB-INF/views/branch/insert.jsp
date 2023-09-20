@@ -42,7 +42,7 @@
 		</div>
 		<div class = "form-group">
 			<label>전화번호</label>
-			<input type="number" maxlength="11" oninput="phoneLength(this);" class="form-control" name="br_phone">
+			<input type="number" maxlength="11" oninput="phoneLength(this);" class="form-control" name="br_phone" placeholder="- 빼고 입력">
 		</div>
  		<button class="btn btn-outline-warning col-12">등록</button>
  	</form>	

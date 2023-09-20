@@ -29,11 +29,11 @@
 			</div>
 			<div class="form-group">
 				<label>방이름</label>
-				<input type="text" class="form-control" name="name" placeholder="방이름">
+				<input type="text" class="form-control" name="name" placeholder="방이름" required>
 			</div>
 			<div class="form-group">
 				<label>최대 수용 마리수</label>
-				<input type="number" class="form-control" name="max_cap" placeholder="숫자만 입력하시오.">
+				<input type="number" class="form-control" name="max_cap" placeholder="숫자만 입력하시오." min="1" required>
 			</div>
 			<div class="form-group">
 			 	<label for="detail">객실 타입</label>

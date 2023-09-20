@@ -31,7 +31,7 @@
 			      <tr>
 			        <td>
 				        <input type="hidden" value="${point.po_num}" class="form-control" name="po_num">
-				        <input type="number" value="${point.po_point}" class="form-control" name="po_point">
+				        <input type="number" value="${point.po_point}" class="form-control" name="po_point" min="0" required>
 			        </td>
 			        <td>
 			       	 <input type="text" value="${point.po_content}" class="form-control" name="po_content">
