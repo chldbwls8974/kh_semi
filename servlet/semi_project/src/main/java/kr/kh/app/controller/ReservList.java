@@ -39,10 +39,10 @@ public class ReservList extends HttpServlet {
 		
 		/*String rl_d_num = request.getParameter("rl_d_num");*/
 		ReservListVO rl2 = (ReservListVO)session.getAttribute("rl_d_num"); 
-
+		System.out.println(rl2);
 		ArrayList<DogVO> list = dogService.getDogList(rl2);
 		request.setAttribute("list", list);
-
+		System.out.println(list);
 		request.getRequestDispatcher("/WEB-INF/views/reservation/detail.jsp").forward(request, response);
 	}
 

@@ -14,6 +14,8 @@ import kr.kh.app.service.DogService;
 import kr.kh.app.service.DogServiceImp;
 import kr.kh.app.service.PriceService;
 import kr.kh.app.service.PriceServiceImp;
+import kr.kh.app.service.ReservDateService;
+import kr.kh.app.service.ReservDateServiceImp;
 import kr.kh.app.service.ReservListService;
 import kr.kh.app.service.ReservListServiceImp;
 import kr.kh.app.service.ReservService;
@@ -29,13 +31,13 @@ public class ReservInsert extends HttpServlet {
 	ReservListService reservListService = new ReservListServiceImp();
 	PriceService priceService = new PriceServiceImp();
 	DogService dogService = new DogServiceImp();
+	ReservDateService reservDateService = new ReservDateServiceImp();
+	
     public ReservInsert() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		MemberVO user = (MemberVO)session.getAttribute("user"); 
 		request.getRequestDispatcher("/WEB-INF/views/reservation/insert.jsp").forward(request, response);
 		
 	}
@@ -54,6 +56,10 @@ public class ReservInsert extends HttpServlet {
         int r_num3 = 0;
         Date start_date = null;
         Date end_date = null;
+        // 입력받은 개와 방 정보 받아오기
+		String[] dataArray = request.getParameterValues("dogSelect");
+		String[] roomArray = request.getParameterValues("roomSelect");
+        
         
         // 받아온 문자열의 날짜들을 날짜형으로 형변환
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -67,11 +73,11 @@ public class ReservInsert extends HttpServlet {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-        System.out.println(start_date);
-        System.out.println(end_date);
+        // serviceimp에서 두 날짜 사이의 날짜를 추출하고 db에 저장 >> 위치 바꿔ㅜ저야함
+        //reservDateService.calculateDate(start_date,end_date);
         
-		String[] dataArray = request.getParameterValues("dogSelect");
-		String[] roomArray = request.getParameterValues("roomSelect");
+        
+      
 		
 		  if (dataArray != null) {
 	            // 변수 초기화

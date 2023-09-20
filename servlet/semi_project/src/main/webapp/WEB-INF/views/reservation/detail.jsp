@@ -49,7 +49,7 @@
 			</thead>
 				<c:forEach items="${list}" var="dog">
 					<tr>
-						<td>${dog.d_name}</td>
+						<td>${dog.rl_d_name}</td>
 					</tr>
 				</c:forEach>
 		</table>

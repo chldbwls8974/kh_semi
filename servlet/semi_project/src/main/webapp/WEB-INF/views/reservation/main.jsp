@@ -83,18 +83,45 @@ pageEncoding="UTF-8"%>
 		//전역변수
 		//let dogs = ${dogList}
 		// 보유 멍멍 마릿수
-		var d_count =  $('[name=dogSelect] option').length -1
-		var br_num
-		var d_num
+		let count = 0;
+		let str = '';
+		let d_count =  $('[name=dogSelect] option').length -1
+		let br_num
+		let d_num
+	/* 	var date
+		var start_date
+		var end_date
+		 */
+		$(document).on('change', '[name=from]', function(){
+			start_date = $(this).val()
+		})
+		$(document).on('change', '[name=to]', function(){
+			end_date = $(this).val()
+		})
 		$('[name=branchSelect]').change(function(){
 			br_num = $(this).val()
 		})
 		$(document).on('change', '[name=dogSelect]', function(){
 			d_num = $(this).val()
+			
 		})
-		var count = 0;
-		var str = '';
+		
+		
+	/* 	
+		// 시작-종료날짜 사이의 날짜 추출
+		function getDatesStartToLast(startDate, lastDate) {
+		var regex = RegExp(/^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/);
+		if(!(regex.test(startDate) && regex.test(lastDate))) return "Not Date Format";
+		var result = [];
+		var curDate = new Date(startDate);
+		while(curDate <= new Date(lastDate)) {
+			result.push(curDate.toISOString().split("T")[0]);
+			curDate.setDate(curDate.getDate() + 1);
+		}
+		return result;
+		} */
 	
+		
 	
 	 	// 두번째 방 추가
 		$(document).on('click','.btn-add',function(){
@@ -157,7 +184,10 @@ pageEncoding="UTF-8"%>
 		
 		// 조건에 맞는 방 찾기
 		$(document).on('click','[name=btn-search]',function(){
+			//date = getDatesStartToLast(start_date,end_date)
 			let data = {
+					start_date : start_date,
+					end_date : end_date,
 					br_num : br_num,
 					/* d_size -> d_num */
 					d_num :  d_num
