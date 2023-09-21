@@ -9,20 +9,22 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import kr.kh.app.service.BranchService;
-import kr.kh.app.service.BranchServiceImp;
 import kr.kh.app.service.DogService;
 import kr.kh.app.service.DogServiceImp;
+import kr.kh.app.service.ReservDateService;
+import kr.kh.app.service.ReservDateServiceImp;
 import kr.kh.app.service.RoomService;
 import kr.kh.app.service.RoomServiceImp;
 import kr.kh.app.vo.DogVO;
+import kr.kh.app.vo.ReservDateVO;
 import kr.kh.app.vo.RoomVO;
 
 public class ReservSelect extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private BranchService branchService = new BranchServiceImp();
     private RoomService roomService = new RoomServiceImp();
 	private DogService dogService = new DogServiceImp();
+	private ReservDateService reservDateService = new ReservDateServiceImp();
+	
     public ReservSelect() {
         super();
     }
@@ -35,8 +37,8 @@ public class ReservSelect extends HttpServlet {
 		String start_date = request.getParameter("start_date");
 		String end_date = request.getParameter("end_date");
 		
-		
-		// 날짜에 맞는 
+		// start end 사이에 해당하는 방 골라오기.
+		//ArrayList<ReservDateVO> roomdatelist = reservDateService.selectDateRoom(start_date, end_date,br_num);
 		
 		//개 번호로 사이즈 가져오기
 		DogVO dog = dogService.getDog(d_num);

@@ -1,6 +1,9 @@
 package kr.kh.app.service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import kr.kh.app.vo.MemberVO;
 import kr.kh.app.vo.ReservationVO;
@@ -13,7 +16,7 @@ public interface ReservService {
 
 	int largeCount(String str1, String str2, String str3);
 
-	int calStayDay(String from, String to);
+	List<LocalDate> calStayDay(String from, String to);
 
 	ArrayList<ReservationVO> getMyReservArray(MemberVO user);
 
