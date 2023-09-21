@@ -69,7 +69,7 @@ public class MemberServiceImp implements MemberService {
 		if(member.getMe_id() == null || member.getMe_pw()==null) {
 			return null;
 		}
-		
+		//로그인 시도 한 id를 이용해서 db의 유저정보를 가져옴
 		MemberVO dbMember = memberDao.selectMember(member.getMe_id());
 		if(dbMember == null) {
 			return null;
