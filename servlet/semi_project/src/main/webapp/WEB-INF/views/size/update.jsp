@@ -10,7 +10,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<title>등급혜택 변경</title>
+<title>견종별 몸무게 기준 수정</title>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
@@ -20,15 +20,15 @@
  	<form action="<c:url value='/size/update'/>" method="post" class="mt-4">
  		<div class = "form-group">
  			<label>소형</label>
- 			<input type="number" class="form-control" name="si_min_kg_s"  placeholder="${sSize.si_min_kg}" required>
+ 			<input type="number" class="form-control" name="si_min_kg_s"  placeholder="${sSize.si_min_kg}" min="1" max="100" required>
  		</div>
  		<div class = "form-group">
  			<label>중형</label>
- 			<input type="number" class="form-control" name="si_min_kg_m"  placeholder="${mSize.si_min_kg}" required>
+ 			<input type="number" class="form-control" name="si_min_kg_m"  placeholder="${mSize.si_min_kg}" min="1" max="100" required>
  		</div>
  		<div class = "form-group">
  			<label>대형</label>
- 			<input type="number" class="form-control" name="si_min_kg_l"  placeholder="${lSize.si_min_kg}" required>
+ 			<input type="number" class="form-control" name="si_min_kg_l"  placeholder="${lSize.si_min_kg}" min="1" max="100" required>
  		</div>
  		
  		<button class="btn btn-outline-warning col-12">변경</button>

@@ -71,9 +71,8 @@ public class DogServiceImp implements DogService {
 	}
 
 	@Override
-	public ArrayList<DogVO> getDogList(ReservListVO rl2) {
-		return dogDao.selectDogList(rl2);
-
+	public ArrayList<DogVO> getDogList() {
+		return dogDao.selectDogList();
 	}
 
 

@@ -10,7 +10,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<title>Insert title here</title>
+<title>포인트 관리</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
@@ -31,7 +31,8 @@
 			      <tr>
 			        <td>
 				        <input type="hidden" value="${point.po_num}" class="form-control" name="po_num">
-				        <input type="number" value="${point.po_point}" class="form-control" name="po_point">
+				        <input type="hidden" value="${point.po_me_id}" class="form-control" name="po_me_id">
+				        <input type="number" value="${point.po_point}" class="form-control" name="po_point" min="0" required>
 			        </td>
 			        <td>
 			       	 <input type="text" value="${point.po_content}" class="form-control" name="po_content">
@@ -54,21 +55,23 @@
 		let data = {
 				num : $(this).parents('tr').find('[name=po_num]').val(),
 				point : $(this).parents('tr').find('[name=po_point]').val(),
-				content : $(this).parents('tr').find('[name=po_content]').val()
+				content : $(this).parents('tr').find('[name=po_content]').val(),
+				id : $(this).parents('tr').find('[name=po_me_id]').val()
 		}
 		
 		
 		ajaxObjectToJson(false, 'post','<c:url value="/point/update"/>', data, (a)=>{
-			alert('수정완료')
+				alert('수정완료')
 		})			
 		
 	})
-
-		$(document).on('click','[name=btn-delete]',function(){
+	
+	$(document).on('click','[name=btn-delete]',function(){
 		let data = {
 				num : $(this).parents('tr').find('[name=po_num]').val(),
 				point : $(this).parents('tr').find('[name=po_point]').val(),
-				content : $(this).parents('tr').find('[name=po_content]').val()
+				content : $(this).parents('tr').find('[name=po_content]').val(),
+				id : $(this).parents('tr').find('[name=po_me_id]').val()
 		}
 		
 		

@@ -10,7 +10,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<title>Insert title here</title>
+<title>반려견 등록</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
@@ -23,19 +23,22 @@
  		</div>
  		<div class = "form-group">
  			<label>반려견 이름</label>
- 			<input type="text" class="form-control" name="d_name">
+ 			<input type="text" class="form-control" name="d_name" required>
  		</div>
  		<div class = "form-group">
  			<label>나이</label>
- 			<input type="text" class="form-control" name="d_age">
+ 			<input type="number" class="form-control" name="d_age" min="1" required>
  		</div>
- 		<div class = "form-group">
- 			<label>성별</label>
- 			<input type="text" class="form-control" name="d_gen" placeholder="M or F">
- 		</div>
+ 		<div class="form-group">
+			<label>성별</label>
+			<select class="form-control" id="doggen" name="d_gen">
+				<option>M</option>
+				<option>F</option>
+			</select>
+		</div>
  		<div class = "form-group">
  			<label>무게</label>
- 			<input type="text" class="form-control" name="d_kg" placeholder="kg 제외하고 입력">
+ 			<input type="number" class="form-control" name="d_kg" placeholder="kg 제외하고 입력" min="1" required>
  		</div>
  		<div class = "form-group">
  			<label>특이사항</label>
@@ -58,6 +61,9 @@
     <%
        }
     %>
+    
+
+    
 	</script>
 </body>
 </html>

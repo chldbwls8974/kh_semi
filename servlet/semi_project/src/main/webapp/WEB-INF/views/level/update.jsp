@@ -10,7 +10,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<title>등급혜택 변경</title>
+<title>등급 혜택 변경</title>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
@@ -19,11 +19,11 @@
  	<form action="<c:url value='/level/update'/>" method="post" class="mt-4">
  		<div class = "form-group">
  			<label>일반회원 적립률</label>
- 			<input type="number" class="form-control" name="le_benefit"  placeholder="${level.le_benefit}" required>
+ 			<input type="number" class="form-control" name="le_benefit"  placeholder="${level.le_benefit}" min="1" max="100" required>
  		</div>
  		<div class = "form-group">
  			<label>vip회원 적립률</label>
- 			<input type="number" class="form-control" name="le_benefit_vip" placeholder="${levelVip.le_benefit}" required >
+ 			<input type="number" class="form-control" name="le_benefit_vip" placeholder="${levelVip.le_benefit}" min="1" max="100" required >
  		</div>
  		<button class="btn btn-outline-warning col-12">변경</button>
  	</form>	

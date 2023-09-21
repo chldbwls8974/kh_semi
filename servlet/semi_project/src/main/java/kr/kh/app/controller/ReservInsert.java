@@ -54,6 +54,9 @@ public class ReservInsert extends HttpServlet {
 		int r_num1 = 0;
         int r_num2 = 0;
         int r_num3 = 0;
+        String[] dogArray = request.getParameterValues("dogSelect");
+        String[] roomArray = request.getParameterValues("roomSelect");
+        
         Date start_date = null;
         Date end_date = null;
         // 입력받은 개와 방 정보 받아오기
@@ -79,21 +82,23 @@ public class ReservInsert extends HttpServlet {
         
       
 		
-		  if (dataArray != null) {
+		
+		
+		  if (dogArray != null) {
 	            // 변수 초기화
 			  d_num1 = null;
 			  d_num2 = null;
 			  d_num3 = null;
 	            
 	            // 데이터 처리 및 변수에 저장
-	            if (dataArray.length > 0) {
-	            	d_num1 = dataArray[0]; // 첫 번째 값
+	            if (dogArray.length > 0) {
+	            	d_num1 = dogArray[0]; // 첫 번째 값
 	            }
-	            if (dataArray.length > 1) {
-	            	d_num2 = dataArray[1]; // 두 번째 값
+	            if (dogArray.length > 1) {
+	            	d_num2 = dogArray[1]; // 두 번째 값
 	            }
-	            if (dataArray.length > 2) {
-	            	d_num3 = dataArray[2]; // 세 번째 값
+	            if (dogArray.length > 2) {
+	            	d_num3 = dogArray[2]; // 세 번째 값
 	            }
 
 	        }
@@ -126,23 +131,43 @@ public class ReservInsert extends HttpServlet {
 		ReservListVO reservlist2 = new ReservListVO(0,r_num2,d_num2, re_num);
 		ReservListVO reservlist3 = new ReservListVO(0,r_num3,d_num3, re_num);
 		
-		request.setAttribute("reserv", reserv);
+		//지점,개,방 하나라도 선택하지 않으면 false
+        boolean isCorrectSelect = reservService.isCorrectSelect(br_num, dogArray, roomArray);
+        System.out.println(isCorrectSelect);
+		//입실 날짜가 오늘과 같거나 오늘보다 빠르면 실패
 		
 		boolean ok = false;
-		if(reservService.insertReserv(reserv)) {
-			ok = true;
-			request.setAttribute("ok", ok);
-		};
-		if(d_num1 != null && r_num1 != 0 ) {
-			reservListService.insertReservList(reservlist1);
+		//true=db에 등록 , false=등록하지않고 메세지 출력
+		if(isCorrectSelect) {
+			//예약테이블에 추가하는 코드
+			request.setAttribute("reserv", reserv);
+			if(reservService.insertReserv(reserv)) {
+				ok = true;
+				request.setAttribute("ok", ok);
+			};
+			//예약리스트에 추가하는 코드
+			if(d_num1 != null && r_num1 != 0 ) {
+				reservListService.insertReservList(reservlist1);
+			}
+			if(d_num2 != null  && r_num2 != 0) {
+				reservListService.insertReservList(reservlist2);
+			}
+			if(d_num3 != null  && r_num3 != 0) {
+				reservListService.insertReservList(reservlist3);
+			}
 		}
-		if(d_num2 != null  && r_num2 != 0) {
-			reservListService.insertReservList(reservlist2);
+		else {
+			request.setAttribute("url", "/reservation/main");
+			request.setAttribute("msg", "예약 실패!");
+			request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
+			
 		}
-		if(d_num3 != null  && r_num3 != 0) {
-			reservListService.insertReservList(reservlist3);
+		
+		if(isCorrectSelect) {
+			doGet(request, response);
 		}
-		doGet(request, response);
+		
+		
 	}
 	
 	

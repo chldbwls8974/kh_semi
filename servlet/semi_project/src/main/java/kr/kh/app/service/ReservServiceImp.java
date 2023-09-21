@@ -162,4 +162,29 @@ public class ReservServiceImp implements ReservService{
 	}
 
 
+	@Override
+	public boolean isCorrectSelect(String br_num, String[] dogArray, String[] roomArray) {
+		if(br_num == null || br_num.equals("0")) {
+			return false;
+		}
+		for(String tmp : dogArray) {
+			if(tmp.equals("0") || tmp == null) {
+				return false;
+			}
+		}
+		for(String tmp : roomArray) {
+			if(tmp.equals("0") || tmp == null) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+
+	@Override
+	public ArrayList<ReservationVO> getReservArray() {
+		return reservDao.selectReservArray();
+	}
+
+
 }

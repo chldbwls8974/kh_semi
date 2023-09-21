@@ -10,7 +10,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<title>Insert title here</title>
+<title>객실 수정</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
@@ -24,19 +24,23 @@
 				</div>
 				<div class="form-group">
 					<label>객실명</label>
-					<input type="text" class="form-control" name="ro_name">
+					<input type="text" class="form-control" name="ro_name" required>
 				</div>
 				<div class="form-group">
 					<label>최대 수용 마리 수</label>
-					<input type="number" class="form-control" name="ro_max_cap" placeholder="숫자를 입력하세요.">
+					<input type="number" class="form-control" name="ro_max_cap" placeholder="숫자를 입력하세요." min="1" required>
 				</div>
 				<div class="form-group">
 					<label>현재 수용 마리 수</label>
-					<input type="number" class="form-control" name="ro_now_cap" placeholder="숫자를 입력하세요.">
+					<input type="number" class="form-control" name="ro_now_cap" placeholder="숫자를 입력하세요." min="0" required>
 				</div>
 				<div class="form-group">
-					<label>객실 타입</label>
-					<input type="text" class="form-control" name="ro_detail" placeholder="S,M,L 중 하나만 입력하세요.">
+			 	<label for="detail">객실 타입</label>
+					  <select class="form-control" id="roomtype" name="detail">
+					    <option>S</option>
+					    <option>M</option>
+					    <option>L</option>
+					  </select>
 				</div>
 				<button class="btn btn-outline-success">등록</button>
 			</form>

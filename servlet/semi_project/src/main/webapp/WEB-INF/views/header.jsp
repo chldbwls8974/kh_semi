@@ -49,6 +49,12 @@
     width: 100%;
     height: 100%;
   }
+  
+  	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+	}
   </style>
 <title>Insert title here</title>
 </head>
@@ -98,11 +104,11 @@
 			      <a class="nav-link" href="/semi_project/member/logout">로그아웃</a>
 			    </li>
 		    </c:if>
-	<%--    		<c:if test="${user != null && user.me_authority == 'ADMIN'}"> --%>
+	   		<c:if test="${user != null && user.me_authority == 'ADMIN'}">
 			    <li class="nav-item">
 			      <a class="nav-link" href="/semi_project/admin">관리자 권한</a>
 			    </li>
-	<%--    		</c:if> --%>
+	   		</c:if>
 		 </ul>
 	  </div>	
 	  

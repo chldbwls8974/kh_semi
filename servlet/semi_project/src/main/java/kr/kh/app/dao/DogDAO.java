@@ -19,7 +19,7 @@ public interface DogDAO {
 	int deleteDog(@Param("d_num")String d_num);
 
 	boolean updateDog(@Param("dog")DogVO dog);
-
-	ArrayList<DogVO> selectDogList(@Param("rl2")ReservListVO rl2);
+ 
+	ArrayList<DogVO> selectDogList();
 
 }
