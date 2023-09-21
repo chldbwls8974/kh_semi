@@ -56,6 +56,11 @@ public class ReservSelect extends HttpServlet {
 		
 		
 		ArrayList<RoomVO> roomlist = roomService.getRoomListByBranchAndSize(from, to,br_num, d_size);
+		// -> 지점,개사이즈 맞는 방임 ex) 방 3개 들고왔음       // 3개를 들고왔어 20일에는 3개가 다돼 21일에는 2개만돼 22일에는 3개가 돼
+		//메서드는 -> 방,날짜를 매개변수로 그날 예약된 마리수를 리턴함
+		// roomService.머시기메서드(roomlist.get(0), 날짜) -> 핑크방에 20일에 몇마리가 묵는지 알려줌 < max_cap 이면 그날에 묵을수있음
+		// roomService.머시기메서드(roomlist.get(1), 날짜) -> 블루방에 20일에 몇마리가 묵는지 알려줌
+		// roomService.머시기메서드(roomlist.get(2), 날짜) -> 오렌지방에 20일에 몇마리가 묵는지 알려줌
 		// 방, 해당날짜 -> 그 방이 해당날짜에 예약이 되는지 -> 알려면 ???
 		JSONArray jsonArray = new JSONArray(roomlist);
 		request.setAttribute("roomlist", jsonArray.toString());
