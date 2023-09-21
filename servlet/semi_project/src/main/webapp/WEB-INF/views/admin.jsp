@@ -43,10 +43,15 @@
 	</div>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 <script type="text/javascript">
-// 	if ('${user}' == null || '${user.me_authority}' != 'ADMIN') {
-// 		alert('권한이 없습니다.');
-// 	    location.href="/semi_project";
-// 	}
+	if ('${user}' == null || '${user.me_authority}' != 'ADMIN') {
+		alert('권한이 없습니다.');
+	    location.href="/semi_project";
+	}
+	
+	window.onpopstate = function(event) {
+	    // 뒤로 가기 이벤트를 감지한 경우 실행할 코드 작성
+	    console.log("뒤로 가기 이벤트 감지");
+	};
 </script>
 </body>
 </html>
