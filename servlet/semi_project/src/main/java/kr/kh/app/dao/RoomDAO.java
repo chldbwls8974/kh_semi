@@ -20,6 +20,7 @@ public interface RoomDAO {
 
 	ArrayList<RoomVO> selectRoomByBranch(@Param("br_num")Integer br_num);
 
-	ArrayList<RoomVO> selectReservationRoom(@Param("br_num")Integer br_num, @Param("d_size")String d_size);
+	ArrayList<RoomVO> selectReservationRoom(@Param("start_date")String start_date,@Param("end_date") String end_date,@Param("br_num") Integer br_num, @Param("d_size")String d_size);
+
 	
 }

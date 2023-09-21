@@ -7,9 +7,5 @@
 		insert into reservdate(rd_ro_num, rd_date, rd_br_num) values(#{r_num},#{date},#{br_num})
 	</insert>
 	<select id="selectDateRoom" resultType="kr.kh.app.vo.ReservDateVO">
-		select * from reservdate
-		where rd_date between #{start_date} and #{end_date}
-		and rd_br_num = #{rd_br_num}
-		and 
 	</select>
 </mapper>

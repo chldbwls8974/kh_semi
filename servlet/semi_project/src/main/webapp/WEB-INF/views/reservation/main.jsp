@@ -106,8 +106,22 @@ pageEncoding="UTF-8"%>
 		end_date = $(this).val()
 	})
 	
+	
+	// 시작-종료 일 사이의 날짜 구하는 함수 
+	function getDatesStartToLast(start_date, end_date) {
+	var regex = RegExp(/^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/);
+	if(!(regex.test(start_date) && regex.test(end_date))) return "Not Date Format";
+	var result = [];
+	var curDate = new Date(start_date);
+	while(curDate <= new Date(end_date)) {
+		result.push(curDate.toISOString().split("T")[0]);
+		curDate.setDate(curDate.getDate() + 1);
+		}
+		return result;
+	}
 
-
+	
+	
  	// 두번째 방 추가
 	$(document).on('click','.btn-add',function(){
 		/* //
@@ -168,13 +182,14 @@ pageEncoding="UTF-8"%>
 	
 	// 조건에 맞는 방 찾기
 	$(document).on('click','[name=btn-search]',function(){
+		let date = getDatesStartToLast(start_date, end_date)
 		let data = {
-				start_date : start_date,
-				end_date : end_date,
+				date : date,
 				br_num : br_num,
 				/* d_size -> d_num */
 				d_num :  d_num
 		}
+		console.log(data)
 		let th = $(this);
 		
 		ajaxObjectToJson(false,'post','<c:url value="/reservation/select"/>',data,(a)=>{

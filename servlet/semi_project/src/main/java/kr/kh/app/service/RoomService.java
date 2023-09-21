@@ -19,5 +19,5 @@ public interface RoomService {
 
 	ArrayList<RoomVO> getRoomListByBranch(Integer br_num);
 
-	ArrayList<RoomVO> getRoomListByBranchAndSize(Integer br_num, String d_size);
+	ArrayList<RoomVO> getRoomListByBranchAndSize(String start_date, String end_date, Integer br_num, String d_size);
 }

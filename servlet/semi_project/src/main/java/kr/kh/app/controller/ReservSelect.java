@@ -1,7 +1,9 @@
 package kr.kh.app.controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.json.JSONArray;
 
@@ -13,10 +15,11 @@ import kr.kh.app.service.DogService;
 import kr.kh.app.service.DogServiceImp;
 import kr.kh.app.service.ReservDateService;
 import kr.kh.app.service.ReservDateServiceImp;
+import kr.kh.app.service.ReservService;
+import kr.kh.app.service.ReservServiceImp;
 import kr.kh.app.service.RoomService;
 import kr.kh.app.service.RoomServiceImp;
 import kr.kh.app.vo.DogVO;
-import kr.kh.app.vo.ReservDateVO;
 import kr.kh.app.vo.RoomVO;
 
 public class ReservSelect extends HttpServlet {
@@ -24,6 +27,7 @@ public class ReservSelect extends HttpServlet {
     private RoomService roomService = new RoomServiceImp();
 	private DogService dogService = new DogServiceImp();
 	private ReservDateService reservDateService = new ReservDateServiceImp();
+	private ReservService reservService = new ReservServiceImp();
 	
     public ReservSelect() {
         super();
@@ -34,18 +38,25 @@ public class ReservSelect extends HttpServlet {
 		Integer br_num = Integer.parseInt(request.getParameter("br_num"));
 		String d_num = request.getParameter("d_num");
 		// 날짜
-		String start_date = request.getParameter("start_date");
-		String end_date = request.getParameter("end_date");
+		String from = request.getParameter("start_date");
+		String to = request.getParameter("end_date");
+		List<LocalDate> date = reservService.calStayDay(from,to);
 		
-		// start end 사이에 해당하는 방 골라오기.
-		//ArrayList<ReservDateVO> roomdatelist = reservDateService.selectDateRoom(start_date, end_date,br_num);
 		
 		//개 번호로 사이즈 가져오기
 		DogVO dog = dogService.getDog(d_num);
 		String d_size = dog.getD_si_name();
+		List<RoomVO> list = new ArrayList<>();
+		/*
+		 * for(int i = 0 ;i < date.size();i++) { List<RoomVO> t =
+		 * roomService.getlist(date.get(i),br_num, d_size); list.addAll(t);
+		 * 
+		 * }
+		 */
 		
-		ArrayList<RoomVO> roomlist = roomService.getRoomListByBranchAndSize(br_num, d_size);
 		
+		ArrayList<RoomVO> roomlist = roomService.getRoomListByBranchAndSize(from, to,br_num, d_size);
+		// 방, 해당날짜 -> 그 방이 해당날짜에 예약이 되는지 -> 알려면 ???
 		JSONArray jsonArray = new JSONArray(roomlist);
 		request.setAttribute("roomlist", jsonArray.toString());
 		response.setContentType("application/json");

@@ -60,7 +60,7 @@
 		}
 		
 		
-		ajaxObjectToJson(false, 'post','<c:url value="/point/update"/>', data, (a)=>{
+		ajaxObjectToJson2(false, 'post','<c:url value="/point/update"/>', data, (a)=>{
 				alert('수정완료')
 		})			
 		
@@ -75,8 +75,9 @@
 		}
 		
 		
-		ajaxObjectToJson(false, 'post','<c:url value="/point/delete"/>', data, (a)=>{
+		ajaxObjectToJson2(false, 'post','<c:url value="/point/delete"/>', data, (a)=>{
 			alert('삭제완료')
+			location.href="/semi_project/point/main";
 		})			
 		
 	})
