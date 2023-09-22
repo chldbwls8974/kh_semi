@@ -16,7 +16,7 @@
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	
 	<div class="container mt-5">
-	<h2>크기 구분 변경</h2>
+	<h2><span style="color: olive; font-weight: bold;">크기 구분 변경</span></h2>
  	<form action="<c:url value='/size/update'/>" method="post" class="mt-4">
  		<div class = "form-group">
  			<label>소형</label>
@@ -31,7 +31,7 @@
  			<input type="number" class="form-control" name="si_min_kg_l"  placeholder="${lSize.si_min_kg}" min="1" max="100" required>
  		</div>
  		
- 		<button class="btn btn-outline-warning col-12">변경</button>
+ 		<button class="btn btn-outline-dark col-12">변경</button>
  	</form>	
 </div>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	

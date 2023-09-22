@@ -16,12 +16,12 @@
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	
 	<div class="container mt-5">
-		<h2>지점 조회</h2>
+		<h2><span style="color: olive; font-weight: bold;">지점 조회</span></h2>
 		<c:choose>
 			<c:when test="${pm.totalCount != 0}">
 				<table class="table table-hover mt-4">
 				    <thead>
-				      <tr>
+				      <tr style="background: wheat; font-weight: bold;">
 				        <th>지점번호</th>
 				        <th>지점명</th>
 				        <th>지점 연락처</th>
@@ -38,10 +38,10 @@
 					        <form action="<c:url value='/branch/delete'/>" method="post">
 					        <c:choose>
 							    <c:when test="${user.me_authority == 'ADMIN' }">
-							        <button class="btn btn-outline-danger btn-branch-delete">삭제</button>
+							        <button class="btn btn-outline-dark btn-branch-delete">삭제</button>
 							    </c:when>
 							    <c:otherwise>
-							    	<button type="button" class="btn btn-outline-danger btn-branch-delete btn-no-authority">삭제</button>
+							    	<button type="button" class="btn btn-outline-secondary btn-branch-delete btn-no-authority">삭제</button>
 							    </c:otherwise>
 							</c:choose>
 					        <input type="hidden" name="br_num" value="${branch.br_num}">
@@ -56,8 +56,8 @@
 				<h2>등록된 지점이 없습니다.</h2>
 			</c:otherwise>
 		</c:choose>	
-		<a href="<c:url value='/branch/insert'/>" class="btn btn-outline-success">지점 등록</a>
-		<a href="/semi_project" class="btn btn-outline-success">메인으로</a>
+		<a href="<c:url value='/branch/insert'/>" class="btn btn-outline-dark">지점 등록</a>
+		<a href="/semi_project" class="btn btn-outline-dark">메인으로</a>
 	</div>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 <script type="text/javascript">

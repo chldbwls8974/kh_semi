@@ -15,7 +15,7 @@
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container mt-5">
-	<h2>가격 변경</h2>
+	<h2><span style="color: olive; font-weight: bold;">객실 가격 변경</span></h2>
  	<form action="<c:url value='/price/update'/>" method="post" class="mt-4">
  		<div class = "form-group">
  			<label>소형견 방 가격</label>
@@ -30,7 +30,7 @@
  			<input type="number" class="form-control" name="pr_price_l" placeholder="${lPrice.pr_price }" min="1" required>
  		</div>
  		
- 		<button class="btn btn-outline-warning col-12">변경</button>
+ 		<button class="btn btn-outline-dark col-12">변경</button>
  	</form>	
 </div>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	

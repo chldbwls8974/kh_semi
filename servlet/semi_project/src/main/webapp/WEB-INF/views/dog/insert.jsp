@@ -15,7 +15,7 @@
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <div class="container mt-5">
-	<h2>반려견 등록</h2>
+	<h2><span style="color: olive; font-weight: bold;">반려견 등록</span></h2>
  	<form action="<c:url value='/dog/insert'/>" method="post" class="mt-4">
  		<div class = "form-group">
  			<label>아이디</label>
@@ -44,7 +44,7 @@
  			<label>특이사항</label>
  			<textarea rows="10" cols="20" class="form-control" name="d_detail"></textarea>
  		</div>
- 		<button class="btn btn-outline-warning col-12">등록</button>
+ 		<button class="btn btn-outline-dark col-12">등록</button>
  	</form>	
 </div>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	

@@ -16,10 +16,10 @@
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 	<div class="container mt-5">
-		<h2>포인트 적립 관리 페이지</h2>
+		<h2><span style="color: olive; font-weight: bold;">회원 포인트 관리</span></h2>
 		<table class="table table-hover mt-4">
 		    <thead>
-		      <tr>
+		      <tr style="background: wheat; font-weight: bold;">
 		        <th>포인트</th>
 		        <th>포인트 내용</th>
 		        <th>적립대상자</th>
@@ -46,7 +46,7 @@
 		      </c:forEach>
 		    </tbody>
 		</table>
-		<a href="<c:url value='/point/insert'/>" class="btn btn-outline-dark col-3 btn float-right">포인트 적립</a>
+		<a href="<c:url value='/point/insert'/>" class="btn btn-outline-dark col-12 btn float-right">포인트 적립</a>
 	 </div> 
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 	<script type="text/javascript">

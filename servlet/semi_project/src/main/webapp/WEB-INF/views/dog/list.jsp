@@ -18,10 +18,10 @@
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 <div class="container mt-5">
-	<h2>나의 반려견</h2>
+	<h2><span style="color: olive; font-weight: bold;">나의 반려견</span></h2>
 	<table class="table table-hover mt-4">
 	<thead>
-		<tr>
+		<tr style="background: wheat; font-weight: bold;">
 			<th>반려견 번호</th>
 			<th>이름</th>
 			<th>나이</th>
@@ -44,10 +44,10 @@
 				<td>${dog.d_detail}</td>
 				<td>${dog.d_me_id }</td>
 				<td>${dog.d_si_name }</td>
-				<td><a href="<c:url value='/dog/update?d_num=${dog.d_num }'/>" class="btn btn-outline-success" role="button">수정</a></td>
+				<td><a href="<c:url value='/dog/update?d_num=${dog.d_num }'/>" class="btn btn-outline-secondary" role="button">수정</a></td>
 			    <td>
 			    <form action="<c:url value='/dog/delete'/>" method="post">
-			        <button class="btn btn-outline-danger btn-dog-delete">삭제</button>
+			        <button class="btn btn-outline-dark btn-dog-delete">삭제</button>
 			        <input type="hidden" name="d_num" value="${dog.d_num}">
 		        </form>
 		        </td>
@@ -58,11 +58,11 @@
 	<c:choose>
 	    <c:when test="${fn:length(list) < 3 }">
 	   		<!-- 3마리 이하인 경우 -->
-	   		<a href="<c:url value='/dog/insert'/>" class="btn btn-outline-success">반려견 등록</a>
+	   		<a href="<c:url value='/dog/insert'/>" class="btn btn-outline-dark col-12">반려견 등록</a>
 	    </c:when>
 	    <c:otherwise>
 			 <!-- 3마리 이상인 경우 -->
-			 <a href="<c:url value='/dog/list'/>" class="btn btn-outline-success" id="btnAdd">반려견 등록</a>
+			 <a href="<c:url value='/dog/list'/>" class="btn btn-outline-dark col-12" id="btnAdd">반려견 등록</a>
 			 <script type="text/javascript">
 			 	$("#btnAdd").click(function(){
 				 	alert('반려견은 3마리 까지 등록할 수 있습니다.');

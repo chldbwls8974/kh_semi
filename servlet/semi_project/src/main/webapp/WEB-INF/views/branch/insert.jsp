@@ -15,7 +15,7 @@
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container mt-5">
-	<h2>지점 등록</h2>
+	<h2><span style="color: olive; font-weight: bold;">지점 등록</span></h2>
 	<%-- <form action = "" method="post">
 		<input type="text" name="name" placeholder="지점명"> <br>
 		<input type="text" name="phone" placeholder="전화번호"> <br>

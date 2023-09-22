@@ -30,7 +30,8 @@
 		bottom: 0;
 		width: 100%;
 		height: 60px;
- 		margin-top: 50px; 
+ 		margin-top: 50px;
+ 		z-index: 1;
 /*  		transform : translateY(-100%);  */
 	}
 	
@@ -39,8 +40,8 @@
 </head>
 <body>
 	
-	<footer class="container-fluid bg-dark">
-		<a class="navbar-brand" href="/semi_project">DogHotel</a>
+	<footer class="container-fluid bg-light">
+		<a class="navbar-brand" href="/semi_project"><span style="color: olive; font-weight: bold;">DogHotel</span></a>
 		<small style="color: gray;">Copyright &copy;team1 :임은영 이충희 최유진 이지선</small>
 	</footer>
 </body>

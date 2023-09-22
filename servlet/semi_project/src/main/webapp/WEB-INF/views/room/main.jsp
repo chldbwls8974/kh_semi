@@ -26,31 +26,32 @@
 
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
  <div class="container mt-5">
-	<h1>객실보기</h1>
+	<h1 style="margin-bottom: 20px"><span style="color: olive; font-weight: bold;">객실보기</span></h1>
 	<div class="selectbox">
 		<label>지점을 선택해주세요</label>
 			<select name="branchSelect">
 				<option value="0">지점 선택</option>
 				<c:forEach items="${branchList }" var="br">
-					<option value="${br.br_num }">${br.br_name }</option>
+					<option value="${br.br_num }"><b>${br.br_name }</b></option>
 				</c:forEach>
 			</select>
 	</div>
 		<table class="table table-hover mt-4">
 		<thead>
-			<tr>
+			<tr style="background: wheat; font-weight: bold;">
 				<th>방번호</th>
 				<th>방이름</th>
 				<th>최대 수용 반려견 수</th>
 				<th>현재 수용 반려견 수</th>
 				<th>방 타입</th>
+				<th></th>
 			</tr>
 		</thead>
 			<tbody>
 				<c:forEach items="${list}" var="room">
 						<tr>
 							<td>${room.ro_num}</td>
-							<td><a href="<c:url value='/room/detail?ro_num=${room.ro_num}'/>" >${room.ro_name }</a></td>
+							<td><a href="<c:url value='/room/detail?ro_num=${room.ro_num}'/>" ><b style="color: olive;">${room.ro_name }</b></a></td>
 							<td>${room.ro_max_cap}</td>
 							<td>${room.ro_now_cap}</td>
 							<td>${room.ro_detail}</td>

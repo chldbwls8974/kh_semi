@@ -16,7 +16,7 @@
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <div class="container mt-5">
 
-	<h1>개인정보 수정</h1>
+	<h1><span style="color: olive; font-weight: bold;">개인정보 수정</span></h1>
 	<form action="<c:url value='/member/update'/>" method="post" class="mt-4">	
  		<div class = "form-group">
  		 	<label>아이디</label>
@@ -35,9 +35,9 @@
  			<input type="number" maxlength="11" oninput="phoneLength(this);" class="form-control" name="phone" required>
  		</div>
  	
- 		<button class="btn btn-outline-warning col-12">수정</button>
+ 		<button class="btn btn-outline-secondary col-12">수정</button>
  	</form>	
- 	<br><a href="<c:url value='/member/mypage'/>"  class="btn btn-outline-dark col-3 btn float-right">취소</a><br>
+ 	<br><a href="<c:url value='/member/mypage'/>"  class="btn btn-outline-dark col-6 btn float-right">취소</a><br>
 </div>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 </body>

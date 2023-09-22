@@ -16,18 +16,18 @@ pageEncoding="UTF-8"%>
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container mt-5">
-		<h1>예약하기</h1>
+		<h1 style="margin-bottom: 20px"><span style="color: olive; font-weight: bold;">예약하기</span></h1>
 		
 		<form action="<c:url value='/reservation/insert'/>" method="post" class="reserv-box">
 			<input type="hidden" class="form-control" name="re_me_id" value="${user.me_id }">
 			<div class="form-container">
 				<div class="form-group">
 					<label>입실 날짜</label>
-					<input  type="text" id="from" name="from" class="datePicker" size="100%">
+					<input  type="text" id="from" name="from" class="datePicker" size="100%" style="margin-left: 30px">
 				</div>
 				<div class="form-group">	
 					<label>퇴실 날짜</label>
-					<input type="text" id="to" name="to" class="datePicker" size="100%">
+					<input type="text" id="to" name="to" class="datePicker" size="100%" style="margin-left: 30px">
 				</div>
 			</div>	
 			
@@ -60,9 +60,9 @@ pageEncoding="UTF-8"%>
 				</select>
 			</div>
 			<div class="form-group">
-				<input type="button" name="btn-add" class="btn btn-add btn-outline-warning col-12" value="+">
+				<input type="button" name="btn-add" class="btn btn-add btn-outline-secondary col-12" value="+">
 			</div>
-			<button name="btn-submit" class="btn btn-float-right btn-outline-success col-3  mt-2">확인</button>
+			<button name="btn-submit" class="btn btn-float-right btn-outline-dark col-3 mt-2">확인</button>
 		</form>
 	</div>
 	

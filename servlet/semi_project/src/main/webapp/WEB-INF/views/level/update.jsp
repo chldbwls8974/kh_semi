@@ -15,17 +15,17 @@
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container mt-5">
-	<h2>등급혜택 변경</h2>
+	<h2><span style="color: olive; font-weight: bold;">등급 혜택 변경</span></h2>
  	<form action="<c:url value='/level/update'/>" method="post" class="mt-4">
  		<div class = "form-group">
- 			<label>일반회원 적립률</label>
+ 			<label>일반 회원 적립률</label>
  			<input type="number" class="form-control" name="le_benefit"  placeholder="${level.le_benefit}" min="1" max="100" required>
  		</div>
  		<div class = "form-group">
- 			<label>vip회원 적립률</label>
+ 			<label>vip 회원 적립률</label>
  			<input type="number" class="form-control" name="le_benefit_vip" placeholder="${levelVip.le_benefit}" min="1" max="100" required >
  		</div>
- 		<button class="btn btn-outline-warning col-12">변경</button>
+ 		<button class="btn btn-outline-dark col-12">변경</button>
  	</form>	
 </div>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	

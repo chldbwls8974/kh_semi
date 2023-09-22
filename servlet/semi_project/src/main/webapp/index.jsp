@@ -13,17 +13,27 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   
   <style>
-  /* Make the image fully responsive */
-  .container-box{
-  	width : 65%;
-  	height : 40%;
-  	min-height: 300px;
+  *{
+  	box-sizing: border-box;
+  	padding: 0;
+  	margin: 0;
   }
   
-  .carousel-inner img {
-    width: 100%;
-    height: 80%;
+  /* Make the image fully responsive */
+  .carousel-item{
+  	position:relative;
+  	width : 100%;
+  	height : 600px;
+  	object-fit: cover;
+  	margin: auto;
+  	float: left;
+/*   	min-height: 300px; */
   }
+  
+/*   .carousel-inner img { */
+/*     width: 100%; */
+/* 	height: 50%; */
+/*   } */
   </style>
   	
 <title>Dog Hotel</title>
@@ -41,7 +51,7 @@
   </ul>
 
   <!-- The slideshow -->
- <div class="container container-box">
+ <div class="container container-box" style="width: 1000px">
   <div class="container carousel-inner">
     <div class="carousel-item active">
       <img src="깜바.jpg" alt="깜바">
@@ -52,7 +62,7 @@
     <div class="carousel-item">
       <img src="써니.jpg" alt="써니">
     </div>
-      <div class="carousel-item">
+    <div class="carousel-item">
       <img src="지선.jpg" alt="지선">
     </div>
   </div>
@@ -69,6 +79,14 @@
 
 <footer>
 	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+	<script type="text/javascript">
+	// 뒤로가기 막기
+	history.pushState(null, null, location.href); 
+
+	window.onpopstate = function() { 
+		history.go(1); //현재 페이지로
+	}
+	</script>
 </footer>
 </body>
 </html>

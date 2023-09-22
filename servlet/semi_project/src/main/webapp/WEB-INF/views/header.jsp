@@ -50,6 +50,9 @@
     height: 100%;
   }
   
+  .a{
+  }
+  
   	input::-webkit-outer-spin-button,
 	input::-webkit-inner-spin-button {
 	  -webkit-appearance: none;
@@ -62,13 +65,13 @@
 
 
 
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<nav class="navbar navbar-expand-sm navbar-light bg-light">
 	  <!-- Brand/logo -->
-	    <a class="navbar-brand" href="/semi_project">DogHotel</a>
+	    <a class="navbar-brand" href="/semi_project" style=""><span style="color: olive; font-weight: bold;">DogHotel</span></a>
 	  
 	  <!-- Links -->
 	  <div class="collapse navbar-collapse justify-content-between">
-	  	<ul class="navbar-nav">
+	  	<ul class="navbar-nav text-darkgray">
 			<c:if test="${user == null }">
 			    <li class="nav-item">
 			      <a class="nav-link" href="/semi_project/member/login">로그인</a>
@@ -93,7 +96,7 @@
 	 	<ul class="navbar-nav">  
 	 		<c:if test="${user != null }">
 		 		<li class="nav-item">
-			      <a class="nav-link">${user.me_id }님 환영합니다</a>
+			      <a class="nav-link"><span style="color: olive; font-weight: bold;">${user.me_id }</span>님 환영합니다</a>
 			    </li>
 	 		</c:if>
 		    <c:if test="${user != null }">

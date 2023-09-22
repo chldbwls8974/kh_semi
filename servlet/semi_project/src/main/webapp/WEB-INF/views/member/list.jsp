@@ -10,14 +10,15 @@
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container mt-5">
-		<h2>회원 조회</h2>
+		<h2><span style="color: olive; font-weight: bold;">회원 조회</span></h2>
 		<table class="table table-hover mt-4">
 		    <thead>
-		      <tr>
+		      <tr style="background: wheat; font-weight: bold;">
 		        <th>아이디</th>
 		        <th>이름</th>
 		        <th>주소</th>
 		        <th>번호</th>
+		        <th></th>
 		      </tr>
 		    </thead>
 		    <tbody>

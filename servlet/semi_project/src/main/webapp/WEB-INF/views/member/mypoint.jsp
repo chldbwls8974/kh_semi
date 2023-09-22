@@ -16,11 +16,11 @@
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 	<div class="container mt-5">
-		<h2>포인트 적립 관리 페이지</h2>
+		<h2><span style="color: olive; font-weight: bold;">포인트 내역</span></h2>
 		<table class="table table-hover mt-4">
-		<label><b>'${user.me_id}'</b>회원님의 포인트 적립 내용</label>
+		<label><b style="color: olive;">'${user.me_id}'</b>회원님의 포인트 적립 내용</label>
 		    <thead>
-		      <tr>
+		      <tr style="background: wheat; font-weight: bold;">
 		        <th>예약 번호</th>
 		        <th>적립된 포인트</th>
 		        <th>내용</th>
