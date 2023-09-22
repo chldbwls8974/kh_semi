@@ -1,9 +1,9 @@
 package kr.kh.app.controller;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -15,11 +15,14 @@ import kr.kh.app.service.LevelService;
 import kr.kh.app.service.LevelServiceImp;
 import kr.kh.app.service.PriceService;
 import kr.kh.app.service.PriceServiceImp;
+import kr.kh.app.service.ReservDateService;
+import kr.kh.app.service.ReservDateServiceImp;
 import kr.kh.app.service.ReservListService;
 import kr.kh.app.service.ReservListServiceImp;
 import kr.kh.app.service.ReservService;
 import kr.kh.app.service.ReservServiceImp;
 import kr.kh.app.vo.LevelVO;
+import kr.kh.app.vo.ReservDateVO;
 import kr.kh.app.vo.ReservListVO;
 import kr.kh.app.vo.ReservationVO;
 
@@ -31,6 +34,7 @@ public class ReservInsert extends HttpServlet {
 	PriceService priceService = new PriceServiceImp();
 	DogService dogService = new DogServiceImp();
 	LevelService levelService = new LevelServiceImp();
+	ReservDateService reservDateService = new ReservDateServiceImp();
 	
     public ReservInsert() {
         super();
@@ -60,29 +64,14 @@ public class ReservInsert extends HttpServlet {
 		int r_num1 = 0;
         int r_num2 = 0;
         int r_num3 = 0;
+         // 입력받은 개와 방 정보 받아오기
         String[] dogArray = request.getParameterValues("dogSelect");
         String[] roomArray = request.getParameterValues("roomSelect");
         
-        Date start_date = null;
-        Date end_date = null;
-        
-        // 받아온 문자열의 날짜들을 날짜형으로 형변환
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-			start_date = formatter.parse(from);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-        try {
-			end_date = formatter.parse(to);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-        System.out.println(start_date);
-        System.out.println(end_date);
-        
-		
-		
+       
+        // reservation serviceimp에서 두 날짜를 형변환하고 두 사이의 날짜를 추출
+        List<LocalDate> date = reservService.calStayDay(from,to);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		
 		  if (dogArray != null) {
 	            // 변수 초기화
@@ -113,6 +102,7 @@ public class ReservInsert extends HttpServlet {
 	            if (roomArray.length > 0) {
 	            	
 	            	r_num1 = Integer.parseInt(roomArray[0]); // 첫 번째 값
+	            	
 	            }
 	            if (roomArray.length > 1) {
 	            	r_num2 =  Integer.parseInt(roomArray[1]); // 두 번째 값
@@ -133,9 +123,7 @@ public class ReservInsert extends HttpServlet {
 		
 		//지점,개,방 하나라도 선택하지 않으면 false
         boolean isCorrectSelect = reservService.isCorrectSelect(br_num, dogArray, roomArray);
-        System.out.println(isCorrectSelect);
 		//입실 날짜가 오늘과 같거나 오늘보다 빠르면 실패
-		
 		boolean ok = false;
 		//true=db에 등록 , false=등록하지않고 메세지 출력
 		if(isCorrectSelect) {
@@ -148,12 +136,21 @@ public class ReservInsert extends HttpServlet {
 			//예약리스트에 추가하는 코드
 			if(d_num1 != null && r_num1 != 0 ) {
 				reservListService.insertReservList(reservlist1);
+				for(int i=0;i<date.size();i++) {
+            		reservDateService.insertReservDate(r_num1,br_num,date.get(i).format(formatter));
+            	}
 			}
 			if(d_num2 != null  && r_num2 != 0) {
 				reservListService.insertReservList(reservlist2);
+				for(int i=0;i<date.size();i++) {
+            		reservDateService.insertReservDate(r_num2,br_num,date.get(i).format(formatter));
+            	}
 			}
 			if(d_num3 != null  && r_num3 != 0) {
 				reservListService.insertReservList(reservlist3);
+				for(int i=0;i<date.size();i++) {
+            		reservDateService.insertReservDate(r_num3,br_num,date.get(i).format(formatter));
+            	}
 			}
 		}
 		else {

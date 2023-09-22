@@ -3,7 +3,10 @@ package kr.kh.app.service;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -87,12 +90,17 @@ public class ReservServiceImp implements ReservService{
 
 
 	@Override
-	public int calStayDay(String from, String to) {
-		//숙박일 계산
-		LocalDate fromDate = LocalDate.parse(from);
-		LocalDate toDate = LocalDate.parse(to);
-		return (toDate.getDayOfMonth() - fromDate.getDayOfMonth()) + 1;
+	public List<LocalDate> calStayDay(String from, String to) {
+		// 두 날짜 사이의 날짜 추출
+		// 받아온 문자열의 날짜들을 날짜형으로 형변환 
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+		LocalDate startDate = LocalDate.parse(from, formatter);
+		LocalDate endDate = LocalDate.parse(to, formatter);
+		
+		return startDate.datesUntil(endDate).collect(Collectors.toList());
 	}
+
 
 
 	@Override

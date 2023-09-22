@@ -10,13 +10,14 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kr.kh.app.dao.MemberDAO;
+import kr.kh.app.dao.ReservDateDAO;
 import kr.kh.app.dao.RoomDAO;
-import kr.kh.app.vo.MemberVO;
 import kr.kh.app.vo.RoomVO;
 
 public class RoomServiceImp implements RoomService {
 	private RoomDAO roomDao;
 	private MemberDAO memberDao;
+	private ReservDateDAO reservDateDao;
 	
 	public RoomServiceImp() {
 		try {
