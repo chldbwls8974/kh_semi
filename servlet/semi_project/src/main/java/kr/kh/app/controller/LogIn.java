@@ -31,7 +31,6 @@ public class LogIn extends HttpServlet {
 		
 		MemberVO member = new MemberVO(id,pw,null,null,null,null,0,0, null);
 		MemberVO user = memberService.login(member);
-		System.out.println(user);
 		boolean Ok = false;
 		if(user != null) {
 			Ok = true;

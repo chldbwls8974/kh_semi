@@ -86,19 +86,42 @@ pageEncoding="UTF-8"%>
 	//전역변수
 	//let dogs = ${dogList}
 	// 보유 멍멍 마릿수
-	var d_count =  $('[name=dogSelect] option').length -1
-	var br_num
-	var d_num
+	let count = 0;
+	let str = '';
+	let d_count =  $('[name=dogSelect] option').length -1
+	let br_num
+	let d_num
+	let start_date
+	let end_date
 	$('[name=branchSelect]').change(function(){
 		br_num = $(this).val()
 	})
 	$(document).on('change', '[name=dogSelect]', function(){
 		d_num = $(this).val()
 	})
-	var count = 0;
-	var str = '';
+	$(document).on('change', '[name=from]', function(){
+		start_date = $(this).val()
+	})
+	$(document).on('change', '[name=to]', function(){
+		end_date = $(this).val()
+	})
+	
+	
+	// 시작-종료 일 사이의 날짜 구하는 함수 
+	function getDatesStartToLast(start_date, end_date) {
+	var regex = RegExp(/^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/);
+	if(!(regex.test(start_date) && regex.test(end_date))) return "Not Date Format";
+	var result = [];
+	var curDate = new Date(start_date);
+	while(curDate <= new Date(end_date)) {
+		result.push(curDate.toISOString().split("T")[0]);
+		curDate.setDate(curDate.getDate() + 1);
+		}
+		return result;
+	}
 
-
+	
+	
  	// 두번째 방 추가
 	$(document).on('click','.btn-add',function(){
 		/* //
@@ -159,7 +182,9 @@ pageEncoding="UTF-8"%>
 	
 	// 조건에 맞는 객실 찾기
 	$(document).on('click','[name=btn-search]',function(){
+		let date = getDatesStartToLast(start_date, end_date)
 		let data = {
+				//date : date,
 				br_num : br_num,
 				/* d_size -> d_num */
 				d_num :  d_num
@@ -186,6 +211,7 @@ pageEncoding="UTF-8"%>
 	//데이트피커
 	$(document).ready(function(){
 		$(".datePicker").datepicker({
+			minDate: 0,
 			dateFormat: 'yy-mm-dd' //달력 날짜 형태
 			,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
 			,showMonthAfterYear:true // 월- 년 순서가아닌 년도 - 월 순서
@@ -202,9 +228,6 @@ pageEncoding="UTF-8"%>
                   //시작일(from) datepicker가 닫힐때
                   //종료일(to)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
                   $("#to").datepicker( "option", "minDate", selectedDate );
-                  // 종료일(to) datepicker가 닫힐때
-                  // 시작일(from)의 선택할수있는 최대 날짜(maxDate)를 선택한 시작일로 지정
-                  $("#from").datepicker( "option", "maxDate", selectedDate ); 
               }    
 		})
 		

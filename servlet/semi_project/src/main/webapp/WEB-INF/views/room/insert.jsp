@@ -17,10 +17,10 @@
 	<div class="container mt-5">
 		<h2>객실 등록하기</h2>
 	<!-- 관리자만 등록 버튼 보이게 필요 -->
-		<form action="<c:url value='/room/insert'/>" id="frm" method="post" class="mt-4">
+		<form action="<c:url value='/room/insert'/>" id="myForm" method="post" class="mt-4" onsubmit="return validateForm()">
 			<div class="form-group">
 				<label>지점 번호</label>
-				<select class="form-control" name="branch">
+				<select class="form-control" name="branch" id="mySelect">
 					<option value="0">지점 선택</option>
 					<c:forEach items="${branchList }" var="br">
 						<option value="${br.br_num }">${br.br_name }</option>
@@ -29,7 +29,7 @@
 			</div>
 			<div class="form-group">
 				<label>객실 이름</label>
-				<input type="text" class="form-control" name="name" placeholder="방이름">
+				<input type="text" class="form-control" name="name" placeholder="방이름" required>
 			</div>
 			<div class="form-group">
 				<label>최대 수용 마리수</label>
@@ -44,7 +44,7 @@
 				  </select>
 			</div>
 			
-			<button class="btn btn-outline-warning col-12">등록</button>
+			<button type="submit" class="btn btn-outline-warning col-12">등록</button>
 			
 		
 <!-- 		<input type="button" id="add" value="등록">	 -->
@@ -73,5 +73,18 @@
 	    }
 	</script>
 
+	<script>
+		function validateForm() {
+		    var selectedOption = document.getElementById('mySelect').value;
+		
+		    // 특정한 옵션을 선택한 경우 (예: "option1"을 선택한 경우) 제출을 막습니다.
+		    if (selectedOption === '0') {
+		        alert('지점을 선택해주세요.');
+		        return false; // 폼 제출을 막음
+		    }
+		
+		    return true; // 다른 옵션을 선택한 경우 폼 제출을 허용
+		}
+</script>
 </body>
 </html>
