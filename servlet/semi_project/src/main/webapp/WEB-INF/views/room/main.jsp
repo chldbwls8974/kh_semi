@@ -20,13 +20,13 @@
   }
   </style>
   
-<title>방 상세보기</title>
+<title>객실 상세보기</title>
 </head>
 <body>
 
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
  <div class="container mt-5">
-	<h1>객실보기</h1>
+	<h2>객실보기</h2>
 	<div class="selectbox">
 		<label>지점을 선택해주세요</label>
 			<select name="branchSelect">
@@ -39,11 +39,11 @@
 		<table class="table table-hover mt-4">
 		<thead>
 			<tr>
-				<th>방번호</th>
-				<th>방이름</th>
+				<th>객실번호</th>
+				<th>객실이름</th>
 				<th>최대 수용 반려견 수</th>
 				<th>현재 수용 반려견 수</th>
-				<th>방 타입</th>
+				<th>객실 타입</th>
 			</tr>
 		</thead>
 			<tbody>
@@ -83,7 +83,7 @@
 		ajaxObjectToJson(false,'post','<c:url value="/room/select"/>',data,(a)=>{
 			if(a==''){
 				$('.table').hide()
-				alert('해당 지점에는 등록된 방이 없습니다.')
+				alert('해당 지점에는 등록된 객실이 없습니다.')
 			}else{
 				$('.table').hide()
 				let str='';
@@ -91,11 +91,11 @@
 				<table class="table table-hover mt-4"> 
 						<thead> 
 							<tr> 
-								<th>방번호</th> 
+								<th>객실번호</th> 
 							<th>방이름</th> 
 								<th>최대 수용 반려견 수</th> 
 								<th>현재 수용 반려견 수</th> 
-								<th>방 타입</th> 
+								<th>객실 타입</th> 
 								</tr> 
 							</thead> 
 							<tbody> 

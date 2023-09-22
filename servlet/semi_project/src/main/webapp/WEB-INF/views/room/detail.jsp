@@ -105,12 +105,12 @@
   }
   </style>
 
-<title>객실 상세페이지</title>
+<title>객실 상세정보</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container mt-5">
-	<h3>객실 상세정보</h3>
+	<h2>객실 상세정보</h2>
 		<div class="card">
 			<div class="card-body">
 			

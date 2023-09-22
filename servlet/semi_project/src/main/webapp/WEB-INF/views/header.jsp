@@ -56,7 +56,7 @@
 	  margin: 0;
 	}
   </style>
-<title>Insert title here</title>
+<title>header</title>
 </head>
 <body>
 

@@ -25,7 +25,7 @@
 				<input type="text" class="form-control" name="re_price" value="${reserv.re_price }" readonly>
 			</div>
 			<div class="form-group">
-				<label>내 포인트</label>
+				<label>나의 포인트</label>
 				<input type="text" class="form-control" name="me_point" value="${user.me_point }" readonly>
 			</div>
 			<div class="form-group">
@@ -67,8 +67,6 @@
 		$('[name=re_real_price]').attr("value",price);
 		$('[name=re_add_point]').attr("value",point);
 	})
-	
-	
 
 </script>
 

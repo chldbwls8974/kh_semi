@@ -15,7 +15,7 @@
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container mt-5">
-		<h3>객실 등록하기</h3>
+		<h2>객실 등록하기</h2>
 	<!-- 관리자만 등록 버튼 보이게 필요 -->
 		<form action="<c:url value='/room/insert'/>" id="frm" method="post" class="mt-4">
 			<div class="form-group">
@@ -57,12 +57,12 @@
 			Boolean result = (Boolean)request.getAttribute("ok");
 			if(result != null && result){
 		%>
-			alert('방 등록 성공');
+			alert('객실 등록 성공');
 			location.href = '/semi_project/room/main';
 		<%
 			}else if(result != null && !result){
 		%>
-			alert('방 등록 실패')
+			alert('객실 등록 실패')
 		<%
 			}
 		%>

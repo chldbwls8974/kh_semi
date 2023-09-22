@@ -16,7 +16,7 @@ pageEncoding="UTF-8"%>
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container mt-5">
-		<h1>예약하기</h1>
+		<h2>예약하기</h2>
 		
 		<form action="<c:url value='/reservation/insert'/>" method="post" class="reserv-box">
 			<input type="hidden" class="form-control" name="re_me_id" value="${user.me_id }">
@@ -41,9 +41,9 @@ pageEncoding="UTF-8"%>
 				</select>
 			</div>
 			<div class="form-group" name="dog-box">
-				<label>맡기고자 하는 개를 선택해주세요</label>
+				<label>맡기고자 하는 반려견을 선택해주세요</label>
 				<select class="form-control" name="dogSelect">
-					<option value="0">반려동물 선택</option>
+					<option value="0">반려견 선택</option>
 					<c:forEach items="${dogList }" var="dog">
 					<!-- d_si_name -> d_num  -->
 						<option value="${dog.d_num }">${dog.d_name }</option>
@@ -54,9 +54,9 @@ pageEncoding="UTF-8"%>
 				<button type="button" name="btn-search" class="btn btn-outline-dark btn-float-right col-1">검색</button>
 			</div>
 			<div class="form-group" name="room-box">
-				<label>예약하고자 하는 방을 선택해주세요</label>
+				<label>예약하고자 하는 객실을 선택해주세요</label>
 				<select class="form-control" name="roomSelect">
-					<option value="0">방 선택</option>
+					<option value="0">객실 선택</option>
 				</select>
 			</div>
 			<div class="form-group">
@@ -129,9 +129,9 @@ pageEncoding="UTF-8"%>
 			add += `
 				<hr>
 				<div class="form-group" name="dog-box">
-					<label>맡기고자 하는 개를 선택해주세요</label>
+					<label>맡기고자 하는 반려견을 선택해주세요</label>
 					<select class="form-control" name="dogSelect">
-						<option value="0">반려동물 선택</option>
+						<option value="0">반려견 선택</option>
 						<c:forEach items="${dogList }" var="dog">
 							<option value="${dog.d_num }">${dog.d_name }</option>
 						</c:forEach>
@@ -141,9 +141,9 @@ pageEncoding="UTF-8"%>
 					<button type="button" name="btn-search" class="btn btn-outline-dark btn-float-right col-1">검색</button>
 				</div>
 				<div class="form-group" name="room-box">
-					<label>예약하고자 하는 방을 선택해주세요</label>
+					<label>예약하고자 하는 객실을 선택해주세요</label>
 					<select class="form-control" name="roomSelect">
-						<option value="0">방 선택</option>
+						<option value="0">객실 선택</option>
 					</select>
 				</div>
 				<div class="form-group">
@@ -157,7 +157,7 @@ pageEncoding="UTF-8"%>
 	
 	
 	
-	// 조건에 맞는 방 찾기
+	// 조건에 맞는 객실 찾기
 	$(document).on('click','[name=btn-search]',function(){
 		let data = {
 				br_num : br_num,
@@ -168,7 +168,7 @@ pageEncoding="UTF-8"%>
 		
 		ajaxObjectToJson(false,'post','<c:url value="/reservation/select"/>',data,(a)=>{
 			if(a==''){
-				alert('예약할수 있는 방이 없습니다.')
+				alert('예약할 수 있는 객실이 없습니다.')
 				
 			}else{
 				th.parent().next().find('[name=roomSelect]').empty();
@@ -183,9 +183,6 @@ pageEncoding="UTF-8"%>
 	})
 	
 		
-	
-	
-	
 	//데이트피커
 	$(document).ready(function(){
 		$(".datePicker").datepicker({
@@ -228,9 +225,6 @@ pageEncoding="UTF-8"%>
     <%
        }
     %>
-    
-   
-    
     
 </script>
 
