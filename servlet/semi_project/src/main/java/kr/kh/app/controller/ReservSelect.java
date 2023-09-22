@@ -62,6 +62,8 @@ public class ReservSelect extends HttpServlet {
 		// roomService.머시기메서드(roomlist.get(1), 날짜) -> 블루방에 20일에 몇마리가 묵는지 알려줌
 		// roomService.머시기메서드(roomlist.get(2), 날짜) -> 오렌지방에 20일에 몇마리가 묵는지 알려줌
 		// 방, 해당날짜 -> 그 방이 해당날짜에 예약이 되는지 -> 알려면 ???
+		
+		
 		JSONArray jsonArray = new JSONArray(roomlist);
 		request.setAttribute("roomlist", jsonArray.toString());
 		response.setContentType("application/json");

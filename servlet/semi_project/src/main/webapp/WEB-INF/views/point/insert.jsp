@@ -18,6 +18,13 @@
 	<div class="container mt-5">
 		<h2>포인트 적립내용 추가</h2>
 		<form action="<c:url value='/point/insert'/>" method="post" class="mt-4">
+		 	
+		 	
+		 	<div class = "form-group">
+				<label></label>
+				<input type="text" class="form-control" name="po_search" placeholder="검색"><button type="button" class="btn btn-outline-dark">검색</button>
+			
+			</div>
 		 	<div class = "form-group">
 				<label>포인트</label>
 				<input type="text" class="form-control" name="po_point" placeholder="포인트">
