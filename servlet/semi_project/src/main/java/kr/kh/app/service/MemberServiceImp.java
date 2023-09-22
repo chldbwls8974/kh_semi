@@ -122,4 +122,12 @@ public class MemberServiceImp implements MemberService {
 		return memberDao.deleteMember(member);
 	}
 
+	@Override
+	public ArrayList<MemberVO> getMemberSearch(String search) {
+		if(search == null) {
+			return null;
+		}
+		return memberDao.selectMemberSelect(search);
+	}
+
 }

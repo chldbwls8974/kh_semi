@@ -399,4 +399,14 @@
     <servlet-name>MemberDelete</servlet-name>
     <url-pattern>/member/delete</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PointSearch</display-name>
+    <servlet-name>PointSearch</servlet-name>
+    <servlet-class>kr.kh.app.controller.PointSearch</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PointSearch</servlet-name>
+    <url-pattern>/point/search</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -189,7 +189,6 @@ pageEncoding="UTF-8"%>
 				/* d_size -> d_num */
 				d_num :  d_num
 		}
-		console.log(data)
 		let th = $(this);
 		
 		ajaxObjectToJson(false,'post','<c:url value="/reservation/select"/>',data,(a)=>{

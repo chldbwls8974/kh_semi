@@ -31,4 +31,7 @@
 <delete id="deleteMember">
 	delete from member where me_id = #{member.me_id}
 </delete>
+<select id="selectMemberSelect" resultType="kr.kh.app.vo.MemberVO">
+	select * from member where me_id like concat('%' #{search} '%')
+</select>
 </mapper>

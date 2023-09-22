@@ -22,4 +22,6 @@ public interface MemberDAO {
 	void updateMemberToReserv(@Param("me_id")String me_id, @Param("price")Integer re_real_price);
 
 	boolean deleteMember(@Param("member")MemberVO member);
+
+	ArrayList<MemberVO> selectMemberSelect(@Param("search")String search);
 }

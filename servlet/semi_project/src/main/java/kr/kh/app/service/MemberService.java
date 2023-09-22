@@ -24,4 +24,6 @@ public interface MemberService {
 
 	boolean deleteMember(MemberVO member);
 
+	ArrayList<MemberVO> getMemberSearch(String search);
+
 }
