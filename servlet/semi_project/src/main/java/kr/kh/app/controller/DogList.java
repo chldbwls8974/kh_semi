@@ -25,7 +25,12 @@ public class DogList extends HttpServlet {
 		HttpSession session = request.getSession();
 		MemberVO user = (MemberVO)session.getAttribute("user"); 
 		
+		//세션 이용자의 권한이 ADMIN일 때 사용
+		ArrayList<DogVO> allList = dogService.getDogList();
+		//세션 이용자의 권한이 USER일 때 사용
 		ArrayList<DogVO> list = dogService.getMyDogList(user);
+		
+		request.setAttribute("allList", allList);
 		request.setAttribute("list", list);
 //		int dogCount = list.size() + 1;
 		
