@@ -409,4 +409,14 @@
     <servlet-name>PointSearch</servlet-name>
     <url-pattern>/point/search</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MemberLevel</display-name>
+    <servlet-name>MemberLevel</servlet-name>
+    <servlet-class>kr.kh.app.controller.MemberLevel</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberLevel</servlet-name>
+    <url-pattern>/member/level</url-pattern>
+  </servlet-mapping>
 </web-app>

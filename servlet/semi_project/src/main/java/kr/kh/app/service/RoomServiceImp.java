@@ -80,8 +80,8 @@ public class RoomServiceImp implements RoomService {
 
 
 	@Override
-	public ArrayList<RoomVO> getRoomListByBranchAndSize(String start_date, String end_date, Integer br_num, String d_size) {
-		return roomDao.selectReservationRoom(start_date, end_date, br_num, d_size);
+	public ArrayList<RoomVO> getRoomListByBranchAndSize(Integer br_num, String d_size) {
+		return roomDao.selectReservationRoom(br_num, d_size);
 	}
 
 	@Override

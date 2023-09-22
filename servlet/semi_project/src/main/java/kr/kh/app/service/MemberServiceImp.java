@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kr.kh.app.dao.MemberDAO;
+import kr.kh.app.vo.LevelVO;
 import kr.kh.app.vo.MemberVO;
 
 public class MemberServiceImp implements MemberService {
@@ -112,8 +113,9 @@ public class MemberServiceImp implements MemberService {
 	}
 
 	@Override
-	public void updateTotalPrice(String me_id, Integer re_real_price) {
-		memberDao.updateMemberToReserv(me_id, re_real_price);
+	public void updateTotalPrice(String me_id, Integer re_real_price, LevelVO level) {
+		memberDao.updateMemberToReserv(me_id, re_real_price, level.getLe_benefit());
+		
 		
 	}
 
@@ -128,6 +130,12 @@ public class MemberServiceImp implements MemberService {
 			return null;
 		}
 		return memberDao.selectMemberSelect(search);
+	}
+
+	@Override
+	public void updateLevel(LevelVO level) {
+		memberDao.updateLevel(level.getLe_benefit());
+		
 	}
 
 }

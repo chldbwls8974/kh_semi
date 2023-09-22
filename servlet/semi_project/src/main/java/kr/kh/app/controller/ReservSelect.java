@@ -40,7 +40,7 @@ public class ReservSelect extends HttpServlet {
 		// 날짜
 		String from = request.getParameter("start_date");
 		String to = request.getParameter("end_date");
-		List<LocalDate> date = reservService.calStayDay(from,to);
+		//List<LocalDate> date = reservService.calStayDay(from,to);
 		
 		
 		//개 번호로 사이즈 가져오기
@@ -55,7 +55,7 @@ public class ReservSelect extends HttpServlet {
 		 */
 		
 		
-		ArrayList<RoomVO> roomlist = roomService.getRoomListByBranchAndSize(from, to,br_num, d_size);
+		ArrayList<RoomVO> roomlist = roomService.getRoomListByBranchAndSize(br_num, d_size);
 		// -> 지점,개사이즈 맞는 방임 ex) 방 3개 들고왔음       // 3개를 들고왔어 20일에는 3개가 다돼 21일에는 2개만돼 22일에는 3개가 돼
 		//     -> 해당 날짜에 수용량이 여유있어야함 (예약마리수 < 최대마리수) ==> 1마리 일때는 되는 코드임 / 소형견 2마리, 대형견 1마리면 ==> 어떻게? -> 사이즈별 마리수 판별하고 -> 메서드 매개변수(방, 날짜, 마리수) 넘겨줌
 		//			-> 선택한 모든 날짜에 여유가있어야함.

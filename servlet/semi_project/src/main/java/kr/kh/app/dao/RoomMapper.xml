@@ -41,20 +41,6 @@
 		select * from room where ro_detail = #{d_size}
 	</select>
 	<select id="selectReservationRoom" resultType="kr.kh.app.vo.RoomVO">
-		select ro_num, ro_name, ro_max_cap, ro_now_cap,ro_detail, ro_br_num from
-			(
-			select *,count(rd_ro_num) as rd from (
-				select ro_num, ro_name, rd_ro_num, rd_date, count(rd_ro_num) as 'tmp', ro_max_cap, ro_now_cap, rd_br_num, ro_detail, ro_br_num  from room
-				left join reservdate on room.ro_num = reservdate.rd_ro_num
-				group by rd_date, ro_num, ro_br_num
-				)as t
-			where ro_max_cap > tmp
-			and rd_date between #{start_date} and #{end_date}
-			or rd_date is null
-			and ro_br_num = #{br_num}
-			and ro_detail = #{d_size}
-			group by ro_name
-			having rd = (select TIMESTAMPDIFF(day, #{start_date},#{end_date})+1) or rd  =0)
-		as r
+		select * from room where ro_detail = #{d_size} and ro_br_num = #{br_num}
 	</select>
 </mapper>

@@ -24,7 +24,6 @@ public class PointSearch extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String search = request.getParameter("po_search");
 		ArrayList<MemberVO> list = memberService.getMemberSearch(search);
-		System.out.println(list);
 		JSONArray jsonArray = new JSONArray(list);
 		request.setAttribute("list", jsonArray.toString());
 		response.setContentType("application/json");

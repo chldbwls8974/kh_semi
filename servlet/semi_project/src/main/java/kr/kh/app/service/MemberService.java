@@ -2,6 +2,7 @@ package kr.kh.app.service;
 
 import java.util.ArrayList;
 
+import kr.kh.app.vo.LevelVO;
 import kr.kh.app.vo.MemberVO;
 
 public interface MemberService {
@@ -20,10 +21,12 @@ public interface MemberService {
 
 	void updateUserPoint(String me_id, int myPoint);
 
-	void updateTotalPrice(String me_id, Integer re_real_price);
+	void updateTotalPrice(String me_id, Integer re_real_price, LevelVO level);
 
 	boolean deleteMember(MemberVO member);
 
 	ArrayList<MemberVO> getMemberSearch(String search);
+
+	void updateLevel(LevelVO level);
 
 }
