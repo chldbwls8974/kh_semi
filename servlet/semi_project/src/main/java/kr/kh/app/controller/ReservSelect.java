@@ -57,6 +57,8 @@ public class ReservSelect extends HttpServlet {
 		
 		ArrayList<RoomVO> roomlist = roomService.getRoomListByBranchAndSize(from, to,br_num, d_size);
 		// -> 지점,개사이즈 맞는 방임 ex) 방 3개 들고왔음       // 3개를 들고왔어 20일에는 3개가 다돼 21일에는 2개만돼 22일에는 3개가 돼
+		//     -> 해당 날짜에 수용량이 여유있어야함 (예약마리수 < 최대마리수) ==> 1마리 일때는 되는 코드임 / 소형견 2마리, 대형견 1마리면 ==> 어떻게? -> 사이즈별 마리수 판별하고 -> 메서드 매개변수(방, 날짜, 마리수) 넘겨줌
+		//			-> 선택한 모든 날짜에 여유가있어야함.
 		//메서드는 -> 방,날짜를 매개변수로 그날 예약된 마리수를 리턴함
 		// roomService.머시기메서드(roomlist.get(0), 날짜) -> 핑크방에 20일에 몇마리가 묵는지 알려줌 < max_cap 이면 그날에 묵을수있음
 		// roomService.머시기메서드(roomlist.get(1), 날짜) -> 블루방에 20일에 몇마리가 묵는지 알려줌
@@ -73,5 +75,11 @@ public class ReservSelect extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-
+//	날짜를 받아와서 그 날 그 방이 몇마리 예약되어있는지 확인하는 쿼리
+//	SELECT count(*) as 몇마리
+//	FROM reservdate
+//	where rd_ro_num = 1
+//	and rd_date = "2023-09-22"
+//	group by rd_ro_num
+//	;
 }
