@@ -28,10 +28,8 @@
 			<div class = "form-group">
 				<label>적립 대상자</label>
 				<div class="input-group mb-3">
-				  <input type="text" class="form-control" name="po_search" placeholder="적립대상자">
-				  <div class="input-group-append">
-				    <button class="btn btn-success" type="button">검색</button>
-				  </div>
+				  <input type="text" class="form-control col-12" name="po_search" placeholder="적립대상자">
+				  <button class="btn btn-search btn-outline-dark col-2" type="button">검색</button>
 				</div>
 				<select class="form-control" name="memberSelect" id="mySelect">
 					<option value="0">적립대상자 선택</option>
@@ -66,7 +64,7 @@
 		po_search = $(this).val(); 		
  	})
  	
- 	$(document).on('click','.btn-success',function(){
+ 	$(document).on('click','.btn-search',function(){
  		
  		let data = {
  				po_search : po_search
