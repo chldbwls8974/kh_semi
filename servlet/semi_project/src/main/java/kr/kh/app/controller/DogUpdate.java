@@ -8,13 +8,16 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import kr.kh.app.service.DogService;
 import kr.kh.app.service.DogServiceImp;
+import kr.kh.app.service.SizeService;
+import kr.kh.app.service.SizeServiceImp;
 import kr.kh.app.vo.DogVO;
 import kr.kh.app.vo.MemberVO;
 
 public class DogUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private DogService dogService = new DogServiceImp();
-
+	private SizeService sizeService = new SizeServiceImp();
+	
 	public DogUpdate() {
 		super();
 	}
@@ -40,10 +43,10 @@ public class DogUpdate extends HttpServlet {
 		int newKg = Integer.parseInt(request.getParameter("d_kg"));
 		String newDetail = request.getParameter("d_detail");
 		String siName = request.getParameter("d_si_name"); 
-		if (newKg <= 8) { siName = "S"; }
-		else if(newKg <= 20) {	siName ="M"; }
-		else { siName ="L"; }
-
+		if (sizeService.getSize("L").getSi_min_kg() <= newKg) { siName = "L"; }
+		else if(sizeService.getSize("L").getSi_min_kg() <= newKg) {	siName ="M"; }
+		else { siName ="S"; }
+		
 		dog.setD_num(newNum);
 		dog.setD_name(newName);
 		dog.setD_age(newAge);
@@ -57,6 +60,7 @@ public class DogUpdate extends HttpServlet {
 		if(dogService.updateDog(dog)) {
 			Ok = true;
 		}
+		System.out.println(dog);
 		request.setAttribute("Ok", Ok);
 		
 		doGet(request, response);

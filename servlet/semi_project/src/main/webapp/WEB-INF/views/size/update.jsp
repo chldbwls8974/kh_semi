@@ -16,11 +16,11 @@
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	
 	<div class="container mt-5">
-	<h2>크기 구분 변경</h2>
+	<h2>크기 구분 변경(최소 무게)</h2>
  	<form action="<c:url value='/size/update'/>" method="post" class="mt-4">
  		<div class = "form-group">
  			<label>소형</label>
- 			<input type="number" class="form-control" name="si_min_kg_s"  placeholder="${sSize.si_min_kg}" min="1" max="100" required>
+ 			<input type="number" class="form-control" name="si_min_kg_s"  placeholder="${sSize.si_min_kg}" min="0" max="100" required>
  		</div>
  		<div class = "form-group">
  			<label>중형</label>

@@ -6,6 +6,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kr.kh.app.service.LevelService;
+import kr.kh.app.service.LevelServiceImp;
 import kr.kh.app.service.MemberService;
 import kr.kh.app.service.MemberServiceImp;
 import kr.kh.app.service.PointService;
@@ -21,6 +23,7 @@ public class ReservPay extends HttpServlet {
     private ReservService reservService = new ReservServiceImp();  
     private PointService pointService = new PointServiceImp();
 	private MemberService memberService = new MemberServiceImp();
+	private LevelService levelService = new LevelServiceImp();
 	
     public ReservPay() {
         super();
@@ -61,6 +64,8 @@ public class ReservPay extends HttpServlet {
 		//member 테이블에 포인트 업데이트
 		memberService.updateUserPoint(me_id, myPoint);
 		//member테이블에 누적금액 업데이트
+		System.out.println(levelService.getBenefitLevel("vip"));
+		
 		memberService.updateTotalPrice(me_id,re_real_price);
 		//업데이트 한 user 다시 가져오기
 		MemberVO user = memberService.getMember(me_id);
