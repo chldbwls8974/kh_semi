@@ -14,6 +14,7 @@ import kr.kh.app.service.PointService;
 import kr.kh.app.service.PointServiceImp;
 import kr.kh.app.service.ReservService;
 import kr.kh.app.service.ReservServiceImp;
+import kr.kh.app.vo.LevelVO;
 import kr.kh.app.vo.MemberVO;
 import kr.kh.app.vo.PointVO;
 import kr.kh.app.vo.ReservationVO;
@@ -34,6 +35,8 @@ public class ReservPay extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		String re_num = request.getParameter("re_num");
 		String content="호텔 결제에 의한 적립";
 		String content2="호텔 결제시 포인트 사용에 의한 차감";

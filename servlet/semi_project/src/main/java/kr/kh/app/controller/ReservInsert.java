@@ -9,16 +9,17 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import kr.kh.app.service.DogService;
 import kr.kh.app.service.DogServiceImp;
+import kr.kh.app.service.LevelService;
+import kr.kh.app.service.LevelServiceImp;
 import kr.kh.app.service.PriceService;
 import kr.kh.app.service.PriceServiceImp;
 import kr.kh.app.service.ReservListService;
 import kr.kh.app.service.ReservListServiceImp;
 import kr.kh.app.service.ReservService;
 import kr.kh.app.service.ReservServiceImp;
-import kr.kh.app.vo.MemberVO;
+import kr.kh.app.vo.LevelVO;
 import kr.kh.app.vo.ReservListVO;
 import kr.kh.app.vo.ReservationVO;
 
@@ -29,6 +30,8 @@ public class ReservInsert extends HttpServlet {
 	ReservListService reservListService = new ReservListServiceImp();
 	PriceService priceService = new PriceServiceImp();
 	DogService dogService = new DogServiceImp();
+	LevelService levelService = new LevelServiceImp();
+	
     public ReservInsert() {
         super();
     }
@@ -39,6 +42,13 @@ public class ReservInsert extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//화면으로 보내주는 데이터
+		//db에 저장된 등급별 적립률 가져오기
+		LevelVO defaultLevel = levelService.getBenefitLevel("일반");
+		LevelVO vipLevel =levelService.getBenefitLevel("vip");
+		request.setAttribute("defaultLevel", defaultLevel);
+		request.setAttribute("vipLevel", vipLevel);
+		
 		//화면에서 받아오는 데이터
 		String re_me_id = request.getParameter("re_me_id");
 		String from = request.getParameter("from");
