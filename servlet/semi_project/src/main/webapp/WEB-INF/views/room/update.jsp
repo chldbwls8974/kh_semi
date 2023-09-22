@@ -15,7 +15,7 @@
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container mt-5">
-		<h3>객실 수정</h3>
+		<h2>객실 수정</h2>
 			<form action="<c:url value='/room/update'/>" method="post" class="mt-4">
 				<input type="hidden" name="ro_num" value="${room.ro_num }">
 				<div class="form-group">
