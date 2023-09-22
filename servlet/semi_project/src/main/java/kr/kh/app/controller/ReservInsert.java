@@ -22,7 +22,6 @@ import kr.kh.app.service.ReservListServiceImp;
 import kr.kh.app.service.ReservService;
 import kr.kh.app.service.ReservServiceImp;
 import kr.kh.app.vo.LevelVO;
-import kr.kh.app.vo.ReservDateVO;
 import kr.kh.app.vo.ReservListVO;
 import kr.kh.app.vo.ReservationVO;
 
@@ -41,8 +40,11 @@ public class ReservInsert extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/reservation/insert.jsp").forward(request, response);
+		String re_num = request.getParameter("re_num");
 		
+		//ReservationVO reserv = reservService.getReserv(re_num);
+		
+		request.getRequestDispatcher("/WEB-INF/views/reservation/insert.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

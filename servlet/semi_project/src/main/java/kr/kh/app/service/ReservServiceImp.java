@@ -195,4 +195,11 @@ public class ReservServiceImp implements ReservService{
 	}
 
 
+	@Override
+	public void updateReservState(ReservationVO reserv) {
+		reservDao.updateReservState(reserv);
+		
+	}
+
+
 }

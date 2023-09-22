@@ -9,12 +9,12 @@
 	<insert id="insertReserv">
 		insert into reservation(re_num, 
 			re_s_count, re_m_count, re_l_count,
-			 re_price, re_real_price, re_use_point,
+			 re_price, re_use_point,
 			  re_add_point, re_me_id, re_date,
 			  re_end_date)
 		values
 			(#{reserv.re_num},#{reserv.re_s_count}, #{reserv.re_m_count}, #{reserv.re_l_count}, 
-			#{reserv.re_price}, #{reserv.re_real_price}, #{reserv.re_use_point}, 
+			#{reserv.re_price}, #{reserv.re_use_point}, 
 			#{reserv.re_add_point}, #{reserv.re_me_id}, #{reserv.re_date}, 
 			#{reserv.re_end_date}) 
 	</insert>
@@ -28,5 +28,10 @@
 	<select id="selectReservArray">
 		select * from reservation
 	</select>
+	<update id="updateReservState">
+		update reservation set
+		re_state = (case when re_real_price is null then '미완료' else '완료' end)
+		where re_num = #{reserv.re_num}
+	</update>
 	
 </mapper>

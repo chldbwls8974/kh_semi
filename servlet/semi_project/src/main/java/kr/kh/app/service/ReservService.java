@@ -31,5 +31,7 @@ public interface ReservService {
 
 	ArrayList<ReservationVO> getReservArray();
 
+	void updateReservState(ReservationVO reserv);
+
 
 }
