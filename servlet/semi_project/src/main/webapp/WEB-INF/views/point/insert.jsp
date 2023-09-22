@@ -72,9 +72,9 @@
  		let th = $(this)
  		
  		ajaxObjectToJson2(false,'post','<c:url value="/point/search"/>',data,(a)=>{
+ 			th.parents().find('[name=memberSelect]').empty()
  			if(a==''){
  				alert('해당하는 회원이 없습니다.')
- 				th.parents().find('[name=memberSelect]').empty()
  				return;
  			}
  			for(member of a){
