@@ -53,6 +53,7 @@ public class ReservPay extends HttpServlet {
 		
 		//포인트 사용할 때 내 포인트 이상 선택할 수 없게 해야함 (자바스크립트)
 		if(reservService.updateReserv(reserv)) {
+			reservService.updateReservState(reserv);
 			//사용 포인트 0이면 -> 포인트사용내역DB에 등록 안해도 됨
 			if(re_use_point != 0) {
 				pointService.insertPoint(usepoint);
