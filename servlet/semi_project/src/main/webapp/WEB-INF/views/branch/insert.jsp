@@ -16,25 +16,6 @@
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container mt-5">
 	<h2>지점 등록</h2>
-	<%-- <form action = "" method="post">
-		<input type="text" name="name" placeholder="지점명"> <br>
-		<input type="text" name="phone" placeholder="전화번호"> <br>
-		<button>등록</button>
-	</form>
-	<script>
-		<% 
-			Boolean result = (Boolean)request.getAttribute("ok");
-			if(result != null && result){
-		%>
-			alert('지점등록 성공!')
-		<%
-			}else if(result != null && !result){
-		%>
-			alert('지점등록 실패!')
-		<%
-			}
-		%>
-	</script> --%>
 	<form action="<c:url value='/branch/insert'/>" method="post" class="mt-4">
 	 	<div class = "form-group">
 			<label>지점명</label>

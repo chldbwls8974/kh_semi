@@ -10,7 +10,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<title>Insert title here</title>
+<title>포인트 적립내용 추가</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
@@ -27,7 +27,7 @@
 				<input type="text" class="form-control" name="po_content" placeholder="내용">
 			</div>
 			<div class = "form-group">
-				<label>적립대상자</label>
+				<label>적립 대상자</label>
 				<input type="text" class="form-control" name="po_me_id" placeholder="적립대상자">
 			</div>
 	 		<button class="btn btn-outline-warning col-12 mt-2">등록</button>
