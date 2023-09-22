@@ -3,33 +3,34 @@ package kr.kh.app.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import kr.kh.app.service.DogService;
 import kr.kh.app.service.DogServiceImp;
 import kr.kh.app.vo.DogVO;
-import kr.kh.app.vo.MemberVO;
 
-public class MyPage extends HttpServlet {
+public class DogSearch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private DogService dogService = new DogServiceImp();
        
-    public MyPage() {
+    public DogSearch() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		MemberVO user = (MemberVO)session.getAttribute("user"); 
+		String d_search = request.getParameter("d_search");
 		
-		ArrayList<DogVO> list = dogService.getMyDogList(user);
-		request.setAttribute("list", list);
-		
-		request.getRequestDispatcher("/WEB-INF/views/member/mypage.jsp").forward(request,response);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		ArrayList<DogVO> doglist = dogService.searchDogList(d_search);
+
+		JSONArray jsonArray = new JSONArray(doglist);
+		request.setAttribute("doglist", jsonArray.toString());
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(jsonArray.toString());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

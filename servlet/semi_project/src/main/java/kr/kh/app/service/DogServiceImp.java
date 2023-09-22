@@ -75,6 +75,14 @@ public class DogServiceImp implements DogService {
 		return dogDao.selectDogList();
 	}
 
+	@Override
+	public ArrayList<DogVO> searchDogList(String d_search) {
+		if(d_search == null) {
+			return null;
+		}
+		return dogDao.searchDogUser(d_search);
+	}
+
 
 
 }

@@ -34,7 +34,11 @@ public String toString() {
 		
 		return "{\"d_num\" : \"" + d_num + "\","
 				+ "\"d_name\" : \"" + d_name + "\","
+				+ "\"d_gen\" : \"" + d_gen + "\","
 				+ "\"d_age\" : " + d_age + ","
+				+ "\"d_kg\" : " + d_kg + ","
+				+ "\"d_detail\" : \"" + d_detail + "\","
+				+ "\"d_me_id\" : \"" + d_me_id + "\","
 				+ "\"d_si_name\" : \"" + d_si_name+ "\"}";
 	}
 

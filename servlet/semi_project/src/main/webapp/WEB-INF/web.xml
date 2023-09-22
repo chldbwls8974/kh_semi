@@ -419,4 +419,14 @@
     <servlet-name>MemberLevel</servlet-name>
     <url-pattern>/member/level</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DogSearch</display-name>
+    <servlet-name>DogSearch</servlet-name>
+    <servlet-class>kr.kh.app.controller.DogSearch</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DogSearch</servlet-name>
+    <url-pattern>/dog/search</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -68,7 +68,6 @@ public class ReservPay extends HttpServlet {
 		memberService.updateUserPoint(me_id, myPoint);
 		//member테이블에 누적금액 업데이트
 		LevelVO level = levelService.getBenefitLevel("기준액");
-		System.out.println(level);
 		memberService.updateTotalPrice(me_id,re_real_price,level);
 		//업데이트 한 user 다시 가져오기
 		MemberVO user = memberService.getMember(me_id);

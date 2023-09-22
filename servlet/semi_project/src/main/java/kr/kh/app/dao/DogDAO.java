@@ -22,4 +22,6 @@ public interface DogDAO {
  
 	ArrayList<DogVO> selectDogList();
 
+	ArrayList<DogVO> searchDogUser(@Param("d_search")String d_search);
+
 }

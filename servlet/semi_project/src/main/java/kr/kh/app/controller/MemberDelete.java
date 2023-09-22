@@ -27,7 +27,6 @@ public class MemberDelete extends HttpServlet {
 		
 		String me_id = request.getParameter("me_id");
 		MemberVO member = memberService.getMember(me_id);
-		System.out.println(member);
 
 		// 삭제를 서비스에게 요청
         boolean ok = false;

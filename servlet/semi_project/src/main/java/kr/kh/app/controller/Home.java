@@ -29,15 +29,12 @@ public class Home extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// �������� ȭ�鿡�� �����͸� ����
 		request.setAttribute("msg","Hello");
-		// �̸� �������� home.jsp�� ����
 		request.getRequestDispatcher("WEB-INF/views/home.jsp").forward(request,response);
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// ȭ�鿡�� ���� id�� ������
 		String id = request.getParameter("id");
 		System.out.println(id);
 		doGet(request, response);
