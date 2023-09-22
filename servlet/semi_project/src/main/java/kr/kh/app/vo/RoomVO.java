@@ -15,6 +15,8 @@ public class RoomVO {
 	private int ro_now_cap; 
 	private String ro_detail;
 	private int ro_br_num;
+	private int rd_num, rd_ro_num ,rd_br_num;
+	private String rd_date;
 	
 	public RoomVO(int ro_num, String ro_name, int ro_max_cap, int ro_now_cap, int ro_br_num, String ro_detail) {
 		this.ro_num = ro_num;

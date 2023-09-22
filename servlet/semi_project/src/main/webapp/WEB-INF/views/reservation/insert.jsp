@@ -25,7 +25,7 @@
 				<input type="text" class="form-control" name="re_price" value="${reserv.re_price }" readonly>
 			</div>
 			<div class="form-group">
-				<label>내 포인트</label>
+				<label>나의 포인트</label>
 				<input type="text" class="form-control" name="me_point" value="${user.me_point }" readonly>
 			</div>
 			<div class="form-group">
@@ -41,7 +41,6 @@
 				<label>결제 예정 금액</label>
 				<input type="text" class="form-control" name="re_real_price" value="${reserv.re_price }" readonly>
 			</div>
-			
 			<button class="btn btn-pay btn-outline-success col-12">결제하기</button>
 		</form>
 	</div>
@@ -55,7 +54,7 @@
 	
 		
 	
-	let per = level=='일반'? 0.05: 0.1;
+	let per = level=='일반'? (${defaultLevel.le_benefit } * 0.01): (${ vipLevel.le_benefit} * 0.01);
 	let defaultpoint = Math.floor($('[name=re_price]').val()*per)
 	
 	$('[name=re_add_point]').attr("value",defaultpoint);
@@ -67,8 +66,6 @@
 		$('[name=re_real_price]').attr("value",price);
 		$('[name=re_add_point]').attr("value",point);
 	})
-	
-	
 
 </script>
 

@@ -48,7 +48,6 @@ public class RoomUpdate extends HttpServlet {
 		String ro_detail = request.getParameter("ro_detail");
 		
 		RoomVO room = new RoomVO(ro_num, ro_name, ro_max_cap, ro_now_cap, ro_br_num, ro_detail);
-		System.out.println(room);
 		
 		boolean ok = false;
 		if(roomService.updateRoom(room)) {

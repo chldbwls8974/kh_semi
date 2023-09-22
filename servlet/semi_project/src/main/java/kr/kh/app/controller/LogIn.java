@@ -28,18 +28,17 @@ public class LogIn extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("me_id");
 		String pw = request.getParameter("me_pw");
+		
 		MemberVO member = new MemberVO(id,pw,null,null,null,null,0,0, null);
 		MemberVO user = memberService.login(member);
 		boolean Ok = false;
 		if(user != null) {
 			Ok = true;
+			//유저 총 포인트 가져와서 db에 업데이트
+			memberService.updateUserPoint(id, pointService.getUserPoint(id));
+			//업데이트 한 user 다시 가져오기
+			user = memberService.getMember(id);
 		}
-		//내 포인트 총량 들고오기
-		int myPoint = pointService.getUserPoint(id);
-		//member 테이블에 업데이트
-		memberService.updateUserPoint(id, myPoint);
-		//업데이트 한 user 다시 가져오기
-		user = memberService.getMember(id);
 		
 		request.setAttribute("Ok", Ok);
 		request.getSession().setAttribute("user",user);

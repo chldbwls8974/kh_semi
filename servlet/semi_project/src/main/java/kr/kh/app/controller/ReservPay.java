@@ -6,12 +6,15 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kr.kh.app.service.LevelService;
+import kr.kh.app.service.LevelServiceImp;
 import kr.kh.app.service.MemberService;
 import kr.kh.app.service.MemberServiceImp;
 import kr.kh.app.service.PointService;
 import kr.kh.app.service.PointServiceImp;
 import kr.kh.app.service.ReservService;
 import kr.kh.app.service.ReservServiceImp;
+import kr.kh.app.vo.LevelVO;
 import kr.kh.app.vo.MemberVO;
 import kr.kh.app.vo.PointVO;
 import kr.kh.app.vo.ReservationVO;
@@ -21,6 +24,7 @@ public class ReservPay extends HttpServlet {
     private ReservService reservService = new ReservServiceImp();  
     private PointService pointService = new PointServiceImp();
 	private MemberService memberService = new MemberServiceImp();
+	private LevelService levelService = new LevelServiceImp();
 	
     public ReservPay() {
         super();
@@ -31,6 +35,8 @@ public class ReservPay extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		String re_num = request.getParameter("re_num");
 		String content="호텔 결제에 의한 적립";
 		String content2="호텔 결제시 포인트 사용에 의한 차감";
@@ -61,7 +67,8 @@ public class ReservPay extends HttpServlet {
 		//member 테이블에 포인트 업데이트
 		memberService.updateUserPoint(me_id, myPoint);
 		//member테이블에 누적금액 업데이트
-		memberService.updateTotalPrice(me_id,re_real_price);
+		LevelVO level = levelService.getBenefitLevel("기준액");
+		memberService.updateTotalPrice(me_id,re_real_price,level);
 		//업데이트 한 user 다시 가져오기
 		MemberVO user = memberService.getMember(me_id);
 		//세션에 업데이트 (로그인 해제하지 않아도 마이페이지에서 point를 업데이트 해 주기 위해서)

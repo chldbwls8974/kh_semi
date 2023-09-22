@@ -38,6 +38,9 @@
 			    </c:forEach>
 		    </tbody>
 		</table>
+		
+		<a role="button" class="btn btn-outline-warning" href="<c:url value='/member/level'/>">등급 기준액 변경</a>
+		<a role="button" class="btn btn-outline-dark btn-float-right" href="/semi_project/admin">뒤로가기</a>
 	</div>
 	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 	<script type="text/javascript">

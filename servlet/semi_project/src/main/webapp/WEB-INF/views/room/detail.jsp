@@ -54,7 +54,7 @@ form{
 
   </style>
 
-<title>객실 상세페이지</title>
+<title>객실 상세정보</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>

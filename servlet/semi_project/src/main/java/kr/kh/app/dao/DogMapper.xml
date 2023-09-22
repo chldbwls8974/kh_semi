@@ -30,4 +30,7 @@
 		select * from dog
 	</select>
 	<!-- ${dog} -->
+	<select id="searchDogUser" resultType="kr.kh.app.vo.DogVO">
+		select * from dog where d_me_id like concat('%' #{d_search} '%')
+	</select>
 </mapper>

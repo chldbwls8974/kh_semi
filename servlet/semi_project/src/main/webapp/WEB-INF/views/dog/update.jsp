@@ -10,12 +10,12 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<title>Insert title here</title>
+<title>반려견 정보 수정</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container mt-5">
-		<h3>반려견 정보 수정</h3>
+		<h2>반려견 정보 수정</h2>
 			<form action="<c:url value='/dog/update'/>" method="post" class="mt-4">	
 		 		<div class = "form-group">
 		 		 	<label>견주ID</label>

@@ -41,9 +41,9 @@ pageEncoding="UTF-8"%>
 				</select>
 			</div>
 			<div class="form-group" name="dog-box">
-				<label>맡기고자 하는 개를 선택해주세요</label>
+				<label>맡기고자 하는 반려견을 선택해주세요</label>
 				<select class="form-control" name="dogSelect">
-					<option value="0">반려동물 선택</option>
+					<option value="0">반려견 선택</option>
 					<c:forEach items="${dogList }" var="dog">
 					<!-- d_si_name -> d_num  -->
 						<option value="${dog.d_num }">${dog.d_name }</option>
@@ -54,9 +54,9 @@ pageEncoding="UTF-8"%>
 				<button type="button" name="btn-search" class="btn btn-outline-dark btn-float-right col-1">검색</button>
 			</div>
 			<div class="form-group" name="room-box">
-				<label>예약하고자 하는 방을 선택해주세요</label>
+				<label>예약하고자 하는 객실을 선택해주세요</label>
 				<select class="form-control" name="roomSelect">
-					<option value="0">방 선택</option>
+					<option value="0">객실 선택</option>
 				</select>
 			</div>
 			<div class="form-group">
@@ -86,19 +86,42 @@ pageEncoding="UTF-8"%>
 	//전역변수
 	//let dogs = ${dogList}
 	// 보유 멍멍 마릿수
-	var d_count =  $('[name=dogSelect] option').length -1
-	var br_num
-	var d_num
+	let count = 0;
+	let str = '';
+	let d_count =  $('[name=dogSelect] option').length -1
+	let br_num
+	let d_num
+	let start_date
+	let end_date
 	$('[name=branchSelect]').change(function(){
 		br_num = $(this).val()
 	})
 	$(document).on('change', '[name=dogSelect]', function(){
 		d_num = $(this).val()
 	})
-	var count = 0;
-	var str = '';
+	$(document).on('change', '[name=from]', function(){
+		start_date = $(this).val()
+	})
+	$(document).on('change', '[name=to]', function(){
+		end_date = $(this).val()
+	})
+	
+	
+	// 시작-종료 일 사이의 날짜 구하는 함수 
+	function getDatesStartToLast(start_date, end_date) {
+	var regex = RegExp(/^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/);
+	if(!(regex.test(start_date) && regex.test(end_date))) return "Not Date Format";
+	var result = [];
+	var curDate = new Date(start_date);
+	while(curDate <= new Date(end_date)) {
+		result.push(curDate.toISOString().split("T")[0]);
+		curDate.setDate(curDate.getDate() + 1);
+		}
+		return result;
+	}
 
-
+	
+	
  	// 두번째 방 추가
 	$(document).on('click','.btn-add',function(){
 		/* //
@@ -129,9 +152,9 @@ pageEncoding="UTF-8"%>
 			add += `
 				<hr>
 				<div class="form-group" name="dog-box">
-					<label>맡기고자 하는 개를 선택해주세요</label>
+					<label>맡기고자 하는 반려견을 선택해주세요</label>
 					<select class="form-control" name="dogSelect">
-						<option value="0">반려동물 선택</option>
+						<option value="0">반려견 선택</option>
 						<c:forEach items="${dogList }" var="dog">
 							<option value="${dog.d_num }">${dog.d_name }</option>
 						</c:forEach>
@@ -141,9 +164,9 @@ pageEncoding="UTF-8"%>
 					<button type="button" name="btn-search" class="btn btn-outline-dark btn-float-right col-1">검색</button>
 				</div>
 				<div class="form-group" name="room-box">
-					<label>예약하고자 하는 방을 선택해주세요</label>
+					<label>예약하고자 하는 객실을 선택해주세요</label>
 					<select class="form-control" name="roomSelect">
-						<option value="0">방 선택</option>
+						<option value="0">객실 선택</option>
 					</select>
 				</div>
 				<div class="form-group">
@@ -157,9 +180,11 @@ pageEncoding="UTF-8"%>
 	
 	
 	
-	// 조건에 맞는 방 찾기
+	// 조건에 맞는 객실 찾기
 	$(document).on('click','[name=btn-search]',function(){
+		let date = getDatesStartToLast(start_date, end_date)
 		let data = {
+				//date : date,
 				br_num : br_num,
 				/* d_size -> d_num */
 				d_num :  d_num
@@ -168,7 +193,7 @@ pageEncoding="UTF-8"%>
 		
 		ajaxObjectToJson(false,'post','<c:url value="/reservation/select"/>',data,(a)=>{
 			if(a==''){
-				alert('예약할수 있는 방이 없습니다.')
+				alert('예약할 수 있는 객실이 없습니다.')
 				
 			}else{
 				th.parent().next().find('[name=roomSelect]').empty();
@@ -183,12 +208,10 @@ pageEncoding="UTF-8"%>
 	})
 	
 		
-	
-	
-	
 	//데이트피커
 	$(document).ready(function(){
 		$(".datePicker").datepicker({
+			minDate: 0,
 			dateFormat: 'yy-mm-dd' //달력 날짜 형태
 			,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
 			,showMonthAfterYear:true // 월- 년 순서가아닌 년도 - 월 순서
@@ -205,9 +228,6 @@ pageEncoding="UTF-8"%>
                   //시작일(from) datepicker가 닫힐때
                   //종료일(to)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
                   $("#to").datepicker( "option", "minDate", selectedDate );
-                  // 종료일(to) datepicker가 닫힐때
-                  // 시작일(from)의 선택할수있는 최대 날짜(maxDate)를 선택한 시작일로 지정
-                  $("#from").datepicker( "option", "maxDate", selectedDate ); 
               }    
 		})
 		
@@ -228,9 +248,6 @@ pageEncoding="UTF-8"%>
     <%
        }
     %>
-    
-   
-    
     
 </script>
 

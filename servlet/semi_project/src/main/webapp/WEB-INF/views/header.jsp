@@ -42,6 +42,22 @@
 			}
 		});
 	}
+	
+	function ajaxObjectToJson2(async, type, url, sendObject, successFunc){
+		$.ajax({
+			async : async, 
+			type : type, 
+			url : url, 
+			data : sendObject, 
+			//dataType : "json",
+			success : successFunc,
+			error : function(a,b,c){
+				console.log(a);
+				console.log(b);
+				console.log(c)
+			}
+		});
+	}
 	</script>
 <style>
   /* 사진 크기 */
@@ -59,7 +75,7 @@
 	  margin: 0;
 	}
   </style>
-<title>Insert title here</title>
+<title>header</title>
 </head>
 <body>
 

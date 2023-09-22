@@ -10,7 +10,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<title>Insert title here</title>
+<title>개인정보 수정</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
@@ -24,15 +24,15 @@
  		</div>
  		<div class = "form-group">
  			<label>이름</label>
- 			<input type="text" class="form-control" name="name" required>
+ 			<input type="text" class="form-control" name="name" placeholder="${user.me_name}" required>
  		</div>
  		<div class = "form-group">
  			<label>주소</label>
- 			<input type="text" class="form-control" name="address" required>
+ 			<input type="text" class="form-control" name="address" placeholder="${user.me_address}" required>
  		</div>
  		<div class = "form-group">
  			<label>연락처</label>
- 			<input type="number" maxlength="11" oninput="phoneLength(this);" class="form-control" name="phone" required>
+ 			<input type="number" maxlength="11" oninput="phoneLength(this);" class="form-control" name="phone" placeholder="${user.me_phone}" required>
  		</div>
  	
  		<button class="btn btn-outline-secondary col-12">수정</button>

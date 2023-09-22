@@ -11,7 +11,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<title>Insert title here</title>
+<title>예약 상세 정보</title>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
@@ -26,9 +26,9 @@
 	        <th>예약리스트 번호</th>
 	        <th>이용 시작일	</th>
 	        <th>이용 종료일	</th>
-	        <th>반려동물 번호</th>
-	        <th>반려동물 이름</th>
-	        <th>방번호</th>
+	        <th>반려견 번호</th>
+	        <th>반려견 이름</th>
+	        <th>객실 번호</th>
 	        <th>예약번호</th>
 	      </tr>
 	    </thead>

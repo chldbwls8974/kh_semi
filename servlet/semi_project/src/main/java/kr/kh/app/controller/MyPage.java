@@ -13,24 +13,14 @@ import kr.kh.app.service.DogServiceImp;
 import kr.kh.app.vo.DogVO;
 import kr.kh.app.vo.MemberVO;
 
-/**
- * Servlet implementation class MyPage
- */
 public class MyPage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private DogService dogService = new DogServiceImp();
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public MyPage() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		MemberVO user = (MemberVO)session.getAttribute("user"); 
@@ -42,11 +32,7 @@ public class MyPage extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

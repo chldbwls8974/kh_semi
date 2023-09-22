@@ -20,5 +20,7 @@ public interface DogService {
 
 	ArrayList<DogVO> getDogList();
 
+	ArrayList<DogVO> searchDogList(String d_search);
+
 
 }

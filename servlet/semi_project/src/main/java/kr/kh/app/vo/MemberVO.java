@@ -20,6 +20,10 @@ public class MemberVO {
 		this.me_total_price = total;
 		this.me_authority=authority;
 	}
+	
+	public String toString() {
+		return "{\"me_id\" : \"" + me_id + "\"}";
+	}
 
 
 
