@@ -36,10 +36,10 @@
 				</div>
 				<div class="form-group">
 			 	<label for="detail">객실 타입</label>
-					  <select class="form-control" id="roomtype" name="detail">
-					    <option>S</option>
-					    <option>M</option>
-					    <option>L</option>
+					  <select class="form-control" id="roomtype" name="ro_detail">
+					    <option value="S">S</option>
+					    <option value="M">M</option>
+					    <option value="L">L</option>
 					  </select>
 				</div>
 				<button class="btn btn-outline-success">등록</button>
