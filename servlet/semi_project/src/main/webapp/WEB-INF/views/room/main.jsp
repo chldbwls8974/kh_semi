@@ -39,11 +39,11 @@
 		<table class="table table-hover mt-4">
 		<thead>
 			<tr style="background: wheat; font-weight: bold;">
-				<th>방번호</th>
-				<th>방이름</th>
+				<th>객실 번호</th>
+				<th>객실 이름</th>
 				<th>최대 수용 반려견 수</th>
 				<th>현재 수용 반려견 수</th>
-				<th>방 타입</th>
+				<th>객실 타입</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -94,7 +94,7 @@
 						<thead> 
 							<tr> 
 								<th>객실번호</th> 
-							<th>방이름</th> 
+							<th>객실 이름</th> 
 								<th>최대 수용 반려견 수</th> 
 								<th>현재 수용 반려견 수</th> 
 								<th>객실 타입</th> 
