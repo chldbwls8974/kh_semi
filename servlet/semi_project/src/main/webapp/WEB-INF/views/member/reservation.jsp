@@ -18,7 +18,7 @@
 
 <div class="container mt-5">
   <h2><span style="color: olive; font-weight: bold;">나의 예약 정보</span></h2>
-  <label>회원님의 등급은 <b style="color: olive;">'${user.me_le_name}'</b>입니다.</label>
+  <label class="mt-3">회원님의 등급은 <b style="color: olive;">'${user.me_le_name}'</b>입니다.</label>
   <div class="card mt-4">
 <%--   ${list} --%>
     <div class="card-body d-flex flex-column mb-5">
@@ -46,7 +46,7 @@
 					</c:forEach>
 			</table>
     	</div>
-    	<div align="center">
+    	<div align="center" class="mb-3">
 	    	<a class="btn btn-float-right btn-outline-dark mt-1 col-5 " href="/semi_project/member/mypage" role="button">뒤로가기</a>
 	    	<a class="btn btn-float-right btn-outline-dark mt-1 col-5 " href="/semi_project/member/mypoint" role="button">My 포인트</a>
   		</div>
