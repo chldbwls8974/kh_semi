@@ -24,15 +24,15 @@
  		</div>
  		<div class = "form-group">
  			<label>이름</label>
- 			<input type="text" class="form-control" name="name" placeholder="${user.me_name}" required>
+ 			<input type="text" class="form-control" name="name" value="${user.me_name}" required>
  		</div>
  		<div class = "form-group">
  			<label>주소</label>
- 			<input type="text" class="form-control" name="address" placeholder="${user.me_address}" required>
+ 			<input type="text" class="form-control" name="address" value="${user.me_address}" required>
  		</div>
  		<div class = "form-group">
  			<label>연락처</label>
- 			<input type="number" maxlength="11" oninput="phoneLength(this);" class="form-control" name="phone" placeholder="${user.me_phone}" required>
+ 			<input type="number" maxlength="11" oninput="phoneLength(this);" class="form-control" name="phone" value="${user.me_phone}" required>
  		</div>
  	
  		<button class="btn btn-outline-secondary col-12">수정</button>
