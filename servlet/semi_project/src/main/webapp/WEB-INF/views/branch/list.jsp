@@ -57,7 +57,7 @@
 			</c:otherwise>
 		</c:choose>	
 		<a href="<c:url value='/branch/insert'/>" class="btn btn-outline-dark">지점 등록</a>
-		<a href="/semi_project" class="btn btn-outline-dark">메인으로</a>
+		<a role="button" class="btn btn-outline-dark btn-float-right" href="/semi_project/admin">뒤로가기</a>
 	</div>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 <script type="text/javascript">
