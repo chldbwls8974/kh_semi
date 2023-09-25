@@ -52,6 +52,9 @@ a:hover {
 	    <li class="nav-item">
 	      <a class="nav-link" href="/semi_project/size/update"><span>견종 사이즈 수정</span></a>
 	    </li>
+	     <li class="nav-item">
+	      <a class="nav-link" href="/semi_project/dog/list"><span>회원 반려견 관리</span></a>
+	    </li>
 	  </ul>
 	</div>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
