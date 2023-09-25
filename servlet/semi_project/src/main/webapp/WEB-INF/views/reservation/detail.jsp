@@ -65,13 +65,13 @@
 		</tbody>     
 	</table>
 	<hr>
-	<a class="btn btn-float-right btn-outline-success mt-1 col-3 " href="/semi_project/member/reservation" role="button">목록으로</a>
-	
-	<form action="<c:url value='/reservation/insert'/>" method="get" class="mt-2">
-	
-		<input type="hidden" value="${rl.get(0).rl_re_num }" name="re_num">
-		<button class="form-control btn btn-outline-success col-3">결제하기</button>
-	</form>
+	<a class="btn btn-float-right btn-outline-dark mt-1 col-3 " href="/semi_project/reservation/list" role="button">목록으로</a>
+	<c:if test="${user.me_authority == 'USER'}">
+		<form action="<c:url value='/reservation/insert'/>" method="get" class="mt-2">
+			<input type="hidden" value="${rl.get(0).rl_re_num }" name="re_num">
+			<button class="form-control btn btn-outline-dark col-3">결제하기</button>
+		</form>
+	</c:if>
 </div>
 		
 </body>
