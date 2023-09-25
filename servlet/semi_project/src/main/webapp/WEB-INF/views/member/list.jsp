@@ -18,6 +18,9 @@
 		        <th>이름</th>
 		        <th>주소</th>
 		        <th>번호</th>
+		        <th>누적금액</th>
+		        <th>등급</th>
+		        <th>보유포인트</th>
 		        <th></th>
 		      </tr>
 		    </thead>
@@ -28,6 +31,9 @@
 			        <td>${member.me_name}</td>
 			        <td>${member.me_address}</td>
 			        <td>${member.me_phone}</td>
+			        <td>${member.me_total_price}</td>
+			        <td>${member.me_le_name}</td>
+			        <td>${member.me_point}</td>
 			        <td>
 						<form method="POST" action="<c:url value='/member/delete'/>">
 			                <input type="hidden" name="me_id" value="${member.me_id}">
