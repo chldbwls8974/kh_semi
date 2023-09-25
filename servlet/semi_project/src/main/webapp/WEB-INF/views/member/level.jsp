@@ -24,6 +24,7 @@
 				<input type="number" class="form-control" min="0" placeholder="${criteria.le_benefit }" name="level_cri" required>
 			</div>
 			<button class="btn btn-outline-success col-12">변경</button>
+			<a role="button" class="btn btn-outline-dark  mt-3" href="/semi_project/member/list">뒤로가기</a>
 		</form>
 	</div>
 </body>
