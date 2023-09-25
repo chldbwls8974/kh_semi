@@ -96,7 +96,7 @@
 			      <a class="nav-link" href="/semi_project/member/signup">회원가입</a>
 			    </li>
 			</c:if>
-			<c:if test="${user != null }">
+			<c:if test="${user != null  && user.me_authority == 'USER'}">
 			  	<li class="nav-item">
 			      <a class="nav-link" href="/semi_project/dog/list">반려견 등록</a>
 			    </li>
@@ -115,14 +115,16 @@
 			      <a class="nav-link"><span style="color: olive; font-weight: bold;">${user.me_id }</span>님 환영합니다</a>
 			    </li>
 	 		</c:if>
-		    <c:if test="${user != null }">
+		    <c:if test="${user != null  && user.me_authority == 'USER' }">
 			    <li class="nav-item">
 			      <a class="nav-link" href="/semi_project/member/mypage">마이페이지</a>
 			    </li>
+			</c:if>   
+			<c:if test="${user != null }">
 			     <li class="nav-item">
 			      <a class="nav-link" href="/semi_project/member/logout">로그아웃</a>
 			    </li>
-		    </c:if>
+		    </c:if> 
 	   		<c:if test="${user != null && user.me_authority == 'ADMIN'}">
 			    <li class="nav-item">
 			      <a class="nav-link" href="/semi_project/admin">관리자 권한</a>
