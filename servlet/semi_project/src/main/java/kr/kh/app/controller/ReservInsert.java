@@ -42,6 +42,10 @@ public class ReservInsert extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String re_num = request.getParameter("re_num");
 		ReservationVO reserv = reservService.getReserv(re_num);
+		LevelVO defaultLevel = levelService.getBenefitLevel("일반");
+		LevelVO vipLevel =levelService.getBenefitLevel("vip");
+		request.setAttribute("defaultLevel", defaultLevel);
+		request.setAttribute("vipLevel", vipLevel);
 		request.setAttribute("reserv_after", reserv);
 		request.getRequestDispatcher("/WEB-INF/views/reservation/insert.jsp").forward(request, response);
 	}
