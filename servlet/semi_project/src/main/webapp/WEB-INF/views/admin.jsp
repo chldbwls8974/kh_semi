@@ -31,6 +31,9 @@ a:hover {
 	<div class="container mt-5">
 	  <h2><span style="color: olive; font-weight: bold; margin-bottom: 30px">관리자 권한</span></h2>
 	  <ul class="nav flex-column">
+	 	<li class="nav-item">
+	      <a class="nav-link" href="/semi_project/dog/list"><span>반려견 관리</span></a>
+	    </li>
 	    <li class="nav-item">
 	      <a class="nav-link" href="/semi_project/branch/list"><span>지점 관리</span></a>
 	    </li>
