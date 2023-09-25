@@ -348,7 +348,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>MyReserv</servlet-name>
-    <url-pattern>/member/reservation</url-pattern>
+    <url-pattern>/reservation/list</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

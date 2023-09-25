@@ -13,7 +13,7 @@
 			if(result != null && result){
 		%>
 			alert('결제 성공!');
-			location.href = '/semi_project/member/reservation';
+			location.href = '/semi_project/reservation/list';
 		<%
 			}else if(result != null && !result){
 		%>

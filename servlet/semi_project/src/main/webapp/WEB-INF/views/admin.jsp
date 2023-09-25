@@ -55,6 +55,9 @@ a:hover {
 	    <li class="nav-item">
 	      <a class="nav-link" href="/semi_project/size/update"><span>견종 사이즈 수정</span></a>
 	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="/semi_project/reservation/list"><span>예약확인하기</span></a>
+	    </li>
 	  </ul>
 	</div>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>

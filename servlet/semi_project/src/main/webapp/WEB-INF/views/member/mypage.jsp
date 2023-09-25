@@ -100,7 +100,7 @@ label{
 		    </c:otherwise>
 		</c:choose>
 		
-    	<a class="btn btn-float-right btn-outline-dark mt-2 col-12 " href="/semi_project/member/reservation" role="button">내 예약정보 보기</a>
+    	<a class="btn btn-float-right btn-outline-dark mt-2 col-12 " href="/semi_project/reservation/list" role="button">내 예약정보 보기</a>
     	
 	
     </div>

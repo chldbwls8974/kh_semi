@@ -29,7 +29,7 @@ public class MyReserv extends HttpServlet {
 		
 		request.setAttribute("user", user);
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("/WEB-INF/views/member/reservation.jsp").forward(request,response);
+		request.getRequestDispatcher("/WEB-INF/views/reservation/list.jsp").forward(request,response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
