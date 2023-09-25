@@ -115,7 +115,7 @@
 			</c:when>
 			<c:otherwise>
 				<!-- 3마리 이상인 경우 -->
-				<a href="<c:url value='/dog/list'/>" class="btn btn-outline-dark col-12"
+					<a href="<c:url value='/dog/list'/>" class="btn btn-outline-dark col-12"
 					id="btnAdd">반려견 등록</a>
 				<script type="text/javascript">
 					$("#btnAdd").click(function() {
@@ -124,14 +124,19 @@
 				</script>
 			</c:otherwise>
 		</c:choose>
-
+		
 		<script type="text/javascript">
 			if ('${user}' == null) {
 				alert('로그인이 필요한 서비스입니다.');
 				location.href = "/semi_project/member/login";
 			}
 		</script>
+		<div align="left" class="mt-3">
+			<a class="btn btn-float-right btn-outline-dark mt-1 col-3 "
+				href="/semi_project/admin" role="button">뒤로가기</a>
+		</div>
 	</div>
+	
 	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </body>
 <script type="text/javascript">

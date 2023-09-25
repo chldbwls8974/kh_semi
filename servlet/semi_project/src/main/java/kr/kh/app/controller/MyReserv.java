@@ -26,9 +26,11 @@ public class MyReserv extends HttpServlet {
 		MemberVO user = (MemberVO)session.getAttribute("user"); 
 		
 		ArrayList<ReservationVO> list = reservService.getMyReservArray(user);
+		ArrayList<ReservationVO> listAdmin = reservService.getReservArray();
 		
 		request.setAttribute("user", user);
 		request.setAttribute("list", list);
+		request.setAttribute("listAdmin", listAdmin);
 		request.getRequestDispatcher("/WEB-INF/views/reservation/list.jsp").forward(request,response);
 	}
 
