@@ -17,11 +17,17 @@
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 <div class="container mt-5">
-  <h2><span style="color: olive; font-weight: bold;">나의 예약 정보</span></h2>
-  <label class="mt-3">회원님의 등급은 <b style="color: olive;">'${user.me_le_name}'</b>입니다.</label>
+	<c:if test="${user.me_authority == 'USER' }">
+	  <h2><span style="color: olive; font-weight: bold;">나의 예약 정보</span></h2>
+	  <label class="mt-3">회원님의 등급은 <b style="color: olive;">'${user.me_le_name}'</b>입니다.</label>
+	</c:if>
+	<c:if test="${user.me_authority == 'ADMIN' }">
+	  <h2><span style="color: olive; font-weight: bold;">전체 예약 확인하기</span></h2>
+	</c:if>
   <div class="card mt-4">
 <%--   ${list} --%>
-    <div class="card-body d-flex flex-column mb-5">
+    <c:if test="${user.me_authority == 'USER' }">
+     <div class="card-body d-flex flex-column mb-5">
     		<table class="table table-bordered mt-1">
 				<thead>
 					<tr style="background: wheat; font-weight: bold;">
@@ -50,6 +56,43 @@
 	    	<a class="btn btn-float-right btn-outline-dark mt-1 col-5 " href="/semi_project/member/mypage" role="button">뒤로가기</a>
 	    	<a class="btn btn-float-right btn-outline-dark mt-1 col-5 " href="/semi_project/member/mypoint" role="button">My 포인트</a>
   		</div>
+    </c:if>
+    
+     <c:if test="${user.me_authority == 'ADMIN' }">
+     <div class="card-body d-flex flex-column mb-5">
+    		<table class="table table-bordered mt-1">
+				<thead>
+					<tr style="background: wheat; font-weight: bold;">
+						<th>예약자</th>
+						<th>예약 번호</th>
+						<th>이용 시작일</th>
+						<th>이용 종료일</th>
+						<th>실 결제 금액</th>
+						<th>결제 상태</th>
+
+					</tr>
+				</thead>
+					<c:forEach items="${listAdmin}" var="reservation">
+						<tr>
+							<td>${reservation.re_me_id}</td>
+							<td>
+							<a href="<c:url value='/reservation/detail?rl_re_num=${reservation.re_num}'/>" ><span style="color: olive; text-decoration: underline;">${reservation.re_num}</span></a>
+							</td>
+							<td>${reservation.re_date}</td>
+							<td>${reservation.re_end_date}</td>
+							<td>${reservation.re_real_price}</td>
+							<td>${reservation.re_state}</td>
+						</tr>
+					</c:forEach>
+			</table>
+    	</div>
+    	<div align="center" class="mb-3">
+	    	<a class="btn btn-float-right btn-outline-dark mt-1 col-5 " href="/semi_project/member/mypage" role="button">뒤로가기</a>
+	    	<a class="btn btn-float-right btn-outline-dark mt-1 col-5 " href="/semi_project/member/mypoint" role="button">My 포인트</a>
+  		</div>
+    </c:if>
+    
+    	
     </div>
 </div>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
