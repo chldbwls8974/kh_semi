@@ -56,7 +56,10 @@ a:hover {
 	      <a class="nav-link" href="/semi_project/size/update"><span>견종 사이즈 수정</span></a>
 	    </li>
 	    <li class="nav-item">
-	      <a class="nav-link" href="/semi_project/reservation/list"><span>예약확인하기</span></a>
+	      <a class="nav-link" href="/semi_project/reservation/list"><span>예약 확인하기</span></a>
+			</li>	
+			<li class="nav-item">
+	      <a class="nav-link" href="/semi_project/dog/list"><span>회원 반려견 관리</span></a>
 	    </li>
 	  </ul>
 	</div>
