@@ -25,30 +25,30 @@ pageEncoding="UTF-8"%>
  	<form action="<c:url value='/member/signup'/>" method="post" class="signup mt-4">
  		<div class = "form-group">
  			<label>아이디</label>
- 			<input type="text" class="form-control" name="me_id" placeholder="아이디는 영문으로 시작하고, 6~10자로 조합하세요.">
+ 			<input type="text" class="form-control" name="me_id" placeholder="아이디는 영문으로 시작하고, 6~10자로 조합하세요." required>
  		</div>
  		<div class="error-id"></div>
  		<div class = "form-group">
  			<label>비번</label>
- 			<input type="password" class="form-control" name="me_pw" id="pw" placeholder="비번은 영문,숫자,!@#$%로 이루어지고 6~15자 로 조합하세요">
+ 			<input type="password" class="form-control" name="me_pw" id="pw" placeholder="비번은 영문,숫자,!@#$%로 이루어지고 6~15자 로 조합하세요" required>
  		</div>
  		<div class="error-pw"></div>
  		<div class = "form-group">
  			<label>비번확인</label>
- 			<input type="password" class="form-control" name="me_pw2">
+ 			<input type="password" class="form-control" name="me_pw2" required>
  		</div>
 	 		<div class="error-pw2"></div>
  		<div class = "form-group">
  			<label>성함</label>
- 			<input type="text" class="form-control" name="me_name">
+ 			<input type="text" class="form-control" name="me_name" required>
  		</div>
  		<div class = "form-group">
  			<label>주소</label>
- 			<input type="text" class="form-control" name="me_address">
+ 			<input type="text" class="form-control" name="me_address" required>
  		</div>
  		<div class = "form-group">
  			<label>핸드폰 번호</label>
- 			<input type="number" maxlength="11" oninput="phoneLength(this);" class="form-control" name="me_phone">
+ 			<input type="number" maxlength="11" oninput="phoneLength(this);" class="form-control" name="me_phone" required>
  		</div>
  		<button class="btn btn-outline-warning col-12">회원가입</button>
  	</form>
