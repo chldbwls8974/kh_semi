@@ -182,22 +182,24 @@ pageEncoding="UTF-8"%>
 	
 	// 조건에 맞는 객실 찾기
 	$(document).on('click','[name=btn-search]',function(){
-		let date = getDatesStartToLast(start_date, end_date)
+// 		let date = getDatesStartToLast(start_date, end_date)
 		let data = {
-				//date : date,
 				br_num : br_num,
-				/* d_size -> d_num */
-				d_num :  d_num
+				d_num :  d_num    /* d_size -> d_num */
 		}
 		let th = $(this);
 		
 		ajaxObjectToJson(false,'post','<c:url value="/reservation/select"/>',data,(a)=>{
+			//서버에서 가져온 객실이 없는 경우
 			if(a==''){
 				alert('예약할 수 있는 객실이 없습니다.')
-				
+			//서버에서 가져온 객실이 있는 경우	
 			}else{
+				//th = btn-search, 
 				th.parent().next().find('[name=roomSelect]').empty();
+				//가져온 방의 갯수만큼 반복됨 (향상된 for문)
 				for(room of a){
+					//toString으로 받아온 room을 객체화
 					let obj = JSON.parse(room)
 					var option = `<option value="\${obj.ro_num }">\${obj.ro_name }</option>`;
 					th.parent().next().find('[name=roomSelect]').append(option)

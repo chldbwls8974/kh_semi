@@ -23,6 +23,7 @@ public class DogList extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		//
 		MemberVO user = (MemberVO)session.getAttribute("user"); 
 		
 		//세션 이용자의 권한이 ADMIN일 때 사용
