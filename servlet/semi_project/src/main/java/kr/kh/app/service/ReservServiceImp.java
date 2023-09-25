@@ -202,4 +202,13 @@ public class ReservServiceImp implements ReservService{
 	}
 
 
+	@Override
+	public ReservationVO getReserv(String re_num) {
+		if(re_num == null) {
+			return null;
+		}
+		return reservDao.getReserv(re_num);
+	}
+
+
 }

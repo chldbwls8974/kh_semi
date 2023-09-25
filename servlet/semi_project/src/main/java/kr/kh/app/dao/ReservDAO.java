@@ -19,5 +19,7 @@ public interface ReservDAO {
 
 	boolean updateReservState(@Param("reserv")ReservationVO reserv);
 
+	ReservationVO getReserv(@Param("re_num")String re_num);
+
 
 }

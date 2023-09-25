@@ -33,5 +33,7 @@
 		re_state = (case when re_real_price is null then '미완료' else '완료' end)
 		where re_num = #{reserv.re_num}
 	</update>
-	
+	<select id="getReserv" resultType="kr.kh.app.vo.ReservationVO">
+		select * from reservation where re_num = #{re_num}
+	</select>
 </mapper>

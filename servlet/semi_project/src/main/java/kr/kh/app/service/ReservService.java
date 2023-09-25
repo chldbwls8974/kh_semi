@@ -33,5 +33,7 @@ public interface ReservService {
 
 	void updateReservState(ReservationVO reserv);
 
+	ReservationVO getReserv(String re_num);
+
 
 }

@@ -16,33 +16,64 @@
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	<div class="container mt-5">
 	<h2>결제</h2>
-		<form action="<c:url value='/reservation/pay'/>" method="post" class="mt-4">
-			<input type="hidden" class="form-control" name="me_level" value="${user.me_le_name }">
-			<input type="hidden" class="form-control" name="me_id" value="${user.me_id }">
-			<input type="hidden" class="form-control" name="re_num" value="${reserv.re_num}">
-			<div class="form-group">
-				<label>총 결제 금액</label>
-				<input type="text" class="form-control" name="re_price" value="${reserv.re_price }" readonly>
-			</div>
-			<div class="form-group">
-				<label>나의 포인트</label>
-				<input type="text" class="form-control" name="me_point" value="${user.me_point }" readonly>
-			</div>
-			<div class="form-group">
-				<label>사용할 포인트 내역</label>
-				<input type="number" class="form-control" name="re_use_point" value="0" min="0" max="${user.me_point }">
-			</div>
-			<div class="form-group">
-				<label>적립 예정 포인트</label>
-				<input type="text" class="form-control" name="re_add_point" value="0" readonly>
-			</div>
-			<hr>
-			<div class="form-group">
-				<label>결제 예정 금액</label>
-				<input type="text" class="form-control" name="re_real_price" value="${reserv.re_price }" readonly>
-			</div>
-			<button class="btn btn-pay btn-outline-success col-12">결제하기</button>
-		</form>
+		<c:if test="${reserv_after ==null }">
+			<form action="<c:url value='/reservation/pay'/>" method="post" class="mt-4">
+				<input type="hidden" class="form-control" name="me_level" value="${user.me_le_name }">
+				<input type="hidden" class="form-control" name="me_id" value="${user.me_id }">
+				<input type="hidden" class="form-control" name="re_num" value="${reserv.re_num}">
+				<div class="form-group">
+					<label>총 결제 금액</label>
+					<input type="text" class="form-control" name="re_price" value="${reserv.re_price }" readonly>
+				</div>
+				<div class="form-group">
+					<label>나의 포인트</label>
+					<input type="text" class="form-control" name="me_point" value="${user.me_point }" readonly>
+				</div>
+				<div class="form-group">
+					<label>사용할 포인트 내역</label>
+					<input type="number" class="form-control" name="re_use_point" value="0" min="0" max="${user.me_point }">
+				</div>
+				<div class="form-group">
+					<label>적립 예정 포인트</label>
+					<input type="text" class="form-control" name="re_add_point" value="0" readonly>
+				</div>
+				<hr>
+				<div class="form-group">
+					<label>결제 예정 금액</label>
+					<input type="text" class="form-control" name="re_real_price" value="${reserv.re_price }" readonly>
+				</div>
+				<button class="btn btn-pay btn-outline-success col-12">결제하기</button>
+			</form>
+		</c:if>
+		<c:if test="${reserv_after !=null }">
+			<form action="<c:url value='/reservation/pay'/>" method="post" class="mt-4">
+				<input type="hidden" class="form-control" name="me_level" value="${user.me_le_name }">
+				<input type="hidden" class="form-control" name="me_id" value="${user.me_id }">
+				<input type="hidden" class="form-control" name="re_num" value="${reserv_after.re_num}">
+				<div class="form-group">
+					<label>총 결제 금액</label>
+					<input type="text" class="form-control" name="re_price" value="${reserv_after.re_price }" readonly>
+				</div>
+				<div class="form-group">
+					<label>나의 포인트</label>
+					<input type="text" class="form-control" name="me_point" value="${user.me_point }" readonly>
+				</div>
+				<div class="form-group">
+					<label>사용할 포인트 내역</label>
+					<input type="number" class="form-control" name="re_use_point" value="0" min="0" max="${user.me_point }">
+				</div>
+				<div class="form-group">
+					<label>적립 예정 포인트</label>
+					<input type="text" class="form-control" name="re_add_point" value="0" readonly>
+				</div>
+				<hr>
+				<div class="form-group">
+					<label>결제 예정 금액</label>
+					<input type="text" class="form-control" name="re_real_price" value="${reserv_after.re_price }" readonly>
+				</div>
+				<button class="btn btn-pay btn-outline-success col-12">결제하기</button>
+			</form>
+		</c:if>
 	</div>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 
