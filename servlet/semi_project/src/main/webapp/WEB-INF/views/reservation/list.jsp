@@ -101,7 +101,7 @@
 				</div>
 				<div align="right" class="mb-3 mr-3">
 					<a class="btn btn-float-right btn-outline-dark mt-1 col-3 "
-						href="/semi_project/member/mypage" role="button">뒤로가기</a>
+						href="/semi_project/admin" role="button">뒤로가기</a>
 				</div>
 			</c:if>
 

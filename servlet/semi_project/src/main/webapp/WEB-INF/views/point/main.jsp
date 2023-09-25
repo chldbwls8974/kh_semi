@@ -1,54 +1,65 @@
-  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <title>포인트 관리</title>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 	<div class="container mt-5">
-		<h2><span style="color: olive; font-weight: bold;">회원 포인트 관리</span></h2>
+		<h2>
+			<span style="color: olive; font-weight: bold;">회원 포인트 관리</span>
+		</h2>
 		<table class="table table-hover mt-4">
-		    <thead>
-		      <tr style="background: wheat; font-weight: bold;">
-		        <th>포인트</th>
-		        <th>포인트 내용</th>
-		        <th>적립 대상자</th>
-		        <th></th>
-		      </tr>
-		    </thead>
-		    <tbody>
-		      <c:forEach items="${list }" var="point">
-			      <tr>
-			        <td>
-				        <input type="hidden" value="${point.po_num}" class="form-control" name="po_num">
-				        <input type="hidden" value="${point.po_me_id}" class="form-control" name="po_me_id">
-				        <input type="number" value="${point.po_point}" class="form-control" name="po_point" min="0" required>
-			        </td>
-			        <td>
-			       	 <input type="text" value="${point.po_content}" class="form-control" name="po_content">
-			        </td>
-			        <td>${point.po_me_id} </td>
-			        <td>
-				        <a class="btn btn-outline-warning" name="btn-update" data-num="${point.po_num}">수정</a>
-				     	<a href="javascript:void(0);" name="btn-delete" data-num="${point.po_num}" class="btn btn-delete btn-outline-warning">삭제</a>
-			        </td>
-			      </tr>
-		      </c:forEach>
-		    </tbody>
+			<thead>
+				<tr style="background: wheat; font-weight: bold;">
+					<th>포인트</th>
+					<th>포인트 내용</th>
+					<th>적립 대상자</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${list }" var="point">
+					<tr>
+						<td><input type="hidden" value="${point.po_num}"
+							class="form-control" name="po_num"> <input type="hidden"
+							value="${point.po_me_id}" class="form-control" name="po_me_id">
+							<input type="number" value="${point.po_point}"
+							class="form-control" name="po_point" min="0" required></td>
+						<td><input type="text" value="${point.po_content}"
+							class="form-control" name="po_content"></td>
+						<td>${point.po_me_id}</td>
+						<td><a class="btn btn-outline-warning" name="btn-update"
+							data-num="${point.po_num}">수정</a> <a href="javascript:void(0);"
+							name="btn-delete" data-num="${point.po_num}"
+							class="btn btn-delete btn-outline-warning">삭제</a></td>
+					</tr>
+				</c:forEach>
+			</tbody>
 		</table>
-		<a href="<c:url value='/point/insert'/>" class="btn btn-outline-dark col-12 btn float-right">포인트 적립</a>
-	 </div> 
-<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
+		<a href="<c:url value='/point/insert'/>"
+			class="btn btn-outline-dark col-12 btn float-right">포인트 적립</a>
+		<div align="right" class="mt-3">
+			<a class="btn btn-float-right btn-outline-dark mt-1 col-3 "
+				href="/semi_project/admin" role="button">뒤로가기</a>
+		</div>
+	</div>
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 	<script type="text/javascript">
 		
 	$(document).on('click','[name=btn-update]',function(){
