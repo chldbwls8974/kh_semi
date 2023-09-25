@@ -72,7 +72,8 @@
 			</tbody>
 		</table>
 
-<a href="<c:url value='/room/insert'/>" class="btn btn-outline-warning mt-2 btn-add col-12">새 객실 등록</a>
+<a href="<c:url value='/room/insert'/>" class="btn btn-outline-warning mt-3 btn-add col-3">새 객실 등록</a>
+<a role="button" class="btn btn-outline-dark  mt-3" href="/semi_project/admin">뒤로가기</a>
 </div>	
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>	
 <script type="text/javascript">
