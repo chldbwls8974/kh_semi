@@ -18,7 +18,7 @@
 	<div class="container mt-5">
 		<h2><span style="color: olive; font-weight: bold;">포인트 내역</span></h2>
 		<table class="table table-hover mt-4">
-		<label><b style="color: olive;">'${user.me_id}'</b>회원님의 포인트 적립 내용</label>
+		<label class="mt-3"><b style="color: olive;">'${user.me_id}'</b>회원님의 포인트 적립 내용</label>
 		    <thead>
 		      <tr style="background: wheat; font-weight: bold;">
 		        <th>예약 번호</th>
