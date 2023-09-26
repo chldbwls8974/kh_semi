@@ -19,7 +19,7 @@
 		<form action="<c:url value='/point/insert'/>" method="post" class="mt-4"  onsubmit="return validateForm()">
 		 	<div class = "form-group">
 				<label>포인트</label>
-				<input type="text" class="form-control" name="po_point" placeholder="포인트" required>
+				<input type="number" class="form-control" name="po_point" placeholder="포인트" required>
 			</div>
 			<div class = "form-group">
 				<label>포인트 내용</label>
