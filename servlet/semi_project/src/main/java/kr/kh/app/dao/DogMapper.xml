@@ -33,4 +33,7 @@
 	<select id="searchDogUser" resultType="kr.kh.app.vo.DogVO">
 		select * from dog where d_me_id like concat('%' #{d_search} '%')
 	</select>
+	<update id="allDogSizeUpdate">
+<!-- 		여기작성	 -->
+	</update>
 </mapper>

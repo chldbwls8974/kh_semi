@@ -24,4 +24,6 @@ public interface DogDAO {
 
 	ArrayList<DogVO> searchDogUser(@Param("d_search")String d_search);
 
+	void allDogSizeUpdate(@Param("smallMinKg")Integer smallMinKg, @Param("mediumMinKg")Integer mediumMinKg, @Param("largeMinKg")Integer largeMinKg);
+
 }

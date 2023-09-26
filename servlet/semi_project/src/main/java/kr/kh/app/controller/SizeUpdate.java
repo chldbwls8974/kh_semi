@@ -14,7 +14,9 @@ import kr.kh.app.vo.SizeVO;
 
 public class SizeUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    SizeService sizeService = new SizeServiceImp();   
+    SizeService sizeService = new SizeServiceImp(); 
+    DogService dogService = new DogServiceImp();
+    
     public SizeUpdate() {
         super();
     }
@@ -43,8 +45,11 @@ public class SizeUpdate extends HttpServlet {
 			if(sizeService.updateSize(sSize) &&
 					sizeService.updateSize(mSize) &&
 					sizeService.updateSize(lSize)) {
+				dogService.allDogSizeUpdate(smallMinKg,mediumMinKg,largeMinKg);
 				Ok = true;
 			}
+			
+			
 			request.setAttribute("Ok", Ok);
 			
 			
