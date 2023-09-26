@@ -44,7 +44,7 @@ public class DogUpdate extends HttpServlet {
 		String newDetail = request.getParameter("d_detail");
 		String siName = request.getParameter("d_si_name"); 
 		if (sizeService.getSize("L").getSi_min_kg() <= newKg) { siName = "L"; }
-		else if(sizeService.getSize("L").getSi_min_kg() <= newKg) {	siName ="M"; }
+		else if(sizeService.getSize("M").getSi_min_kg() <= newKg) {	siName ="M"; }
 		else { siName ="S"; }
 		
 		dog.setD_num(newNum);

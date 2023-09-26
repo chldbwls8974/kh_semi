@@ -83,7 +83,7 @@
 		<a href="<c:url value='/room/insert'/>"
 			class="btn btn-outline-warning mt-3 btn-add col-3">새 객실 등록</a>
 		<div align="right" class="mt-3">
-			<a class="btn btn-float-right btn-outline-dark mt-1 col-3 "
+			<a class="btn btn-back btn-float-right btn-outline-dark mt-1 col-3 "
 				href="/semi_project/admin" role="button">뒤로가기</a>
 		</div>
 	</div>
@@ -143,6 +143,7 @@
 	
 		if ('${user}' == null || '${user.me_authority}' != 'ADMIN') {
 			$('.btn-add').hide();
+			$('.btn-back').hide();
 		}
 </script>
 
