@@ -131,10 +131,12 @@
 				location.href = "/semi_project/member/login";
 			}
 		</script>
-		<div align="left" class="mt-3">
-			<a class="btn btn-float-right btn-outline-dark mt-1 col-3 "
-				href="/semi_project/admin" role="button">뒤로가기</a>
-		</div>
+		<c:if test="${user.me_authority=='ADMIN'}">
+			<div align="left" class="mt-3">
+				<a class="btn btn-float-right btn-outline-dark mt-1 col-3 "
+					href="/semi_project/admin" role="button">뒤로가기</a>
+			</div>
+		</c:if>
 	</div>
 	
 	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
