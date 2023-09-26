@@ -34,6 +34,12 @@
 		select * from dog where d_me_id like concat('%' #{d_search} '%')
 	</select>
 	<update id="allDogSizeUpdate">
-<!-- 		여기작성	 -->
+		UPDATE dog
+			SET d_si_name = CASE
+		    WHEN d_kg >= ${largeMinKg} THEN 'L'
+		    WHEN d_kg >= ${mediumMinKg} THEN 'M'
+		    WHEN d_kg >= ${smallMinKg} THEN 'S'
+		    ELSE 'S'
+			END;
 	</update>
 </mapper>

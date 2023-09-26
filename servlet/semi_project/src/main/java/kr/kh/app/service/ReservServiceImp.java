@@ -121,7 +121,7 @@ public class ReservServiceImp implements ReservService{
 
 	@Override
 	public ReservationVO createVO(String re_num, String re_me_id, String from, String to, String br_num, String d_num1, String d_num2,
-			String d_num3, int re_use_point) {
+			String d_num3, int re_use_point,  List<LocalDate> date) {
 		
 		//현재 d_num2, d_num3은 null값임
 		DogVO dog1 = dogService.getDog(d_num1);
@@ -144,7 +144,7 @@ public class ReservServiceImp implements ReservService{
 		PriceVO lPrice = priceService.getSizePrice("L");
 		
 		//총 가격
-		int totalPrice = (re_s_count * sPrice.getPr_price()) + (re_m_count * mPrice.getPr_price()) + (re_l_count * lPrice.getPr_price());
+		int totalPrice = ((re_s_count * sPrice.getPr_price()) + (re_m_count * mPrice.getPr_price()) + (re_l_count * lPrice.getPr_price()))*date.size() ;
 		
 		//이용일수 계산해서 가져오는 메서드
 //		int re_stay = reservService.calStayDay(from, to);

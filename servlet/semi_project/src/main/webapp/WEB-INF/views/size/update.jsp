@@ -23,6 +23,7 @@
 		<h2>
 			<span style="color: olive; font-weight: bold;">크기 구분 변경</span>
 		</h2>
+		<h5>(최소 kg)</h5>
 		<form action="<c:url value='/size/update'/>" method="post"
 			class="mt-4">
 			<div class="form-group">

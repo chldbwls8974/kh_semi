@@ -121,7 +121,7 @@ public class ReservInsert extends HttpServlet {
 		//사용할 포인트
 		int re_use_point = 0;
 		String re_num = re_me_id + from + d_num1;
-		ReservationVO reserv = reservService.createVO(re_num, re_me_id, from, to, br_num, d_num1, d_num2, d_num3, re_use_point);
+		ReservationVO reserv = reservService.createVO(re_num, re_me_id, from, to, br_num, d_num1, d_num2, d_num3, re_use_point, date);
 		ReservListVO reservlist1 = new ReservListVO(0,r_num1,d_num1, re_num);
 		ReservListVO reservlist2 = new ReservListVO(0,r_num2,d_num2, re_num);
 		ReservListVO reservlist3 = new ReservListVO(0,r_num3,d_num3, re_num);

@@ -60,7 +60,6 @@ public class DogUpdate extends HttpServlet {
 		if(dogService.updateDog(dog)) {
 			Ok = true;
 		}
-		System.out.println(dog);
 		request.setAttribute("Ok", Ok);
 		
 		doGet(request, response);

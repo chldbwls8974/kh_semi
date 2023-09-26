@@ -25,4 +25,5 @@ public interface DogService {
 	void allDogSizeUpdate(Integer smallMinKg, Integer mediumMinKg, Integer largeMinKg);
 
 
+
 }
