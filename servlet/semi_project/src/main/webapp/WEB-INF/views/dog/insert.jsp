@@ -17,10 +17,20 @@
 <div class="container mt-5">
 	<h2><span style="color: olive; font-weight: bold;">반려견 등록</span></h2>
  	<form action="<c:url value='/dog/insert'/>" method="post" class="mt-4">
- 		<div class = "form-group">
- 			<label>아이디</label>
- 			<input type="text" class="form-control" name="d_me_id" value="${user.me_id}" readonly>
- 		</div>
+	 	<c:if test="${user.me_authority == 'USER' }">
+	 		<div class = "form-group">
+	 			<label>아이디</label>
+	 			<input type="text" class="form-control" name="d_me_id" value="${user.me_id}" readonly>
+	 		</div>
+ 		</c:if>
+ 		<c:if test="${user.me_authority == 'ADMIN' }">
+	 		<div class = "form-group">
+	 			<label>아이디</label>
+	 			<input type="text" class="form-control col-12 " name="dog_search"
+					placeholder="아이디로 검색">
+				<button class="btn btn-dark col-2" type="button">검색</button>
+	 		</div>
+ 		</c:if>
  		<div class = "form-group">
  			<label>반려견 이름</label>
  			<input type="text" class="form-control" name="d_name" required>

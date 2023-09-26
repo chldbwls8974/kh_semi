@@ -24,7 +24,6 @@ public class Branch extends HttpServlet {
 		ArrayList<BranchVO> list = branchService.getBranchList();
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("/WEB-INF/views/branch/list.jsp").forward(request, response);	
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

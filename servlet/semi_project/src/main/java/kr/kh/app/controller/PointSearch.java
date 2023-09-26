@@ -22,6 +22,7 @@ public class PointSearch extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String search = request.getParameter("po_search");
 		ArrayList<MemberVO> list = memberService.getMemberSearch(search);
 		JSONArray jsonArray = new JSONArray(list);
@@ -33,6 +34,15 @@ public class PointSearch extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
+		
+		ArrayList<String> list = new ArrayList();
+		list.add("1");
+		list.add("2");
+		list.add("3");
+		
+		for(String tmp : list) {
+			System.out.println(tmp);
+		}
 	}
 
 }

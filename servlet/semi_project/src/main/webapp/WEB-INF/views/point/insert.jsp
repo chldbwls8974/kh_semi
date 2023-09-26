@@ -63,7 +63,6 @@
  	$(document).on('change','[name=po_search]',function(){
 		po_search = $(this).val(); 		
  	})
- 	
  	$(document).on('click','.btn-search',function(){
  		
  		let data = {
@@ -73,12 +72,14 @@
  		
  		ajaxObjectToJson2(false,'post','<c:url value="/point/search"/>',data,(a)=>{
  			th.parents().find('[name=memberSelect]').empty()
+ 			console.log(a)
  			if(a==''){
  				alert('해당하는 회원이 없습니다.')
  				return;
  			}
  			for(member of a){
 				let obj = JSON.parse(member)
+				console.log(obj)
 				var option = `<option value="\${obj.me_id}">\${obj.me_id }</option>`;
 				th.parents().find('[name=memberSelect]').append(option)
 			}
