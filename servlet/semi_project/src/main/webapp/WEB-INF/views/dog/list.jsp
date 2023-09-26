@@ -106,25 +106,25 @@
 				</tbody>	
 			</c:if>
 		</table>
-
-		<c:choose>
-			<c:when test="${fn:length(list) < 3 }">
-				<!-- 3마리 이하인 경우 -->
-				<a href="<c:url value='/dog/insert'/>"
-					class="btn btn-outline-dark col-12">반려견 등록</a>
-			</c:when>
-			<c:otherwise>
-				<!-- 3마리 이상인 경우 -->
-					<a href="<c:url value='/dog/list'/>" class="btn btn-outline-dark col-12"
-					id="btnAdd">반려견 등록</a>
-				<script type="text/javascript">
+		<c:if test="${user.me_authority=='USER'}">
+			<c:choose>
+				<c:when test="${fn:length(list) < 3 }">
+					<!-- 3마리 이하인 경우 -->
+					<a href="<c:url value='/dog/insert'/>"
+						class="btn btn-outline-dark col-12">반려견 등록</a>
+				</c:when>
+				<c:otherwise>
+					<!-- 3마리 이상인 경우 -->
+					<a href="<c:url value='/dog/list'/>"
+						class="btn btn-outline-dark col-12" id="btnAdd">반려견 등록</a>
+					<script type="text/javascript">
 					$("#btnAdd").click(function() {
 						alert('반려견은 3마리 까지 등록할 수 있습니다.');
 					})
 				</script>
-			</c:otherwise>
-		</c:choose>
-		
+				</c:otherwise>
+			</c:choose>
+		</c:if>
 		<script type="text/javascript">
 			if ('${user}' == null) {
 				alert('로그인이 필요한 서비스입니다.');
