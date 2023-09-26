@@ -121,7 +121,8 @@
 					str+=`
 							<tr> 
 								<td>\${obj.ro_num}</td>
-								<td><a href="<c:url value='/room/detail?ro_num=\${obj.ro_num}'/>" >\${obj.ro_name}</a></td>
+								<td><a href="<c:url value='/room/detail?ro_num=\${obj.ro_num}'/>" ><b
+								style="color: olive;">\${obj.ro_name }</b></a></td>
 								<td>\${obj.ro_max_cap}</td>
 								<td>\${obj.ro_now_cap}</td>
 								<td>\${obj.ro_detail}</td>
