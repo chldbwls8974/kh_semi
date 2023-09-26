@@ -91,10 +91,10 @@ pageEncoding="UTF-8"%>
 
 		function checkId() {
 		    let id = $('[name=me_id]').val();
-		    let regex = /^\w{6,15}$/;
+		    let regex = /^\w{6,10}$/;
 
 		    if (!regex.test(id)) {
-		        $('.error-id').text('아이디는 영문,숫자 6자에서 15자 이어야 합니다.');
+		        $('.error-id').text('아이디는 영문,숫자 6자에서 10자 이어야 합니다.');
 		        return false;
 		    }
 			
