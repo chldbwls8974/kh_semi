@@ -19,7 +19,7 @@
 			<form action="<c:url value='/dog/update'/>" method="post" class="mt-4">	
 		 		<div class = "form-group">
 		 		 	<label>견주ID</label>
-					<div class="form-control">${user.me_id}</div>
+					<div class="form-control">${dog.d_me_id}</div>
 		 		</div>
 		 		<input type="hidden" name="d_num" value="${dog.d_num}">		
 
