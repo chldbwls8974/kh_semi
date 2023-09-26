@@ -57,7 +57,7 @@ a:hover {
 	    </li>
 	    <li class="nav-item">
 	      <a class="nav-link" href="/semi_project/reservation/list"><span>예약 확인하기</span></a>
-		</li>
+			</li>
 	  </ul>
 	</div>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>

@@ -7,7 +7,11 @@
 	 insert into reservationlist(rl_d_num, rl_ro_num, rl_re_num) values(#{rl.rl_d_num},#{rl.rl_ro_num},#{rl.rl_re_num})
 	</insert>
 	<select id="selectReservListArray" resultType="kr.kh.app.vo.ReservListVO">
-		select * from reservationlist where rl_re_num = #{rl_re_num}
+		select * from reservationlist 
+		join dog on rl_d_num = d_num
+		join room on rl_ro_num = ro_num
+		join reservation on rl_re_num = re_num
+		where rl_re_num = #{rl_re_num}
 	</select>
 
 </mapper>

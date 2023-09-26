@@ -1,6 +1,5 @@
 package kr.kh.app.vo;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +9,8 @@ import lombok.NoArgsConstructor;
 public class ReservListVO {
 	private int rl_num ,rl_ro_num;
 	private String rl_d_num , rl_re_num;
+	private String d_name, ro_name;
+	private String re_state, re_me_id;
 	
 	public ReservListVO(int rl_num, int rl_ro_num, String rl_d_num, String rl_re_num) {
 		super();
