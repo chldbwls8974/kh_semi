@@ -79,7 +79,9 @@
 			<form action="<c:url value='/reservation/insert'/>" method="get"
 				class="mt-2">
 				<input type="hidden" value="${rl.get(0).rl_re_num }" name="re_num">
-				<button class="form-control btn btn-outline-dark col-3">결제하기</button>
+				<c:if test="${user.me_authority =='USER'}">
+					<button class="form-control btn btn-outline-dark col-3">결제하기</button>
+				</c:if>
 			</form>
 		</c:if>
 	</div>
