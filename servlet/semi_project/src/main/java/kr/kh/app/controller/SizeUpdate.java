@@ -6,9 +6,10 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kr.kh.app.service.DogService;
+import kr.kh.app.service.DogServiceImp;
 import kr.kh.app.service.SizeService;
 import kr.kh.app.service.SizeServiceImp;
-import kr.kh.app.vo.PriceVO;
 import kr.kh.app.vo.SizeVO;
 
 public class SizeUpdate extends HttpServlet {

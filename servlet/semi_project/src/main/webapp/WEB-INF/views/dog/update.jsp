@@ -19,17 +19,17 @@
 			<form action="<c:url value='/dog/update'/>" method="post" class="mt-4">	
 		 		<div class = "form-group">
 		 		 	<label>견주ID</label>
-					<div class="form-control">${user.me_id}</div>
+					<div class="form-control">${dog.d_me_id}</div>
 		 		</div>
 		 		<input type="hidden" name="d_num" value="${dog.d_num}">		
 
 		 		<div class = "form-group">
 		 			<label>반려견 이름</label>
-		 			<input type="text" class="form-control" name="d_name" required >
+		 			<input type="text" class="form-control" name="d_name" value="${dog.d_name }" required >
 		 		</div>
 		 		<div class = "form-group">
 		 			<label>나이</label>
-		 			<input type="number" class="form-control" name="d_age"   min="1" required >
+		 			<input type="number" class="form-control" name="d_age" value="${dog.d_age }"  min="1" required >
 		 		</div>
 		 		<div class="form-group">
 					<label>성별</label>
@@ -40,7 +40,7 @@
 				</div>
 		 		<div class = "form-group">
 		 			<label>무게</label>
-		 			<input type="number" class="form-control" name="d_kg" placeholder="kg 제외하고 입력"  min="1" required>
+		 			<input type="number" class="form-control" name="d_kg" placeholder="kg 제외하고 입력" value="${dog.d_kg }"  min="1" required>
 		 		</div>
 		 		<div class = "form-group">
 		 			<label>특이사항</label>
