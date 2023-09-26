@@ -83,6 +83,14 @@ public class DogServiceImp implements DogService {
 		return dogDao.searchDogUser(d_search);
 	}
 
+	@Override
+	public void allDogSizeUpdate(Integer smallMinKg, Integer mediumMinKg, Integer largeMinKg) {
+		if(smallMinKg == null || mediumMinKg == null || largeMinKg == null) {
+			return;
+		}
+		dogDao.allDogSizeUpdate(smallMinKg,mediumMinKg,largeMinKg);
+	}
+
 
 
 }

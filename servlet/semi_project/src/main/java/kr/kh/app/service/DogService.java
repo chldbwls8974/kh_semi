@@ -22,5 +22,7 @@ public interface DogService {
 
 	ArrayList<DogVO> searchDogList(String d_search);
 
+	void allDogSizeUpdate(Integer smallMinKg, Integer mediumMinKg, Integer largeMinKg);
+
 
 }
