@@ -159,7 +159,7 @@
 				str=`
 				<table class="table table-hover mt-4"> 
 						<thead> 
-							<tr> 
+							<tr style="background: wheat; font-weight: bold;"> 
 								<th>반려견 번호</th>
 								<th>이름</th>
 								<th>나이</th>
