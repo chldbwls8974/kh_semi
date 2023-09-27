@@ -28,7 +28,8 @@ public class Room extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		int ro_num = Integer.parseInt(request.getParameter("ro_num"));
 		ArrayList<RoomVO> list = roomService.getRoomList();
-		ArrayList<RoomVO> todaylist = roomService.getRoomTodayList();
+		
+		ArrayList<RoomVO> todaylist = roomService.getRoomListByDate();
 		ArrayList<BranchVO> branchList = branchService.getBranchList();
 		
 		request.setAttribute("branchList", branchList);

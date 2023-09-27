@@ -43,14 +43,12 @@
 	<select id="selectReservationRoom" resultType="kr.kh.app.vo.RoomVO">
 		select * from room where ro_detail = #{d_size} and ro_br_num = #{br_num}
 	</select>
-	<select id="selectTodayRoomList">
+	<select id="getRoomListByDate"  resultType="kr.kh.app.vo.RoomVO">
 		select *, (ro_max_cap - count) as 'TO' from
 		(select *,count(rd_date) as 'count' from 
 		(select * from room 
 		left join reservdate on rd_ro_num = ro_num
-		where rd_date = #{today} or rd_date is null) as t
+		where rd_date = #{date} or rd_date is null) as t
 		group by ro_name)as tmp
-		
-		
 	</select>
 </mapper>

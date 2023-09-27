@@ -93,8 +93,8 @@ public class RoomServiceImp implements RoomService {
 	}
 
 	@Override
-	public ArrayList<RoomVO> getRoomTodayList() {
-		return roomDao.selectTodayRoomList(today());
+	public ArrayList<RoomVO> getRoomListByDate() {
+		return roomDao.getRoomListByDate(today());
 	}
 	
 

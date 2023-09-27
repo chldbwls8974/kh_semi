@@ -21,5 +21,5 @@ public interface RoomService {
 
 	ArrayList<RoomVO> getRoomListByBranchAndSize(Integer br_num, String d_size);
 
-	ArrayList<RoomVO> getRoomTodayList();
+	ArrayList<RoomVO> getRoomListByDate();
 }
