@@ -85,6 +85,19 @@ h1 {
     object-fit: cover;
 }
 
+	/*하단 강쥐 미니로고*/
+	.index-logo{
+		text-align: center;
+		margin-top: 20px;
+	}
+	.profile-img{
+	width: 50px;
+	height: 50px;
+	margin-right: 10px;
+	transform: scale(1); /* 이미지 사이즈 고정 */
+	border-radius: 70%
+} 
+
 /* .container { */
 /*     padding: 0; */
 /*     margin: 0; */
@@ -166,6 +179,13 @@ h1 {
                 <img src="<c:url value='/resources/images/img7.jpg'/>" alt="photo6">
             </div>
         </div>
+
+	        <div class="index-logo">
+			     <img class="profile-img" src="깜바.jpg">
+			     <img class="profile-img" src="복실2.jpg">
+			     <img class="profile-img" src="써니.jpg">
+			     <img class="profile-img" src="지선.jpg">
+			</div>
     </div>
 
 	
