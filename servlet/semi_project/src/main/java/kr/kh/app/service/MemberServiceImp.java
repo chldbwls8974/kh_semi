@@ -103,7 +103,11 @@ public class MemberServiceImp implements MemberService {
 	//아이디 중복 확인
 	@Override
 	public boolean isIdDuplicate(String id) {
+		//멤버다오 객체를 사용해서 DB에서 selectMember 메서드를 통하여 전달된 인자(id) 값으로 회원정보 조회
+		// -> 결과 값은 VO의 dbMember 변수에 저장
 	    MemberVO dbMember = memberDao.selectMember(id);
+	    
+	    //dbMember 변수가 null이 아니면 true를 반환, 그렇지 않으면 false를 반환
 	    return dbMember != null;
 	}
 
