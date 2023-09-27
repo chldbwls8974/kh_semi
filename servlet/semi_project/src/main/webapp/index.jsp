@@ -122,7 +122,7 @@ h1 {
 	        <!-- Slides -->
 	        <div class="carousel-inner">
 	            <div class="carousel-item active">
-	                <img src="<c:url value='/resources/images/img1.jpg'/>" alt="사진">
+	                <img src="<c:url value='/resources/images/img10.jpg'/>" alt="사진">
 	            </div>
 	            <div class="carousel-item">
 	                <img src="<c:url value='/resources/images/img3.jpg'/>" alt="사진">
