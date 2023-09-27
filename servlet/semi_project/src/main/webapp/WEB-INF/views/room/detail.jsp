@@ -103,7 +103,9 @@ form{
 	</div>
 		<form>
 			<a href="<c:url value='/room/main${cri.currentUrl }'/>" class="btn btn-outline-dark mt-2">뒤로가기</a>
-			<a href="<c:url value='/reservation/main?ro_num=${room.ro_num }'/>" class="btn btn-outline-dark mt-2">예약하기</a>	
+			<c:if test="${user != null  && user.me_authority == 'USER'}">
+				<a href="<c:url value='/reservation/main?ro_num=${room.ro_num }'/>" class="btn btn-outline-dark mt-2">예약하기</a>	
+			</c:if>
 		</form>
  </div>
 	

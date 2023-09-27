@@ -95,12 +95,15 @@
 			    <li class="nav-item">
 			      <a class="nav-link" href="/semi_project/member/signup">회원가입</a>
 			    </li>
+			 	<li class="nav-item">
+			      <a class="nav-link" href="/semi_project/room/main">객실 보기</a>
+			    </li>
 			</c:if>
 			<c:if test="${user != null  && user.me_authority == 'USER'}">
 			  	<li class="nav-item">
 			      <a class="nav-link" href="/semi_project/dog/list">반려견 등록</a>
 			    </li>
-			 	<li class="nav-item">
+			    <li class="nav-item">
 			      <a class="nav-link" href="/semi_project/room/main">객실 보기</a>
 			    </li>
 			    <li class="nav-item">

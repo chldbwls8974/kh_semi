@@ -21,7 +21,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: azure;
+     background-color: azure;
 }
 
 
@@ -85,6 +85,23 @@ h1 {
     object-fit: cover;
 }
 
+.carousel-inner{
+	position: relative;
+}
+
+.inner-text{
+	position: absolute;
+	width: 40%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.6);
+	
+}
+
+.inner-text span{
+	left: 20px;
+	top: 100px;
+}
+
 	/*하단 강쥐 미니로고*/
 	.index-logo{
 		text-align: center;
@@ -98,23 +115,6 @@ h1 {
 	border-radius: 70%
 } 
 
-/* .container { */
-/*     padding: 0; */
-/*     margin: 0; */
-/*     margin-top: 20px; */
-/*     max-width: 100%; */
-/*     width: 100%; */
-/* } */
-/* .photo h2 { */
-/*     font-size: 18px; */
-/*     margin-top: 10px; */
-/* } */
-
-/* .photo p { */
-/*     font-size: 14px; */
-/*     color: #666; */
-/*     margin-top: 10px; */
-/* } */
 
   </style>
   	
@@ -135,13 +135,17 @@ h1 {
 	        <!-- Slides -->
 	        <div class="carousel-inner">
 	            <div class="carousel-item active">
+	            	<div class="inner-text">
+	            		<span style="color:white; text-align: center; font-size: larger;">Doghotel에 어서오세요.</span>
+	            		<p style="color:silver; text-align: center;">세미 프로젝트 입니다.</p>
+	            	</div>
 	                <img src="<c:url value='/resources/images/img10.jpg'/>" alt="사진">
 	            </div>
 	            <div class="carousel-item">
 	                <img src="<c:url value='/resources/images/img3.jpg'/>" alt="사진">
 	            </div>
 	            <div class="carousel-item">
-	                <img src="<c:url value='/resources/images/img4.jpg'/>" alt="사진">
+	                <img src="<c:url value='/resources/images/img1.jpg'/>" alt="사진">
 	            </div>
 	       
 	
