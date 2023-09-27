@@ -69,6 +69,43 @@ pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>		
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script type="text/javascript">
+	let start_date
+	let end_date
+	let date
+
+	//데이트피커
+	$(document).ready(function(){
+		$(".datePicker").datepicker({
+			minDate: 1,
+			dateFormat: 'yy-mm-dd' //달력 날짜 형태
+			,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+			,showMonthAfterYear:true // 월- 년 순서가아닌 년도 - 월 순서
+			,changeYear: true //option값 년 선택 가능
+			,changeMonth: true //option값  월 선택 가능                
+			,showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시  
+			,yearSuffix: "년" //달력의 년도 부분 뒤 텍스트
+			,prevText: '이전 달'
+		    ,nextText: '다음 달'
+			,monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 텍스트
+			,dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'] //달력의 요일 텍스트
+			,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 Tooltip
+			,onClose: function( selectedDate ) {
+				var max_date = $('#from').datepicker('getDate');
+				 max_date.setDate(max_date.getDate()+1);
+	              //시작일(from) datepicker가 닫힐때
+	              //종료일(to)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
+	              $("#to").datepicker( "option", "minDate", max_date);
+	          }    
+		})
+		$("#to").datepicker({
+			minDate: 2
+		})
+		
+		$('.datePicker').datepicker('setDate', 'today'+1); //input창에 초기값을 내일로
+		$('#to').datepicker('setDate', 'today'+2); //input창에 초기값을 내일 모래로
+		
+		
+	});
 
 	
 	
@@ -91,21 +128,16 @@ pageEncoding="UTF-8"%>
 	let d_count =  $('[name=dogSelect] option').length -1
 	let br_num
 	let d_num
-	let start_date
-	let end_date
+	
 	$('[name=branchSelect]').change(function(){
 		br_num = $(this).val()
+		
 	})
 	$(document).on('change', '[name=dogSelect]', function(){
 		d_num = $(this).val()
 	})
-	$(document).on('change', '[name=from]', function(){
-		start_date = $(this).val()
-	})
-	$(document).on('change', '[name=to]', function(){
-		end_date = $(this).val()
-	})
 	
+
 	
 	// 시작-종료 일 사이의 날짜 구하는 함수 
 	function getDatesStartToLast(start_date, end_date) {
@@ -120,7 +152,6 @@ pageEncoding="UTF-8"%>
 		return result;
 	}
 
-	
 	
  	// 두번째 방 추가
 	$(document).on('click','.btn-add',function(){
@@ -182,7 +213,6 @@ pageEncoding="UTF-8"%>
 	
 	// 조건에 맞는 객실 찾기
 	$(document).on('click','[name=btn-search]',function(){
-// 		let date = getDatesStartToLast(start_date, end_date)
 		let data = {
 				br_num : br_num,
 				d_num :  d_num    /* d_size -> d_num */
@@ -210,37 +240,6 @@ pageEncoding="UTF-8"%>
 	})
 	
 		
-	//데이트피커
-	$(document).ready(function(){
-		$(".datePicker").datepicker({
-			minDate: 1,
-			dateFormat: 'yy-mm-dd' //달력 날짜 형태
-			,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
-			,showMonthAfterYear:true // 월- 년 순서가아닌 년도 - 월 순서
-			,changeYear: true //option값 년 선택 가능
-			,changeMonth: true //option값  월 선택 가능                
-			,showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시  
-			,yearSuffix: "년" //달력의 년도 부분 뒤 텍스트
-			,prevText: '이전 달'
-		    ,nextText: '다음 달'
-			,monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 텍스트
-			,dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'] //달력의 요일 텍스트
-			,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 Tooltip
-			,onClose: function( selectedDate ) {
-				var max_date = $('#from').datepicker('getDate');
-				 max_date.setDate(max_date.getDate()+1);
-                  //시작일(from) datepicker가 닫힐때
-                  //종료일(to)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
-                  $("#to").datepicker( "option", "minDate", max_date);
-              }    
-		})
-		$("#to").datepicker({
-			minDate: 2
-		})
-		
-		$('.datePicker').datepicker('setDate', 'today'+1); //input창에 초기값을 내일로
-		$('#to').datepicker('setDate', 'today'+2); //input창에 초기값을 내일 모래로
-	});
 	
 
 	

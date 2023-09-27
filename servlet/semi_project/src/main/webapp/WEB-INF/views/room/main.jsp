@@ -52,14 +52,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${list}" var="room">
+				<c:forEach items="${todaylist}" var="room">
 					<tr>
 						<td>${room.ro_num}</td>
 						<td><a
 							href="<c:url value='/room/detail?ro_num=${room.ro_num}'/>"><b
 								style="color: olive;">${room.ro_name }</b></a></td>
 						<td>${room.ro_max_cap}</td>
-						<td>${room.ro_now_cap}</td>
+						<td>${room.TO}</td>
 						<td>${room.ro_detail}</td>
 						<td><c:if
 								test="${user != null && user.me_authority == 'ADMIN'}">
@@ -91,10 +91,15 @@
 	
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<script type="text/javascript">
+	$('[name=date]').ready(function(){
+		let date = $(this).val()
+	})
+	
 	$('[name=branchSelect]').change(function(){
 		let data={
 				br_num : $(this).val()
 		}
+		
 		
 		ajaxObjectToJson(false,'post','<c:url value="/room/select"/>',data,(a)=>{
 			if(a==''){
@@ -161,7 +166,6 @@
 			,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 Tooltip
 			,onClose: function( selectedDate ) {
 				var max_date = $('#from').datepicker('getDate');
-				 max_date.setDate(max_date.getDate()+1);
                   //시작일(from) datepicker가 닫힐때
                   //종료일(to)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
                   $("#to").datepicker( "option", "minDate", max_date);

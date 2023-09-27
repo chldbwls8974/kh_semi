@@ -28,11 +28,12 @@ public class Room extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		int ro_num = Integer.parseInt(request.getParameter("ro_num"));
 		ArrayList<RoomVO> list = roomService.getRoomList();
+		ArrayList<RoomVO> todaylist = roomService.getRoomTodayList();
 		ArrayList<BranchVO> branchList = branchService.getBranchList();
-		
 		
 		request.setAttribute("branchList", branchList);
 		request.setAttribute("list", list);
+		request.setAttribute("todaylist", todaylist);
 		
 		request.getRequestDispatcher("/WEB-INF/views/room/main.jsp").forward(request, response);
 }

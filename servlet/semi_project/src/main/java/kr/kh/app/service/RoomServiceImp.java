@@ -2,7 +2,10 @@ package kr.kh.app.service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -89,5 +92,19 @@ public class RoomServiceImp implements RoomService {
 		return roomDao.selectRoomByBranch(br_num);
 	}
 
+	@Override
+	public ArrayList<RoomVO> getRoomTodayList() {
+		return roomDao.selectTodayRoomList(today());
+	}
+	
+
+	public String today() {
+	        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+	        Calendar c = Calendar.getInstance();
+	        c.add(Calendar.DATE,1);
+		 String today = sdf.format(c.getTime());
+		 return today;
+	}
 	
 }
